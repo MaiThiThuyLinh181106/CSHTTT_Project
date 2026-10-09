@@ -20,7 +20,7 @@
  "n_fail_traces": 30,
  "n_success_traces": 6,
  "eval_parallel": 1,
- "policy_model": "gemini/gemini-1.5-pro",
+ "policy_model": "gemini/gemini-3.8-flash",
  "policy_label": "Claude Opus 4.8",
  "dataset": "terminal-bench/terminal-bench-2-1",
  "ood_dataset": "swe-bench/swe-bench-verified",
