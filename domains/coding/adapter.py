@@ -171,7 +171,7 @@ class CodingDomain(Domain):
             print(f"[coding] job {job} was incomplete ({n_have}/{n_want} trials); moved to "
                   f"{stale.name} and re-running from scratch", flush=True)
         script = root / "domains" / "coding" / "scripts" / "run_eval.sh"
-        cmd = [str(script), job, dataset, str(k), str(CFG.get("concurrency", 10)),
+        cmd = ["C:\\Program Files\\Git\\bin\\bash.exe", str(script), job, dataset, str(k), str(CFG.get("concurrency", 10)),
                "--jobs-dir", str(jobs)]
         if ids is not None and set(ids) != set(self._tasks):
             for t in ids:

@@ -41,7 +41,7 @@ export VERTEXAI_PROJECT="${VERTEXAI_PROJECT:?set VERTEXAI_PROJECT (GCP project f
 export VERTEXAI_LOCATION="${VERTEXAI_LOCATION:-global}"
 VENV="${RRSI_CODING_VENV:-$REPO/.venv}"
 
-exec "$VENV/bin/harbor" run \
+exec "$VENV/Scripts/harbor.exe" run \
   -d "$DATASET" \
   --agent harbor_terminus2:AgentHarness \
   -m "${MODEL:-vertex_ai/gemini-3.5-flash}" \
