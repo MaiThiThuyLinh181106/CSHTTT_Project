@@ -54,3 +54,4 @@ flowchart TD
         Argmax --> Update["Cập nhật H_{t+1} = H'"]
         Drop --> Retain["Giữ nguyên H_{t+1} = H_t"]
     end
+    ```
