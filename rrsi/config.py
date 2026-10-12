@@ -56,11 +56,11 @@ from pathlib import Path
 @dataclass
 class RRSIConfig:
     # ---- horizon and estimator -------------------------------------------
-    T: int = 20
+    T: int = 30
     k: int = 2
     m: int = 2
     # ---- proposal side (Algorithm 1) -------------------------------------
-    b_min: int = 1
+    b_min: int = 2
     b_max: int = 4
     w: int = 3
     m_draft: int = 1
