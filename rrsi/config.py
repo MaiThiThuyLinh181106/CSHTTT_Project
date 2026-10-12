@@ -56,7 +56,7 @@ from pathlib import Path
 @dataclass
 class RRSIConfig:
     # ---- horizon and estimator -------------------------------------------
-    T: int = 30
+    T: int = 
     k: int = 2
     m: int = 2
     # ---- proposal side (Algorithm 1) -------------------------------------
@@ -79,9 +79,9 @@ class RRSIConfig:
     n_fail_traces: int = 22
     n_success_traces: int = 6
     eval_parallel: int = 1          # candidates evaluated concurrently
-    proposer_model: str = "claude-opus-4-8"
-    analyst_model: str = "claude-opus-4-8"
-    critic_model: str = "claude-opus-4-8"
+    proposer_model: str = "gemini-1.5-flash"
+    analyst_model: str = "gemini-1.5-flash"
+    critic_model: str = "gemini-1.5-flash"
     notes: dict = field(default_factory=dict)
 
     @classmethod
