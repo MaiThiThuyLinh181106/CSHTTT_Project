@@ -94,6 +94,7 @@ class EvalResult:
                    extra=d.get("extra") or {})
 
     def save(self, path: Path | str) -> None:
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
         Path(path).write_text(json.dumps(self.to_json(), indent=1))
 
     @classmethod

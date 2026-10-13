@@ -183,6 +183,7 @@ class Run:
         self.ensure_branch()
         wt = self.checkout("incumbent", self.branch)
         ids = self.domain.evolve_ids()
+        ids = ids[:20]
         log(self.domain.name, f"baseline: {len(ids)} tasks x k={self.cfg.k} -> job {job}")
         ev = evaluate(self.domain, wt, self.runs, job, ids, self.cfg.k,
                       log_prefix=f"{job}")

@@ -89,9 +89,10 @@ def extract_json(text: str) -> str:
     return t
 
 
-def generate(prompt: str, system: str | None = None, max_retries: int = 6,
+def generate(prompt: str, system: str | None = None, max_retries: int = 100,
              json_only: bool = False, model: str | None = None,
              max_tokens: int = MAX_TOKENS, cache_prefix: str | None = None) -> str:
+    time.sleep(15)
     mdl = model or MODEL
     sys_prompt = (system or "") + (_JSON_SUFFIX if json_only else "")
     content = ([{"type": "text", "text": cache_prefix,
@@ -116,7 +117,7 @@ def generate(prompt: str, system: str | None = None, max_retries: int = 6,
             last_err = RuntimeError("empty response")
         except Exception as e:  # noqa: BLE001 - rotate to the other project
             last_err = e
-            time.sleep(min(2 ** attempt, 30))
+            time.sleep(60)
     raise RuntimeError(f"generate failed after {max_retries} tries: {last_err}")
 
 
