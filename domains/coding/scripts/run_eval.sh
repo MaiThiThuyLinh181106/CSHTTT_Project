@@ -37,14 +37,16 @@ done
 
 export PATH="$REPO/bin:$PATH"            # docker -> sudo -E docker shim
 export PYTHONPATH="$(cd "$REPO/../.." && pwd)/third_party"   # so --agent harbor_terminus2:AgentHarness resolves
-export VERTEXAI_PROJECT="${VERTEXAI_PROJECT:?set VERTEXAI_PROJECT (GCP project for Vertex AI)}"
-export VERTEXAI_LOCATION="${VERTEXAI_LOCATION:-global}"
+export PATH="$REPO/bin:$PATH"            # docker -> sudo -E docker shim
+export PYTHONPATH="$(cd "$REPO/../.." && pwd)/third_party"   # so --agent harbor_terminus2:AgentHarness resolves
+# export VERTEXAI_PROJECT="${VERTEXAI_PROJECT:?set VERTEXAI_PROJECT (GCP project for Vertex AI)}"
+# export VERTEXAI_LOCATION="${VERTEXAI_LOCATION:-global}"
 VENV="${RRSI_CODING_VENV:-$REPO/.venv}"
 
 exec "$VENV/Scripts/harbor.exe" run \
   -d "$DATASET" \
   --agent harbor_terminus2:AgentHarness \
-  -m "${MODEL:-vertex_ai/gemini-3.5-flash}" \
+  -m "${MODEL:-gemini/gemini-2.5-flash}" \
   --agent-kwarg 'llm_kwargs={"num_retries": 10}' \
   -k "$N_ATTEMPTS" \
   -n "$N_CONCURRENT" \
