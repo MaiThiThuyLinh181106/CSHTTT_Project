@@ -37,8 +37,6 @@ done
 
 export PATH="$REPO/bin:$PATH"            # docker -> sudo -E docker shim
 export PYTHONPATH="$(cd "$REPO/../.." && pwd)/third_party"   # so --agent harbor_terminus2:AgentHarness resolves
-export PATH="$REPO/bin:$PATH"            # docker -> sudo -E docker shim
-export PYTHONPATH="$(cd "$REPO/../.." && pwd)/third_party"   # so --agent harbor_terminus2:AgentHarness resolves
 # export VERTEXAI_PROJECT="${VERTEXAI_PROJECT:?set VERTEXAI_PROJECT (GCP project for Vertex AI)}"
 # export VERTEXAI_LOCATION="${VERTEXAI_LOCATION:-global}"
 VENV="${RRSI_CODING_VENV:-$REPO/.venv}"
@@ -46,8 +44,8 @@ VENV="${RRSI_CODING_VENV:-$REPO/.venv}"
 exec "$VENV/Scripts/harbor.exe" run \
   -d "$DATASET" \
   --agent harbor_terminus2:AgentHarness \
-  -m "${MODEL:-gemini/gemini-2.5-flash}" \
-  --agent-kwarg 'llm_kwargs={"num_retries": 10}' \
+  -m "gemini/gemini-3.5-flash-lite" \
+  --agent-kwarg 'llm_kwargs={"num_retries": 3}' \
   -k "$N_ATTEMPTS" \
   -n "$N_CONCURRENT" \
   --jobs-dir "$JOBS_DIR" \

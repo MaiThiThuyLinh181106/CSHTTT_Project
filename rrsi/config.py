@@ -57,13 +57,14 @@ from pathlib import Path
 class RRSIConfig:
     # ---- horizon and estimator -------------------------------------------
     T: int = 20
-    k: int = 2
+    k: int = 1
     m: int = 2
     # ---- proposal side (Algorithm 1) -------------------------------------
     b_min: int = 1
     b_max: int = 4
     w: int = 3
     m_draft: int = 1
+
     # ---- selection side (Algorithm 2) ------------------------------------
     delta: float | None = None      # None -> runs/<domain>/calibration.json
     delta_z: float = 2.0            # calibration: delta = z * sd(null Delta S)
