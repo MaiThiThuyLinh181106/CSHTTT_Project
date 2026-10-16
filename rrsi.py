@@ -40,7 +40,7 @@
 
 Hyperparameters come from domains/<domain>/rrsi.json; any of them can be
 overridden on the command line (--T, --k, --m, --b-min, --b-max, --w,
---m-draft, --delta, --beta0, --beta1, --w-s, --w-c, --w-n, --n-prune).
+--m-draft, --delta, --beta0, --beta1, --w-s, --w-c, --w-n, --w-div, --n-prune).
 """
 
 import argparse
@@ -59,7 +59,7 @@ from rrsi.loop import Run                    # noqa: E402
 from rrsi.schedule import budget_table       # noqa: E402
 
 OVERRIDES = ["T", "k", "m", "b_min", "b_max", "w", "m_draft", "delta", "delta_z",
-             "beta0", "beta1", "w_s", "w_c", "w_n", "n_prune", "eval_parallel"]
+             "beta0", "beta1", "w_s", "w_c", "w_n", "w_div", "n_prune", "eval_parallel"]
 
 
 def main():
@@ -95,7 +95,8 @@ def main():
     domain = load_domain(args.domain)
     cfg = RRSIConfig.load(domain.root / "rrsi.json",
                            **{k: getattr(args, k) for k in OVERRIDES})
-    run = Run(domain, cfg, ROOT, Path(args.runs))
+    runs_dir = Path(args.runs).resolve()
+    run = Run(domain, cfg, ROOT, runs_dir)
 
     if args.cmd == "baseline":
         run.baseline(args.job)
@@ -109,7 +110,7 @@ def main():
     elif args.cmd == "reevaluate":
         run.reevaluate(args.t, [v for v in args.variants.split(",") if v] or None)
     elif args.cmd == "run":
-        drive(Path(__file__), args.domain, Path(args.runs), cfg.T, args.start,
+        drive(Path(__file__), args.domain, runs_dir, cfg.T, args.start,
               extra_args=[a for k in OVERRIDES if getattr(args, k) is not None
                           for a in ("--" + k.replace("_", "-"), str(getattr(args, k)))])
     elif args.cmd == "heldout":

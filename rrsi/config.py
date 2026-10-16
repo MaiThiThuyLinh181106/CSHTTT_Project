@@ -61,7 +61,7 @@ class RRSIConfig:
     m: int = 2
     # ---- proposal side (Algorithm 1) -------------------------------------
     b_min: int = 1
-    b_max: int = 4
+    b_max: int = 6
     w: int = 3
     m_draft: int = 1
 
@@ -73,6 +73,9 @@ class RRSIConfig:
     w_s: float = 100.0
     w_c: float = 15.0
     w_n: float = 0.5
+    w_div: float = 0.0             # diversity penalty weight (Exp 4: edit-history
+                                   # concentration penalty discourages candidates
+                                   # whose components already dominate history)
     n_prune: int = 4
     # ---- engineering knobs (not part of the method) ----------------------
     repair_rounds: int = 5          # critic -> proposer repair attempts

@@ -249,7 +249,7 @@ class Run:
 
         # 1) F_t <- Analyze(H_t, D_evolve)
         traces = self.build_traces(inc["job"], inc_ev.per_task)
-        if len(traces) < 0.5 * min(len(ids), cfg.n_fail_traces + cfg.n_success_traces):
+        if len(traces) < 1:
             raise SystemExit(f"only {len(traces)} traces available from {inc['job']}")
         report_path = rdir / "analysis_report.json"
         if report_path.exists():

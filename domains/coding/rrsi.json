@@ -4,7 +4,7 @@
     "k": 2,
     "m": 2,
     "b_min": 1,
-    "b_max": 4,
+    "b_max": 6,
     "w": 3,
     "m_draft": 1,
     "delta": 0.017,
@@ -24,7 +24,7 @@
     "policy_label": "Gemini 3.5 Flash-lite",
     "dataset": "terminal-bench/terminal-bench-2-1",
     "ood_dataset": "swe-bench/swe-bench-verified",
-    "concurrency": 10,
+    "concurrency": 2,
     "smoke_tasks": [
         "extract-elf",
         "fix-git"

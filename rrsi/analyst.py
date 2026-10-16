@@ -107,7 +107,7 @@ def prepare_rendered(domain, traces: dict, rendered_dir: Path) -> None:
     for tid, rec in traces.items():
         out = rendered_dir / f"{tid}.txt"
         if not out.exists():
-            out.write_text(domain.render_trace(rec, detail=True))
+            out.write_text(domain.render_trace(rec, detail=True), encoding="utf-8")
 
 
 def task_table(domain, traces: dict, per_task: dict) -> str:

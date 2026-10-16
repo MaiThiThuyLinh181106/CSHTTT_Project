@@ -46,6 +46,39 @@ from .components import novelty
 from .evaluate import EvalResult, relative_cost_change
 
 
+def diversity_penalty(edit_components: list[str], incumbent_counts: dict) -> float:
+    """Concentration-based diversity penalty (Exp 4 regularization).
+
+    Returns a value in [0, 1] measuring how much the candidate's edit
+    components overlap with the already-saturated components in the history.
+    Concretely:
+
+        concentration = max_c( count(c in history) / total_accepted_edits )
+
+    If the candidate's dominant component equals the history's dominant
+    component, the penalty equals `concentration`; otherwise 0.  This
+    discourages the proposer from repeatedly re-proposing the same component
+    type once it already dominates, without blocking it outright.
+
+    The penalty is applied only inside the noise band (shaped rule), so it
+    never blocks an edit that produced a clear score gain.
+    """
+    if not incumbent_counts or not edit_components:
+        return 0.0
+    total = sum(incumbent_counts.values())
+    if total == 0:
+        return 0.0
+    # Component with the highest accepted-edit share in the history.
+    dominant = max(incumbent_counts, key=incumbent_counts.get)
+    concentration = incumbent_counts[dominant] / total
+    # Candidate's own dominant component.
+    cand_counts: dict[str, int] = {}
+    for c in edit_components:
+        cand_counts[c] = cand_counts.get(c, 0) + 1
+    cand_dominant = max(cand_counts, key=cand_counts.get)
+    # Penalise only when the candidate re-uses the already-saturated component.
+    return concentration if cand_dominant == dominant else 0.0
+
 @dataclass
 class Candidate:
     variant: str
@@ -79,19 +112,28 @@ class Decision:
 
 
 def cost_rule(delta_S: float, delta_C: float, nov: int, delta: float,
-              cfg) -> tuple[bool, str]:
-    """c of Algorithm 2, line 5."""
+              cfg, div_pen: float = 0.0) -> tuple[bool, str]:
+    """c of Algorithm 2, line 5.
+
+    Optionally applies an edit-history diversity penalty (Exp 4):
+        shaped += -w_div * div_pen
+    where div_pen is the concentration score returned by diversity_penalty().
+    The penalty is applied only in the noise-band (shaped) branch; the
+    token-budget branch for clear gains is unaffected.
+    """
     if delta_S > delta:
         budget = cfg.beta0 + cfg.beta1 * delta_S
         ok = delta_C <= budget
         return ok, (f"gain {delta_S:+.4f} > delta {delta:.4f}; cost change "
                     f"{delta_C:+.3f} {'<=' if ok else '>'} budget {budget:.3f} "
                     f"(beta0 {cfg.beta0} + beta1 {cfg.beta1} * dS)")
-    shaped = cfg.w_s * delta_S - cfg.w_c * delta_C + cfg.w_n * nov
+    w_div = getattr(cfg, "w_div", 0.0)
+    shaped = cfg.w_s * delta_S - cfg.w_c * delta_C + cfg.w_n * nov - w_div * div_pen
     ok = shaped > 0
+    div_str = f" - {w_div}*div({div_pen:.2f})" if w_div else ""
     return ok, (f"gain {delta_S:+.4f} within delta {delta:.4f}; shaped "
-                f"{cfg.w_s}*dS - {cfg.w_c}*dC + {cfg.w_n}*nu = {shaped:+.4f} "
-                f"{'>' if ok else '<='} 0 (nu={nov})")
+                f"{cfg.w_s}*dS - {cfg.w_c}*dC + {cfg.w_n}*nu{div_str} = {shaped:+.4f} "
+                f"{'>' if ok else '<='} 0 (nu={nov}, div_pen={div_pen:.2f})")
 
 
 def judge(cand: Candidate, incumbent: EvalResult, S_star: float, delta: float,
@@ -102,6 +144,7 @@ def judge(cand: Candidate, incumbent: EvalResult, S_star: float, delta: float,
     dS = ev.S - incumbent.S
     dC = relative_cost_change(ev.C, incumbent.C)
     nov = novelty(cand.components, incumbent_counts)
+    div_pen = diversity_penalty(cand.components, incumbent_counts)
     d = Decision(cand.variant, False, "", S=ev.S, C=ev.C, delta_S=dS, delta_C=dC,
                  novelty=nov, guards=list(guards or []))
     floor = S_star - delta
@@ -109,7 +152,7 @@ def judge(cand: Candidate, incumbent: EvalResult, S_star: float, delta: float,
         d.reason = (f"below noise-adjusted floor: S' {ev.S:.4f} < S* {S_star:.4f} "
                     f"- delta {delta:.4f}")
         return d
-    ok, why = cost_rule(dS, dC, nov, delta, cfg)
+    ok, why = cost_rule(dS, dC, nov, delta, cfg, div_pen)
     if not ok:
         d.reason = f"cost rule failed: {why}"
         return d
