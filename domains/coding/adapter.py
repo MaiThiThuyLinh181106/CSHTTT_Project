@@ -54,7 +54,8 @@ import briefs                            # noqa: E402
 import render                            # noqa: E402
 
 CFG = json.loads((HERE / "rrsi.json").read_text())
-PYBIN = os.environ.get("RRSI_CODING_PYTHON", str(HERE / ".venv" / "bin" / "python"))
+_venv_py = HERE / ".venv" / "Scripts" / "python.exe"
+PYBIN = os.environ.get("RRSI_CODING_PYTHON", str(_venv_py if _venv_py.exists() else sys.executable))
 
 
 def _load_result(trial_dir: Path) -> dict | None:
@@ -142,7 +143,7 @@ class CodingDomain(Domain):
 
     # ---- task sets ---------------------------------------------------------
     def evolve_ids(self) -> list[str]:
-        return list(self._tasks)
+        return list(CFG["smoke_tasks"])
 
     def heldout_ids(self) -> list[str]:
         return []          # SWE-bench Verified is run as a separate harbor dataset
@@ -153,6 +154,8 @@ class CodingDomain(Domain):
     # ---- Evaluate ----------------------------------------------------------
     def _harbor(self, root: Path, runs_dir: Path, job: str, ids: list[str] | None,
                 k: int, dataset: str, log_prefix: str) -> None:
+        root = Path(root).resolve()
+        runs_dir = Path(runs_dir).resolve()
         jobs = runs_dir / "jobs"
         jobs.mkdir(parents=True, exist_ok=True)
         jdir = jobs / job
@@ -170,9 +173,10 @@ class CodingDomain(Domain):
             jdir.rename(stale)
             print(f"[coding] job {job} was incomplete ({n_have}/{n_want} trials); moved to "
                   f"{stale.name} and re-running from scratch", flush=True)
-        script = root / "domains" / "coding" / "scripts" / "run_eval.sh"
-        cmd = ["C:\\Program Files\\Git\\bin\\bash.exe", str(script), job, dataset, str(k), str(CFG.get("concurrency", 10)),
-               "--jobs-dir", str(jobs)]
+        # Use forward slashes for Git Bash on Windows (backslashes cause rc=127)
+        jobs_posix = jobs.as_posix()
+        cmd = ["C:\\Program Files\\Git\\bin\\bash.exe", "scripts/run_eval.sh", job, dataset, str(k), str(CFG.get("concurrency", 10)),
+               "--jobs-dir", jobs_posix]
         if ids is not None and set(ids) != set(self._tasks):
             for t in ids:
                 cmd += ["-i", f"terminal-bench/{t}"]
@@ -266,7 +270,8 @@ class CodingDomain(Domain):
         if "CTOR_OK" not in ctor.stdout:
             return False, {"stage": "ctor", "detail": (ctor.stderr or ctor.stdout)[-1200:]}
         jdir = runs_dir / "jobs" / job
-        subprocess.run(["rm", "-rf", str(jdir)])
+        import shutil
+        shutil.rmtree(jdir, ignore_errors=True)
         self._harbor(root, runs_dir, job, ids, 1, CFG["dataset"], job)
         found, details = 0, {}
         for td in (jdir.glob("*") if jdir.exists() else []):
