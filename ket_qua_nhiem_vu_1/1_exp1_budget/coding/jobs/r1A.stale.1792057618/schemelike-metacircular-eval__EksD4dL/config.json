@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/schemelike-metacircular-eval",
+        "ref": "sha256:58130c2166c3115276dc8592f358e326ff2d81ea852e3d88636c82fd1dff57e6",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "schemelike-metacircular-eval__EksD4dL",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

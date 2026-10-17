@@ -1,0 +1,277 @@
+[?2004hroot@03803167f6b6:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@03803167f6b6:/app# clear
+[?2004l[H[J[3J[?2004hroot@03803167f6b6:/app# ls -la
+[?2004ltotal 1632
+drwxr-xr-x 1 root root    4096 Oct 28  2025 .
+drwxr-xr-x 1 root root    4096 Oct 15 09:30 ..
+-rw-r--r-- 1 root root 1661422 Oct 26  2025 text.gcode
+[?2004hroot@03803167f6b6:/app# grep -i 'text' text.gcode || head -n 50 text.gcode
+[?2004lM486 AEmbossed text
+[?2004hroot@03803167f6b6:/app# grep '^;' text.gcode | head -n 100
+[?2004l[?2004hroot@03803167f6b6:/app# head -n 100 text.gcode
+[?2004l
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+M73 P0 R142
+M73 Q0 S144
+M201 X4000 Y4000 Z200 E2500 
+M203 X300 Y300 Z40 E100 
+M204 P4000 R1200 T4000 
+M205 X8.00 Y8.00 Z2.00 E10.00 
+M205 S0 T0 
+
+M486 S0
+M486 AEmbossed text
+M486 S-1
+M486 S1
+M486 AShape-Box
+M486 S-1
+
+
+M17 
+M862.1 P0.4 A0 F1 
+M862.3 P "MK4S" 
+M862.5 P2 
+M862.6 P"Input shaper" 
+M115 U6.1.3+7898
+
+M555 X25.0793 Y2.99429 W199.855 H203.855
+
+G90 
+M83 
+
+M140 S60 
+M104 T0 S170 
+M109 T0 R170 
+
+M84 E 
+
+G28 
+
+G1 X42 Y-4 Z5 F4800
+
+M302 S160 
+
+
+G1 E-2 F2400 
+
+
+M84 E 
+
+G29 P9 X10 Y-4 W32 H4
+
+M106 S100
+
+G0 Z40 F10000
+
+M190 S60 
+
+M107
+
+
+
+
+M84 E 
+G29 P1 
+G29 P1 X0 Y0 W50 H20 C 
+G29 P3.2 
+G29 P3.13 
+G29 A 
+
+
+M104 S230
+G0 X0 Y-4 Z15 F4800 
+M109 S230
+
+G92 E0
+M569 S0 E 
+
+
+
+
+G92 E0 
+G1 E2 F2400 
+G0 E7 X15 Z0.2 F500 
+G0 X25 E4 F500 
+G0 X35 E4 F650 
+G0 X45 E4 F800 
+G0 X48 Z0.05 F8000 
+[?2004hroot@03803167f6b6:/app# grep 'M486' text.gcode
+[?2004lM486 S0
+M486 AEmbossed text
+M486 S-1
+M486 S1
+M486 AShape-Box
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+[?2004hroot@03803167f6b6:/app# strings text.gcode | grep -iE 'text|print|hello|word' || grep -i 'text' text.gcode
+[?2004lbash: strings: command not found
+M486 AEmbossed text
+[?2004hroot@03803167f6b6:/app# python3 -c "with open('text.gcode') as f:
+[?2004l[?2004h>   for line in f:
+[?2004l[?2004h>     if line.startswith(';') or '(' in line:
+[?2004l[?2004h>       print(line.strip())
+[?2004l[?2004h> " | head -n 100
+[?2004l[?2004hroot@03803167f6b6:/app# python3 -c "with open('text.gcode') as f:
+[?2004l[?2004h>   for line in f:
+[?2004l[?2004h>     line = line.strip()
+[?2004l[?2004h>     if line and not line[0] in 'GM':
+[?2004l[?2004h>       print(line)
+[?2004l[?2004h> " | head -n 100
+[?2004l[?2004hroot@03803167f6b6:/app# python3 -c "with open('text.gcode') as f:
+[?2004l[?2004h>   print(set(line[0] for line in f if line.strip()))
+[?2004l[?2004h> "
+[?2004l{'M', 'G'}
+[?2004hroot@03803167f6b6:/app# python3 -c "with open('text.gcode') as f:
+[?2004l[?2004h>     for line in f:
+[?2004l[?2004h>         if 'M486' in line:
+[?2004l[?2004h>             print(line.strip())
+[?2004l[?2004h> "
+[?2004lM486 S0
+M486 AEmbossed text
+M486 S-1
+M486 S1
+M486 AShape-Box
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+M486 S1
+M486 S-1
+M486 S0
+M486 S-1
+[?2004hroot@03803167f6b6:/app# python3 -c "
+[?2004l[?2004h> with open('text.gcode') as f:
+[?2004l[?2004h>     lines = f.readlines()
+[?2004l[?2004h> 
+[?2004l_y + 1e-5) * (h - 1))
+        grid[h - 1 - iy][ix] = '#'
+    for row in grid:
+        print(''.join(row))
+"
+[?2004h> capturing = False
+[?2004l[?2004h> coords = []
+[?2004l[?2004h> x, y = 0.0, 0.0
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if 'M486 AEmbossed text' in line:
+[?2004l[?2004h>         capturing = True
+[?2004l[?2004h>         continue
+[?2004l[?2004h>     elif capturing and 'M486 S-1' in line:
+[?2004l[?2004h>         break
+[?2004l[?2004h>     if capturing:
+[?2004l[?2004h>         parts = line.split()
+[?2004l[?2004h>         for p in parts:
+[?2004l[?2004h>             if p.startswith('X'): x = float(p[1:])
+[?2004l[?2004h>             elif p.startswith('Y'): y = float(p[1:])
+[?2004l[?2004h>         if 'E' in line and any(p.startswith('E') and float(p[1:]) > 0 for p in parts):
+[?2004l[?2004h>             coords.append((x, y))
+[?2004l[?2004h> 
+[?2004l[?2004h> if coords:
+[?2004l[?2004h>     xs = [c[0] for c in coords]
+[?2004l[?2004h>     ys = [c[1] for c in coords]
+[?2004l[?2004h>     print('X range:', min(xs), max(xs))
+[?2004l[?2004h>     print('Y range:', min(ys), max(ys))
+[?2004l[?2004h>     # Simple ASCII art
+[?2004l[?2004h>     min_x, max_x = min(xs), max(xs)
+[?2004l[?2004h>     min_y, max_y = min(ys), max(ys)
+[?2004l[?2004h>     w, h = 60, 20
+[?2004l[?2004h>     grid = [[' ' for _ in range(w)] for _ in range(h)]
+[?2004l[?2004h>     for x, y in coords:
+[?2004l[?2004h>         ix = int((x - min_x) / (max_x - min_x + 1e-5) * (w - 1))
+[?2004l[?2004h>         iy = int((y - min_y) / (max_y - min_y + 1e-5) * (h - 1))
+[?2004l[?2004h>         grid[h - 1 - iy][ix] = '#'
+[?2004l[?2004h>     for row in grid:
+[?2004l[?2004h>         print(''.join(row))
+[?2004l[?2004h> "
+[?2004l[?2004hroot@03803167f6b6:/app# 

@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/mcmc-sampling-stan",
+        "ref": "sha256:443cd2b94ed797944793e97a56527a5dc0f8ad40f78ed418fe1b2e367cf22546",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "mcmc-sampling-stan__3Z6HAJJ",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

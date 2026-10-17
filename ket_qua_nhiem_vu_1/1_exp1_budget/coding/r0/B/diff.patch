@@ -1,0 +1,32 @@
+diff --git a/third_party/harbor_terminus2/templates/terminus-json-plain.txt b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+index 6481d56..c494acd 100644
+--- a/third_party/harbor_terminus2/templates/terminus-json-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+@@ -36,9 +36,9 @@ IMPORTANT: The text inside "keystrokes" will be used completely verbatim as keys
+   - C-c for Ctrl+C
+   - C-d for Ctrl+D
+ 
+-The "duration" attribute specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a duration of 0.1 seconds. On commands (e.g., gcc, find, rustc) set a duration of 1.0 seconds. On slow commands (e.g., make, python3 [long running script], wget [file]) set an appropriate duration as you determine necessary.
++The "duration" attribute specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a duration of 0.1 seconds. On commands (e.g., gcc, find, rustc, python3 scripts/train.py, pytest) set an appropriate blocking or long duration (e.g., 5.0 to 30.0 seconds) so that you can examine the full output of tests, builds, or data processing scripts rather than truncating prematurely.
+ 
+-It is better to set a smaller duration than a longer duration. It is always possible to wait again if the prior output has not finished, by running {{"keystrokes": "", "duration": 10.0}} on subsequent requests to wait longer. Never wait longer than 60 seconds; prefer to poll to see intermediate result status.
++It is better to set an appropriate duration for execution. It is always possible to wait again if the prior output has not finished, by running {{"keystrokes": "", "duration": 10.0}} on subsequent requests to wait longer. Never wait longer than 60 seconds; prefer to poll to see intermediate result status.
+ 
+ Important notes:
+ - Each command's keystrokes are sent exactly as written to the terminal
+diff --git a/third_party/harbor_terminus2/templates/terminus-xml-plain.txt b/third_party/harbor_terminus2/templates/terminus-xml-plain.txt
+index 6386356..2283a8c 100644
+--- a/third_party/harbor_terminus2/templates/terminus-xml-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-xml-plain.txt
+@@ -23,9 +23,9 @@ Required sections:
+ - <plan>: Your plan for the next steps  
+ - <commands>: XML structure containing commands to execute
+ 
+-The `duration` attribute of <keystrokes> specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a duration of 0.1 seconds. On commands (e.g., gcc, find, rustc) set a duration of 1.0 seconds. On slow commands (e.g., make, python3 [long running script], wget [file]) set an apprpriate duration as you determine necessary.
++The `duration` attribute of <keystrokes> specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a duration of 0.1 seconds. On commands (e.g., gcc, find, rustc, python3 scripts/train.py, pytest) set an appropriate blocking or long duration (e.g., 5.0 to 30.0 seconds) so that you can examine the full output of tests, builds, or data processing scripts rather than truncating prematurely.
+ 
+-It is better to set a smaller duration than a longer duration. In is always possible to wait again if the prior output has not finished, by running <keystrokes duration="10.0"></keystrokes> on subsequent requests to wait longer. Never wait longer than 60 seconds; prefer to poll to see intermediate result status.
++It is better to set an appropriate duration for execution. It is always possible to wait again if the prior output has not finished, by running <keystrokes duration="10.0"></keystrokes> on subsequent requests to wait longer. Never wait longer than 60 seconds; prefer to poll to see intermediate result status.
+ 
+ Optional sections:
+ - <task_complete>: Include this tag if the task is complete. Can be:

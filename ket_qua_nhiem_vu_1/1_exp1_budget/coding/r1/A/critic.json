@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The change adds a short comment to the completion confirmation path in terminus_2.py, which does not contain task-specific leakage, grader gaming, or unbounded loops."
+ ]
+}

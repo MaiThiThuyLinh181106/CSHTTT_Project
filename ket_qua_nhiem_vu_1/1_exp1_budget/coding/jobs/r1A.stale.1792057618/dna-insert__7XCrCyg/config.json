@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/dna-insert",
+        "ref": "sha256:37fc023970e3464c1acc31f43e04a0b4b94758130d340788f261f00764d9e530",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "dna-insert__7XCrCyg",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

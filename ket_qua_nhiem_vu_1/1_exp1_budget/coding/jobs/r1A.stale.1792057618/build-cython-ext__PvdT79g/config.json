@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/build-cython-ext",
+        "ref": "sha256:35dc561790e73f13e59837828ac0863c0893edc6b71d42cf7d58656c843adf12",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "build-cython-ext__PvdT79g",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

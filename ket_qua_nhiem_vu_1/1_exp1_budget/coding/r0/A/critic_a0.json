@@ -1,0 +1,10 @@
+{
+ "verdict": "reject",
+ "reasons": [
+  "The diff contains a sentence/string splice error ('correctly formatted before declaring completion.matted (check columns...)') indicating malformed text editing.",
+  "The added prompt instructions reference specific task types/domains ('Bayesian Network estimation', 'structure learning', specific pandas inspection commands) which borders on task-specialization or hardening for specific tasks in the evolve set rather than purely general procedure."
+ ],
+ "risk_notes": [
+  "Malformed template text could confuse the policy LLM or break parsing."
+ ]
+}

@@ -1,0 +1,97 @@
+[rrsi:coding] 14:38:28 === round 1/2 incumbent t=0 bcc8a1c S=0.5000 C=1059350.0 S*=0.5000 delta=0.01700 ===
+[rrsi:coding] 14:38:28 reusing analysis_report.json
+[rrsi:coding] 14:38:28 top modes: ['incorrect_logic_implementation']
+[rrsi:coding] 14:38:28 b_t=4 sigma_t=0 untried=['prompt', 'control_flow', 'config', 'output_plumbing', 'context_mgmt', 'client_tool', 'skill', 'memory', 'subagent'] prune=[]
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[rrsi:coding] 14:43:18 A: 1 edit(s) on ['control_flow'] -> 1ddc3c3
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[llm] Rate limit 429 reached, waiting 60s for quota recovery (attempt 2/8)...
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[rrsi:coding] 14:45:41 B: edit C1 declared 'client_tool' but the diff reads as 'control_flow'; re-tagged
+[rrsi:coding] 14:48:59 B: 1 edit(s) on ['control_flow'] -> e8c6ca5
+Traceback (most recent call last):
+  File "D:\CSHTTT_project\rrsi\rrsi\loop.py", line 303, in round
+    list(ex.map(lambda c: self._evaluate(t, c, rdir, ids), live))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 645, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 312, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 449, in result
+    self._condition.wait(timeout)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\threading.py", line 369, in wait
+    waiter.acquire()
+    ~~~~~~~~~~~~~~^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\CSHTTT_project\rrsi\rrsi.py", line 137, in <module>
+    main()
+    ~~~~^^
+  File "D:\CSHTTT_project\rrsi\rrsi.py", line 106, in main
+    run.round(args.t, dry_run=args.dry_run)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\rrsi\loop.py", line 302, in round
+    with ThreadPoolExecutor(max_workers=max(1, cfg.eval_parallel)) as ex:
+         ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 673, in __exit__
+    self.shutdown(wait=True)
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 273, in shutdown
+    t.join()
+    ~~~~~~^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\threading.py", line 1133, in join
+    self._os_thread_handle.join(timeout)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyboardInterrupt
+[coding] WARNING harbor rc=512 (see D:\CSHTTT_project\rrsi\runs\coding\logs\r1A.log)
+[rrsi:coding] 16:46:58 A: 69/89 trials missing (infrastructure); retrying once
+[coding] job r1A was incomplete (20/89 trials); moved to r1A.stale.1792057618 and re-running from scratch
+Exception ignored on threading shutdown:
+Traceback (most recent call last):
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\threading.py", line 1577, in _shutdown
+    atexit_call()
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\threading.py", line 1548, in <lambda>
+    _threading_atexits.append(lambda: func(*arg, **kwargs))
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 31, in _python_exit
+    t.join()
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\threading.py", line 1133, in join
+    self._os_thread_handle.join(timeout)
+KeyboardInterrupt: 
+[rrsi:coding] 17:01:21 === round 1/2 incumbent t=0 bcc8a1c S=0.5000 C=1059350.0 S*=0.5000 delta=0.01700 ===
+[rrsi:coding] 17:01:21 reusing analysis_report.json
+[rrsi:coding] 17:01:21 top modes: ['incorrect_logic_implementation']
+[rrsi:coding] 17:01:21 b_t=4 sigma_t=0 untried=['prompt', 'control_flow', 'config', 'output_plumbing', 'context_mgmt', 'client_tool', 'skill', 'memory', 'subagent'] prune=[]
+[rrsi:coding] 17:01:21 A: resuming committed candidate 1ddc3c3
+[rrsi:coding] 17:01:22 B: resuming committed candidate e8c6ca5
+[coding] job r1A already complete (2 trials); not re-running
+[coding] job r1B already complete (2 trials); not re-running
+[rrsi:coding] 17:01:22 A: S=0.5000 dS=+0.0000 dC=-0.911 nu=0 -> ACCEPTED: admissible: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = +13.6575 > 0 (nu=0)
+[rrsi:coding] 17:01:22 B: S=0.5000 dS=+0.0000 dC=-0.944 nu=0 -> LOST: admissible: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = +14.1558 > 0 (nu=0)
+[rrsi:coding] 17:01:23 ACCEPTED r1A -> 1ddc3c3 S=0.5000 S*=0.5000

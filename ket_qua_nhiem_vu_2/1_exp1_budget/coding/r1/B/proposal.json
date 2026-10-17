@@ -1,0 +1,102 @@
+{
+ "status": "done",
+ "summary": "Add prompt instruction advising git conflict resolution and full commit before completion in JSON template",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Adding explicit instruction to resolve git merge conflicts and commit before marking completion prevents premature task completion during version control tasks.",
+   "targets_mode": "premature_completion_without_execution",
+   "why_not_lower_lever": "Prose instructions in prompt template directly guide the policy model's understanding of completion criteria.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "fix-git"
+   ],
+   "retroactive_check": {
+    "corrective": [
+     "fix-gitWould have prompted the agent to finish resolving git conflicts and commit instead of stopping at merge failure."
+    ],
+    "preservative": [
+     "Does not disrupt valid completion paths because it only applies when version control tasks are in play."
+    ],
+    "transfer": [
+     "Generalizes to any repository or version control management task requiring proper conflict resolution and commit actions."
+    ]
+   },
+   "regression_risk": "None expected; purely supplemental guidance.",
+   "mechanism": "Adding explicit instruction to resolve git merge conflicts and commit before marking completion prevents premature task completion during version control tasks."
+  }
+ ],
+ "mechanism": "Add prompt instruction advising git conflict resolution and full commit before completion in JSON template",
+ "targets_mode": "premature_completion_without_execution",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "                elif \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output:\n                    observation = (\n                        f\"NOTICE: The previous...",
+   "new": "                elif \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output or \"git branch\" in terminal_output or \"git log\" in terminal_output:\n               ..."
+  },
+  {
+   "action": "read_file",
+   "path": "terminus_2.py"
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "                elif \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output:\n                    observation = (\n                        f\"NOTICE: The previous...",
+   "new": "                elif \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output or \"git branch\" in terminal_output or \"git log\" in terminal_output:\n               ..."
+  },
+  {
+   "action": "read_trace",
+   "task_id": "fix-git",
+   "detail": true
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "                elif \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output:\n                    observation = (\n                        f\"NOTICE: The previous...",
+   "new": "                elif \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output or \"CONFLICT\" in terminal_output or \"unmerged\" in terminal_output:\n                ..."
+  },
+  {
+   "action": "read_file",
+   "path": "terminus_2.py"
+  },
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "Important notes:\n- Each command's keystrokes are sent exactly as written to the terminal\n- Do not include extra whitespace before or after the keystrokes unless it's part of the intended command\n- Ext...",
+   "new": "Important notes:\n- Each command's keystrokes are sent exactly as written to the terminal\n- Do not include extra whitespace before or after the keystrokes unless it's part of the intended command\n- Ext..."
+  },
+  {
+   "action": "done",
+   "summary": "Add prompt instruction advising git conflict resolution and full commit before completion in JSON template",
+   "edits": [
+    {
+     "id": "E1",
+     "component": "prompt",
+     "hypothesis": "Adding explicit instruction to resolve git merge conflicts and commit before marking completion prevents premature task completion during version control tasks.",
+     "targets_mode": "premature_completion_without_execution",
+     "why_not_lower_lever": "Prose instructions in prompt template directly guide the policy model's understanding of completion criteria.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "fix-git"
+     ],
+     "retroactive_check": {
+      "corrective": [
+       "fix-gitWould have prompted the agent to finish resolving git conflicts and commit instead of stopping at merge failure."
+      ],
+      "preservative": [
+       "Does not disrupt valid completion paths because it only applies when version control tasks are in play."
+      ],
+      "transfer": [
+       "Generalizes to any repository or version control management task requiring proper conflict resolution and commit actions."
+      ]
+     },
+     "regression_risk": "None expected; purely supplemental guidance.",
+     "mechanism": "Adding explicit instruction to resolve git merge conflicts and commit before marking completion prevents premature task completion during version control tasks."
+    }
+   ]
+  }
+ ]
+}

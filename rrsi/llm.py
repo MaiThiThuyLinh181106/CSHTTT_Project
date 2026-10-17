@@ -38,7 +38,7 @@ def extract_json(text: str) -> str:
 def generate(
     prompt: str,
     system: str | None = None,
-    max_retries: int = 8,
+    max_retries: int = 20,
     json_only: bool = False,
     model: str | None = None,
     max_tokens: int = MAX_TOKENS,
@@ -63,17 +63,28 @@ def generate(
                 model=mdl,
                 messages=messages,
                 max_tokens=max_tokens,
+                safety_settings=[
+                    {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
+                    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
+                    {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
+                    {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
+                ],
+                drop_params=True,
             )
             text = resp.choices[0].message.content or ""
             if text.strip():
                 return extract_json(text) if json_only else text
+            finish_reason = getattr(resp.choices[0], "finish_reason", None)
+            print(f"[llm] Empty response received from API (finish_reason={finish_reason!r}), waiting 20s before retry (attempt {attempt + 1}/{max_retries})...", flush=True)
+            time.sleep(20)
             last_err = RuntimeError("empty response")
         except Exception as e:
             last_err = e
             err_str = str(e)
-            if "429" in err_str or "RateLimit" in err_str or "RESOURCE_EXHAUSTED" in err_str:
-                print(f"[llm] Rate limit 429 reached, waiting 60s for quota recovery (attempt {attempt + 1}/{max_retries})...")
-                time.sleep(60)
+            if any(k in err_str for k in ("429", "RateLimit", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "ServiceUnavailable", "high demand", "overloaded")):
+                wait_time = 45
+                print(f"[llm] Transient API limit/overload ({err_str[:120]}), waiting {wait_time}s for recovery (attempt {attempt + 1}/{max_retries})...", flush=True)
+                time.sleep(wait_time)
             else:
                 time.sleep(min(2 ** attempt, 30))
     raise RuntimeError(f"generate failed after {max_retries} tries: {last_err}")

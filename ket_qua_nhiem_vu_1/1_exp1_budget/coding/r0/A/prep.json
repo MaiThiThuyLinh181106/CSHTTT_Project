@@ -1,0 +1,31 @@
+{
+ "gate_failure": "smoke_fail",
+ "detail": "{\"stage\": \"smoke_run\", \"fix-git__EbzU4hA\": \"{'exception_type': 'RuntimeError', 'exception_message': 'Command timed out after 120 seconds', 'exception_traceback': 'Traceback (most recent call last):\\\\n  File \\\"C:\\\\\\\\Users\\\\\\\\Thuy Linh\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Python\\\\\\\\pythoncore-3.14-64\\\\\\\\Lib\\\\\\\\asyncio\\\\\\\\tasks.py\\\", line 488, in wait_for\\\\n    return await fut\\\\n           ^^^^^^^^^\\\\n  File \\\"C:\\\\\\\\Users\\\\\\\\Thuy Linh\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Python\\\\\\\\pythoncore-3.14-64\\\\\\\\Lib\\\\\\\\\"}",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to explicitly verify generated files and formatting for data processing tasks prevents premature task completion and ensures correct output format adherence.",
+   "targets_mode": "incorrect_logic_implementation",
+   "why_not_lower_lever": "Prose prompt guidance is the correct lever for reminding the policy about thorough verification steps before completion.",
+   "trigger_condition": "always present in prompt instructions",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": [
+     "bn-fit-modify would have been guided to check output files and CSV formats before final completion."
+    ],
+    "preservative": [
+     "Does not disrupt existing workflows as it only adds guidance for verification."
+    ],
+    "transfer": [
+     "Generalizes to other data processing and file generation tasks"
+    ]
+   },
+   "regression_risk": "None expected.",
+   "mechanism": "Instructing the policy to explicitly verify generated files and formatting for data processing tasks prevents premature task completion and ensures correct output format adherence."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\r0\\A\\diff.patch"
+}

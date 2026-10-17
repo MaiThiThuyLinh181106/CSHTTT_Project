@@ -1,0 +1,16 @@
+{
+ "delta": 0.0,
+ "z": 2.0,
+ "sd_null": 0.0,
+ "sd_null_bootstrap": 0.0,
+ "se_bootstrap": 0.0,
+ "method": "bootstrap over trials of one base evaluation",
+ "n_evals": 1,
+ "k": 1,
+ "n_tasks": 2,
+ "S_base": 0.5,
+ "C_base": 189947.5,
+ "jobs": [
+  "base"
+ ]
+}

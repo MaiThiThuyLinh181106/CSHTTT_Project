@@ -1,0 +1,5 @@
+{
+ "ok": false,
+ "stage": "smoke_run",
+ "fix-git__EbzU4hA": "{'exception_type': 'RuntimeError', 'exception_message': 'Command timed out after 120 seconds', 'exception_traceback': 'Traceback (most recent call last):\\n  File \"C:\\\\Users\\\\Thuy Linh\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\Lib\\\\asyncio\\\\tasks.py\", line 488, in wait_for\\n    return await fut\\n           ^^^^^^^^^\\n  File \"C:\\\\Users\\\\Thuy Linh\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\Lib\\\\"
+}

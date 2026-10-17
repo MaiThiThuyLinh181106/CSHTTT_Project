@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\trial\trial.py", line 497, in run
+    await self._prepare()
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\trial\trial.py", line 543, in _prepare
+    await self._setup_agent()
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\trial\trial.py", line 1720, in _setup_agent
+    await asyncio.wait_for(
+    ...<2 lines>...
+    )
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\runs\coding\wt\r1A\third_party\harbor_terminus2\terminus_2.py", line 403, in setup
+    await self._session.start()
+  File "D:\CSHTTT_project\rrsi\runs\coding\wt\r1A\third_party\harbor_terminus2\tmux_session.py", line 517, in start
+    raise RuntimeError(
+        f"Failed to start tmux session. Error: {start_session_result.stderr}"
+    )
+RuntimeError: Failed to start tmux session. Error: None

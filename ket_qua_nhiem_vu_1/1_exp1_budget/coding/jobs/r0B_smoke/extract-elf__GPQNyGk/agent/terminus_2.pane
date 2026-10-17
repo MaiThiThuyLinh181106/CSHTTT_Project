@@ -1,0 +1,574 @@
+[?2004hroot@5a0cf8745ee1:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@5a0cf8745ee1:/app# clear
+[?2004l[H[J[3J[?2004hroot@5a0cf8745ee1:/app# ls -la
+[?2004ltotal 28
+drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 14 13:20 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+[?2004hroot@5a0cf8745ee1:/app# file a.out
+[?2004lbash: file: command not found
+[?2004hroot@5a0cf8745ee1:/app# python3 --version
+[?2004lPython 3.12.3
+[?2004hroot@5a0cf8745ee1:/app# node --version
+[?2004lv18.19.1
+[?2004hroot@5a0cf8745ee1:/app# cat hi.c
+[?2004l#include<stdio.h>
+
+int main() {
+  printf("Hello world\n");
+}
+[?2004hroot@5a0cf8745ee1:/app# python3 -c "import elftools"
+[?2004lTraceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'elftools'
+[?2004hroot@5a0cf8745ee1:/app# pip3 --version || pip --version
+[?2004lbash: pip3: command not found
+bash: pip: command not found
+[?2004hroot@5a0cf8745ee1:/app# cat << 'EOF' > inspect_elf.py
+[?2004l[?2004h> import struct
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('a.out', 'rb') as f:
+[?2004l[?2004h>     data = f.read()
+[?2004l[?2004h> 
+[?2004l[?2004h> print('File size:', len(data))
+[?2004l[?2004h> # ELF header
+[?2004l[?2004h> ident = data[:16]
+[?2004l[?2004h> print('Magic:', ident[:4])
+[?2004l[?2004h> print('Class (32/64):', data[4])
+[?2004l[?2004h> print('Endianness:', data[5])
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's use struct to parse ELF64 header
+[?2004l[?2004h> if data[4] == 2: # 64-bit
+[?2004l[?2004h>     fmt = '<HHIQQQIHHHHHH'
+[?2004l[?2004h>     # e_type, e_machine, e_version, e_entry, e_phoff, e_shoff, e_flags, e_ehsize, e_phentsize, e_phnum, e_shentsize, e_shnum, e_shstrndx
+[?2004l[?2004h>     header_vals = struct.unpack_from('<HHIQQQIHHHHHH', data, 16)
+[?2004l[?2004h>     print('ELF64 Header:', header_vals)
+[?2004l[?2004h>     e_phoff = header_vals[3]
+[?2004l[?2004h>     e_phentsize = header_vals[8]
+[?2004l[?2004h>     e_phnum = header_vals[9]
+[?2004l[?2004h>     
+[?2004l[?2004h>     print(f'Program headers at {e_phoff}, size {e_phentsize}, count {e_phnum}')
+[?2004l[?2004h>     for i in range(e_phnum):
+[?2004l[?2004h>         ph_offset = e_phoff + i * e_phentsize
+[?2004l[?2004h>         # p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align
+[?2004l[?2004h>         ph = struct.unpack_from('<IIQQQQQQ', data, ph_offset)
+[?2004l[?2004h>         print(f'  PH {i}: type={ph[0]}, flags={ph[1]}, offset={ph[2]}, vaddr={hex(ph[3])}, filesz={ph[5]}, memsz={ph[6]}')
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@5a0cf8745ee1:/app# python3 inspect_elf.py
+[?2004lFile size: 15960
+Magic: b'\x7fELF'
+Class (32/64): 2
+Endianness: 1
+ELF64 Header: (3, 62, 1, 4192, 64, 13976, 0, 64, 56, 13, 64, 31, 30)
+Program headers at 4192, size 56, count 13
+  PH 0: type=4196274163, flags=2303323441, offset=16466084800399695569, vaddr=0xc931c031455450f0, filesz=3343628054209450773, memsz=8658703
+  PH 1: type=796001677, flags=961019904, offset=3401912664292947192, vaddr=0xff0974c085480000, filesz=2149519299, memsz=5188146973823044936
+  PH 2: type=4035528958, flags=1072611656, offset=5243880224935428424, vaddr=0x5058b481474fed1, filesz=74900193075455, memsz=2149519299
+  PH 3: type=1962934272, flags=2202555691, offset=9892156581522367037, vaddr=0x2ee63d8b480c74e5, filesz=3376861647854370660, memsz=8743056031416320
+  PH 4: type=4196274163, flags=4294932457, offset=9892251114253841407, vaddr=0xeac058d48e5, filesz=54989875039961272, memsz=643033196264296435
+  PH 5: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 6: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 7: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 8: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 9: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 10: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 11: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 12: type=0, flags=0, offset=0, vaddr=0x0, filesz=0, memsz=0
+[?2004hroot@5a0cf8745ee1:/app# cat << 'EOF' > inspect_elf.py
+[?2004l[?2004h> import struct
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('a.out', 'rb') as f:
+[?2004l[?2004h>     data = f.read()
+[?2004l[?2004h> 
+[?2004l[?2004h> # ELF64 header:
+[?2004l[?2004h> # unsigned char e_ident[EI_NIDENT]; (16 bytes)
+[?2004l[?2004h> # Elf64_Half    e_type;
+[?2004l[?2004h> # Elf64_Half    e_machine;
+[?2004l[?2004h> # Elf64_Word    e_version;
+[?2004l[?2004h> # Elf64_Addr    e_entry;
+[?2004l[?2004h> # Elf64_Off     e_phoff;
+[?2004l[?2004h> # Elf64_Off     e_shoff;
+[?2004l[?2004h> # Elf64_Word    e_flags;
+[?2004l[?2004h> # Elf64_Half    e_ehsize;
+[?2004l[?2004h> # Elf64_Half    e_phentsize;
+[?2004l[?2004h> # Elf64_Half    e_phnum;
+[?2004l[?2004h> # Elf64_Half    e_shentsize;
+[?2004l[?2004h> # Elf64_Half    e_shnum;
+[?2004l[?2004h> # Elf64_Half    e_shstrndx;
+[?2004l[?2004h> 
+[?2004l[?2004h> # Format: < 16x (skip ident) + HHIQQQIHHHHHH = 16 + 2+2+4+8+8+8+4+2+2+2+2+2+2 = 64 bytes
+[?2004l[?2004h> fmt = '<16sHHIQQQIHHHHHH'
+[?2004l[?2004h> vals = struct.unpack(fmt, data[:64])
+[?2004l[?2004h> print('e_type:', vals[1])
+[?2004l[?2004h> print('e_machine:', vals[2])
+[?2004l[?2004h> print('e_entry:', hex(vals[4]))
+[?2004l[?2004h> print('e_phoff:', vals[5])
+[?2004l[?2004h> print('e_shoff:', vals[6])
+[?2004l[?2004h> print('e_phentsize:', vals[9])
+[?2004l[?2004h> print('e_phnum:', vals[10])
+[?2004l[?2004h> print('e_shentsize:', vals[11])
+[?2004l[?2004h> print('e_shnum:', vals[12])
+[?2004l[?2004h> print('e_shstrndx:', vals[13])
+[?2004l[?2004h> 
+[?2004l[?2004h> e_phoff = vals[5]
+[?2004l[?2004h> e_phentsize = vals[9]
+[?2004l[?2004h> e_phnum = vals[10]
+[?2004l[?2004h> 
+[?2004l[?2004h> for i in range(e_phnum):
+[?2004l[?2004h>     ph_offset = e_phoff + i * e_phentsize
+[?2004l[?2004h>     ph = struct.unpack_from('<IIQQQQQQ', data, ph_offset)
+[?2004l[?2004h>     print(f'  PH {i}: type={ph[0]}, flags={ph[1]}, offset={ph[2]}, vaddr={hex(ph[3])}, filesz={ph[5]}, memsz={ph[6]}')
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@5a0cf8745ee1:/app# python3 inspect_elf.py
+[?2004le_type: 3
+e_machine: 62
+e_entry: 0x1060
+e_phoff: 64
+e_shoff: 13976
+e_phentsize: 56
+e_phnum: 13
+e_shentsize: 64
+e_shnum: 31
+e_shstrndx: 30
+  PH 0: type=6, flags=4, offset=64, vaddr=0x40, filesz=728, memsz=728
+  PH 1: type=3, flags=4, offset=792, vaddr=0x318, filesz=28, memsz=28
+  PH 2: type=1, flags=4, offset=0, vaddr=0x0, filesz=1576, memsz=1576
+  PH 3: type=1, flags=5, offset=4096, vaddr=0x1000, filesz=373, memsz=373
+  PH 4: type=1, flags=4, offset=8192, vaddr=0x2000, filesz=244, memsz=244
+  PH 5: type=1, flags=6, offset=11704, vaddr=0x3db8, filesz=600, memsz=608
+  PH 6: type=2, flags=6, offset=11720, vaddr=0x3dc8, filesz=496, memsz=496
+  PH 7: type=4, flags=4, offset=824, vaddr=0x338, filesz=48, memsz=48
+  PH 8: type=4, flags=4, offset=872, vaddr=0x368, filesz=68, memsz=68
+  PH 9: type=1685382483, flags=4, offset=824, vaddr=0x338, filesz=48, memsz=48
+  PH 10: type=1685382480, flags=4, offset=8208, vaddr=0x2010, filesz=52, memsz=52
+  PH 11: type=1685382481, flags=6, offset=0, vaddr=0x0, filesz=0, memsz=0
+  PH 12: type=1685382482, flags=4, offset=11704, vaddr=0x3db8, filesz=584, memsz=584
+[?2004hroot@5a0cf8745ee1:/app# ls -la /app
+[?2004ltotal 32
+drwxr-xr-x 1 root root  4096 Oct 14 13:20 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 14 13:20 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+-rw-r--r-- 1 root root  1220 Oct 14 13:20 inspect_elf.py
+[?2004hroot@5a0cf8745ee1:/app# ls -la /
+[?2004ltotal 76
+drwxr-xr-x   1 root root 4096 Oct 14 13:20 [0m[01;34m.[0m
+drwxr-xr-x   1 root root 4096 Oct 14 13:20 [01;34m..[0m
+-rwxr-xr-x   1 root root    0 Oct 14 13:19 [01;32m.dockerenv[0m
+drwxr-xr-x   1 root root 4096 Oct 14 13:20 [01;34mapp[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mbin[0m -> [01;34musr/bin[0m
+drwxr-xr-x   2 root root 4096 Apr 22  2024 [01;34mboot[0m
+drwxr-xr-x   5 root root  340 Oct 14 13:19 [01;34mdev[0m
+drwxr-xr-x   1 root root 4096 Oct 14 13:20 [01;34metc[0m
+drwxr-xr-x   3 root root 4096 Oct  1  2025 [01;34mhome[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mlib[0m -> [01;34musr/lib[0m
+lrwxrwxrwx   1 root root    9 Apr 22  2024 [01;36mlib64[0m -> [01;34musr/lib64[0m
+drwxr-xr-x   5 root root 4096 Oct 14 13:19 [01;34mlogs[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmedia[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmnt[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mopt[0m
+dr-xr-xr-x 246 root root    0 Oct 14 13:19 [01;34mproc[0m
+drwx------   1 root root 4096 Oct 14 13:20 [01;34mroot[0m
+drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mrun[0m
+lrwxrwxrwx   1 root root    8 Apr 22  2024 [01;36msbin[0m -> [01;34musr/sbin[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34msrv[0m
+dr-xr-xr-x  13 root root    0 Oct 14 13:19 [01;34msys[0m
+drwxrwxrwt   1 root root 4096 Oct 14 13:20 [30;42mtmp[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34musr[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34mvar[0m
+[?2004hroot@5a0cf8745ee1:/app# readelf -S a.out || objdump -h a.out
+[?2004lThere are 31 section headers, starting at offset 0x3698:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000318  00000318
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
+       0000000000000030  0000000000000000   A       0     0     8
+  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
+       0000000000000024  0000000000000000   A       6     0     8
+  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
+       00000000000000a8  0000000000000018   A       7     1     8
+  [ 7] .dynstr           STRTAB           0000000000000480  00000480
+       000000000000008d  0000000000000000   A       0     0     1
+  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
+       000000000000000e  0000000000000002   A       6     0     2
+  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
+       0000000000000030  0000000000000000   A       7     1     8
+  [10] .rela.dyn         RELA             0000000000000550  00000550
+       00000000000000c0  0000000000000018   A       6     0     8
+  [11] .rela.plt         RELA             0000000000000610  00000610
+       0000000000000018  0000000000000018  AI       6    24     8
+  [12] .init             PROGBITS         0000000000001000  00001000
+       000000000000001b  0000000000000000  AX       0     0     4
+  [13] .plt              PROGBITS         0000000000001020  00001020
+       0000000000000020  0000000000000010  AX       0     0     16
+  [14] .plt.got          PROGBITS         0000000000001040  00001040
+       0000000000000010  0000000000000010  AX       0     0     16
+  [15] .plt.sec          PROGBITS         0000000000001050  00001050
+       0000000000000010  0000000000000010  AX       0     0     16
+  [16] .text             PROGBITS         0000000000001060  00001060
+       0000000000000107  0000000000000000  AX       0     0     16
+  [17] .fini             PROGBITS         0000000000001168  00001168
+       000000000000000d  0000000000000000  AX       0     0     4
+  [18] .rodata           PROGBITS         0000000000002000  00002000
+       0000000000000010  0000000000000000   A       0     0     4
+  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
+       0000000000000034  0000000000000000   A       0     0     4
+  [20] .eh_frame         PROGBITS         0000000000002048  00002048
+       00000000000000ac  0000000000000000   A       0     0     8
+  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
+       0000000000000008  0000000000000008  WA       0     0     8
+  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
+       00000000000001f0  0000000000000010  WA       7     0     8
+  [24] .got              PROGBITS         0000000000003fb8  00002fb8
+       0000000000000048  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000004000  00003000
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           0000000000004010  00003010
+       0000000000000008  0000000000000000  WA       0     0     1
+  [27] .comment          PROGBITS         0000000000000000  00003010
+       000000000000002b  0000000000000001  MS       0     0     1
+  [28] .symtab           SYMTAB           0000000000000000  00003040
+       0000000000000360  0000000000000018          29    18     8
+  [29] .strtab           STRTAB           0000000000000000  000033a0
+       00000000000001d8  0000000000000000           0     0     1
+  [30] .shstrtab         STRTAB           0000000000000000  00003578
+       000000000000011a  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+[?2004hroot@5a0cf8745ee1:/app# python3 -c "import struct; ..."
+[?2004l[?2004hroot@5a0cf8745ee1:/app# find / -name "*extract*" 2>/dev/null
+[?2004l/usr/share/doc/node-postcss-modules-extract-imports
+/usr/share/nodejs/tar/lib/extract.js
+/usr/share/nodejs/postcss-modules-extract-imports
+/usr/share/nodejs/@babel/eslint-parser/lib/worker/extract-parser-options-plugin.cjs
+/usr/share/nodejs/eslint/lib/cli-engine/config-array/extracted-config.js
+/usr/share/nodejs/icss-utils/src/extractICSS.js
+/usr/share/nodejs/webpack/lib/util/extractUrlAndGlobal.js
+/usr/share/nodejs/normalize-package-data/lib/extract_description.js
+/var/lib/dpkg/info/node-postcss-modules-extract-imports.md5sums
+/var/lib/dpkg/info/node-postcss-modules-extract-imports.list
+[?2004hroot@5a0cf8745ee1:/app# find / -name "*test*" 2>/dev/null
+[?2004l/usr/include/openssl/self_test.h
+/usr/include/nodejs/deps/v8/include/cppgc/testing.h
+/usr/include/linux/pcitest.h
+/usr/share/perl5/Mail/Mailer/testfile.pm
+/usr/share/doc/node-webpack-cli-configtest
+/usr/share/doc/git/contrib/coccinelle/tests
+/usr/share/doc/node-babel-helper-plugin-test-runner
+/usr/share/doc/node-npmcli-smoke-tests
+/usr/share/doc/node-babel-helper-transform-fixture-test-runner
+/usr/share/doc/node-babel-eslint-tests
+/usr/share/doc/node-tape/examples/stream/test
+/usr/share/nodejs/safer-buffer/tests.js
+/usr/share/nodejs/tap-mocha-reporter/lib/test.js
+/usr/share/nodejs/caniuse-lite/data/features/date-tolocaledatestring.js
+/usr/share/nodejs/caniuse-lite/data/features/testfeat.js
+/usr/share/nodejs/libtap/lib/test.js
+/usr/share/nodejs/libtap/lib/parse-test-args.js
+/usr/share/nodejs/istanbul/lib/command/test.js
+/usr/share/nodejs/test-exclude
+/usr/share/nodejs/acorn-static-class-features/run_test262.js
+/usr/share/nodejs/@npmcli/smoke-tests
+/usr/share/nodejs/acorn-export-ns-from/run_test262.js
+/usr/share/nodejs/acorn-export-ns-from/test262.whitelist
+/usr/share/nodejs/@types/node/ts4.8/test.d.ts
+/usr/share/nodejs/@types/node/test.d.ts
+/usr/share/nodejs/acorn-private-methods/run_test262.js
+/usr/share/nodejs/yaml/dist/test-events.js
+/usr/share/nodejs/yaml/dist/test-events.d.ts
+/usr/share/nodejs/tape/lib/test.js
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.d.ts
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.js
+/usr/share/nodejs/@babel/helper-plugin-test-runner
+/usr/share/nodejs/@babel/helper-transform-fixture-test-runner
+/usr/share/nodejs/@babel/eslint-tests
+/usr/share/nodejs/eslint/lib/cli-engine/config-array/override-tester.js
+/usr/share/nodejs/eslint/lib/rule-tester
+/usr/share/nodejs/eslint/lib/rule-tester/rule-tester.js
+/usr/share/nodejs/@bcoe/v8-coverage/src/test
+/usr/share/nodejs/es-abstract/node_modules/safe-regex-test
+/usr/share/nodejs/core-js-pure/features/regexp/test.js
+/usr/share/nodejs/core-js-pure/stable/regexp/test.js
+/usr/share/nodejs/core-js-pure/es/regexp/test.js
+/usr/share/nodejs/core-js-pure/actual/regexp/test.js
+/usr/share/nodejs/core-js-pure/full/regexp/test.js
+/usr/share/nodejs/core-js-pure/modules/es.regexp.test.js
+/usr/share/nodejs/acorn-numeric-separator/run_test262.js
+/usr/share/nodejs/core-js/features/regexp/test.js
+/usr/share/nodejs/core-js/stable/regexp/test.js
+/usr/share/nodejs/core-js/es/regexp/test.js
+/usr/share/nodejs/core-js/actual/regexp/test.js
+/usr/share/nodejs/core-js/full/regexp/test.js
+/usr/share/nodejs/core-js/modules/es.regexp.test.js
+/usr/share/nodejs/@webpack-cli/configtest
+/usr/share/nodejs/@webassemblyjs/helper-test-framework
+/usr/share/nodejs/@webassemblyjs/helper-testsuite-runner
+/usr/share/nodejs/tap-yaml/node_modules/yaml/dist/test-events.js
+/usr/share/nodejs/acorn-import-meta/run_test262.js
+/usr/share/nodejs/get-caller-file/test.js
+/usr/share/nodejs/fs-monkey/lib/__tests__
+/usr/share/nodejs/fs-monkey/lib/__tests__/patchFs.test.js
+/usr/share/nodejs/acorn-bigint/run_test262.js
+/usr/share/nodejs/object-inspect/test-core-js.js
+/usr/share/nodejs/npm/node_modules/just-diff/index.tests.ts
+/usr/share/nodejs/npm/node_modules/cli-columns/test.js
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein/test.ts
+/usr/share/nodejs/npm/node_modules/just-diff-apply/index.tests.ts
+/usr/share/nodejs/npm/lib/commands/install-ci-test.js
+/usr/share/nodejs/npm/lib/commands/test.js
+/usr/share/nodejs/npm/lib/commands/install-test.js
+/usr/share/nodejs/acorn-class-fields/run_test262.js
+/usr/share/perl/5.38.2/filetest.pm
+/usr/share/perl/5.38.2/Test2/Event/Subtest.pm
+/usr/share/perl/5.38.2/Test2/Hub/Subtest.pm
+/usr/share/perl/5.38.2/ExtUtils/testlib.pm
+/usr/lib/x86_64-linux-gnu/libicutest.so.74
+/usr/lib/x86_64-linux-gnu/libicutest.so.74.2
+/usr/lib/python3.12/lib-dynload/_testinternalcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testimportmultiple.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testclinic.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_ctypes_test.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_xxtestfuzz.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testsinglephase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testmultiphase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testbuffer.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/__pycache__/doctest.cpython-312.pyc
+/usr/lib/python3.12/doctest.py
+/usr/lib/python3.12/test
+/usr/lib/python3.12/test/__pycache__/regrtest.cpython-312.pyc
+/usr/lib/python3.12/test/__pycache__/test_support.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest
+/usr/lib/python3.12/test/libregrtest/__pycache__/runtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/testresult.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/findtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/testresult.py
+/usr/lib/python3.12/test/libregrtest/findtests.py
+/usr/lib/python3.12/test/libregrtest/runtests.py
+/usr/lib/python3.12/test/test_support.py
+/usr/lib/python3.12/test/regrtest.py
+/usr/lib/python3.12/test/support/__pycache__/testcase.cpython-312.pyc
+/usr/lib/python3.12/test/support/testcase.py
+/usr/lib/python3.12/unittest
+/usr/lib/python3/dist-packages/gyp/MSVSSettings_test.py
+/usr/lib/python3/dist-packages/gyp/__pycache__/input_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/MSVSSettings_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/common_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/easy_xml_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/common_test.py
+/usr/lib/python3/dist-packages/gyp/easy_xml_test.py
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/msvs_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/ninja_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/xcode_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/xcode_test.py
+/usr/lib/python3/dist-packages/gyp/generator/ninja_test.py
+/usr/lib/python3/dist-packages/gyp/generator/msvs_test.py
+/usr/lib/python3/dist-packages/gyp/input_test.py
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
+/usr/bin/test
+/sys/devices/virtual/net/eth0/testing
+/sys/devices/virtual/net/lo/testing
+/sys/module/cryptomgr/parameters/notests
+/sys/module/8250/parameters/skip_txen_test
+/sys/module/8250_core/parameters/skip_txen_test
+/sys/module/sata_sx4/parameters/dimm_test
+/sys/module/sr_mod/parameters/xa_test
+[?2004hroot@5a0cf8745ee1:/app# cat << 'EOF' > test_extract.py
+[?2004l[?2004h> import struct
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('a.out', 'rb') as f:
+[?2004l[?2004h>     data = f.read()
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's parse program headers and sections
+[?2004l[?2004h> fmt = '<16sHHIQQQIHHHHHH'
+[?2004l[?2004h> vals = struct.unpack(fmt, data[:64])
+[?2004l[?2004h> e_phoff = vals[5]
+[?2004l[?2004h> e_phentsize = vals[9]
+[?2004l[?2004h> e_phnum = vals[10]
+[?2004l[?2004h> 
+[?2004l[?2004h> for i in range(e_phnum):
+[?2004l[?2004h>     ph = struct.unpack_from('<IIQQQQQQ', data, e_phoff + i * e_phentsize)
+[?2004l[?2004h>     p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align = ph
+[?2004l[?2004h>     if p_type == 1: # PT_LOAD
+[?2004l[?2004h>         print(f'PT_LOAD vaddr={hex(p_vaddr)}, offset={hex(p_offset)}, filesz={hex(p_filesz)}, memsz={hex(p_memsz)}')
+[?2004l[?2004h>         # Let's check data at p_offset of size p_filesz
+[?2004l[?2004h>         segment_data = data[p_offset:p_offset+p_filesz]
+[?2004l[?2004h>         # Print first few integers at vaddr + 0x400000
+[?2004l[?2004h>         base = 0x400000
+[?2004l[?2004h>         for off in range(0, min(32, len(segment_data)), 4):
+[?2004l[?2004h>             val = struct.unpack_from('<I', segment_data, off)[0]
+[?2004l[?2004h>             print(f'  addr {hex(base + p_vaddr + off)} ({base + p_vaddr + off}): {val}')
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@5a0cf8745ee1:/app# python3 test_extract.py
+[?2004lPT_LOAD vaddr=0x0, offset=0x0, filesz=0x628, memsz=0x628
+  addr 0x400000 (4194304): 1179403647
+  addr 0x400004 (4194308): 65794
+  addr 0x400008 (4194312): 0
+  addr 0x40000c (4194316): 0
+  addr 0x400010 (4194320): 4063235
+  addr 0x400014 (4194324): 1
+  addr 0x400018 (4194328): 4192
+  addr 0x40001c (4194332): 0
+PT_LOAD vaddr=0x1000, offset=0x1000, filesz=0x175, memsz=0x175
+  addr 0x401000 (4198400): 4196274163
+  addr 0x401004 (4198404): 149717832
+  addr 0x401008 (4198408): 3641019208
+  addr 0x40100c (4198412): 1207959599
+  addr 0x401010 (4198416): 41205893
+  addr 0x401014 (4198420): 2202587391
+  addr 0x401018 (4198424): 12781764
+  addr 0x40101c (4198428): 0
+PT_LOAD vaddr=0x2000, offset=0x2000, filesz=0xf4, memsz=0xf4
+  addr 0x402000 (4202496): 131073
+  addr 0x402004 (4202500): 1819043144
+  addr 0x402008 (4202504): 1870078063
+  addr 0x40200c (4202508): 6581362
+  addr 0x402010 (4202512): 990059265
+  addr 0x402014 (4202516): 52
+  addr 0x402018 (4202520): 5
+  addr 0x40201c (4202524): 4294963216
+PT_LOAD vaddr=0x3db8, offset=0x2db8, filesz=0x258, memsz=0x260
+  addr 0x403db8 (4210104): 4416
+  addr 0x403dbc (4210108): 0
+  addr 0x403dc0 (4210112): 4352
+  addr 0x403dc4 (4210116): 0
+  addr 0x403dc8 (4210120): 1
+  addr 0x403dcc (4210124): 0
+  addr 0x403dd0 (4210128): 39
+  addr 0x403dd4 (4210132): 0
+[?2004hroot@5a0cf8745ee1:/app# cat << 'EOF' > test_ptload.py
+[?2004l[?2004h> import struct
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('a.out', 'rb') as f:
+[?2004l[?2004h>     data = f.read()
+[?2004l[?2004h> 
+[?2004l[?2004h> vals = struct.unpack('<16sHHIQQQIHHHHHH', data[:64])
+[?2004l[?2004h> e_phoff = vals[5]
+[?2004l[?2004h> e_phentsize = vals[9]
+[?2004l[?2004h> e_phnum = vals[10]
+[?2004l[?2004h> 
+[?2004l[?2004h> total_words = 0
+[?2004l[?2004h> for i in range(e_phnum):
+[?2004l[?2004h>     ph = struct.unpack_from('<IIQQQQQQ', data, e_phoff + i * e_phentsize)
+[?2004l[?2004h>     p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align = ph
+[?2004l[?2004h>     if p_type == 1: # PT_LOAD
+[?2004l[?2004h>         print(f'PT_LOAD {i}: vaddr={hex(p_vaddr)}, filesz={hex(p_filesz)}, memsz={hex(p_memsz)}')
+[?2004l[?2004h>         n_words = p_filesz // 4
+[?2004l[?2004h>         total_words += n_words
+[?2004l[?2004h> print('Total words (filesz):', total_words)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@5a0cf8745ee1:/app# python3 test_ptload.py
+[?2004lPT_LOAD 2: vaddr=0x0, filesz=0x628, memsz=0x628
+PT_LOAD 3: vaddr=0x1000, filesz=0x175, memsz=0x175
+PT_LOAD 4: vaddr=0x2000, filesz=0xf4, memsz=0xf4
+PT_LOAD 5: vaddr=0x3db8, filesz=0x258, memsz=0x260
+Total words (filesz): 698
+[?2004hroot@5a0cf8745ee1:/app# cat << 'EOF' > extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> 
+[?2004l[?2004h> function extractMemory(filePath) {
+[?2004l[?2004h>     const buffer = fs.readFileSync(filePath);
+[?2004l[?2004h>     const result = {};
+[?2004l[?2004h> 
+[?2004l[?2004h>     // Parse ELF64 header
+[?2004l[?2004h>     // e_phoff is at offset 32 (8 bytes)
+[?2004l[?2004h>     // e_phentsize is at offset 54 (2 bytes)
+[?2004l[?2004h>     // e_phnum is at offset 56 (2 bytes)
+[?2004l[?2004h>     const e_phoff = Number(buffer.readBigUInt64LE(32));
+[?2004l[?2004h>     const e_phentsize = buffer.readUInt16LE(54);
+[?2004l[?2004h>     const e_phnum = buffer.readUInt16LE(56);
+[?2004l[?2004h> 
+[?2004l[?2004h>     const base = 0x400000;
+[?2004l[?2004h> 
+[?2004l[?2004h>     for (let i = 0; i < e_phnum; i++) {
+[?2004l[?2004h>         const ph_offset = e_phoff + i * e_phentsize;
+[?2004l[?2004h>         const p_type = buffer.readUInt32LE(ph_offset);
+[?2004l[?2004h>         if (p_type === 1) { // PT_LOAD
+[?2004l[?2004h>             const p_offset = Number(buffer.readBigUInt64LE(ph_offset + 8));
+[?2004l[?2004h>             const p_vaddr = Number(buffer.readBigUInt64LE(ph_offset + 16));
+[?2004l[?2004h>             const p_filesz = Number(buffer.readBigUInt64LE(ph_offset + 32));
+[?2004l[?2004h> 
+[?2004l[?2004h>             const startAddr = (p_vaddr < 0x400000) ? p_vaddr + base : p_vaddr;
+[?2004l[?2004h> 
+[?2004l[?2004h>             for (let off = 0; off < p_filesz; off += 4) {
+[?2004l[?2004h>                 if (off + 4 <= p_filesz) {
+[?2004l[?2004h>                     const val = buffer.readUInt32LE(p_offset + off);
+[?2004l[?2004h>                     const addr = startAddr + off;
+[?2004l[?2004h>                     result[addr.toString()] = val;
+[?2004l[?2004h>                 }
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     console.log(JSON.stringify(result));
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> extractMemory(process.argv[2]);
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@5a0cf8745ee1:/app# node extract.js /app/a.out > out.json
+[?2004l[?2004hroot@5a0cf8745ee1:/app# head -c 200 out.json
+[?2004l{"4194304":1179403647,"4194308":65794,"4194312":0,"4194316":0,"4194320":4063235,"4194324":1,"4194328":4192,"4194332":0,"4194336":64,"4194340":0,"4194344":13976,"4194348":0,"4194352":0,"4194356":367008[?2004hroot@5a0cf8745ee1:/app# echo ""
+[?2004l
+[?2004hroot@5a0cf8745ee1:/app# node -e 'const fs=require("fs"); const obj=JSON.parse(fs.readFileSync("out.json")); let count=0, neg=0; for(let k in obj) { count++; if(obj[k] < 0) neg++; } console.log("Total: " + count + ", Negative: " + neg);'
+[?2004lTotal: 698, Negative: 0
+[?2004hroot@5a0cf8745ee1:/app# cat extract.js
+[?2004lconst fs = require('fs');
+
+function extractMemory(filePath) {
+    const buffer = fs.readFileSync(filePath);
+    const result = {};
+
+    // Parse ELF64 header
+    // e_phoff is at offset 32 (8 bytes)
+    // e_phentsize is at offset 54 (2 bytes)
+    // e_phnum is at offset 56 (2 bytes)
+    const e_phoff = Number(buffer.readBigUInt64LE(32));
+    const e_phentsize = buffer.readUInt16LE(54);
+    const e_phnum = buffer.readUInt16LE(56);
+
+    const base = 0x400000;
+
+    for (let i = 0; i < e_phnum; i++) {
+        const ph_offset = e_phoff + i * e_phentsize;
+        const p_type = buffer.readUInt32LE(ph_offset);
+        if (p_type === 1) { // PT_LOAD
+            const p_offset = Number(buffer.readBigUInt64LE(ph_offset + 8));
+            const p_vaddr = Number(buffer.readBigUInt64LE(ph_offset + 16));
+            const p_filesz = Number(buffer.readBigUInt64LE(ph_offset + 32));
+
+            const startAddr = (p_vaddr < 0x400000) ? p_vaddr + base : p_vaddr;
+
+            for (let off = 0; off < p_filesz; off += 4) {
+                if (off + 4 <= p_filesz) {
+                    const val = buffer.readUInt32LE(p_offset + off);
+                    const addr = startAddr + off;
+                    result[addr.toString()] = val;
+                }
+            }
+        }
+    }
+
+    console.log(JSON.stringify(result));
+}
+
+extractMemory(process.argv[2]);
+[?2004hroot@5a0cf8745ee1:/app# 

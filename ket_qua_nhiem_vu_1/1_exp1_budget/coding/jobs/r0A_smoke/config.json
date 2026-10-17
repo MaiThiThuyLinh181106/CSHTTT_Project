@@ -1,0 +1,26 @@
+{
+    "job_name": "r0A_smoke",
+    "jobs_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs",
+    "n_concurrent_trials": 2,
+    "agents": [
+        {
+            "name": "harbor_terminus2:AgentHarness",
+            "model_name": "gemini/gemini-3.5-flash-lite",
+            "kwargs": {
+                "llm_kwargs": {
+                    "num_retries": 10
+                }
+            }
+        }
+    ],
+    "datasets": [
+        {
+            "name": "terminal-bench/terminal-bench-2-1",
+            "ref": "sha256:7d7bdc1cbedad549fc1140404bd4dc45e5fd0ea7c4186773687d177ad3a0699a",
+            "task_names": [
+                "terminal-bench/extract-elf",
+                "terminal-bench/fix-git"
+            ]
+        }
+    ]
+}

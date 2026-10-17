@@ -1,0 +1,51 @@
+{
+ "status": "done",
+ "summary": "Add explicit instructions to prevent premature task completion without executing changes",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Adding explicit guardrails in the prompt template prevents the agent from declaring task completion after only exploring repository history without executing necessary commands.",
+   "targets_mode": "premature_completion_without_execution",
+   "why_not_lower_lever": "Prose prompt instruction directly guides policy behavior regarding task lifecycle decisions.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "fix-git"
+   ],
+   "retroactive_check": "(corrective) fix-git would have received explicit reminder to run merge/checkout before completing; (preservative) does not restrict valid inspection or execution habits; (transfer) generalizes to any task where an agent might mistake exploration for resolution.",
+   "regression_risk": "none",
+   "mechanism": "Adding explicit guardrails in the prompt template prevents the agent from declaring task completion after only exploring repository history without executing necessary commands."
+  }
+ ],
+ "mechanism": "Add explicit instructions to prevent premature task completion without executing changes",
+ "targets_mode": "premature_completion_without_execution",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "It is better to set a smaller duration than a longer duration. It is always possible to wait again if the prior output has not finished, by running {{\"keystrokes\": \"\", \"duration\": 10.0}} on subsequent...",
+   "new": "It is better to set a smaller duration than a longer duration. It is always possible to wait again if the prior output has not finished, by running {{\"keystrokes\": \"\", \"duration\": 10.0}} on subsequent..."
+  },
+  {
+   "action": "done",
+   "summary": "Add explicit instructions to prevent premature task completion without executing changes",
+   "edits": [
+    {
+     "id": "E1",
+     "component": "prompt",
+     "hypothesis": "Adding explicit guardrails in the prompt template prevents the agent from declaring task completion after only exploring repository history without executing necessary commands.",
+     "targets_mode": "premature_completion_without_execution",
+     "why_not_lower_lever": "Prose prompt instruction directly guides policy behavior regarding task lifecycle decisions.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "fix-git"
+     ],
+     "retroactive_check": "(corrective) fix-git would have received explicit reminder to run merge/checkout before completing; (preservative) does not restrict valid inspection or execution habits; (transfer) generalizes to any task where an agent might mistake exploration for resolution.",
+     "regression_risk": "none",
+     "mechanism": "Adding explicit guardrails in the prompt template prevents the agent from declaring task completion after only exploring repository history without executing necessary commands."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+Unknown Error in LLM interaction: litellm.APIConnectionError: GeminiException - Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x000002CC07073930> [getaddrinfo failed] LiteLLM Retried: 10 times
+Unknown Error in LLM interaction: litellm.APIConnectionError: GeminiException - Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x000002CC07073930> [getaddrinfo failed] LiteLLM Retried: 10 times
+Unknown Error in LLM interaction: litellm.APIConnectionError: GeminiException - Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x000002CC07073930> [getaddrinfo failed] LiteLLM Retried: 10 times
+Trajectory dumped to D:\CSHTTT_project\rrsi\runs\coding\jobs\r1A\mteb-leaderboard__HxRyDVY\agent\trajectory.json
+Trial mteb-leaderboard__HxRyDVY failed: litellm.APIConnectionError: GeminiException - Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x000002CC07073930> [getaddrinfo failed] LiteLLM Retried: 10 times
+Collecting main service artifacts

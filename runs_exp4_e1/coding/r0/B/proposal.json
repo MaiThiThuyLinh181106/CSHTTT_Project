@@ -1,0 +1,51 @@
+{
+ "status": "done",
+ "summary": "Enhance prompt guidance on terminal failure observations to encourage full implementation and thorough validation before task completion.",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "control_flow",
+   "hypothesis": "Injecting explicit validation and full implementation reminders upon detecting errors or test failures prevents premature completion attempts.",
+   "targets_mode": "exhaustive_exploration_exhausts_turn_budget",
+   "why_not_lower_lever": "A prompt instruction alone wouldn't dynamically trigger on observed command errors as effectively as intercepting the error observation flow.",
+   "trigger_condition": "Whenever terminal output contains ERROR, AssertionError, or FAIL.",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": "(corrective) helps steer extract-elf and similar parsing tasks toward implementation and verification rather than looping or premature completion; (preservative) preserves normal failure feedback loops; (transfer) generalizes to any task with failing tests or tool errors.",
+   "regression_risk": "Low; purely modifies observation text on error conditions.",
+   "mechanism": "Injecting explicit validation and full implementation reminders upon detecting errors or test failures prevents premature completion attempts."
+  }
+ ],
+ "mechanism": "Enhance prompt guidance on terminal failure observations to encourage full implementation and thorough validation before task completion.",
+ "targets_mode": "exhaustive_exploration_exhausts_turn_budget",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "                if \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output:\n                    observation = (\n                        f\"NOTICE: The previous c...",
+   "new": "                if \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output:\n                    observation = (\n                        f\"NOTICE: The previous c..."
+  },
+  {
+   "action": "done",
+   "summary": "Enhance prompt guidance on terminal failure observations to encourage full implementation and thorough validation before task completion.",
+   "edits": [
+    {
+     "id": "E1",
+     "component": "control_flow",
+     "hypothesis": "Injecting explicit validation and full implementation reminders upon detecting errors or test failures prevents premature completion attempts.",
+     "targets_mode": "exhaustive_exploration_exhausts_turn_budget",
+     "why_not_lower_lever": "A prompt instruction alone wouldn't dynamically trigger on observed command errors as effectively as intercepting the error observation flow.",
+     "trigger_condition": "Whenever terminal output contains ERROR, AssertionError, or FAIL.",
+     "predicted_affected": [
+      "extract-elf"
+     ],
+     "retroactive_check": "(corrective) helps steer extract-elf and similar parsing tasks toward implementation and verification rather than looping or premature completion; (preservative) preserves normal failure feedback loops; (transfer) generalizes to any task with failing tests or tool errors.",
+     "regression_risk": "Low; purely modifies observation text on error conditions.",
+     "mechanism": "Injecting explicit validation and full implementation reminders upon detecting errors or test failures prevents premature completion attempts."
+    }
+   ]
+  }
+ ]
+}

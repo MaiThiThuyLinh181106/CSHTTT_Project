@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/nginx-request-logging",
+        "ref": "sha256:9d1b8bebd989ea0bc8080c3b159480068caf183c5fd61385868b2574b206e097",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "nginx-request-logging__A35jFwp",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

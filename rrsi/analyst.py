@@ -174,11 +174,16 @@ def analyze(domain, traces: dict, per_task: dict, round_dir: Path,
                       flush=True)
 
             def run(r):
+                df = digests_dir / f"{r['task_id']}_{r.get('lens', 'failure')}.json"
+                if df.exists():
+                    try:
+                        return json.loads(df.read_text(encoding="utf-8"))
+                    except Exception:
+                        pass
                 d = digest_task(rendered_dir, r["task_id"], r.get("lens", "failure"),
                                 domain.briefs["digester"], r.get("questions"),
                                 model=model)
-                (digests_dir / f"{r['task_id']}_{r.get('lens', 'failure')}.json"
-                 ).write_text(json.dumps(d, ensure_ascii=False, indent=1))
+                df.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
                 return d
             with ThreadPoolExecutor(max_workers=DIGEST_PARALLELISM) as ex:
                 digests = list(ex.map(run, valid))

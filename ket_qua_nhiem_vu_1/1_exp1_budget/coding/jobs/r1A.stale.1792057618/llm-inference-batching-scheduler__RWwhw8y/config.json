@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/llm-inference-batching-scheduler",
+        "ref": "sha256:a3bf47589118daec5124fe3689b4439802c805b2f4ed9d402a48ae73ca2fea67",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "llm-inference-batching-scheduler__RWwhw8y",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

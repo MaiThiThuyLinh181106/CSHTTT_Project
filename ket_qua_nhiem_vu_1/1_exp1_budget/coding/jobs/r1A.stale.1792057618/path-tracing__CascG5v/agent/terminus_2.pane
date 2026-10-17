@@ -1,0 +1,50 @@
+[?2004hroot@8258abb475f7:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@8258abb475f7:/app# clear
+[?2004l[H[J[3J[?2004hroot@8258abb475f7:/app# head -n 5 image.ppm
+[?2004lP3
+2400 1800
+255
+159 197 255
+159 197 255
+[?2004hroot@8258abb475f7:/app# python3 -c "with open('/app/image.ppm', 'rb') as f: lines = [f.readline() for _ in range(5)]; print(lines)"
+[?2004l[b'P3\n', b'2400 1800\n', b'255\n', b'159 197 255\n', b'159 197 255\n']
+[?2004hroot@8258abb475f7:/app# python3 -c 'import sys
+[?2004l[?2004h> with open("/app/image.ppm", "r") as f:
+[?2004l[?2004h>     tokens = f.read().split()
+[?2004l[?2004h> print("Header:", tokens[:4])
+[?2004l[?2004h> ' 
+[?2004lHeader: ['P3', '2400', '1800', '255']
+[?2004hroot@8258abb475f7:/app# python3 -c '
+[?2004l[?2004h> with open("/app/image.ppm", "r") as f:
+[?2004l[?2004h>     tokens = f.read().split()
+[?2004l[?2004h> header = tokens[:4]
+[?2004l[?2004h> print("Header:", header)
+[?2004l[?2004h> vals = [int(x) for x in tokens[4:]]
+[?2004l[?2004h> print("Total values:", len(vals))
+[?2004l[?2004h> import collections
+[?2004l[?2004h> c = collections.Counter(zip(vals[0::3], vals[1::3], vals[2::3]))
+[?2004l[?2004h> print("Top 10 colors:", c.most_common(10))
+[?2004l[?2004h> print("Total unique colors:", len(c))
+[?2004l[?2004h> '
+[?2004lHeader: ['P3', '2400', '1800', '255']
+Total values: 12960000
+Top 10 colors: [((152, 152, 152), 985335), ((67, 67, 67), 965537), ((51, 10, 10), 87726), ((20, 20, 20), 71402), ((158, 197, 255), 64702), ((160, 198, 255), 63672), ((161, 199, 255), 61420), ((163, 200, 255), 58490), ((156, 196, 255), 57670), ((165, 201, 255), 55684)]
+Total unique colors: 225
+[?2004hroot@8258abb475f7:/app# python3 -c '
+[?2004l[?2004h> import numpy as np
+[?2004l[?2004h> with open("/app/image.ppm", "r") as f:
+[?2004l[?2004h>     tokens = f.read().split()
+[?2004l[?2004h> img = np.array([int(x) for x in tokens[4:]], dtype=np.uint8).reshape(1800, 2400, 3)
+[?2004l[?2004h> print("Shape:", img.shape)
+[?2004l[?2004h> # Check variance across rows/cols or find non-background pixels
+[?2004l[?2004h> bg = img[0, 0]
+[?2004l[?2004h> print("Background color (0,0):", bg)
+[?2004l[?2004h> diff = np.all(img != bg, axis=-1)
+[?2004l[?2004h> print("Non-bg pixel count:", np.sum(diff))
+[?2004l[?2004h> ' 
+[?2004lTraceback (most recent call last):
+  File "<string>", line 2, in <module>
+ModuleNotFoundError: No module named 'numpy'
+[?2004hroot@8258abb475f7:/app# 

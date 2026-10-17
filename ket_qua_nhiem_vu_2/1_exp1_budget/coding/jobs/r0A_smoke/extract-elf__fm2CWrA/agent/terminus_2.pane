@@ -1,0 +1,1109 @@
+[?2004hroot@b9fd2b2162f5:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@b9fd2b2162f5:/app# clear
+[?2004l[H[J[3J[?2004hroot@b9fd2b2162f5:/app# ls -la
+[?2004ltotal 28
+drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 17 05:18 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+[?2004hroot@b9fd2b2162f5:/app# file a.out
+[?2004lbash: file: command not found
+[?2004hroot@b9fd2b2162f5:/app# readelf -S a.out
+[?2004lThere are 31 section headers, starting at offset 0x3698:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000318  00000318
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
+       0000000000000030  0000000000000000   A       0     0     8
+  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
+       0000000000000024  0000000000000000   A       6     0     8
+  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
+       00000000000000a8  0000000000000018   A       7     1     8
+  [ 7] .dynstr           STRTAB           0000000000000480  00000480
+       000000000000008d  0000000000000000   A       0     0     1
+  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
+       000000000000000e  0000000000000002   A       6     0     2
+  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
+       0000000000000030  0000000000000000   A       7     1     8
+  [10] .rela.dyn         RELA             0000000000000550  00000550
+       00000000000000c0  0000000000000018   A       6     0     8
+  [11] .rela.plt         RELA             0000000000000610  00000610
+       0000000000000018  0000000000000018  AI       6    24     8
+  [12] .init             PROGBITS         0000000000001000  00001000
+       000000000000001b  0000000000000000  AX       0     0     4
+  [13] .plt              PROGBITS         0000000000001020  00001020
+       0000000000000020  0000000000000010  AX       0     0     16
+  [14] .plt.got          PROGBITS         0000000000001040  00001040
+       0000000000000010  0000000000000010  AX       0     0     16
+  [15] .plt.sec          PROGBITS         0000000000001050  00001050
+       0000000000000010  0000000000000010  AX       0     0     16
+  [16] .text             PROGBITS         0000000000001060  00001060
+       0000000000000107  0000000000000000  AX       0     0     16
+  [17] .fini             PROGBITS         0000000000001168  00001168
+       000000000000000d  0000000000000000  AX       0     0     4
+  [18] .rodata           PROGBITS         0000000000002000  00002000
+       0000000000000010  0000000000000000   A       0     0     4
+  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
+       0000000000000034  0000000000000000   A       0     0     4
+  [20] .eh_frame         PROGBITS         0000000000002048  00002048
+       00000000000000ac  0000000000000000   A       0     0     8
+  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
+       0000000000000008  0000000000000008  WA       0     0     8
+  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
+       00000000000001f0  0000000000000010  WA       7     0     8
+  [24] .got              PROGBITS         0000000000003fb8  00002fb8
+       0000000000000048  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000004000  00003000
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           0000000000004010  00003010
+       0000000000000008  0000000000000000  WA       0     0     1
+  [27] .comment          PROGBITS         0000000000000000  00003010
+       000000000000002b  0000000000000001  MS       0     0     1
+  [28] .symtab           SYMTAB           0000000000000000  00003040
+       0000000000000360  0000000000000018          29    18     8
+  [29] .strtab           STRTAB           0000000000000000  000033a0
+       00000000000001d8  0000000000000000           0     0     1
+  [30] .shstrtab         STRTAB           0000000000000000  00003578
+       000000000000011a  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+[?2004hroot@b9fd2b2162f5:/app# cat hi.c
+[?2004l#include<stdio.h>
+
+int main() {
+  printf("Hello world\n");
+}
+[?2004hroot@b9fd2b2162f5:/app# readelf -s a.out
+[?2004l
+Symbol table '.dynsym' contains 7 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND _[...]@GLIBC_2.34 (2)
+     2: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterT[...]
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.2.5 (3)
+     4: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     5: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMC[...]
+     6: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND [...]@GLIBC_2.2.5 (3)
+
+Symbol table '.symtab' contains 36 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS Scrt1.o
+     2: 000000000000038c    32 OBJECT  LOCAL  DEFAULT    4 __abi_tag
+     3: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+     4: 0000000000001090     0 FUNC    LOCAL  DEFAULT   16 deregister_tm_clones
+     5: 00000000000010c0     0 FUNC    LOCAL  DEFAULT   16 register_tm_clones
+     6: 0000000000001100     0 FUNC    LOCAL  DEFAULT   16 __do_global_dtors_aux
+     7: 0000000000004010     1 OBJECT  LOCAL  DEFAULT   26 completed.0
+     8: 0000000000003dc0     0 OBJECT  LOCAL  DEFAULT   22 __do_global_dtor[...]
+     9: 0000000000001140     0 FUNC    LOCAL  DEFAULT   16 frame_dummy
+    10: 0000000000003db8     0 OBJECT  LOCAL  DEFAULT   21 __frame_dummy_in[...]
+    11: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS hi.c
+    12: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    13: 00000000000020f0     0 OBJECT  LOCAL  DEFAULT   20 __FRAME_END__
+    14: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    15: 0000000000003dc8     0 OBJECT  LOCAL  DEFAULT   23 _DYNAMIC
+    16: 0000000000002010     0 NOTYPE  LOCAL  DEFAULT   19 __GNU_EH_FRAME_HDR
+    17: 0000000000003fb8     0 OBJECT  LOCAL  DEFAULT   24 _GLOBAL_OFFSET_TABLE_
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_mai[...]
+    19: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterT[...]
+    20: 0000000000004000     0 NOTYPE  WEAK   DEFAULT   25 data_start
+    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.2.5
+    22: 0000000000004010     0 NOTYPE  GLOBAL DEFAULT   25 _edata
+    23: 0000000000001168     0 FUNC    GLOBAL HIDDEN    17 _fini
+    24: 0000000000004000     0 NOTYPE  GLOBAL DEFAULT   25 __data_start
+    25: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    26: 0000000000004008     0 OBJECT  GLOBAL HIDDEN    25 __dso_handle
+    27: 0000000000002000     4 OBJECT  GLOBAL DEFAULT   18 _IO_stdin_used
+    28: 0000000000004018     0 NOTYPE  GLOBAL DEFAULT   26 _end
+    29: 0000000000001060    38 FUNC    GLOBAL DEFAULT   16 _start
+    30: 0000000000004010     0 NOTYPE  GLOBAL DEFAULT   26 __bss_start
+    31: 0000000000001149    30 FUNC    GLOBAL DEFAULT   16 main
+    32: 0000000000004010     0 OBJECT  GLOBAL HIDDEN    25 __TMC_END__
+    33: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMC[...]
+    34: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@G[...]
+    35: 0000000000001000     0 FUNC    GLOBAL HIDDEN    12 _init
+[?2004hroot@b9fd2b2162f5:/app# readelf -l a.out
+[?2004l
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x1060
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000628 0x0000000000000628  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
+                 0x0000000000000175 0x0000000000000175  R E    0x1000
+  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
+                 0x00000000000000f4 0x00000000000000f4  R      0x1000
+  LOAD           0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000258 0x0000000000000260  RW     0x1000
+  DYNAMIC        0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8
+                 0x00000000000001f0 0x00000000000001f0  RW     0x8
+  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
+                 0x0000000000000044 0x0000000000000044  R      0x4
+  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  GNU_EH_FRAME   0x0000000000002010 0x0000000000002010 0x0000000000002010
+                 0x0000000000000034 0x0000000000000034  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000248 0x0000000000000248  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   03     .init .plt .plt.got .plt.sec .text .fini 
+   04     .rodata .eh_frame_hdr .eh_frame 
+   05     .init_array .fini_array .dynamic .got .data .bss 
+   06     .dynamic 
+   07     .note.gnu.property 
+   08     .note.gnu.build-id .note.ABI-tag 
+   09     .note.gnu.property 
+   10     .eh_frame_hdr 
+   11     
+   12     .init_array .fini_array .dynamic .got 
+[?2004hroot@b9fd2b2162f5:/app# npm list
+[?2004l[0m/app[0m
+[0m└── (empty)[0m
+[0m[0m
+[?2004hroot@b9fd2b2162f5:/app# ls -la /app
+[?2004ltotal 28
+drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 17 05:18 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+[?2004hroot@b9fd2b2162f5:/app# find / -name "*extract*" 2>/dev/null
+[?2004l/usr/share/doc/node-postcss-modules-extract-imports
+/usr/share/nodejs/tar/lib/extract.js
+/usr/share/nodejs/postcss-modules-extract-imports
+/usr/share/nodejs/@babel/eslint-parser/lib/worker/extract-parser-options-plugin.cjs
+/usr/share/nodejs/eslint/lib/cli-engine/config-array/extracted-config.js
+/usr/share/nodejs/icss-utils/src/extractICSS.js
+/usr/share/nodejs/webpack/lib/util/extractUrlAndGlobal.js
+/usr/share/nodejs/normalize-package-data/lib/extract_description.js
+/var/lib/dpkg/info/node-postcss-modules-extract-imports.md5sums
+/var/lib/dpkg/info/node-postcss-modules-extract-imports.list
+[?2004hroot@b9fd2b2162f5:/app# node -e 'const fs = require("fs"); const buf = fs.readFileSync("a.out"); console.log(buf.readUInt32LE(0));'
+[?2004l[33m1179403647[39m
+[?2004hroot@b9fd2b2162f5:/app# node -e 'const fs = require("fs"); const buf = fs.readFileSync("a.out"); console.log("e_type:", buf.readUInt16LE(16)); console.log("e_entry:", buf.readBigUInt64LE(24)); console.log("e_phoff:", buf.readBigUInt64LE(32));'
+[?2004le_type: [33m3[39m
+e_entry: [33m4192n[39m
+e_phoff: [33m64n[39m
+[?2004hroot@b9fd2b2162f5:/app# python3 -c 'import sys; print(sys.version)'
+[?2004l3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
+[?2004hroot@b9fd2b2162f5:/app# python3 -c '
+[?2004l[?2004h> import struct
+[?2004l[?2004h> with open("a.out", "rb") as f:
+[?2004l[?2004h>     data = f.read()
+[?2004l[?2004h> # ELF header 64-bit
+[?2004l[?2004h> # e_phoff at 32
+[?2004l[?2004h> phoff = struct.unpack("<Q", data[32:40])[0]
+[?2004l[?2004h> phentsize = struct.unpack("<H", data[54:56])[0]
+[?2004l[?2004h> phnum = struct.unpack("<H", data[56:58])[0]
+[?2004l[?2004h> print(f"phoff: {phoff}, phentsize: {phentsize}, phnum: {phnum}")
+[?2004l[?2004h> for i in range(phnum):
+[?2004l[?2004h>     ph = data[phoff + i*phentsize : phoff + (i+1)*phentsize]
+[?2004l[?2004h>     p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align = struct.unpack("<IIQQQQQQ", ph)
+[?2004l[?2004h>     print(f"Type: {p_type}, Offset: {p_offset:#x}, VAddr: {p_vaddr:#x}, FileSiz: {p_filesz:#x}, MemSiz: {p_memsz:#x}")
+[?2004l[?2004h> '
+[?2004lphoff: 64, phentsize: 56, phnum: 13
+Type: 6, Offset: 0x40, VAddr: 0x40, FileSiz: 0x2d8, MemSiz: 0x2d8
+Type: 3, Offset: 0x318, VAddr: 0x318, FileSiz: 0x1c, MemSiz: 0x1c
+Type: 1, Offset: 0x0, VAddr: 0x0, FileSiz: 0x628, MemSiz: 0x628
+Type: 1, Offset: 0x1000, VAddr: 0x1000, FileSiz: 0x175, MemSiz: 0x175
+Type: 1, Offset: 0x2000, VAddr: 0x2000, FileSiz: 0xf4, MemSiz: 0xf4
+Type: 1, Offset: 0x2db8, VAddr: 0x3db8, FileSiz: 0x258, MemSiz: 0x260
+Type: 2, Offset: 0x2dc8, VAddr: 0x3dc8, FileSiz: 0x1f0, MemSiz: 0x1f0
+Type: 4, Offset: 0x338, VAddr: 0x338, FileSiz: 0x30, MemSiz: 0x30
+Type: 4, Offset: 0x368, VAddr: 0x368, FileSiz: 0x44, MemSiz: 0x44
+Type: 1685382483, Offset: 0x338, VAddr: 0x338, FileSiz: 0x30, MemSiz: 0x30
+Type: 1685382480, Offset: 0x2010, VAddr: 0x2010, FileSiz: 0x34, MemSiz: 0x34
+Type: 1685382481, Offset: 0x0, VAddr: 0x0, FileSiz: 0x0, MemSiz: 0x0
+Type: 1685382482, Offset: 0x2db8, VAddr: 0x3db8, FileSiz: 0x248, MemSiz: 0x248
+[?2004hroot@b9fd2b2162f5:/app# ls -la /
+[?2004ltotal 76
+drwxr-xr-x   1 root root 4096 Oct 17 05:18 [0m[01;34m.[0m
+drwxr-xr-x   1 root root 4096 Oct 17 05:18 [01;34m..[0m
+-rwxr-xr-x   1 root root    0 Oct 17 05:17 [01;32m.dockerenv[0m
+drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mapp[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mbin[0m -> [01;34musr/bin[0m
+drwxr-xr-x   2 root root 4096 Apr 22  2024 [01;34mboot[0m
+drwxr-xr-x   5 root root  340 Oct 17 05:17 [01;34mdev[0m
+drwxr-xr-x   1 root root 4096 Oct 17 05:18 [01;34metc[0m
+drwxr-xr-x   3 root root 4096 Oct  1  2025 [01;34mhome[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mlib[0m -> [01;34musr/lib[0m
+lrwxrwxrwx   1 root root    9 Apr 22  2024 [01;36mlib64[0m -> [01;34musr/lib64[0m
+drwxr-xr-x   5 root root 4096 Oct 17 05:17 [01;34mlogs[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmedia[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmnt[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mopt[0m
+dr-xr-xr-x 253 root root    0 Oct 17 05:17 [01;34mproc[0m
+drwx------   1 root root 4096 Oct 17 05:19 [01;34mroot[0m
+drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mrun[0m
+lrwxrwxrwx   1 root root    8 Apr 22  2024 [01;36msbin[0m -> [01;34musr/sbin[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34msrv[0m
+dr-xr-xr-x  13 root root    0 Oct 17 05:17 [01;34msys[0m
+drwxrwxrwt   1 root root 4096 Oct 17 05:18 [30;42mtmp[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34musr[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34mvar[0m
+[?2004hroot@b9fd2b2162f5:/app# env
+[?2004lSHELL=/bin/bash
+TERM_PROGRAM_VERSION=3.4
+ASCIINEMA_REC=1
+TMUX=/tmp/tmux-0/default,180,0
+HOSTNAME=b9fd2b2162f5
+PWD=/app
+HOME=/root
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+LESSCLOSE=/usr/bin/lesspipe %s %s
+TERM=tmux-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+TMUX_PANE=%0
+SHLVL=2
+LC_CTYPE=C.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+TERM_PROGRAM=tmux
+_=/usr/bin/env
+[?2004hroot@b9fd2b2162f5:/app# python3 -c 'with open("a.out", "rb") as f: content = f.read()
+[?2004l[?2004h> val = 1784774249
+[?2004l[?2004h> b_val = val.to_bytes(4, "little")
+[?2004l[?2004h> idx = content.find(b_val)
+[?2004l[?2004h> print(f"Found at file offset: {idx:#x}")
+[?2004l[?2004h> '
+[?2004lFound at file offset: -0x1
+[?2004hroot@b9fd2b2162f5:/app# python3 -c 'import struct
+[?2004l[?2004h> with open("a.out", "rb") as f:
+[?2004l[?2004h>     data = f.read()
+[?2004l[?2004h> phoff = struct.unpack("<Q", data[32:40])[0]
+[?2004l[?2004h> phentsize = struct.unpack("<H", data[54:56])[0]
+[?2004l[?2004h> phnum = struct.unpack("<H", data[56:58])[0]
+[?2004l[?2004h> for i in range(phnum):
+[?2004l[?2004h>     ph = data[phoff + i*phentsize : phoff + (i+1)*phentsize]
+[?2004l[?2004h>     p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align = struct.unpack("<IIQQQQQQ", ph)
+[?2004l[?2004h>     if p_type == 1:
+[?2004l[?2004h>         print(f"LOAD vaddr {p_vaddr:#x} filesz {p_filesz:#x} memsz {p_memsz:#x}")
+[?2004l[?2004h> '
+[?2004lLOAD vaddr 0x0 filesz 0x628 memsz 0x628
+LOAD vaddr 0x1000 filesz 0x175 memsz 0x175
+LOAD vaddr 0x2000 filesz 0xf4 memsz 0xf4
+LOAD vaddr 0x3db8 filesz 0x258 memsz 0x260
+[?2004hroot@b9fd2b2162f5:/app# find / -name "*.py" 2>/dev/null
+[?2004l/usr/share/apport/package-hooks/source_shadow.py
+/usr/share/apport/package-hooks/openssh-client.py
+/usr/share/gdb/auto-load/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33-gdb.py
+/usr/share/gdb/auto-load/usr/lib/x86_64-linux-gnu/libisl.so.23.3.0-gdb.py
+/usr/share/gdb/auto-load/lib/x86_64-linux-gnu/libc.so.6-gdb.py
+/usr/share/gcc/python/libstdcxx/v6/xmethods.py
+/usr/share/gcc/python/libstdcxx/v6/printers.py
+/usr/share/gcc/python/libstdcxx/v6/__init__.py
+/usr/share/gcc/python/libstdcxx/__init__.py
+/usr/share/python3/py3versions.py
+/usr/share/python3/debpython/version.py
+/usr/share/python3/debpython/__init__.py
+/usr/share/python3/debpython/files.py
+/usr/share/python3/debpython/interpreter.py
+/usr/share/python3/debpython/option.py
+/usr/share/nodejs/node-gyp/gyp/gyp_main.py
+/usr/lib/python3.12/zoneinfo/_tzpath.py
+/usr/lib/python3.12/zoneinfo/_common.py
+/usr/lib/python3.12/zoneinfo/_zoneinfo.py
+/usr/lib/python3.12/zoneinfo/__init__.py
+/usr/lib/python3.12/logging/handlers.py
+/usr/lib/python3.12/logging/config.py
+/usr/lib/python3.12/logging/__init__.py
+/usr/lib/python3.12/trace.py
+/usr/lib/python3.12/sqlite3/dump.py
+/usr/lib/python3.12/sqlite3/__main__.py
+/usr/lib/python3.12/sqlite3/dbapi2.py
+/usr/lib/python3.12/sqlite3/__init__.py
+/usr/lib/python3.12/venv/__main__.py
+/usr/lib/python3.12/venv/__init__.py
+/usr/lib/python3.12/py_compile.py
+/usr/lib/python3.12/copy.py
+/usr/lib/python3.12/shlex.py
+/usr/lib/python3.12/imaplib.py
+/usr/lib/python3.12/selectors.py
+/usr/lib/python3.12/fileinput.py
+/usr/lib/python3.12/nturl2path.py
+/usr/lib/python3.12/site.py
+/usr/lib/python3.12/gettext.py
+/usr/lib/python3.12/token.py
+/usr/lib/python3.12/email/feedparser.py
+/usr/lib/python3.12/email/quoprimime.py
+/usr/lib/python3.12/email/_policybase.py
+/usr/lib/python3.12/email/iterators.py
+/usr/lib/python3.12/email/base64mime.py
+/usr/lib/python3.12/email/parser.py
+/usr/lib/python3.12/email/errors.py
+/usr/lib/python3.12/email/generator.py
+/usr/lib/python3.12/email/charset.py
+/usr/lib/python3.12/email/mime/image.py
+/usr/lib/python3.12/email/mime/text.py
+/usr/lib/python3.12/email/mime/base.py
+/usr/lib/python3.12/email/mime/multipart.py
+/usr/lib/python3.12/email/mime/nonmultipart.py
+/usr/lib/python3.12/email/mime/application.py
+/usr/lib/python3.12/email/mime/message.py
+/usr/lib/python3.12/email/mime/audio.py
+/usr/lib/python3.12/email/mime/__init__.py
+/usr/lib/python3.12/email/_parseaddr.py
+/usr/lib/python3.12/email/_header_value_parser.py
+/usr/lib/python3.12/email/contentmanager.py
+/usr/lib/python3.12/email/encoders.py
+/usr/lib/python3.12/email/message.py
+/usr/lib/python3.12/email/headerregistry.py
+/usr/lib/python3.12/email/header.py
+/usr/lib/python3.12/email/utils.py
+/usr/lib/python3.12/email/__init__.py
+/usr/lib/python3.12/email/_encoded_words.py
+/usr/lib/python3.12/email/policy.py
+/usr/lib/python3.12/rlcompleter.py
+/usr/lib/python3.12/pstats.py
+/usr/lib/python3.12/shutil.py
+/usr/lib/python3.12/filecmp.py
+/usr/lib/python3.12/wave.py
+/usr/lib/python3.12/xdrlib.py
+/usr/lib/python3.12/_threading_local.py
+/usr/lib/python3.12/importlib/_bootstrap_external.py
+/usr/lib/python3.12/importlib/_bootstrap.py
+/usr/lib/python3.12/importlib/_abc.py
+/usr/lib/python3.12/importlib/readers.py
+/usr/lib/python3.12/importlib/simple.py
+/usr/lib/python3.12/importlib/resources/_common.py
+/usr/lib/python3.12/importlib/resources/_adapters.py
+/usr/lib/python3.12/importlib/resources/readers.py
+/usr/lib/python3.12/importlib/resources/simple.py
+/usr/lib/python3.12/importlib/resources/_legacy.py
+/usr/lib/python3.12/importlib/resources/__init__.py
+/usr/lib/python3.12/importlib/resources/abc.py
+/usr/lib/python3.12/importlib/resources/_itertools.py
+/usr/lib/python3.12/importlib/metadata/_adapters.py
+/usr/lib/python3.12/importlib/metadata/_meta.py
+/usr/lib/python3.12/importlib/metadata/_text.py
+/usr/lib/python3.12/importlib/metadata/_collections.py
+/usr/lib/python3.12/importlib/metadata/__init__.py
+/usr/lib/python3.12/importlib/metadata/_itertools.py
+/usr/lib/python3.12/importlib/metadata/_functools.py
+/usr/lib/python3.12/importlib/util.py
+/usr/lib/python3.12/importlib/machinery.py
+/usr/lib/python3.12/importlib/__init__.py
+/usr/lib/python3.12/importlib/abc.py
+/usr/lib/python3.12/optparse.py
+/usr/lib/python3.12/ntpath.py
+/usr/lib/python3.12/_sitebuiltins.py
+/usr/lib/python3.12/random.py
+/usr/lib/python3.12/sunau.py
+/usr/lib/python3.12/pty.py
+/usr/lib/python3.12/queue.py
+/usr/lib/python3.12/pathlib.py
+/usr/lib/python3.12/uuid.py
+/usr/lib/python3.12/sre_compile.py
+/usr/lib/python3.12/tarfile.py
+/usr/lib/python3.12/webbrowser.py
+/usr/lib/python3.12/operator.py
+/usr/lib/python3.12/chunk.py
+/usr/lib/python3.12/graphlib.py
+/usr/lib/python3.12/cProfile.py
+/usr/lib/python3.12/bdb.py
+/usr/lib/python3.12/dataclasses.py
+/usr/lib/python3.12/_distutils_system_mod.py
+/usr/lib/python3.12/dbm/ndbm.py
+/usr/lib/python3.12/dbm/dumb.py
+/usr/lib/python3.12/dbm/gnu.py
+/usr/lib/python3.12/dbm/__init__.py
+/usr/lib/python3.12/_pydecimal.py
+/usr/lib/python3.12/subprocess.py
+/usr/lib/python3.12/colorsys.py
+/usr/lib/python3.12/stringprep.py
+/usr/lib/python3.12/ftplib.py
+/usr/lib/python3.12/genericpath.py
+/usr/lib/python3.12/opcode.py
+/usr/lib/python3.12/gzip.py
+/usr/lib/python3.12/pipes.py
+/usr/lib/python3.12/mailcap.py
+/usr/lib/python3.12/_weakrefset.py
+/usr/lib/python3.12/turtle.py
+/usr/lib/python3.12/multiprocessing/queues.py
+/usr/lib/python3.12/multiprocessing/popen_fork.py
+/usr/lib/python3.12/multiprocessing/process.py
+/usr/lib/python3.12/multiprocessing/reduction.py
+/usr/lib/python3.12/multiprocessing/popen_spawn_win32.py
+/usr/lib/python3.12/multiprocessing/heap.py
+/usr/lib/python3.12/multiprocessing/spawn.py
+/usr/lib/python3.12/multiprocessing/shared_memory.py
+/usr/lib/python3.12/multiprocessing/managers.py
+/usr/lib/python3.12/multiprocessing/resource_sharer.py
+/usr/lib/python3.12/multiprocessing/context.py
+/usr/lib/python3.12/multiprocessing/pool.py
+/usr/lib/python3.12/multiprocessing/forkserver.py
+/usr/lib/python3.12/multiprocessing/popen_forkserver.py
+/usr/lib/python3.12/multiprocessing/synchronize.py
+/usr/lib/python3.12/multiprocessing/util.py
+/usr/lib/python3.12/multiprocessing/dummy/connection.py
+/usr/lib/python3.12/multiprocessing/dummy/__init__.py
+/usr/lib/python3.12/multiprocessing/popen_spawn_posix.py
+/usr/lib/python3.12/multiprocessing/connection.py
+/usr/lib/python3.12/multiprocessing/__init__.py
+/usr/lib/python3.12/multiprocessing/resource_tracker.py
+/usr/lib/python3.12/multiprocessing/sharedctypes.py
+/usr/lib/python3.12/compileall.py
+/usr/lib/python3.12/this.py
+/usr/lib/python3.12/cgitb.py
+/usr/lib/python3.12/_pylong.py
+/usr/lib/python3.12/ssl.py
+/usr/lib/python3.12/mimetypes.py
+/usr/lib/python3.12/functools.py
+/usr/lib/python3.12/_pyio.py
+/usr/lib/python3.12/fractions.py
+/usr/lib/python3.12/ctypes/_endian.py
+/usr/lib/python3.12/ctypes/wintypes.py
+/usr/lib/python3.12/ctypes/_aix.py
+/usr/lib/python3.12/ctypes/util.py
+/usr/lib/python3.12/ctypes/__init__.py
+/usr/lib/python3.12/secrets.py
+/usr/lib/python3.12/decimal.py
+/usr/lib/python3.12/pydoc_data/topics.py
+/usr/lib/python3.12/pydoc_data/__init__.py
+/usr/lib/python3.12/os.py
+/usr/lib/python3.12/xmlrpc/client.py
+/usr/lib/python3.12/xmlrpc/server.py
+/usr/lib/python3.12/xmlrpc/__init__.py
+/usr/lib/python3.12/traceback.py
+/usr/lib/python3.12/imghdr.py
+/usr/lib/python3.12/textwrap.py
+/usr/lib/python3.12/cmd.py
+/usr/lib/python3.12/pydoc.py
+/usr/lib/python3.12/_osx_support.py
+/usr/lib/python3.12/xml/sax/saxutils.py
+/usr/lib/python3.12/xml/sax/expatreader.py
+/usr/lib/python3.12/xml/sax/_exceptions.py
+/usr/lib/python3.12/xml/sax/handler.py
+/usr/lib/python3.12/xml/sax/__init__.py
+/usr/lib/python3.12/xml/sax/xmlreader.py
+/usr/lib/python3.12/xml/parsers/expat.py
+/usr/lib/python3.12/xml/parsers/__init__.py
+/usr/lib/python3.12/xml/dom/pulldom.py
+/usr/lib/python3.12/xml/dom/expatbuilder.py
+/usr/lib/python3.12/xml/dom/minidom.py
+/usr/lib/python3.12/xml/dom/NodeFilter.py
+/usr/lib/python3.12/xml/dom/xmlbuilder.py
+/usr/lib/python3.12/xml/dom/minicompat.py
+/usr/lib/python3.12/xml/dom/domreg.py
+/usr/lib/python3.12/xml/dom/__init__.py
+/usr/lib/python3.12/xml/etree/ElementInclude.py
+/usr/lib/python3.12/xml/etree/cElementTree.py
+/usr/lib/python3.12/xml/etree/ElementPath.py
+/usr/lib/python3.12/xml/etree/ElementTree.py
+/usr/lib/python3.12/xml/etree/__init__.py
+/usr/lib/python3.12/xml/__init__.py
+/usr/lib/python3.12/bisect.py
+/usr/lib/python3.12/concurrent/futures/process.py
+/usr/lib/python3.12/concurrent/futures/_base.py
+/usr/lib/python3.12/concurrent/futures/thread.py
+/usr/lib/python3.12/concurrent/futures/__init__.py
+/usr/lib/python3.12/concurrent/__init__.py
+/usr/lib/python3.12/__hello__.py
+/usr/lib/python3.12/tty.py
+/usr/lib/python3.12/codecs.py
+/usr/lib/python3.12/dis.py
+/usr/lib/python3.12/codeop.py
+/usr/lib/python3.12/pprint.py
+/usr/lib/python3.12/glob.py
+/usr/lib/python3.12/typing.py
+/usr/lib/python3.12/bz2.py
+/usr/lib/python3.12/zipfile/__main__.py
+/usr/lib/python3.12/zipfile/_path/glob.py
+/usr/lib/python3.12/zipfile/_path/__init__.py
+/usr/lib/python3.12/zipfile/__init__.py
+/usr/lib/python3.12/struct.py
+/usr/lib/python3.12/_sysconfigdata__linux_x86_64-linux-gnu.py
+/usr/lib/python3.12/types.py
+/usr/lib/python3.12/symtable.py
+/usr/lib/python3.12/_py_abc.py
+/usr/lib/python3.12/nntplib.py
+/usr/lib/python3.12/ast.py
+/usr/lib/python3.12/contextlib.py
+/usr/lib/python3.12/_markupbase.py
+/usr/lib/python3.12/inspect.py
+/usr/lib/python3.12/locale.py
+/usr/lib/python3.12/_pydatetime.py
+/usr/lib/python3.12/wsgiref/validate.py
+/usr/lib/python3.12/wsgiref/handlers.py
+/usr/lib/python3.12/wsgiref/types.py
+/usr/lib/python3.12/wsgiref/headers.py
+/usr/lib/python3.12/wsgiref/util.py
+/usr/lib/python3.12/wsgiref/__init__.py
+/usr/lib/python3.12/wsgiref/simple_server.py
+/usr/lib/python3.12/re/_compiler.py
+/usr/lib/python3.12/re/_casefix.py
+/usr/lib/python3.12/re/_parser.py
+/usr/lib/python3.12/re/_constants.py
+/usr/lib/python3.12/re/__init__.py
+/usr/lib/python3.12/shelve.py
+/usr/lib/python3.12/quopri.py
+/usr/lib/python3.12/io.py
+/usr/lib/python3.12/sndhdr.py
+/usr/lib/python3.12/contextvars.py
+/usr/lib/python3.12/runpy.py
+/usr/lib/python3.12/http/client.py
+/usr/lib/python3.12/http/server.py
+/usr/lib/python3.12/http/cookiejar.py
+/usr/lib/python3.12/http/__init__.py
+/usr/lib/python3.12/http/cookies.py
+/usr/lib/python3.12/string.py
+/usr/lib/python3.12/timeit.py
+/usr/lib/python3.12/doctest.py
+/usr/lib/python3.12/_strptime.py
+/usr/lib/python3.12/heapq.py
+/usr/lib/python3.12/cgi.py
+/usr/lib/python3.12/tabnanny.py
+/usr/lib/python3.12/_aix_support.py
+/usr/lib/python3.12/statistics.py
+/usr/lib/python3.12/json/scanner.py
+/usr/lib/python3.12/json/decoder.py
+/usr/lib/python3.12/json/tool.py
+/usr/lib/python3.12/json/encoder.py
+/usr/lib/python3.12/json/__init__.py
+/usr/lib/python3.12/tracemalloc.py
+/usr/lib/python3.12/hashlib.py
+/usr/lib/python3.12/sched.py
+/usr/lib/python3.12/curses/ascii.py
+/usr/lib/python3.12/curses/panel.py
+/usr/lib/python3.12/curses/has_key.py
+/usr/lib/python3.12/curses/__init__.py
+/usr/lib/python3.12/curses/textpad.py
+/usr/lib/python3.12/tokenize.py
+/usr/lib/python3.12/aifc.py
+/usr/lib/python3.12/getopt.py
+/usr/lib/python3.12/modulefinder.py
+/usr/lib/python3.12/pyclbr.py
+/usr/lib/python3.12/calendar.py
+/usr/lib/python3.12/difflib.py
+/usr/lib/python3.12/fnmatch.py
+/usr/lib/python3.12/tomllib/_types.py
+/usr/lib/python3.12/tomllib/_parser.py
+/usr/lib/python3.12/tomllib/_re.py
+/usr/lib/python3.12/tomllib/__init__.py
+/usr/lib/python3.12/posixpath.py
+/usr/lib/python3.12/numbers.py
+/usr/lib/python3.12/test/__main__.py
+/usr/lib/python3.12/test/libregrtest/refleak.py
+/usr/lib/python3.12/test/libregrtest/win_utils.py
+/usr/lib/python3.12/test/libregrtest/single.py
+/usr/lib/python3.12/test/libregrtest/cmdline.py
+/usr/lib/python3.12/test/libregrtest/testresult.py
+/usr/lib/python3.12/test/libregrtest/result.py
+/usr/lib/python3.12/test/libregrtest/findtests.py
+/usr/lib/python3.12/test/libregrtest/pgo.py
+/usr/lib/python3.12/test/libregrtest/runtests.py
+/usr/lib/python3.12/test/libregrtest/setup.py
+/usr/lib/python3.12/test/libregrtest/main.py
+/usr/lib/python3.12/test/libregrtest/results.py
+/usr/lib/python3.12/test/libregrtest/run_workers.py
+/usr/lib/python3.12/test/libregrtest/logger.py
+/usr/lib/python3.12/test/libregrtest/tsan.py
+/usr/lib/python3.12/test/libregrtest/utils.py
+/usr/lib/python3.12/test/libregrtest/worker.py
+/usr/lib/python3.12/test/libregrtest/filter.py
+/usr/lib/python3.12/test/libregrtest/__init__.py
+/usr/lib/python3.12/test/libregrtest/save_env.py
+/usr/lib/python3.12/test/test_support.py
+/usr/lib/python3.12/test/regrtest.py
+/usr/lib/python3.12/test/typinganndata/ann_module5.py
+/usr/lib/python3.12/test/typinganndata/mod_generics_cache.py
+/usr/lib/python3.12/test/typinganndata/ann_module4.py
+/usr/lib/python3.12/test/typinganndata/ann_module9.py
+/usr/lib/python3.12/test/typinganndata/ann_module6.py
+/usr/lib/python3.12/test/typinganndata/ann_module.py
+/usr/lib/python3.12/test/typinganndata/ann_module3.py
+/usr/lib/python3.12/test/typinganndata/ann_module8.py
+/usr/lib/python3.12/test/typinganndata/__init__.py
+/usr/lib/python3.12/test/typinganndata/ann_module7.py
+/usr/lib/python3.12/test/typinganndata/_typed_dict_helper.py
+/usr/lib/python3.12/test/typinganndata/ann_module2.py
+/usr/lib/python3.12/test/__init__.py
+/usr/lib/python3.12/test/support/_hypothesis_stubs/_helpers.py
+/usr/lib/python3.12/test/support/_hypothesis_stubs/__init__.py
+/usr/lib/python3.12/test/support/_hypothesis_stubs/strategies.py
+/usr/lib/python3.12/test/support/asynchat.py
+/usr/lib/python3.12/test/support/hypothesis_helper.py
+/usr/lib/python3.12/test/support/os_helper.py
+/usr/lib/python3.12/test/support/script_helper.py
+/usr/lib/python3.12/test/support/socket_helper.py
+/usr/lib/python3.12/test/support/warnings_helper.py
+/usr/lib/python3.12/test/support/threading_helper.py
+/usr/lib/python3.12/test/support/logging_helper.py
+/usr/lib/python3.12/test/support/smtpd.py
+/usr/lib/python3.12/test/support/import_helper.py
+/usr/lib/python3.12/test/support/pty_helper.py
+/usr/lib/python3.12/test/support/hashlib_helper.py
+/usr/lib/python3.12/test/support/interpreters.py
+/usr/lib/python3.12/test/support/__init__.py
+/usr/lib/python3.12/test/support/testcase.py
+/usr/lib/python3.12/test/support/bytecode_helper.py
+/usr/lib/python3.12/test/support/asyncore.py
+/usr/lib/python3.12/test/support/ast_helper.py
+/usr/lib/python3.12/crypt.py
+/usr/lib/python3.12/reprlib.py
+/usr/lib/python3.12/urllib/error.py
+/usr/lib/python3.12/urllib/request.py
+/usr/lib/python3.12/urllib/response.py
+/usr/lib/python3.12/urllib/robotparser.py
+/usr/lib/python3.12/urllib/__init__.py
+/usr/lib/python3.12/urllib/parse.py
+/usr/lib/python3.12/zipimport.py
+/usr/lib/python3.12/pdb.py
+/usr/lib/python3.12/antigravity.py
+/usr/lib/python3.12/_collections_abc.py
+/usr/lib/python3.12/netrc.py
+/usr/lib/python3.12/tempfile.py
+/usr/lib/python3.12/getpass.py
+/usr/lib/python3.12/encodings/tis_620.py
+/usr/lib/python3.12/encodings/koi8_r.py
+/usr/lib/python3.12/encodings/iso8859_1.py
+/usr/lib/python3.12/encodings/iso8859_9.py
+/usr/lib/python3.12/encodings/cp860.py
+/usr/lib/python3.12/encodings/shift_jis.py
+/usr/lib/python3.12/encodings/cp1256.py
+/usr/lib/python3.12/encodings/iso8859_4.py
+/usr/lib/python3.12/encodings/gbk.py
+/usr/lib/python3.12/encodings/iso2022_jp_3.py
+/usr/lib/python3.12/encodings/mac_croatian.py
+/usr/lib/python3.12/encodings/euc_jp.py
+/usr/lib/python3.12/encodings/euc_kr.py
+/usr/lib/python3.12/encodings/cp850.py
+/usr/lib/python3.12/encodings/iso2022_jp_2.py
+/usr/lib/python3.12/encodings/utf_16_be.py
+/usr/lib/python3.12/encodings/cp1254.py
+/usr/lib/python3.12/encodings/ascii.py
+/usr/lib/python3.12/encodings/cp869.py
+/usr/lib/python3.12/encodings/utf_32.py
+/usr/lib/python3.12/encodings/iso8859_11.py
+/usr/lib/python3.12/encodings/cp1140.py
+/usr/lib/python3.12/encodings/johab.py
+/usr/lib/python3.12/encodings/charmap.py
+/usr/lib/python3.12/encodings/euc_jis_2004.py
+/usr/lib/python3.12/encodings/mac_farsi.py
+/usr/lib/python3.12/encodings/cp852.py
+/usr/lib/python3.12/encodings/cp861.py
+/usr/lib/python3.12/encodings/cp950.py
+/usr/lib/python3.12/encodings/cp1252.py
+/usr/lib/python3.12/encodings/cp1258.py
+/usr/lib/python3.12/encodings/base64_codec.py
+/usr/lib/python3.12/encodings/hp_roman8.py
+/usr/lib/python3.12/encodings/utf_7.py
+/usr/lib/python3.12/encodings/cp424.py
+/usr/lib/python3.12/encodings/kz1048.py
+/usr/lib/python3.12/encodings/cp500.py
+/usr/lib/python3.12/encodings/raw_unicode_escape.py
+/usr/lib/python3.12/encodings/mac_cyrillic.py
+/usr/lib/python3.12/encodings/cp932.py
+/usr/lib/python3.12/encodings/utf_8_sig.py
+/usr/lib/python3.12/encodings/cp866.py
+/usr/lib/python3.12/encodings/iso8859_15.py
+/usr/lib/python3.12/encodings/iso8859_2.py
+/usr/lib/python3.12/encodings/cp864.py
+/usr/lib/python3.12/encodings/cp273.py
+/usr/lib/python3.12/encodings/cp737.py
+/usr/lib/python3.12/encodings/cp1250.py
+/usr/lib/python3.12/encodings/iso8859_7.py
+/usr/lib/python3.12/encodings/undefined.py
+/usr/lib/python3.12/encodings/gb2312.py
+/usr/lib/python3.12/encodings/euc_jisx0213.py
+/usr/lib/python3.12/encodings/cp1125.py
+/usr/lib/python3.12/encodings/mac_roman.py
+/usr/lib/python3.12/encodings/cp037.py
+/usr/lib/python3.12/encodings/rot_13.py
+/usr/lib/python3.12/encodings/koi8_u.py
+/usr/lib/python3.12/encodings/cp862.py
+/usr/lib/python3.12/encodings/cp720.py
+/usr/lib/python3.12/encodings/cp1255.py
+/usr/lib/python3.12/encodings/iso8859_6.py
+/usr/lib/python3.12/encodings/unicode_escape.py
+/usr/lib/python3.12/encodings/hz.py
+/usr/lib/python3.12/encodings/iso2022_kr.py
+/usr/lib/python3.12/encodings/iso8859_5.py
+/usr/lib/python3.12/encodings/uu_codec.py
+/usr/lib/python3.12/encodings/cp863.py
+/usr/lib/python3.12/encodings/utf_32_be.py
+/usr/lib/python3.12/encodings/cp949.py
+/usr/lib/python3.12/encodings/cp1006.py
+/usr/lib/python3.12/encodings/iso2022_jp_1.py
+/usr/lib/python3.12/encodings/idna.py
+/usr/lib/python3.12/encodings/mac_iceland.py
+/usr/lib/python3.12/encodings/mac_arabic.py
+/usr/lib/python3.12/encodings/iso8859_10.py
+/usr/lib/python3.12/encodings/oem.py
+/usr/lib/python3.12/encodings/utf_16_le.py
+/usr/lib/python3.12/encodings/cp875.py
+/usr/lib/python3.12/encodings/mac_latin2.py
+/usr/lib/python3.12/encodings/aliases.py
+/usr/lib/python3.12/encodings/cp1257.py
+/usr/lib/python3.12/encodings/koi8_t.py
+/usr/lib/python3.12/encodings/utf_32_le.py
+/usr/lib/python3.12/encodings/cp856.py
+/usr/lib/python3.12/encodings/gb18030.py
+/usr/lib/python3.12/encodings/cp858.py
+/usr/lib/python3.12/encodings/cp855.py
+/usr/lib/python3.12/encodings/cp857.py
+/usr/lib/python3.12/encodings/mbcs.py
+/usr/lib/python3.12/encodings/cp1026.py
+/usr/lib/python3.12/encodings/mac_greek.py
+/usr/lib/python3.12/encodings/iso8859_3.py
+/usr/lib/python3.12/encodings/iso2022_jp.py
+/usr/lib/python3.12/encodings/cp1253.py
+/usr/lib/python3.12/encodings/zlib_codec.py
+/usr/lib/python3.12/encodings/palmos.py
+/usr/lib/python3.12/encodings/utf_16.py
+/usr/lib/python3.12/encodings/cp865.py
+/usr/lib/python3.12/encodings/quopri_codec.py
+/usr/lib/python3.12/encodings/big5.py
+/usr/lib/python3.12/encodings/latin_1.py
+/usr/lib/python3.12/encodings/bz2_codec.py
+/usr/lib/python3.12/encodings/__init__.py
+/usr/lib/python3.12/encodings/mac_romanian.py
+/usr/lib/python3.12/encodings/ptcp154.py
+/usr/lib/python3.12/encodings/iso8859_14.py
+/usr/lib/python3.12/encodings/hex_codec.py
+/usr/lib/python3.12/encodings/punycode.py
+/usr/lib/python3.12/encodings/big5hkscs.py
+/usr/lib/python3.12/encodings/cp775.py
+/usr/lib/python3.12/encodings/iso8859_16.py
+/usr/lib/python3.12/encodings/cp1251.py
+/usr/lib/python3.12/encodings/cp437.py
+/usr/lib/python3.12/encodings/shift_jisx0213.py
+/usr/lib/python3.12/encodings/shift_jis_2004.py
+/usr/lib/python3.12/encodings/utf_8.py
+/usr/lib/python3.12/encodings/cp874.py
+/usr/lib/python3.12/encodings/iso2022_jp_2004.py
+/usr/lib/python3.12/encodings/iso8859_13.py
+/usr/lib/python3.12/encodings/mac_turkish.py
+/usr/lib/python3.12/encodings/iso8859_8.py
+/usr/lib/python3.12/encodings/iso2022_jp_ext.py
+/usr/lib/python3.12/linecache.py
+/usr/lib/python3.12/hmac.py
+/usr/lib/python3.12/copyreg.py
+/usr/lib/python3.12/plistlib.py
+/usr/lib/python3.12/__phello__/spam.py
+/usr/lib/python3.12/__phello__/__init__.py
+/usr/lib/python3.12/configparser.py
+/usr/lib/python3.12/pkgutil.py
+/usr/lib/python3.12/_compression.py
+/usr/lib/python3.12/sitecustomize.py
+/usr/lib/python3.12/platform.py
+/usr/lib/python3.12/html/parser.py
+/usr/lib/python3.12/html/__init__.py
+/usr/lib/python3.12/html/entities.py
+/usr/lib/python3.12/ipaddress.py
+/usr/lib/python3.12/code.py
+/usr/lib/python3.12/argparse.py
+/usr/lib/python3.12/socket.py
+/usr/lib/python3.12/pickle.py
+/usr/lib/python3.12/_sysconfigdata__x86_64-linux-gnu.py
+/usr/lib/python3.12/poplib.py
+/usr/lib/python3.12/sre_constants.py
+/usr/lib/python3.12/collections/__init__.py
+/usr/lib/python3.12/collections/abc.py
+/usr/lib/python3.12/warnings.py
+/usr/lib/python3.12/zipapp.py
+/usr/lib/python3.12/socketserver.py
+/usr/lib/python3.12/profile.py
+/usr/lib/python3.12/csv.py
+/usr/lib/python3.12/sre_parse.py
+/usr/lib/python3.12/weakref.py
+/usr/lib/python3.12/abc.py
+/usr/lib/python3.12/datetime.py
+/usr/lib/python3.12/enum.py
+/usr/lib/python3.12/keyword.py
+/usr/lib/python3.12/smtplib.py
+/usr/lib/python3.12/mailbox.py
+/usr/lib/python3.12/unittest/mock.py
+/usr/lib/python3.12/unittest/_log.py
+/usr/lib/python3.12/unittest/suite.py
+/usr/lib/python3.12/unittest/result.py
+/usr/lib/python3.12/unittest/async_case.py
+/usr/lib/python3.12/unittest/runner.py
+/usr/lib/python3.12/unittest/signals.py
+/usr/lib/python3.12/unittest/__main__.py
+/usr/lib/python3.12/unittest/main.py
+/usr/lib/python3.12/unittest/util.py
+/usr/lib/python3.12/unittest/__init__.py
+/usr/lib/python3.12/unittest/case.py
+/usr/lib/python3.12/unittest/loader.py
+/usr/lib/python3.12/lzma.py
+/usr/lib/python3.12/uu.py
+/usr/lib/python3.12/asyncio/windows_utils.py
+/usr/lib/python3.12/asyncio/queues.py
+/usr/lib/python3.12/asyncio/streams.py
+/usr/lib/python3.12/asyncio/sslproto.py
+/usr/lib/python3.12/asyncio/trsock.py
+/usr/lib/python3.12/asyncio/subprocess.py
+/usr/lib/python3.12/asyncio/selector_events.py
+/usr/lib/python3.12/asyncio/format_helpers.py
+/usr/lib/python3.12/asyncio/unix_events.py
+/usr/lib/python3.12/asyncio/base_events.py
+/usr/lib/python3.12/asyncio/constants.py
+/usr/lib/python3.12/asyncio/__main__.py
+/usr/lib/python3.12/asyncio/futures.py
+/usr/lib/python3.12/asyncio/events.py
+/usr/lib/python3.12/asyncio/coroutines.py
+/usr/lib/python3.12/asyncio/runners.py
+/usr/lib/python3.12/asyncio/base_futures.py
+/usr/lib/python3.12/asyncio/threads.py
+/usr/lib/python3.12/asyncio/timeouts.py
+/usr/lib/python3.12/asyncio/transports.py
+/usr/lib/python3.12/asyncio/mixins.py
+/usr/lib/python3.12/asyncio/base_subprocess.py
+/usr/lib/python3.12/asyncio/exceptions.py
+/usr/lib/python3.12/asyncio/taskgroups.py
+/usr/lib/python3.12/asyncio/base_tasks.py
+/usr/lib/python3.12/asyncio/windows_events.py
+/usr/lib/python3.12/asyncio/tasks.py
+/usr/lib/python3.12/asyncio/staggered.py
+/usr/lib/python3.12/asyncio/__init__.py
+/usr/lib/python3.12/asyncio/locks.py
+/usr/lib/python3.12/asyncio/log.py
+/usr/lib/python3.12/asyncio/protocols.py
+/usr/lib/python3.12/asyncio/proactor_events.py
+/usr/lib/python3.12/pickletools.py
+/usr/lib/python3.12/sysconfig.py
+/usr/lib/python3.12/base64.py
+/usr/lib/python3.12/__future__.py
+/usr/lib/python3.12/_compat_pickle.py
+/usr/lib/python3.12/stat.py
+/usr/lib/python3.12/signal.py
+/usr/lib/python3.12/threading.py
+/usr/lib/python3.12/telnetlib.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/api.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/unix.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/macos.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/android.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/windows.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/__main__.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/version.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/platformdirs/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/zipp.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/more_itertools/more.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/more_itertools/recipes.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/more_itertools/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/_common.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/_adapters.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/_compat.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/readers.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/simple.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/_legacy.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/abc.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/_itertools.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/requirements.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/_structures.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/tags.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/_manylinux.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/_parser.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/metadata.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/_musllinux.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/_elffile.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/version.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/markers.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/specifiers.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/utils.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/_tokenizer.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/typing_extensions.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/jaraco/text/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/jaraco/functools.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/jaraco/context.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/jaraco/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/_vendor/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/extern/__init__.py
+/usr/lib/python3/dist-packages/pkg_resources/__init__.py
+/usr/lib/python3/dist-packages/gyp/MSVSSettings_test.py
+/usr/lib/python3/dist-packages/gyp/xcode_ninja.py
+/usr/lib/python3/dist-packages/gyp/xcode_emulation.py
+/usr/lib/python3/dist-packages/gyp/MSVSToolFile.py
+/usr/lib/python3/dist-packages/gyp/MSVSSettings.py
+/usr/lib/python3/dist-packages/gyp/common_test.py
+/usr/lib/python3/dist-packages/gyp/easy_xml_test.py
+/usr/lib/python3/dist-packages/gyp/xml_fix.py
+/usr/lib/python3/dist-packages/gyp/MSVSUtil.py
+/usr/lib/python3/dist-packages/gyp/ninja_syntax.py
+/usr/lib/python3/dist-packages/gyp/MSVSUserFile.py
+/usr/lib/python3/dist-packages/gyp/flock_tool.py
+/usr/lib/python3/dist-packages/gyp/win_tool.py
+/usr/lib/python3/dist-packages/gyp/MSVSVersion.py
+/usr/lib/python3/dist-packages/gyp/msvs_emulation.py
+/usr/lib/python3/dist-packages/gyp/MSVSProject.py
+/usr/lib/python3/dist-packages/gyp/xcodeproj_file.py
+/usr/lib/python3/dist-packages/gyp/mac_tool.py
+/usr/lib/python3/dist-packages/gyp/generator/cmake.py
+/usr/lib/python3/dist-packages/gyp/generator/analyzer.py
+/usr/lib/python3/dist-packages/gyp/generator/xcode_test.py
+/usr/lib/python3/dist-packages/gyp/generator/xcode.py
+/usr/lib/python3/dist-packages/gyp/generator/gypd.py
+/usr/lib/python3/dist-packages/gyp/generator/eclipse.py
+/usr/lib/python3/dist-packages/gyp/generator/ninja.py
+/usr/lib/python3/dist-packages/gyp/generator/msvs.py
+/usr/lib/python3/dist-packages/gyp/generator/ninja_test.py
+/usr/lib/python3/dist-packages/gyp/generator/msvs_test.py
+/usr/lib/python3/dist-packages/gyp/generator/gypsh.py
+/usr/lib/python3/dist-packages/gyp/generator/__init__.py
+/usr/lib/python3/dist-packages/gyp/generator/dump_dependency_json.py
+/usr/lib/python3/dist-packages/gyp/generator/make.py
+/usr/lib/python3/dist-packages/gyp/common.py
+/usr/lib/python3/dist-packages/gyp/MSVSNew.py
+/usr/lib/python3/dist-packages/gyp/input.py
+/usr/lib/python3/dist-packages/gyp/input_test.py
+/usr/lib/python3/dist-packages/gyp/__init__.py
+/usr/lib/python3/dist-packages/gyp/simple_copy.py
+/usr/lib/python3/dist-packages/gyp/easy_xml.py
+/usr/lib/python3/dist-packages/six.py
+/usr/lib/python3/dist-packages/asciinema/http_adapter.py
+/usr/lib/python3/dist-packages/asciinema/api.py
+/usr/lib/python3/dist-packages/asciinema/asciicast/events.py
+/usr/lib/python3/dist-packages/asciinema/asciicast/v2.py
+/usr/lib/python3/dist-packages/asciinema/asciicast/raw.py
+/usr/lib/python3/dist-packages/asciinema/asciicast/v1.py
+/usr/lib/python3/dist-packages/asciinema/asciicast/__init__.py
+/usr/lib/python3/dist-packages/asciinema/urllib_http_adapter.py
+/usr/lib/python3/dist-packages/asciinema/async_worker.py
+/usr/lib/python3/dist-packages/asciinema/tty_.py
+/usr/lib/python3/dist-packages/asciinema/commands/cat.py
+/usr/lib/python3/dist-packages/asciinema/commands/command.py
+/usr/lib/python3/dist-packages/asciinema/commands/upload.py
+/usr/lib/python3/dist-packages/asciinema/commands/auth.py
+/usr/lib/python3/dist-packages/asciinema/commands/__init__.py
+/usr/lib/python3/dist-packages/asciinema/commands/record.py
+/usr/lib/python3/dist-packages/asciinema/commands/play.py
+/usr/lib/python3/dist-packages/asciinema/config.py
+/usr/lib/python3/dist-packages/asciinema/__main__.py
+/usr/lib/python3/dist-packages/asciinema/pty_.py
+/usr/lib/python3/dist-packages/asciinema/notifier.py
+/usr/lib/python3/dist-packages/asciinema/player.py
+/usr/lib/python3/dist-packages/asciinema/file_writer.py
+/usr/lib/python3/dist-packages/asciinema/__init__.py
+/usr/lib/python3/dist-packages/asciinema/recorder.py
+/usr/bin/mesa-overlay-control.py
+/etc/python3.12/sitecustomize.py
+[?2004hroot@b9fd2b2162f5:/app# stat a.out hi.c
+[?2004l  File: a.out
+  Size: 15960     	Blocks: 32         IO Block: 4096   regular file
+Device: 0,84	Inode: 57678       Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2025-10-31 02:54:05.000000000 +0000
+Modify: 2025-10-31 02:54:05.000000000 +0000
+Change: 2026-10-16 09:29:08.198902213 +0000
+ Birth: 2026-10-16 09:29:08.198902213 +0000
+  File: hi.c
+  Size: 61        	Blocks: 8          IO Block: 4096   regular file
+Device: 0,84	Inode: 57673       Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2025-10-24 05:18:47.000000000 +0000
+Modify: 2025-10-24 05:18:47.000000000 +0000
+Change: 2026-10-16 09:29:08.178901267 +0000
+ Birth: 2026-10-16 09:29:08.178901267 +0000
+[?2004hroot@b9fd2b2162f5:/app# readelf -h a.out
+[?2004lELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x1060
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          13976 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         31
+  Section header string table index: 30
+[?2004hroot@b9fd2b2162f5:/app# cat << 'EOF' > extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> 
+[?2004l[?2004h> function extractMemory(filePath) {
+[?2004l[?2004h>     const buffer = fs.readFileSync(filePath);
+[?2004l[?2004h>     const magic = buffer.readUInt32LE(0);
+[?2004l[?2004h>     if (magic !== 0x464c457f) {
+[?2004l[?2004h>         throw new Error('Not a valid ELF file');
+[?2004l[?2004h>     }
+[?2004l[?2004h>     const e_type = buffer.readUInt16LE(16);
+[?2004l[?2004h>     const e_phoff = Number(buffer.readBigUInt64LE(32));
+[?2004l[?2004h>     const e_phentsize = buffer.readUInt16LE(54);
+[?2004l[?2004h>     const e_phnum = buffer.readUInt16LE(56);
+[?2004l[?2004h>     const memory = {};
+[?2004l[?2004h>     const baseAddress = (e_type === 3) ? 0x400000 : 0;
+[?2004l[?2004h>     for (let i = 0; i < e_phnum; i++) {
+[?2004l[?2004h>         const phoff = e_phoff + i * e_phentsize;
+[?2004l[?2004h>         const p_type = buffer.readUInt32LE(phoff);
+[?2004l[?2004h>         if (p_type === 1) {
+[?2004l[?2004h>             const p_offset = Number(buffer.readBigUInt64LE(phoff + 8));
+[?2004l[?2004h>             const p_vaddr = Number(buffer.readBigUInt64LE(phoff + 16));
+[?2004l[?2004h>             const p_filesz = Number(buffer.readBigUInt64LE(phoff + 32));
+[?2004l[?2004h>             const p_memsz = Number(buffer.readBigUInt64LE(phoff + 40));
+[?2004l[?2004h>             const startVaddr = p_vaddr + baseAddress;
+[?2004l[?2004h>             for (let offset = 0; offset < p_memsz; offset += 4) {
+[?2004l[?2004h>                 const currentVaddr = startVaddr + offset;
+[?2004l[?2004h>                 let val = 0;
+[?2004l[?2004h>                 if (offset < p_filesz) {
+[?2004l[?2004h>                     const filePos = p_offset + offset;
+[?2004l[?2004h>                     if (filePos + 4 <= buffer.length) {
+[?2004l[?2004h>                         val = buffer.readUInt32LE(filePos);
+[?2004l[?2004h>                     } else if (filePos < buffer.length) {
+[?2004l[?2004h>                         const partial = Buffer.alloc(4, 0);
+[?2004l[?2004h>                         buffer.copy(partial, 0, filePos, buffer.length);
+[?2004l[?2004h>                         val = partial.readUInt32LE(0);
+[?2004l[?2004h>                     }
+[?2004l[?2004h>                 } else {
+[?2004l[?2004h>                     val = 0;
+[?2004l[?2004h>                 }
+[?2004l[?2004h>                 memory[currentVaddr.toString()] = val;
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h>     console.log(JSON.stringify(memory));
+[?2004l[?2004h> }
+[?2004l[?2004h> if (process.argv.length < 3) {
+[?2004l[?2004h>     process.exit(1);
+[?2004l[?2004h> }
+[?2004l[?2004h> extractMemory(process.argv[2]);
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@b9fd2b2162f5:/app# node extract.js /app/a.out > out.json
+[?2004l[?2004hroot@b9fd2b2162f5:/app# head -n 20 out.json
+[?2004l{"4194304":1179403647,"4194308":65794,"4194312":0,"4194316":0,"4194320":4063235,"4194324":1,"4194328":4192,"4194332":0,"4194336":64,"4194340":0,"4194344":13976,"4194348":0,"4194352":0,"4194356":3670080,"4194360":4194317,"4194364":1966111,"4194368":6,"4194372":4,"4194376":64,"4194380":0,"4194384":64,"4194388":0,"4194392":64,"4194396":0,"4194400":728,"4194404":0,"4194408":728,"4194412":0,"4194416":8,"4194420":0,"4194424":3,"4194428":4,"4194432":792,"4194436":0,"4194440":792,"4194444":0,"4194448":792,"4194452":0,"4194456":28,"4194460":0,"4194464":28,"4194468":0,"4194472":1,"4194476":0,"4194480":1,"4194484":4,"4194488":0,"4194492":0,"4194496":0,"4194500":0,"4194504":0,"4194508":0,"4194512":1576,"4194516":0,"4194520":1576,"4194524":0,"4194528":4096,"4194532":0,"4194536":1,"4194540":5,"4194544":4096,"4194548":0,"4194552":4096,"4194556":0,"4194560":4096,"4194564":0,"4194568":373,"4194572":0,"4194576":373,"4194580":0,"4194584":4096,"4194588":0,"4194592":1,"4194596":4,"4194600":8192,"4194604":0,"4194608":8192,"4194612":0,"4194616":8192,"4194620":0,"4194624":244,"4194628":0,"4194632":244,"4194636":0,"4194640":4096,"4194644":0,"4194648":1,"4194652":6,"4194656":11704,"4194660":0,"4194664":15800,"4194668":0,"4194672":15800,"4194676":0,"4194680":600,"4194684":0,"4194688":608,"4194692":0,"4194696":4096,"4194700":0,"4194704":2,"4194708":6,"4194712":11720,"4194716":0,"4194720":15816,"4194724":0,"4194728":15816,"4194732":0,"4194736":496,"4194740":0,"4194744":496,"4194748":0,"4194752":8,"4194756":0,"4194760":4,"4194764":4,"4194768":824,"4194772":0,"4194776":824,"4194780":0,"4194784":824,"4194788":0,"4194792":48,"4194796":0,"4194800":48,"4194804":0,"4194808":8,"4194812":0,"4194816":4,"4194820":4,"4194824":872,"4194828":0,"4194832":872,"4194836":0,"4194840":872,"4194844":0,"4194848":68,"4194852":0,"4194856":68,"4194860":0,"4194864":4,"4194868":0,"4194872":1685382483,"4194876":4,"4194880":824,"4194884":0,"4194888":824,"4194892":0,"4194896":824,"4194900":0,"4194904":48,"4194908":0,"4194912":48,"4194916":0,"4194920":8,"4194924":0,"4194928":1685382480,"4194932":4,"4194936":8208,"4194940":0,"4194944":8208,"4194948":0,"4194952":8208,"4194956":0,"4194960":52,"4194964":0,"4194968":52,"4194972":0,"4194976":4,"4194980":0,"4194984":1685382481,"4194988":6,"4194992":0,"4194996":0,"4195000":0,"4195004":0,"4195008":0,"4195012":0,"4195016":0,"4195020":0,"4195024":0,"4195028":0,"4195032":16,"4195036":0,"4195040":1685382482,"4195044":4,"4195048":11704,"4195052":0,"4195056":15800,"4195060":0,"4195064":15800,"4195068":0,"4195072":584,"4195076":0,"4195080":584,"4195084":0,"4195088":1,"4195092":0,"4195096":1651076143,"4195100":1815032886,"4195104":1768697188,"4195108":762869102,"4195112":758528120,"4195116":1932407862,"4195120":3288687,"4195124":0,"4195128":4,"4195132":32,"4195136":5,"4195140":5590599,"4195144":3221225474,"4195148":4,"4195152":3,"4195156":0,"4195160":3221258242,"4195164":4,"4195168":1,"4195172":0,"4195176":4,"4195180":20,"4195184":3,"4195188":5590599,"4195192":1387187458,"4195196":3911748080,"4195200":3582024272,"4195204":1698379116,"4195208":1091734958,"4195212":4,"4195216":16,"4195220":1,"4195224":5590599,"4195228":0,"4195232":3,"4195236":2,"4195240":0,"4195244":0,"4195248":2,"4195252":6,"4195256":1,"4195260":6,"4195264":8454144,"4195268":0,"4195272":6,"4195276":0,"4195280":1842243025,"4195284":0,"4195288":0,"4195292":0,"4195296":0,"4195300":0,"4195304":0,"4195308":0,"4195312":6,"4195316":18,"4195320":0,"4195324":0,"4195328":0,"4195332":0,"4195336":72,"4195340":32,"4195344":0,"4195348":0,"4195352":0,"4195356":0,"4195360":1,"4195364":18,"4195368":0,"4195372":0,"4195376":0,"4195380":0,"4195384":100,"4195388":32,"4195392":0,"4195396":0,"4195400":0,"4195404":0,"4195408":115,"4195412":32,"4195416":0,"4195420":0,"4195424":0,"4195428":0,"4195432":24,"4195436":34,"4195440":0,"4195444":0,"4195448":0,"4195452":0,"4195456":1953853440,"4195460":1600061555,"4195464":1667393900,"4195468":1635021663,"4195472":1834972274,"4195476":7235937,"4195480":2019778399,"4195484":1768316769,"4195488":1768710510,"4195492":1811965306,"4195496":778265193,"4195500":909012851,"4195504":1229735680,"4195508":845103938,"4195512":892219950,"4195516":1229735680,"4195520":845103938,"4195524":3420974,"4195528":1297369439,"4195532":1919247455,"4195536":1936287589,"4195540":1416783220,"4195544":1869366093,"4195548":1632920942,"4195552":6646882,"4195556":1835491167,"4195560":1935634031,"4195564":1953653108,"4195568":1593859935,"4195572":1598903369,"4195576":1768383858,"4195580":1919251571,"4195584":1816350036,"4195588":1415933551,"4195592":1701601889,"4195596":0,"4195600":65538,"4195604":65539,"4195608":196609,"4195612":0,"4195616":131073,"4195620":39,"4195624":16,"4195628":0,"4195632":157882997,"4195636":196608,"4195640":49,"4195644":16,"4195648":110530996,"4195652":131072,"4195656":61,"4195660":0,"4195664":15800,"4195668":0,"4195672":8,"4195676":0,"4195680":4416,"4195684":0,"4195688":15808,"4195692":0,"4195696":8,"4195700":0,"4195704":4352,"4195708":0,"4195712":16392,"4195716":0,"4195720":8,"4195724":0,"4195728":16392,"4195732":0,"4195736":16344,"4195740":0,"4195744":6,"4195748":1,"4195752":0,"4195756":0,"4195760":16352,"4195764":0,"4195768":6,"4195772":2,"4195776":0,"4195780":0,"4195784":16360,"4195788":0,"4195792":6,"4195796":4,"4195800":0,"4195804":0,"4195808":16368,"4195812":0,"4195816":6,"4195820":5,"4195824":0,"4195828":0,"4195832":16376,"4195836":0,"4195840":6,"4195844":6,"4195848":0,"4195852":0,"4195856":16336,"4195860":0,"4195864":7,"4195868":3,"4195872":0,"4195876":0,"4198400":4196274163,"4198404":149717832,"4198408":3641019208,"4198412":1207959599,"4198416":41205893,"4198420":2202587391,"4198424":12781764,"4198428":0,"4198432":798635519,"4198436":637468672,"4198440":12188,"4198444":4202255,"4198448":4196274163,"4198452":104,"4198456":4293060864,"4198460":2422669311,"4198464":4196274163,"4198468":799942143,"4198472":258342912,"4198476":17439,"4198480":4196274163,"4198484":796272127,"4198488":258342912,"4198492":17439,"4198496":4196274163,"4198500":2303323441,"4198504":2303221457,"4198508":3833809122,"4198512":1163153648,"4198516":3375480881,"4198520":3393031496,"4198524":4278190080,"4198528":3101461,"4198532":778499072,"4198536":8658703,"4198540":0,"4198544":2034077000,"4198548":1207959599,"4198552":796001677,"4198556":961019904,"4198560":1209365752,"4198564":792069515,"4198568":2236088320,"4198572":4278809792,"4198576":2149519328,"4198580":0,"4198584":2149519299,"4198588":0,"4198592":1228770632,"4198596":1207959599,"4198600":792868237,"4198604":692584448,"4198608":4035528958,"4198612":1072611656,"4198616":66634056,"4198620":1220936008,"4198624":343211729,"4198628":84249416,"4198632":1207959599,"4198636":141869189,"4198640":258400511,"4198644":17439,"4198648":2149519299,"4198652":0,"4198656":4196274163,"4198660":788872576,"4198664":1962934272,"4198668":2202555691,"4198672":3072573,"4198676":2303197184,"4198680":1208775909,"4198684":786840971,"4198688":434634752,"4198692":3909091327,"4198696":4294967140,"4198700":786236870,"4198704":1560346624,"4198708":2035651,"4198712":2149519299,"4198716":0,"4198720":4196274163,"4198724":4294932457,"4198728":504361983,"4198732":2303219194,"4198736":93145317,"4198740":3756,"4198744":3905390920,"4198748":4294967024,"4198752":184,"4198756":12803328,"4198760":4196274163,"4198764":149717832,"4198768":147096392,"4198772":195,"4202496":131073,"4202500":1819043144,"4202504":1870078063,"4202508":6581362,"4202512":990059265,"4202516":52,"4202520":5,"4202524":4294963216,"4202528":104,"4202532":4294963248,"4202536":144,"4202540":4294963264,"4202544":168,"4202548":4294963280,"4202552":80,"4202556":4294963513,"4202560":192,"4202564":0,"4202568":20,"4202572":0,"4202576":5405185,"4202580":17856513,"4202584":134679579,"4202588":400,"4202592":20,"4202596":28,"4202600":4294963192,"4202604":38,"4202608":268911616,"4202612":0,"4202616":36,"4202620":52,"4202624":4294963104,"4202628":32,"4202632":1175457280,"4202636":256514062,"4202640":2148038411,"4202644":958021376,"4202648":572797738,"4202652":0,"4202656":20,"4202660":92,"4202664":4294963096,"4202668":16,"4202672":0,"4202676":0,"4202680":20,"4202684":116,"4202688":4294963088,"4202692":16,"4202696":0,"4202700":0,"4202704":28,"4202708":140,"4202712":4294963313,"4202716":30,"4202720":269370624,"4202724":222495366,"4202728":118248710,"4202732":8,"4202736":0,"4210104":4416,"4210108":0,"4210112":4352,"4210116":0,"4210120":1,"4210124":0,"4210128":39,"4210132":0,"4210136":12,"4210140":0,"4210144":4096,"4210148":0,"4210152":13,"4210156":0,"4210160":4456,"4210164":0,"4210168":25,"4210172":0,"4210176":15800,"4210180":0,"4210184":27,"4210188":0,"4210192":8,"4210196":0,"4210200":26,"4210204":0,"4210208":15808,"4210212":0,"4210216":28,"4210220":0,"4210224":8,"4210228":0,"4210232":1879047925,"4210236":0,"4210240":944,"4210244":0,"4210248":5,"4210252":0,"4210256":1152,"4210260":0,"4210264":6,"4210268":0,"4210272":984,"4210276":0,"4210280":10,"4210284":0,"4210288":141,"4210292":0,"4210296":11,"4210300":0,"4210304":24,"4210308":0,"4210312":21,"4210316":0,"4210320":0,"4210324":0,"4210328":3,"4210332":0,"4210336":16312,"4210340":0,"4210344":2,"4210348":0,"4210352":24,"4210356":0,"4210360":20,"4210364":0,"4210368":7,"4210372":0,"4210376":23,"4210380":0,"4210384":1552,"4210388":0,"4210392":7,"4210396":0,"4210400":1360,"4210404":0,"4210408":8,"4210412":0,"4210416":192,"4210420":0,"4210424":9,"4210428":0,"4210432":24,"4210436":0,"4210440":30,"4210444":0,"4210448":8,"4210452":0,"4210456":1879048187,"4210460":0,"4210464":134217729,"4210468":0,"4210472":1879048190,"4210476":0,"4210480":1312,"4210484":0,"4210488":1879048191,"4210492":0,"4210496":1,"4210500":0,"4210504":1879048176,"4210508":0,"4210512":1294,"4210516":0,"4210520":1879048185,"4210524":0,"4210528":3,"4210532":0,"4210536":0,"4210540":0,"4210544":0,"4210548":0,"4210552":0,"4210556":0,"4210560":0,"4210564":0,"4210568":0,"4210572":0,"4210576":0,"4210580":0,"4210584":0,"4210588":0,"4210592":0,"4210596":0,"4210600":0,"4210604":0,"4210608":0,"4210612":0,"4210616":15816,"4210620":0,"4210624":0,"4210628":0,"4210632":0,"4210636":0,"4210640":4144,"4210644":0,"4210648":0,"4210652":0,"4210656":0,"4210660":0,"4210664":0,"4210668":0,"4210672":0,"4210676":0,"4210680":0,"4210684":0,"4210688":0,"4210692":0,"4210696":16392,"4210700":0,"4210704":0,"4210708":0}
+[?2004hroot@b9fd2b2162f5:/app# node extract.js /app/a.out > out.json && echo 'Success'
+[?2004lSuccess
+[?2004hroot@b9fd2b2162f5:/app# 

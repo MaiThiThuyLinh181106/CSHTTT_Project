@@ -1,0 +1,264 @@
+Traceback (most recent call last):
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\connector.py", line 1202, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\connector.py", line 1233, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\resolver.py", line 47, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 937, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\socket.py", line 989, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\custom_httpx\aiohttp_transport.py", line 89, in map_aiohttp_exceptions
+    yield
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\custom_httpx\aiohttp_transport.py", line 419, in handle_async_request
+    response = await self._make_aiohttp_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\custom_httpx\aiohttp_transport.py", line 382, in _make_aiohttp_request
+    response: Final = await client_session.request(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<14 lines>...
+    ).__aenter__()
+    ^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\client.py", line 1756, in __aenter__
+    self._resp: _RetType_co = await self._coro
+                              ^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\client.py", line 900, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\client.py", line 854, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\connector.py", line 665, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\connector.py", line 1263, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\aiohttp\connector.py", line 1598, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x000002CC07073930> [getaddrinfo failed]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\main.py", line 658, in acompletion
+    response = await _resolve_dispatched_chat_response(init_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\main.py", line 723, in _resolve_dispatched_chat_response
+    return await pending
+           ^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\vertex_ai\gemini\vertex_and_google_ai_studio_gemini.py", line 2837, in async_completion
+    response: Final = await client.post(
+                      ^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\litellm_core_utils\logging_utils.py", line 340, in async_wrapper
+    result: Final = await func(*args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 840, in post
+    return await self.single_connection_post_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 1093, in single_connection_post_request
+    response: Final = await client.send(req, stream=stream)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\custom_httpx\aiohttp_transport.py", line 418, in handle_async_request
+    with map_aiohttp_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\llms\custom_httpx\aiohttp_transport.py", line 108, in map_aiohttp_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x000002CC07073930> [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\trial\trial.py", line 500, in run
+    await self._run()
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\trial\single_step.py", line 40, in _run
+    await self._run_agent()
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\trial\single_step.py", line 76, in _run_agent
+    await self._run_agent_phase(
+    ...<5 lines>...
+    )
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\trial\trial.py", line 651, in _run_agent_phase
+    await asyncio.wait_for(
+    ...<6 lines>...
+    )
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\runs\coding\wt\r1A\third_party\harbor_terminus2\terminus_2.py", line 1622, in run
+    await self._run_agent_loop(
+    ...<3 lines>...
+    )
+  File "D:\CSHTTT_project\rrsi\runs\coding\wt\r1A\third_party\harbor_terminus2\terminus_2.py", line 1300, in _run_agent_loop
+    ) = await self._handle_llm_interaction(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        chat, prompt, original_instruction, self._session
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\runs\coding\wt\r1A\third_party\harbor_terminus2\terminus_2.py", line 1178, in _handle_llm_interaction
+    llm_response = await self._query_llm(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+        chat, prompt, original_instruction, session
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 232, in async_wrapped
+    return await copy(fn, *args, **kwargs)  # type: ignore[type-var]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 126, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 171, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\_utils.py", line 130, in inner
+    return call(*args, **kwargs)
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\__init__.py", line 482, in exc_check
+    retry_exc.reraise()
+    ~~~~~~~~~~~~~~~~~^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\__init__.py", line 216, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 396, in __get_result
+    raise self._exception
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 130, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\runs\coding\wt\r1A\third_party\harbor_terminus2\terminus_2.py", line 1169, in _query_llm
+    raise e
+  File "D:\CSHTTT_project\rrsi\runs\coding\wt\r1A\third_party\harbor_terminus2\terminus_2.py", line 1018, in _query_llm
+    llm_response = await chat.chat(
+                   ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\llms\chat.py", line 89, in chat
+    llm_response: LLMResponse = await self._model.call(
+                                ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 232, in async_wrapped
+    return await copy(fn, *args, **kwargs)  # type: ignore[type-var]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 126, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 171, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\_utils.py", line 130, in inner
+    return call(*args, **kwargs)
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\__init__.py", line 482, in exc_check
+    retry_exc.reraise()
+    ~~~~~~~~~~~~~~~~~^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\__init__.py", line 216, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Thuy Linh\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 396, in __get_result
+    raise self._exception
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\tenacity\asyncio\__init__.py", line 130, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\llms\lite_llm.py", line 406, in call
+    self._handle_litellm_error(e)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\llms\lite_llm.py", line 641, in _handle_litellm_error
+    raise e
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\harbor\llms\lite_llm.py", line 370, in call
+    response = await litellm.acompletion(**completion_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\chat_completions\dispatch.py", line 114, in acompletion
+    return await _ADISPATCH.arun(
+           ^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\rust_bridge\dispatch.py", line 114, in arun
+    return await python(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\utils.py", line 2274, in wrapper_async
+    raise e
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\utils.py", line 2085, in wrapper_async
+    result = await original_function(*args, **call_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\main.py", line 711, in acompletion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2714, in exception_type
+    raise e
+  File "D:\CSHTTT_project\rrsi\domains\coding\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2673, in exception_type
+    raise APIConnectionError(
+    ...<4 lines>...
+    )
+litellm.exceptions.APIConnectionError: litellm.APIConnectionError: GeminiException - Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x000002CC07073930> [getaddrinfo failed] LiteLLM Retried: 10 times

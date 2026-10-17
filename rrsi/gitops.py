@@ -65,6 +65,7 @@ def rev(cwd, ref: str) -> str:
 
 
 def tree_hash(cwd, ref: str, path: str) -> str:
+    path = str(path).replace("\\", "/")
     return git(cwd, "rev-parse", f"{ref}:{path}").stdout.strip()[:12]
 
 

@@ -1,0 +1,14 @@
+diff --git a/third_party/harbor_terminus2/terminus_json_plain_parser.py b/third_party/harbor_terminus2/terminus_json_plain_parser.py
+index d2ea6d8..5d3dfee 100644
+--- a/third_party/harbor_terminus2/terminus_json_plain_parser.py
++++ b/third_party/harbor_terminus2/terminus_json_plain_parser.py
+@@ -302,7 +302,8 @@ class TerminusJSONPlainParser:
+                     f"Command {i + 1}: Unknown fields: {', '.join(unknown_fields)}"
+                 )
+ 
+-            # Check for newline at end of keystrokes if followed by another command
++            if not keystrokes.endswith("\n") and not keystrokes.endswith("\r\n"):
++                keystrokes += "\n"
+             if i < len(commands_data) - 1 and not keystrokes.endswith("\n"):
+                 warnings.append(
+                     f"Command {i + 1} should end with newline when followed "

@@ -1,0 +1,1431 @@
+[?2004hroot@d69d6517eb0b:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@d69d6517eb0b:/app# clear
+[?2004l[H[J[3J[?2004hroot@d69d6517eb0b:/app# ls -la
+[?2004ltotal 16
+drwxr-xr-x 1 root root 4096 Oct 28  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root 4096 Oct 15 08:25 [01;34m..[0m
+-rw-r--r-- 1 root root 7712 Oct 24  2025 sequences.fasta
+[?2004hroot@d69d6517eb0b:/app# cat sequences.fasta
+[?2004l>input
+actcttcctttttcaatattattgaagcatttatcagggttattgtctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggttccgcgcacatttccccgaaaagtgctagtggtgctagccccgcgaaattaatacgactcactatagggtctagaaataattttgtttaactttaagaaggagatatacatatgatcagtctgattgcggcgttagcggtagatcgcgttatcggcatggaaaacgccatgccgtggaacctgcctgccgatctcgcctggtttaaacgcaacaccttaaataaacccgtgattatgggccgccatacctgggaatcaatcggtcgtccgttgccaggacgcaaaaatattatcctcagcagtcaaccgggtacggacgatcgcgtaacgtgggtgaagtcggtggatgaagccatcgcggcgtgtggtgacgtaccagaaatcatggtgattggcggcggtcgcgtttatgaacagttcttgccaaaagcgcaaaaactgtatctgacgcatatcgacgcagaagtggaaggcgacacccatttcccggattacgagccggatgactgggaatcggtattcagcgaattccacgatgctgatgcgcagaactctcacagctattgctttgagattctggagcggcggtaatgaggatcccgggaattctcgagtaaggttaacctgcaggaggcctttaattaaggtggtgcggccgcgctagcggtcccgggggatcgatccggctgctaacaaagcccgaaaggaagctgagttggctgctgccaccgctgagcaataactagcataaccccttggggcctctaaacgggtcttgaggggttttttgctgaaaggaggaactatatccggaagcttggcactggccgaccggggtcgagcactgactcgctgcgctcggtcgttcggctgcggcgagcggtatcagctcactcaaaggcggtaatacggttatccacagaatcaggggataacgcaggaaagaacatgtgagcaaaaggccagcaaaaggccaggaaccgtaaaaaggccgcgttgctggcgtttttccataggctccgcccccctgacgagcatcacaaaaatcgacgctcaagtcagaggtggcgaaacccgacaggactataaagataccaggcgtttccccctggaagctccctcgtgcgctctcctgttccgaccctgccgcttaccggatacctgtccgcctttctcccttcgggaagcgtggcgctttctcatagctcacgctgtaggtatctcagttcggtgtaggtcgttcgctccaagctgggctgtgtgcacgaaccccccgttcagcccgaccgctgcgccttatccggtaactatcgtcttgagtccaacccgctaagacacgacttatcgccactggcagcagccactggtaacaggattagcagagcgaggtatgtaggcggtgctacagagttcttgaagtggtggcctaactacggctacactagaagaacagtatttggtatctgcgctctgctgaagccagttaccttcggaaaaagagttggtagctcttgatccggcaaacaaaccaccgctggtagcggtggtttttttgtttgcaagcagcagattacgcgcagaaaaaaaggatctcaagaagatcctttgatcttttctacggggtctgacgctcagtggaacgaaaactcacagatccgggattttggtcatgagattatcaaaaaggatcttcacctagatccttttaaattaaaaatgaagttttaaatcaatctaaagtatatatgagtaaacttggtctgacagttaccaatgcttaatcagtgaggcacctatctcagcgatctgtctatttcgttcatccatagttgcctgactccccgtcgtgtagataactacgatacgggagggcttaccatctggccccagtgctgcaatgataccgcgggacccacgctcaccggctccagatttatcagcaataaaccagccagccggaagggccgagcgcagaagtggtcctgcaactttatccgcctccatccagtctattaattgttgccgggaagctagagtaagtagttcgccagttaatagtttgcgcaacgttgttgccattgctacaggcatcgtggtgtcacgctcgtcgtttggtatggcttcattcagctccggttcccaacgatcaaggcgagttacatgatcccccatgttgtgcaaaaaagcggttagctccttcggtcctccgatcgttgtcagaagtaagttggccgcagtgttatcactcatggttatggcagcactgcataattctcttactgtcatgccatccgtaagatgcttttctgtgactggtgagtactcaaccaagtcattctgagaatagtgtatgcggcgaccgagttgctcttgcccggcgtcaatacgggataataccgcgccacatagcagaactttaaaagtgctcatcattggaaaacgttcttcggggcgaaaactctcaaggatcttaccgctgttgagatccagttcgatgtaacccactcgtgcacccaactgatcttcagcatcttttactttcaccagcgtttctgggtgagcaaaaacaggaaggcaaaatgccgcaaaaaagggaataagggcgacacggaaatgttgaatactcat
+>egfp
+atgagcaagggcgaggagctgttcaccggggtggtgcccatcctggtcgagctggacggcgacgtaaacggccacaagttcagcgtgtccggcgagggtgagggcgatgccacctacggcaagctgaccctgaagttcatctgcaccacgggcaagctgcccgtgccctggcccaccctcgtgaccaccctgacctacggcgtgcagtgcttcagccgctaccccgaccacatgaagcagcacgacttcttcaagtccgccatgcccgaaggctacgtccaggagcgcaccatcttcttcaaggacgacggcaactacaagacccgcgccgaggtgaagttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgacttcaaggaggacggcaacatcctggggcacaagctggagtacaactacaacagccacaacgtctatatcatggccgacaagcagaagaacggcatcaaggtgaacttcaagatccgccacaacatcgaggacggcagcgtgcagctcgccgaccactaccagcagaacacccccatcggcgacggccccgtgctgctgcccgacaaccactatctgagcacccagtccgccctgagcaaagaccccaacgagaagcgcgatcacatggtcctgctggagttcgtgaccgccgccgggatcactctcggcatggacgagctgtacaaataa
+>flag
+atgggtagtggctccggtagcggtagcggcagcgactacaaggacgacgacgacaagggttccggttctggttcaggtagtggttcataa
+>snap
+atggacaaagactgcgaaatgaagcgcaccaccctggatagccctctgggcaagctggaactgtctgggtgcgaacagggcctgcaccgtatcatcttcctgggcaaaggaacatctgccgccgacgccgtggaagtgcctgccccagccgccgtgctgggcggaccagagccactgatgcaggctaccgcatggctcaacgcctactttcaccagcctgaggccatcgaggagttccctgtgccagcgctgcaccatccagtgttccagcaggagagctttacccgccaggtgctgtggaaactgctgaaagtggtgaagtttggagaggtcatcagctacagccacctggccgccctggccggcaatcccgcagccaccgccgcagtgaaaaccgcactgagcggaaatcccgtgcccattctgatcccctgccaccgggtggtgcagggcgacctggacgtggggggctacgaaggcgggctcgcagttaaagagtggctgctggcccacgagggccacagactgggtaagcctgggctgggttaa
+>output
+actcttcctttttcaatattattgaagcatttatcagggttattgtctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggttccgcgcacatttccccgaaaagtgctagtggtgctagccccgcgaaattaatacgactcactatagggtctagaaataattttgtttaactttaagaaggagatatacatatgagcaagggcgaggagctgttcaccggggtggtgcccatcctggtcgagctggacggcgacgtaaacggccacaagttcagcgtgtccggcgagggtgagggcgatgccacctacggcaagctgaccctgaagttcatctgcaccacgggcaagctgcccgtgccctggcccaccctcgtgaccaccctgacctacggcgtgcagtgcttcagccgctaccccgaccacatgaagcagcacgacttcttcaagtccgccatgcccgaaggctacgtccaggagcgcaccatcttcttcaaggacgacggcaactacaagacccgcgccgaggtgaagttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgacttcaaggaggacggcaacatcctggggcacaagctggagtacaactacaacagccacaacgtctatatcatggccgacaagcagaagaacggcatcaaggtgaacttcaagatccgccacaacatcgaggacggcagcgtgcagctcgccgaccactaccagcagaacacccccatcggcgacggccccgtgctgctgcccgacaaccactatctgagcacccagtccgccctgagcaaagaccccaacgagaagcgcgatcacatggtcctgctggagttcgtgaccgccgccgggatcactctcggcatggacgagctgtacaaaggtagtggctccggtagcggtagcggcagcgactacaaggacgacgacgacaagggttccggttctggttcaggtagtggttcagacaaagactgcgaaatgaagcgcaccaccctggatagccctctgggcaagctggaactgtctgggtgcgaacagggcctgcaccgtatcatcttcctgggcaaaggaacatctgccgccgacgccgtggaagtgcctgccccagccgccgtgctgggcggaccagagccactgatgcaggctaccgcatggctcaacgcctactttcaccagcctgaggccatcgaggagttccctgtgccagcgctgcaccatccagtgttccagcaggagagctttacccgccaggtgctgtggaaactgctgaaagtggtgaagtttggagaggtcatcagctacagccacctggccgccctggccggcaatcccgcagccaccgccgcagtgaaaaccgcactgagcggaaatcccgtgcccattctgatcccctgccaccgggtggtgcagggcgacctggacgtggggggctacgaaggcgggctcgcagttaaagagtggctgctggcccacgagggccacagactgggtaagcctgggctgggttaatgaggatcccgggaattctcgagtaaggttaacctgcaggaggcctttaattaaggtggtgcggccgcgctagcggtcccgggggatcgatccggctgctaacaaagcccgaaaggaagctgagttggctgctgccaccgctgagcaataactagcataaccccttggggcctctaaacgggtcttgaggggttttttgctgaaaggaggaactatatccggaagcttggcactggccgaccggggtcgagcactgactcgctgcgctcggtcgttcggctgcggcgagcggtatcagctcactcaaaggcggtaatacggttatccacagaatcaggggataacgcaggaaagaacatgtgagcaaaaggccagcaaaaggccaggaaccgtaaaaaggccgcgttgctggcgtttttccataggctccgcccccctgacgagcatcacaaaaatcgacgctcaagtcagaggtggcgaaacccgacaggactataaagataccaggcgtttccccctggaagctccctcgtgcgctctcctgttccgaccctgccgcttaccggatacctgtccgcctttctcccttcgggaagcgtggcgctttctcatagctcacgctgtaggtatctcagttcggtgtaggtcgttcgctccaagctgggctgtgtgcacgaaccccccgttcagcccgaccgctgcgccttatccggtaactatcgtcttgagtccaacccgctaagacacgacttatcgccactggcagcagccactggtaacaggattagcagagcgaggtatgtaggcggtgctacagagttcttgaagtggtggcctaactacggctacactagaagaacagtatttggtatctgcgctctgctgaagccagttaccttcggaaaaagagttggtagctcttgatccggcaaacaaaccaccgctggtagcggtggtttttttgtttgcaagcagcagattacgcgcagaaaaaaaggatctcaagaagatcctttgatcttttctacggggtctgacgctcagtggaacgaaaactcacagatccgggattttggtcatgagattatcaaaaaggatcttcacctagatccttttaaattaaaaatgaagttttaaatcaatctaaagtatatatgagtaaacttggtctgacagttaccaatgcttaatcagtgaggcacctatctcagcgatctgtctatttcgttcatccatagttgcctgactccccgtcgtgtagataactacgatacgggagggcttaccatctggccccagtgctgcaatgataccgcgggacccacgctcaccggctccagatttatcagcaataaaccagccagccggaagggccgagcgcagaagtggtcctgcaactttatccgcctccatccagtctattaattgttgccgggaagctagagtaagtagttcgccagttaatagtttgcgcaacgttgttgccattgctacaggcatcgtggtgtcacgctcgtcgtttggtatggcttcattcagctccggttcccaacgatcaaggcgagttacatgatcccccatgttgtgcaaaaaagcggttagctccttcggtcctccgatcgttgtcagaagtaagttggccgcagtgttatcactcatggttatggcagcactgcataattctcttactgtcatgccatccgtaagatgcttttctgtgactggtgagtactcaaccaagtcattctgagaatagtgtatgcggcgaccgagttgctcttgcccggcgtcaatacgggataataccgcgccacatagcagaactttaaaagtgctcatcattggaaaacgttcttcggggcgaaaactctcaaggatcttaccgctgttgagatccagttcgatgtaacccactcgtgcacccaactgatcttcagcatcttttactttcaccagcgtttctgggtgagcaaaaacaggaaggcaaaatgccgcaaaaaagggaataagggcgacacggaaatgttgaatactcat
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > design.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", "-seq", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Oligotm test:", get_tm("ATGCGATCGATCGATCGATC"))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 design.py
+[?2004lTraceback (most recent call last):
+  File "/app/design.py", line 8, in <module>
+    print("Oligotm test:", get_tm("ATGCGATCGATCGATCGATC"))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/design.py", line 5, in get_tm
+    res = subprocess.run(cmd, capture_output=True, text=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'oligotm'
+[?2004hroot@d69d6517eb0b:/app# find / -name "oligotm" 2>/dev/null
+[?2004l[?2004hroot@d69d6517eb0b:/app# pip list
+[?2004lbash: pip: command not found
+[?2004hroot@d69d6517eb0b:/app# apt-cache search primer3
+[?2004llibbio-primerdesigner-perl - Perl module to design PCR primers using primer3 and epcr
+primer3 - tool to design flanking oligo nucleotides for DNA amplification
+primer3-examples - tool to design flanking oligo nucleotides for DNA amplification (examples)
+[?2004hroot@d69d6517eb0b:/app# apt-get update && apt-get install -y primer3
+[?2004l0% [Working]0% [Connecting to archive.ubuntu.com (91.189.92.23)] [Connecting to security.ubuntu.com]                                                                                        0% [Waiting for headers] [Connecting to security.ubuntu.com (91.189.91.83)]                                                                           Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+                                                                           0% [Connecting to security.ubuntu.com (91.189.91.83)]                                                     0% [Waiting for headers] [Waiting for headers]                                              Hit:2 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+                                              0% [Waiting for headers]0% [Waiting for headers] [Waiting for headers]                                              Hit:3 http://security.ubuntu.com/ubuntu noble-security InRelease
+                                              0% [Waiting for headers]0% [Waiting for headers]                        Hit:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+                        0% [Working]20% [Working]             Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 5%Reading package lists... 5%Reading package lists... 58%Reading package lists... 58%Reading package lists... 59%Reading package lists... 59%Reading package lists... 60%Reading package lists... 60%Reading package lists... 65%Reading package lists... 65%Reading package lists... 73%Reading package lists... 73%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 86%Reading package lists... 86%Reading package lists... 92%Reading package lists... 92%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 5%Reading package lists... 5%Reading package lists... 58%Reading package lists... 58%Reading package lists... 59%Reading package lists... 59%Reading package lists... 60%Reading package lists... 60%Reading package lists... 65%Reading package lists... 65%Reading package lists... 73%Reading package lists... 73%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 86%Reading package lists... 86%Reading package lists... 92%Reading package lists... 92%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 33%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... Done
+Reading state information... 0% Reading state information... 4%Reading state information... Done
+Suggested packages:
+  ncbi-epcr
+The following NEW packages will be installed:
+  primer3
+0 upgraded, 1 newly installed, 0 to remove and 44 not upgraded.
+Need to get 221 kB of archives.
+After this operation, 793 kB of additional disk space will be used.
+0% [Working]0% [Connecting to archive.ubuntu.com (91.189.92.23)]                                                    Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 primer3 amd64 2.6.1-4 [221 kB]
+                                                    5% [1 primer3 13.9 kB/221 kB 6%]16% [1 primer3 43.5 kB/221 kB 20%]                                  37% [1 primer3 102 kB/221 kB 46%]57% [1 primer3 157 kB/221 kB 71%]                                 100% [Working]              Fetched 221 kB in 3s (86.2 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package primer3.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6312 files and directories currently installed.)
+Preparing to unpack .../primer3_2.6.1-4_amd64.deb ...
+Unpacking primer3 (2.6.1-4) ...
+Setting up primer3 (2.6.1-4) ...
+[?2004hroot@d69d6517eb0b:/app# python3 design.py
+[?2004lTraceback (most recent call last):
+  File "/app/design.py", line 8, in <module>
+    print("Oligotm test:", get_tm("ATGCGATCGATCGATCGATC"))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/design.py", line 6, in get_tm
+    return float(res.stdout.strip())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+[?2004hroot@d69d6517eb0b:/app# oligotm --help
+[?2004lUSAGE: oligotm OPTIONS oligo
+
+where oligo is a DNA sequence of between 2 and 36 bases
+
+and
+
+OPTIONS can include any of the the following:
+
+-mv monovalent_conc - concentration of monovalent cations in mM, by default 50mM
+
+-dv divalent_conc   - concentration of divalent cations in mM, by default 1.5mM
+
+-n  dNTP_conc       - concentration of deoxynycleotide triphosphate in mM, by default 0.6mM
+
+-d  dna_conc        - concentration of DNA strands in nM, by default 50nM
+
+-dm dmso_conc       - concentration of DMSO in %, by default 0
+
+-df dmso_factor     - correction factor for DMSO, by default 0.6
+
+-fo formamide_conc  - concentration of formamide in mol/l, by default 0 mol/l
+
+-tp [0|1]     - Specifies the table of thermodynamic parameters and
+                the method of melting temperature calculation:
+                 0  Breslauer et al., 1986 and Rychlik et al., 1990
+                    (used by primer3 up to and including release 1.1.0).
+                 1  Use nearest neighbor parameters from SantaLucia 1998
+                    *This is the default and recommended value*
+
+-sc [0..2]    - Specifies salt correction formula for the melting 
+                 temperature calculation
+                  0  Schildkraut and Lifson 1965, used by primer3 up to 
+                     and including release 1.1.0.
+                  1  SantaLucia 1998
+                     *This is the default and recommended value*
+                  2  Owczarzy et al., 2004
+
+
+
+Prints oligo's melting temperature on stdout.
+[?2004hroot@d69d6517eb0b:/app# oligotm -tp 1 -sc 1 -mv 50 -dv 2 -n 0.8 -d 500 ATGCGATCGATCGATCGATCATGCGATCGATCGATCGATC
+[?2004l75.513625
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> for name in ['egfp', 'flag', 'snap']:
+[?2004l[?2004h>     pos = seqs['output'].find(seqs[name])
+[?2004l[?2004h>     print(f"{name} in output at: {pos}")
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze.py
+[?2004legfp in output at: -1
+flag in output at: -1
+snap in output at: -1
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Lengths:")
+[?2004l[?2004h> for k, v in seqs.items():
+[?2004l[?2004h>     print(k, len(v))
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's check egfp vs output
+[?2004l[?2004h> # maybe output has egfp without stop codon, or some changes?
+[?2004l[?2004h> # Let's check substring matches of first 50 bps
+[?2004l[?2004h> for name in ['egfp', 'flag', 'snap']:
+[?2004l[?2004h>     sub = seqs[name][:30]
+[?2004l[?2004h>     p = seqs['output'].find(sub)
+[?2004l[?2004h>     print(f"{name} start ({sub}) in output at {p}")
+[?2004l[?2004h>     sub2 = seqs[name][-30:]
+[?2004l[?2004h>     p2 = seqs['output'].find(sub2)
+[?2004l[?2004h>     print(f"{name} end ({sub2}) in output at {p2}")
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze.py
+[?2004lLengths:
+input 2727
+egfp 717
+flag 90
+snap 549
+output 3591
+egfp start (atgagcaagggcgaggagctgttcaccggg) in output at 210
+egfp end (actctcggcatggacgagctgtacaaataa) in output at -1
+flag start (atgggtagtggctccggtagcggtagcggc) in output at -1
+flag end (tccggttctggttcaggtagtggttcataa) in output at -1
+snap start (atggacaaagactgcgaaatgaagcgcacc) in output at -1
+snap end (cacagactgggtaagcctgggctgggttaa) in output at 1524
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze2.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> egfp = seqs['egfp'][:-3] # remove stop codon
+[?2004l[?2004h> flag = seqs['flag'][:-3] # remove stop codon
+[?2004l[?2004h> snap = seqs['snap']
+[?2004l[?2004h> 
+[?2004l[?2004h> print("egfp without stop in out?", egfp in out)
+[?2004l[?2004h> print("flag without stop in out?", flag in out)
+[?2004l[?2004h> print("snap in out?", snap in out)
+[?2004l[?2004h> 
+[?2004l[?2004h> p1 = out.find(egfp)
+[?2004l[?2004h> p2 = out.find(flag)
+[?2004l[?2004h> p3 = out.find(snap)
+[?2004l[?2004h> print("egfp pos:", p1, p1 + len(egfp))
+[?2004l[?2004h> print("flag pos:", p2, p2 + len(flag))
+[?2004l[?2004h> print("snap pos:", p3, p3 + len(snap))
+[?2004l[?2004h> 
+[?2004l[?2004h> # What is before egfp and after snap in output?
+[?2004l[?2004h> # output is circular. Let's find input parts in output.
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze2.py
+[?2004legfp without stop in out? True
+flag without stop in out? False
+snap in out? False
+egfp pos: 210 924
+flag pos: -1 86
+snap pos: -1 548
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze3.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> for name in ['flag', 'snap']:
+[?2004l[?2004h>     s = seqs[name]
+[?2004l[?2004h>     # search for pieces of s in out
+[?2004l[?2004h>     for i in range(0, len(s)-20, 10):
+[?2004l[?2004h>         chunk = s[i:i+20]
+[?2004l[?2004h>         pos = out.find(chunk)
+[?2004l[?2004h>         if pos != -1:
+[?2004l[?2004h>             print(f"{name} chunk {i} found at out pos {pos}")
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze3.py
+[?2004lflag chunk 10 found at out pos 931
+flag chunk 20 found at out pos 941
+flag chunk 30 found at out pos 951
+flag chunk 40 found at out pos 961
+flag chunk 50 found at out pos 971
+flag chunk 60 found at out pos 981
+snap chunk 10 found at out pos 1015
+snap chunk 20 found at out pos 1025
+snap chunk 30 found at out pos 1035
+snap chunk 40 found at out pos 1045
+snap chunk 50 found at out pos 1055
+snap chunk 60 found at out pos 1065
+snap chunk 70 found at out pos 1075
+snap chunk 80 found at out pos 1085
+snap chunk 90 found at out pos 1095
+snap chunk 100 found at out pos 1105
+snap chunk 110 found at out pos 1115
+snap chunk 120 found at out pos 1125
+snap chunk 130 found at out pos 1135
+snap chunk 140 found at out pos 1145
+snap chunk 150 found at out pos 1155
+snap chunk 160 found at out pos 1165
+snap chunk 170 found at out pos 1175
+snap chunk 180 found at out pos 1185
+snap chunk 190 found at out pos 1195
+snap chunk 200 found at out pos 1205
+snap chunk 210 found at out pos 1215
+snap chunk 220 found at out pos 1225
+snap chunk 230 found at out pos 1235
+snap chunk 240 found at out pos 1245
+snap chunk 250 found at out pos 1255
+snap chunk 260 found at out pos 1265
+snap chunk 270 found at out pos 1275
+snap chunk 280 found at out pos 1285
+snap chunk 290 found at out pos 1295
+snap chunk 300 found at out pos 1305
+snap chunk 310 found at out pos 1315
+snap chunk 320 found at out pos 1325
+snap chunk 330 found at out pos 1335
+snap chunk 340 found at out pos 1345
+snap chunk 350 found at out pos 1355
+snap chunk 360 found at out pos 1365
+snap chunk 370 found at out pos 1375
+snap chunk 380 found at out pos 1385
+snap chunk 390 found at out pos 1395
+snap chunk 400 found at out pos 1405
+snap chunk 410 found at out pos 1415
+snap chunk 420 found at out pos 1425
+snap chunk 430 found at out pos 1435
+snap chunk 440 found at out pos 1445
+snap chunk 450 found at out pos 1455
+snap chunk 460 found at out pos 1465
+snap chunk 470 found at out pos 1475
+snap chunk 480 found at out pos 1485
+snap chunk 490 found at out pos 1495
+snap chunk 500 found at out pos 1505
+snap chunk 510 found at out pos 1515
+snap chunk 520 found at out pos 1525
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze4.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's print out what is at:
+[?2004l[?2004h> # egfp: from 210 to 924
+[?2004l[?2004h> # flag: from 921 to 1010
+[?2004l[?2004h> # snap: from 1004 to 1552 (let's check)
+[?2004l[?2004h> print("egfp in out:", out[210:924] == seqs['egfp'][:-3])
+[?2004l[?2004h> print("flag in out:", out[924:1014] == seqs['flag'])
+[?2004l[?2004h> print("snap in out:", out[1014:1563] == seqs['snap'])
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze4.py
+[?2004legfp in out: True
+flag in out: False
+snap in out: False
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze5.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line);
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> flag = seqs['flag']
+[?2004l[?2004h> snap = seqs['snap']
+[?2004l[?2004h> 
+[?2004l[?2004h> for start in range(915, 935):
+[?2004l[?2004h>     for end in range(start + len(flag) - 5, start + len(flag) + 5):
+[?2004l[?2004h>         if out[start:end] == flag:
+[?2004l[?2004h>             print(f"flag found at {start}:{end}")
+[?2004l[?2004h> 
+[?2004l[?2004h> for start in range(1000, 1025):
+[?2004l[?2004h>     for end in range(start + len(snap) - 5, start + len(snap) + 5):
+[?2004l[?2004h>         if out[start:end] == snap:
+[?2004l[?2004h>             print(f"snap found at {start}:{end}")
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze5.py
+[?2004l[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze6.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> print("egfp:", seqs['egfp'])
+[?2004l[?2004h> print("flag:", seqs['flag'])
+[?2004l[?2004h> print("snap:", seqs['snap'])
+[?2004l[?2004h> print("out[200:1600]:", out[200:1600])
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze6.py
+[?2004legfp: atgagcaagggcgaggagctgttcaccggggtggtgcccatcctggtcgagctggacggcgacgtaaacggccacaagttcagcgtgtccggcgagggtgagggcgatgccacctacggcaagctgaccctgaagttcatctgcaccacgggcaagctgcccgtgccctggcccaccctcgtgaccaccctgacctacggcgtgcagtgcttcagccgctaccccgaccacatgaagcagcacgacttcttcaagtccgccatgcccgaaggctacgtccaggagcgcaccatcttcttcaaggacgacggcaactacaagacccgcgccgaggtgaagttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgacttcaaggaggacggcaacatcctggggcacaagctggagtacaactacaacagccacaacgtctatatcatggccgacaagcagaagaacggcatcaaggtgaacttcaagatccgccacaacatcgaggacggcagcgtgcagctcgccgaccactaccagcagaacacccccatcggcgacggccccgtgctgctgcccgacaaccactatctgagcacccagtccgccctgagcaaagaccccaacgagaagcgcgatcacatggtcctgctggagttcgtgaccgccgccgggatcactctcggcatggacgagctgtacaaataa
+flag: atgggtagtggctccggtagcggtagcggcagcgactacaaggacgacgacgacaagggttccggttctggttcaggtagtggttcataa
+snap: atggacaaagactgcgaaatgaagcgcaccaccctggatagccctctgggcaagctggaactgtctgggtgcgaacagggcctgcaccgtatcatcttcctgggcaaaggaacatctgccgccgacgccgtggaagtgcctgccccagccgccgtgctgggcggaccagagccactgatgcaggctaccgcatggctcaacgcctactttcaccagcctgaggccatcgaggagttccctgtgccagcgctgcaccatccagtgttccagcaggagagctttacccgccaggtgctgtggaaactgctgaaagtggtgaagtttggagaggtcatcagctacagccacctggccgccctggccggcaatcccgcagccaccgccgcagtgaaaaccgcactgagcggaaatcccgtgcccattctgatcccctgccaccgggtggtgcagggcgacctggacgtggggggctacgaaggcgggctcgcagttaaagagtggctgctggcccacgagggccacagactgggtaagcctgggctgggttaa
+out[200:1600]: agatatacatatgagcaagggcgaggagctgttcaccggggtggtgcccatcctggtcgagctggacggcgacgtaaacggccacaagttcagcgtgtccggcgagggtgagggcgatgccacctacggcaagctgaccctgaagttcatctgcaccacgggcaagctgcccgtgccctggcccaccctcgtgaccaccctgacctacggcgtgcagtgcttcagccgctaccccgaccacatgaagcagcacgacttcttcaagtccgccatgcccgaaggctacgtccaggagcgcaccatcttcttcaaggacgacggcaactacaagacccgcgccgaggtgaagttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgacttcaaggaggacggcaacatcctggggcacaagctggagtacaactacaacagccacaacgtctatatcatggccgacaagcagaagaacggcatcaaggtgaacttcaagatccgccacaacatcgaggacggcagcgtgcagctcgccgaccactaccagcagaacacccccatcggcgacggccccgtgctgctgcccgacaaccactatctgagcacccagtccgccctgagcaaagaccccaacgagaagcgcgatcacatggtcctgctggagttcgtgaccgccgccgggatcactctcggcatggacgagctgtacaaaggtagtggctccggtagcggtagcggcagcgactacaaggacgacgacgacaagggttccggttctggttcaggtagtggttcagacaaagactgcgaaatgaagcgcaccaccctggatagccctctgggcaagctggaactgtctgggtgcgaacagggcctgcaccgtatcatcttcctgggcaaaggaacatctgccgccgacgccgtggaagtgcctgccccagccgccgtgctgggcggaccagagccactgatgcaggctaccgcatggctcaacgcctactttcaccagcctgaggccatcgaggagttccctgtgccagcgctgcaccatccagtgttccagcaggagagctttacccgccaggtgctgtggaaactgctgaaagtggtgaagtttggagaggtcatcagctacagccacctggccgccctggccggcaatcccgcagccaccgccgcagtgaaaaccgcactgagcggaaatcccgtgcccattctgatcccctgccaccgggtggtgcagggcgacctggacgtggggggctacgaaggcgggctcgcagttaaagagtggctgctggcccacgagggccacagactgggtaagcctgggctgggttaatgaggatcccgggaattctcgagtaaggttaacctgcaggaggcct
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze7.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Input length:", len(inp))
+[?2004l[?2004h> print("Output length:", len(out))
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's find common chunks between input and output
+[?2004l[?2004h> # Input has backbone. Let's find where output diverges from input.
+[?2004l[?2004h> # E.g. output has egfp/flag/snap inserted between some positions in input.
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's check prefix of input in output
+[?2004l[?2004h> pfx = inp[:50]
+[?2004l[?2004h> p = out.find(pfx)
+[?2004l[?2004h> print("Input prefix in output at:", p)
+[?2004l[?2004h> 
+[?2004l[?2004h> sfx = inp[-50:]
+[?2004l[?2004h> p2 = out.find(sfx)
+[?2004l[?2004h> print("Input suffix in output at:", p2)
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze7.py
+[?2004lInput length: 2727
+Output length: 3591
+Input prefix in output at: 0
+Input suffix in output at: 3541
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze8.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> # Input starts with:
+[?2004l[?2004h> print("inp[:100]:", inp[:100])
+[?2004l[?2004h> print("out[:100]:", out[:100])
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's find where out diverges from inp at the start
+[?2004l[?2004h> for i in range(len(inp)):
+[?2004l[?2004h>     if inp[i] != out[i]:
+[?2004l[?2004h>         print(f"Divergence at input idx {i}: inp={inp[i]}, out={out[i]}")
+[?2004l[?2004h>         print("inp around:", inp[i-20:i+20])
+[?2004l[?2004h>         print("out around:", out[i-20:i+20])
+[?2004l[?2004h>         break
+[?2004l[?2004h> 
+[?2004l[?2004h> # And at the end / other junction:
+[?2004l[?2004h> # output ends with suffix of input, let's find where output reconnects with input suffix
+[?2004l[?2004h> sfx = inp[-50:]
+[?2004l[?2004h> p_sfx = out.find(sfx)
+[?2004l[?2004h> print("Input suffix starts in output at:", p_sfx)
+[?2004l[?2004h> print("output[p_sfx-30:p_sfx+30]:", out[p_sfx-30:p_sfx+30])
+[?2004l[?2004h> print("input ends with:", inp[-30:])
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze8.py
+[?2004linp[:100]: actcttcctttttcaatattattgaagcatttatcagggttattgtctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggtt
+out[:100]: actcttcctttttcaatattattgaagcatttatcagggttattgtctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggtt
+Divergence at input idx 214: inp=t, out=g
+inp around: agaaggagatatacatatgatcagtctgattgcggcgtta
+out around: agaaggagatatacatatgagcaagggcgaggagctgttc
+Input suffix starts in output at: 3541
+output[p_sfx-30:p_sfx+30]: gtttctgggtgagcaaaaacaggaaggcaaaatgccgcaaaaaagggaataagggcgaca
+input ends with: aagggcgacacggaaatgttgaatactcat
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze9.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's verify input circular structure
+[?2004l[?2004h> # In output:
+[?2004l[?2004h> # 0 to 214 matches inp[:214]
+[?2004l[?2004h> # 214 to 924 is egfp
+[?2004l[?2004h> # 924 to 1014 is flag
+[?2004l[?2004h> # 1014 to 1563 is snap
+[?2004l[?2004h> # 1563 to 3591 matches inp from around some point to the end
+[?2004l[?2004h> 
+[?2004l[?2004h> p_inp_resume = inp.find(out[1563:1563+30])
+[?2004l[?2004h> print("Input resumes at input index:", p_inp_resume)
+[?2004l[?2004h> print("Does out[1563:] match inp[p_inp_resume:] + inp[:214]?", out[1563:] == inp[p_inp_resume:] + inp[:214])
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze9.py
+[?2004lInput resumes at input index: 699
+Does out[1563:] match inp[p_inp_resume:] + inp[:214]? False
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze10.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> snap = seqs['snap']
+[?2004l[?2004h> p_snap = out.find(snap)
+[?2004l[?2004h> print("snap ends at out index:", p_snap + len(snap))
+[?2004l[?2004h> print("out after snap:", out[p_snap + len(snap):p_snap + len(snap) + 50])
+[?2004l[?2004h> print("inp search:", inp.find(out[p_snap + len(snap):p_snap + len(snap) + 30]))
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze10.py
+[?2004lsnap ends at out index: 548
+out after snap: gttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgact
+inp search: -1
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze11.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> snap = seqs['snap']
+[?2004l[?2004h> 
+[?2004l[?2004h> p_snap = out.find(snap)
+[?2004l[?2004h> print("snap found at out index:", p_snap, p_snap + len(snap))
+[?2004l[?2004h> print("out after snap:", out[p_snap + len(snap):p_snap + len(snap) + 50])
+[?2004l[?2004h> print("inp search:", inp.find(out[p_snap + len(snap):p_snap + len(snap) + 30]))
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze11.py
+[?2004lsnap found at out index: -1 548
+out after snap: gttcgagggcgacaccctggtgaaccgcatcgagctgaagggcatcgact
+inp search: -1
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze12.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> snap_start = seqs['snap'][:30]
+[?2004l[?2004h> pos = out.find(snap_start)
+[?2004l[?2004h> print("snap start in out at:", pos)
+[?2004l[?2004h> print("snap length:", len(seqs['snap']))
+[?2004l[?2004h> print("out from pos to pos+len:", out[pos:pos+len(seqs['snap'])])
+[?2004l[?2004h> print("matches exact snap?", out[pos:pos+len(seqs['snap'])] == seqs['snap'])
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze12.py
+[?2004lsnap start in out at: -1
+snap length: 549
+out from pos to pos+len: 
+matches exact snap? False
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze13.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> snap_no_atg = seqs['snap'][3:]
+[?2004l[?2004h> pos = out.find(snap_no_atg)
+[?2004l[?2004h> print("snap without atg in out at:", pos, pos + len(snap_no_atg))
+[?2004l[?2004h> print("out after snap:", out[pos + len(snap_no_atg):pos + len(snap_no_atg) + 50])
+[?2004l[?2004h> print("inp search for that suffix:", inp.find(out[pos + len(snap_no_atg):pos + len(snap_no_atg) + 30]))
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze13.py
+[?2004lsnap without atg in out at: 1008 1554
+out after snap: tgaggatcccgggaattctcgagtaaggttaacctgcaggaggcctttaa
+Traceback (most recent call last):
+  File "/app/analyze13.py", line 21, in <module>
+    print("inp search for that suffix:", inp.find(out[pos + len(snap_no_atg):pos + len(snap_no_atg) + 30]))
+                                         ^^^
+NameError: name 'inp' is not defined. Did you mean: 'int'?
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze14.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's verify the 4 parts in output:
+[?2004l[?2004h> # Part 1: input backbone. Where does it start and end in output?
+[?2004l[?2004h> # In output, part 1 goes from 0 to 214.
+[?2004l[?2004h> # Where does part 1 resume in output? After snap, at pos 1554.
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Part 1 start (0:214 in out):", out[:214])
+[?2004l[?2004h> print("Part 1 end (1554: in out):", out[1554:1554+100])
+[?2004l[?2004h> print("Does out[1554:] match inp corresponding part? Let's find out where out[1554:1554+30] is in input.")
+[?2004l[?2004h> p_inp = inp.find(out[1554:1554+30])
+[?2004l[?2004h> print("Input index where backbone resumes:", p_inp)
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's check if inp[p_inp:] + inp[:214] matches out[1554:] + out[:214] (the whole backbone in output)
+[?2004l[?2004h> backbone_out = out[1554:] + out[:214]
+[?2004l[?2004h> backbone_inp = inp[p_inp:] + inp[:p_inp]
+[?2004l[?2004h> print("Backbone in out length:", len(backbone_out))
+[?2004l[?2004h> print("Backbone in inp length:", len(backbone_inp))
+[?2004l[?2004h> print("Backbone matches input?", backbone_out == backbone_inp)
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze14.py
+[?2004lPart 1 start (0:214 in out): actcttcctttttcaatattattgaagcatttatcagggttattgtctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggttccgcgcacatttccccgaaaagtgctagtggtgctagccccgcgaaattaatacgactcactatagggtctagaaataattttgtttaactttaagaaggagatatacatatga
+Part 1 end (1554: in out): tgaggatcccgggaattctcgagtaaggttaacctgcaggaggcctttaattaaggtggtgcggccgcgctagcggtcccgggggatcgatccggctgct
+Does out[1554:] match inp corresponding part? Let's find out where out[1554:1554+30] is in input.
+Input index where backbone resumes: 690
+Backbone in out length: 2251
+Backbone in inp length: 2727
+Backbone matches input? False
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze15.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> # Part 1 (input backbone): from index 690 to index 214 (wrapping around)
+[?2004l[?2004h> part_input = inp[690:] + inp[:214]
+[?2004l[?2004h> 
+[?2004l[?2004h> # Part 2 (egfp): seqs['egfp'][:-3]
+[?2004l[?2004h> part_egfp = seqs['egfp'][:-3]
+[?2004l[?2004h> 
+[?2004l[?2004h> # Part 3 (flag): seqs['flag'][3:-3]
+[?2004l[?2004h> part_flag = seqs['flag'][3:-3]
+[?2004l[?2004h> 
+[?2004l[?2004h> # Part 4 (snap): seqs['snap'][3:]
+[?2004l[?2004h> part_snap = seqs['snap'][3:]
+[?2004l[?2004h> 
+[?2004l[?2004h> reconstructed = part_input[:len(inp)-690+214] # wait, let's just concatenate in assembly order:
+[?2004l[?2004h> # backbone, egfp, flag, snap
+[?2004l[?2004h> full = part_input[:inp.find(inp[214])] # wait, let's trace carefully:
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's check if part_input + part_egfp + part_flag + part_snap == out (with appropriate circular shift)
+[?2004l[?2004h> assembled = part_input[:len(inp)-690] + part_egfp + part_flag + part_snap + part_input[len(inp)-690:]
+[?2004l[?2004h> print(
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Reconstructed matches output?", assembled == out)
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze15.py
+[?2004l  File "/app/analyze15.py", line 37
+    print(
+         ^
+SyntaxError: '(' was never closed
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > analyze15.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> part_input = inp[690:] + inp[:214]
+[?2004l[?2004h> part_egfp = seqs['egfp'][:-3]
+[?2004l[?2004h> part_flag = seqs['flag'][3:-3]
+[?2004l[?2004h> part_snap = seqs['snap'][3:]
+[?2004l[?2004h> 
+[?2004l[?2004h> assembled = part_input[:len(inp)-690] + part_egfp + part_flag + part_snap + part_input[len(inp)-690:]
+[?2004l[?2004h> print("Reconstructed matches output?", assembled == out)
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 analyze15.py
+[?2004lReconstructed matches output? False
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > find_parts.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> # egfp in out
+[?2004l[?2004h> egfp = seqs['egfp'][:-3]
+[?2004l[?2004h> p_egfp = out.find(egfp)
+[?2004l[?2004h> print("egfp in out:", p_egfp, p_egfp + len(egfp))
+[?2004l[?2004h> 
+[?2004l[?2004h> # flag in out
+[?2004l[?2004h> flag = seqs['flag'][3:-3]
+[?2004l[?2004h> p_flag = out.find(flag)
+[?2004l[?2004h> print("flag in out:", p_flag, p_flag + len(flag))
+[?2004l[?2004h> 
+[?2004l[?2004h> # snap in out
+[?2004l[?2004h> snap = seqs['snap'][3:]
+[?2004l[?2004h> p_snap = out.find(snap)
+[?2004l[?2004h> print("snap in out:", p_snap, p_snap + len(snap))
+[?2004l[?2004h> 
+[?2004l[?2004h> # backbone parts in out:
+[?2004l[?2004h> # before egfp (0 to p_egfp)
+[?2004l[?2004h> # after snap (p_snap + len(snap) to end of out)
+[?2004l[?2004h> print("Backbone part 1 (0 to p_egfp):", out[:p_egfp])
+[?2004l[?2004h> print("Backbone part 2 (p_snap + len(snap) to end):", out[p_snap + len(snap):])
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 find_parts.py
+[?2004legfp in out: 210 924
+flag in out: 924 1008
+snap in out: 1008 1554
+Backbone part 1 (0 to p_egfp): actcttcctttttcaatattattgaagcatttatcagggttattgtctcatgagcggatacatatttgaatgtatttagaaaaataaacaaataggggttccgcgcacatttccccgaaaagtgctagtggtgctagccccgcgaaattaatacgactcactatagggtctagaaataattttgtttaactttaagaaggagatatacat
+Backbone part 2 (p_snap + len(snap) to end): tgaggatcccgggaattctcgagtaaggttaacctgcaggaggcctttaattaaggtggtgcggccgcgctagcggtcccgggggatcgatccggctgctaacaaagcccgaaaggaagctgagttggctgctgccaccgctgagcaataactagcataaccccttggggcctctaaacgggtcttgaggggttttttgctgaaaggaggaactatatccggaagcttggcactggccgaccggggtcgagcactgactcgctgcgctcggtcgttcggctgcggcgagcggtatcagctcactcaaaggcggtaatacggttatccacagaatcaggggataacgcaggaaagaacatgtgagcaaaaggccagcaaaaggccaggaaccgtaaaaaggccgcgttgctggcgtttttccataggctccgcccccctgacgagcatcacaaaaatcgacgctcaagtcagaggtggcgaaacccgacaggactataaagataccaggcgtttccccctggaagctccctcgtgcgctctcctgttccgaccctgccgcttaccggatacctgtccgcctttctcccttcgggaagcgtggcgctttctcatagctcacgctgtaggtatctcagttcggtgtaggtcgttcgctccaagctgggctgtgtgcacgaaccccccgttcagcccgaccgctgcgccttatccggtaactatcgtcttgagtccaacccgctaagacacgacttatcgccactggcagcagccactggtaacaggattagcagagcgaggtatgtaggcggtgctacagagttcttgaagtggtggcctaactacggctacactagaagaacagtatttggtatctgcgctctgctgaagccagttaccttcggaaaaagagttggtagctcttgatccggcaaacaaaccaccgctggtagcggtggtttttttgtttgcaagcagcagattacgcgcagaaaaaaaggatctcaagaagatcctttgatcttttctacggggtctgacgctcagtggaacgaaaactcacagatccgggattttggtcatgagattatcaaaaaggatcttcacctagatccttttaaattaaaaatgaagttttaaatcaatctaaagtatatatgagtaaacttggtctgacagttaccaatgcttaatcagtgaggcacctatctcagcgatctgtctatttcgttcatccatagttgcctgactccccgtcgtgtagataactacgatacgggagggcttaccatctggccccagtgctgcaatgataccgcgggacccacgctcaccggctccagatttatcagcaataaaccagccagccggaagggccgagcgcagaagtggtcctgcaactttatccgcctccatccagtctattaattgttgccgggaagctagagtaagtagttcgccagttaatagtttgcgcaacgttgttgccattgctacaggcatcgtggtgtcacgctcgtcgtttggtatggcttcattcagctccggttcccaacgatcaaggcgagttacatgatcccccatgttgtgcaaaaaagcggttagctccttcggtcctccgatcgttgtcagaagtaagttggccgcagtgttatcactcatggttatggcagcactgcataattctcttactgtcatgccatccgtaagatgcttttctgtgactggtgagtactcaaccaagtcattctgagaatagtgtatgcggcgaccgagttgctcttgcccggcgtcaatacgggataataccgcgccacatagcagaactttaaaagtgctcatcattggaaaacgttcttcggggcgaaaactctcaaggatcttaccgctgttgagatccagttcgatgtaacccactcgtgcacccaactgatcttcagcatcttttactttcaccagcgtttctgggtgagcaaaaacaggaaggcaaaatgccgcaaaaaagggaataagggcgacacggaaatgttgaatactcat
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > test_primers.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Test Tm:", get_tm("ATGCGATCGATCGATCGATC"))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 test_primers.py
+[?2004lTest Tm: 61.567061
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > test_input.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line);
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> inp = seqs['input']
+[?2004l[?2004h> print("inp[200:230]:", inp[200:230])
+[?2004l[?2004h> print("inp[680:710]:", inp[680:710])
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 test_input.py
+[?2004linp[200:230]: agatatacatatgatcagtctgattgcggc
+inp[680:710]: gcggcggtaatgaggatcccgggaattctc
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > generate_primers.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Loaded sequences successfully.")
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 generate_primers.py
+[?2004lLoaded sequences successfully.
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > design_primers.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's define the template sequences for amplification for each part:
+[?2004l[?2004h> # 1. input backbone: template is seqs['input']. 
+[?2004l[?2004h> # In input, the backbone to amplify goes from index 690 to 214 (wrapping around).
+[?2004l[?2004h> # So input template for PCR is input[690:] + input[:214]
+[?2004l[?2004h> # 2. egfp: seqs['egfp'] (without stop codon, or full egfp? Wait, egfp template sequence in sequences.fasta has stop codon, but the part assembled doesn't. When PCR amplifying egfp from the egfp template, the forward primer anneals at the start of egfp and reverse primer anneals at the end of egfp. If we want the PCR product to lack the stop codon, the reverse primer can just anneal slightly upstream of the stop codon or include the truncated end!)
+[?2004l[?2004h> # Let's check egfp template: len is 717. Stop codon is last 3 bases (taa). If reverse primer anneals right before taa, or if the primer encodes the overhang without taa, that's standard for Golden Gate!)
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Templates ready.")
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 design_primers.py
+[?2004lTemplates ready.
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > check_junctions.py
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> out = seqs['output']
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Junction 1 (out[206:214]):", out[206:214])
+[?2004l[?2004h> print("Junction 2 (out[920:928]):", out[920:928])
+[?2004l[?2004h> print("Junction 3 (out[1004:1012]):", out[1004:1012])
+[?2004l[?2004h> print("Junction 4 (out[1550:1558]):", out[1550:1558])
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 check_junctions.py
+[?2004lJunction 1 (out[206:214]): acatatga
+Junction 2 (out[920:928]): caaaggta
+Junction 3 (out[1004:1012]): ttcagaca
+Junction 4 (out[1550:1558]): ttaatgag
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > make_primers.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's design primers for each template:
+[?2004l[?2004h> # Templates:
+[?2004l[?2004h> # 1. input (backbone): template is seqs['input']
+[?2004l[?2004h> # 2. egfp: template is seqs['egfp']
+[?2004l[?2004h> # 3. flag: template is seqs['flag']
+[?2004l[?2004h> # 4. snap: template is seqs['snap']
+[?2004l[?2004h> 
+[?2004l[?2004h> # We will search for annealing lengths (18 to 30 bp) for each primer (fwd and rev)
+[?2004l[?2004h> # such that Tm is between 58 and 72, and |Tm_fwd - Tm_rev| <= 5.
+[?2004l[?2004h> 
+[?2004l[?2004h> def find_primer_region(template, target_len=20):
+[?2004l[?2004h>     # try lengths from 18 to 35
+[?2004l[?2004h>     best_sub = None
+[?2004l[?2004h>     best_tm = 0
+[?2004l[?2004h>     for l in range(18, 36):
+[?2004l[?2004h>         sub = template[:l]
+[?2004l[?2004h>         tm = get_tm(sub)
+[?2004l[?2004h>         if 58 <= tm <= 72:
+[?2004l[?2004h>             return sub, tm
+[?2004l[?2004h>     return template[:20], get_tm(template[:20])
+[?2004l[?2004h> 
+[?2004l[?2004h> def find_primer_region_rev(template, target_len=20):
+[?2004l[?2004h>     for l in range(18, 36):
+[?2004l[?2004h>         sub = template[-l:]
+[?2004l[?2004h>         # for rev primer annealing to template, we want Tm of the reverse complement or the template strand it anneals to.
+[?2004l[?2004h>         # oligotm takes 5' to 3' sequence of the oligo that anneals to the template. 
+[?2004l[?2004h>         # The primer sequence itself anneals to the template. For rev primer, its 5'-to-3' sequence anneals to the reverse strand of the template.
+[?2004l[?2004h>         # Specifically, the annealing part of rev primer is the reverse complement of template[-l:].
+[?2004l[?2004h>         # Let's write helper for reverse complement:
+[?2004l[?2004h>         pass
+[?2004l[?2004h> 
+[?2004l[?2004h> def rc(dna):
+[?2004l[?2004h>     tr = str.maketrans("ATCGatcgNn", "TAGCtagcNn")
+[?2004l[?2004h>     return dna.translate(tr)[::-1]
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's test finding valid annealing parts and Tms
+[?2004l[?2004h> print("Helper functions defined.")
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 make_primers.py
+[?2004lHelper functions defined.
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > generate_all.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> def rc(dna):
+[?2004l[?2004h>     tr = str.maketrans("ATCGatcgNn", "TAGCtagcNn")
+[?2004l[?2004h>     return dna.translate(tr)[::-1]
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> # Define the exact template segments for each of the 4 parts:
+[?2004l[?2004h> # 1. input (backbone): extracted from input plasmid, amplifying from index 690 to 214 (wrapping around).
+[?2004l[?2004h> # So input template = seqs['input'][690:] + seqs['input'][:214]
+[?2004l[?2004h> # 2. egfp: seqs['egfp'][:-3] (without stop codon)
+[?2004l[?2004h> # 3. flag: seqs['flag'][3:-3] (without start and stop codon)
+[?2004l[?2004h> # 4. snap: seqs['snap'][3:] (without start codon, keeps stop codon)
+[?2004l[?2004h> 
+[?2004l[?2004h> templates = {
+[?2004l[?2004h>     'input': seqs['input'][690:] + seqs['input'][:214],
+[?2004l[?2004h>     'egfp': seqs['egfp'][:-3],
+[?2004l[?2004h>     'flag': seqs['flag'][3:-3],
+[?2004l[?2004h>     'snap': seqs['snap'][3:]
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> # Overhangs for assembly:
+[?2004l[?2004h> # input -> egfp: overhang 'atga'
+[?2004l[?2004h> # egfp -> flag: overhang 'ggta'
+[?2004l[?2004h> # flag -> snap: overhang 'gaca'
+[?2004l[?2004h> # snap -> input: overhang 'tgag'
+[?2004l[?2004h> 
+[?2004l[?2004h> overhangs = {
+[?2004l[?2004h>     'input': ('tgag', 'atga'), # fwd has tgag (or rev has tgag? Wait: fwd is at start of template, rev is at end of template).
+[?2004l[?2004h>     # Let's check direction: 
+[?2004l[?2004h>     # input template starts at index 690 and ends at index 214.
+[?2004l[?2004h>     # So input fwd primer anneals near index 690 (with overhang 'tgag' matching snap rev?). Wait, snap ends with 'tgag' or connects to backbone with 'tgag'?
+[?2004l[?2004h>     # Let's verify junctions:
+[?2004l[?2004h>     # Backbone part 2 starts at index 690 in input. In output, snap connects to backbone part 2. The overhang between snap and backbone is 'tgag' (or whatever was at 690).
+[?2004l[?2004h>     # Let's write a python script to find optimal annealing regions for each part.
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> print("Ready.")
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 generate_all.py
+[?2004lReady.
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > build_primers.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> def rc(dna):
+[?2004l[?2004h>     tr = str.maketrans("ATCGatcgNn", "TAGCtagcNn")
+[?2004l[?2004h>     return dna.translate(tr)[::-1]
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> templates = {
+[?2004l[?2004h>     'input': seqs['input'][690:] + seqs['input'][:214],
+[?2004l[?2004h>     'egfp': seqs['egfp'][:-3],
+[?2004l[?2004h>     'flag': seqs['flag'][3:-3],
+[?2004l[?2004h>     'snap': seqs['snap'][3:]
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's define the 4 overhangs for the 4 parts in assembly order:
+[?2004l[?2004h> # 1. input
+[?2004l[?2004h> # 2. egfp
+[?2004l[?2004h> # 3. flag
+[?2004l[?2004h> # 4. snap
+[?2004l[?2004h> # Assembly circle: input -> egfp -> flag -> snap -> input
+[?2004l[?2004h> # Overhangs:
+[?2004l[?2004h> # input fwd (start of input template, near 690) meets snap rev.
+[?2004l[?2004h> # input rev (end of input template, near 214) meets egfp fwd.
+[?2004l[?2004h> # egfp rev meets flag fwd.
+[?2004l[?2004h> # flag rev meets snap fwd.
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's use exact overhangs from output:
+[?2004l[?2004h> # Between snap and input (around 1550): 'tgag'
+[?2004l[?2004h> # Between input and egfp (around 210): 'atga'
+[?2004l[?2004h> # Between egfp and flag (around 920): 'ggta'
+[?2004l[?2004h> # Between flag and snap (around 1004): 'gaca'
+[?2004l[?2004h> 
+[?2004l[?2004h> # So:
+[?2004l[?2004h> # input fwd has overhang 'tgag'
+[?2004l[?2004h> # input rev has overhang 'atga'
+[?2004l[?2004h> # egfp fwd has overhang 'atga'
+[?2004l[?2004h> # egfp rev has overhang 'ggta'
+[?2004l[?2004h> # flag fwd has overhang 'ggta'
+[?2004l[?2004h> # flag rev has overhang 'gaca'
+[?2004l[?2004h> # snap fwd has overhang 'gaca'
+[?2004l[?2004h> # snap rev has overhang 'tgag'
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's find annealing regions (length 18 to 35) for each template such that Tm is between 58 and 72
+[?2004l[?2004h> parts = ['input', 'egfp', 'flag', 'snap']
+[?2004l[?2004h> primer_data = {}
+[?2004l[?2004h> 
+[?2004l[?2004h> for name in parts:
+[?2004l[?2004h>     tmpl = templates[name]
+[?2004l[?2004h>     # Find fwd annealing (start of template)
+[?2004l[?2004h>     best_fwd = None
+[?2004l[?2004h>     best_fwd_tm = 0
+[?2004l[?2004h>     for l in range(18, 36):
+[?2004l[?2004h>         ann = tmpl[:l]
+[?2004l[?2004h>         tm = get_tm(ann)
+[?2004l[?2004h>         if 58 <= tm <= 72:
+[?2004l[?2004h>             best_fwd = ann
+[?2004l[?2004h>             best_fwd_tm = tm
+[?2004l[?2004h>             break
+[?2004l[?2004h>     if not best_fwd:
+[?2004l[?2004h>         best_fwd = tmpl[:20]
+[?2004l[?2004h>         best_fwd_tm = get_tm(best_fwd)
+[?2004l[?2004h> 
+[?2004l[?2004h>     # Find rev annealing (end of template. Rev primer annealing sequence is rc of end of template)
+[?2004l[?2004h>     best_rev_ann = None
+[?2004l[?2004h>     best_rev_tm = 0
+[?2004l[?2004h>     for l in range(18, 36):
+[?2004l[?2004h>         ann_rc = rc(tmpl[-l:])
+[?2004l[?2004h>         tm = get_tm(ann_rc)
+[?2004l[?2004h>         if 58 <= tm <= 72:
+[?2004l[?2004h>             best_rev_ann = ann_rc
+[?2004l[?2004h>             best_rev_tm = tm
+[?2004l[?2004h>             break
+[?2004l[?2004h>     if not best_rev_ann:
+[?2004l[?2004h>         best_rev_ann = rc(tmpl[-20:])
+[?2004l[?2004h>         best_rev_tm = get_tm(best_rev_ann)
+[?2004l[?2004h> 
+[?2004l[?2004h>     print(f"{name}: fwd Tm={best_fwd_tm}, rev Tm={best_rev_tm}, diff={abs(best_fwd_tm - best_rev_tm)}")
+[?2004l[?2004h>     primer_data[name] = (best_fwd, best_fwd_tm, best_rev_ann, best_rev_tm)
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 build_primers.py
+[?2004linput: fwd Tm=59.806508, rev Tm=58.138529, diff=1.6679790000000025
+egfp: fwd Tm=63.265142, rev Tm=59.139706, diff=4.1254360000000005
+flag: fwd Tm=63.301116, rev Tm=59.489301, diff=3.811815000000003
+snap: fwd Tm=58.251996, rev Tm=62.709354, diff=4.457357999999999
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > write_fasta.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> def rc(dna):
+[?2004l[?2004h>     tr = str.maketrans("ATCGatcgNn", "TAGCtagcNn")
+[?2004l[?2004h>     return dna.translate(tr)[::-1]
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> templates = {
+[?2004l[?2004h>     'input': seqs['input'][690:] + seqs['input'][:214],
+[?2004l[?2004h>     'egfp': seqs['egfp'][:-3],
+[?2004l[?2004h>     'flag': seqs['flag'][3:-3],
+[?2004l[?2004h>     'snap': seqs['snap'][3:]
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> # Overhangs:
+[?2004l[?2004h> # input: fwd overhang 'tgag', rev overhang 'atga'
+[?2004l[?2004h> # egfp: fwd overhang 'atga', rev overhang 'ggta'
+[?2004l[?2004h> # flag: fwd overhang 'ggta', rev overhang 'gaca'
+[?2004l[?2004h> # snap: fwd overhang 'gaca', rev overhang 'tgag'
+[?2004l[?2004h> 
+[?2004l[?2004h> overhangs = {
+[?2004l[?2004h>     'input': ('tgag', 'atga'),
+[?2004l[?2004h>     'egfp': ('atga', 'ggta'),
+[?2004l[?2004h>     'flag': ('ggta', 'gaca'),
+[?2004l[?2004h>     'snap': ('gaca', 'tgag')
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> primers = {}
+[?2004l[?2004h> 
+[?2004l[?2004h> parts = ['input', 'egfp', 'flag', 'snap']
+[?2004l[?2004h> for name in parts:
+[?2004l[?2004h>     tmpl = templates[
+[?2004l[?2004h>         name
+[?2004l[?2004h>     ]
+[?2004l[?2004h>     # find fwd annealing
+[?2004l[?2004h>     best_fwd = None
+[?2004l[?2004h>     for l in range(18, 36):
+[?2004l[?2004h>         ann = tmpl[:l]
+[?2004l[?2004h>         tm = get_tm(ann)
+[?2004l[?2004h>         if 58 <= tm <= 72:
+[?2004l[?2004h>             best_fwd = ann
+[?2004l[?2004h>             break
+[?2004l[?2004h>     if not best_fwd:
+[?2004l[?2004h>         best_fwd = tmpl[:20]
+[?2004l[?2004h> 
+[?2004l[?2004h>     # find rev annealing
+[?2004l[?2004h>     best_rev_ann = None
+[?2004l[?2004h>     for l in range(18, 36):
+[?2004l[?2004h>         ann_rc = rc(tmpl[-l:])
+[?2004l[?2004h>         tm = get_tm(ann_rc)
+[?2004l[?2004h>         if 58 <= tm <= 72:
+[?2004l[?2004h>             best_rev_ann = ann_rc
+[?2004l[?2004h>             break
+[?2004l[?2004h>     if not best_rev_ann:
+[?2004l[?2004h>         best_rev_ann = rc(tmpl[-20:])
+[?2004l[?2004h> 
+[?2004l[?2004h>     oh_fwd, oh_rev = overhangs[name]
+[?2004l[?2004h>     # Primer construction: 5'-ACCGGTCTC + oh + annealing-3'
+[?2004l[?2004h>     fwd_seq = "AGCGGTCTC" + oh_fwd + best_fwd
+[?2004l[?2004h>     rev_seq = "AGCGGTCTC" + oh_rev + best_rev_ann
+[?2004l[?2004h> 
+[?2004l[?2004h>     primers[f"{name}_fwd"] = fwd_seq
+[?2004l[?2004h>     primers[f"{name}_rev"] = rev_seq
+[?2004l[?2004h> 
+[?2004l[?2004h> # Write to primers.fasta without blank lines
+[?2004l[?2004h> with open('primers.fasta', 'w') as f_out:
+[?2004l[?2004h>     for p_name, p_seq in primers.items():
+[?2004l[?2004h>         f_out.write(f">{p_name}\n{p_seq}\n")
+[?2004l[?2004h> 
+[?2004l[?2004h> print("primers.fasta written successfully.")
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 write_fasta.py
+[?2004lprimers.fasta written successfully.
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > verify_primers.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('primers.fasta') as f:
+[?2004l[?2004h>     content = f.read()
+[?2004l[?2004h> 
+[?2004l[?2004h> print("--- primers.fasta content ---:")
+[?2004l[?2004h> print(content)
+[?2004l[?2004h> 
+[?2004l[?2004h> lines = content.splitlines()
+[?2004l[?2004h> print("Blank lines present?", "" in lines)
+[?2004l[?2004h> 
+[?2004l[?2004h> # Let's verify Tm and annealing lengths for each primer
+[?2004l[?2004h> # In our primer design, prefix is 'AGCGGTCTC' (9 bp) + overhang (4 bp) = 13 bp. Annealing region is everything after 13 bp.
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     seq_lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in seq_lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> templates = {
+[?2004l[?2004h>     'input': seqs['input'][690:] + seqs['input'][:214],
+[?2004l[?2004h>     'egfp': seqs['egfp'][:-3],
+[?2004l[?2004h>     'flag': seqs['flag'][3:-3],
+[?2004l[?2004h>     'snap': seqs['snap'][3:]
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> # Parse primers.fasta
+[?2004l[?2004h> i = 0
+[?2004l[?2004h> while i < len(lines):
+[?2004l[?2004h>     header = lines[i][1:]
+[?2004l[?2004h>     seq = lines[i+1]
+[?2004l[?2004h>     part, dir_ = header.split('_')
+[?2004l[?2004h>     ann = seq[13:] # annealing part
+[?2004l[?2004h>     tm = get_tm(ann)
+[?2004l[?2004h>     print(f"{header}: len(ann)={len(ann)}, Tm={tm}")
+[?2004l[?2004h>     assert 15 <= len(ann) <= 45, f"Length {len(ann)} out of range for {header}"
+[?2004l[?2004h>     assert 58 <= tm <= 72, f"Tm {tm} out of range for {header}"
+[?2004l[?2004h>     i += 2
+[?2004l[?2004h> 
+[?2004l[?2004h> print(
+[?2004l[?2004h> 
+[?2004l[?2004h> print("All verification checks passed successfully!")
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 verify_primers.py
+[?2004l  File "/app/verify_primers.py", line 55
+    print(
+         ^
+SyntaxError: '(' was never closed
+[?2004hroot@d69d6517eb0b:/app# cat << 'EOF' > verify_primers.py
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> 
+[?2004l[?2004h> def get_tm(seq):
+[?2004l[?2004h>     cmd = ["oligotm", "-tp", "1", "-sc", "1", "-mv", "50", "-dv", "2", "-n", "0.8", "-d", "500", seq]
+[?2004l[?2004h>     res = subprocess.run(cmd, capture_output=True, text=True)
+[?2004l[?2004h>     return float(res.stdout.strip())
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('primers.fasta') as f:
+[?2004l[?2004h>     content = f.read()
+[?2004l[?2004h> 
+[?2004l[?2004h> print("--- primers.fasta content ---:")
+[?2004l[?2004h> print(content)
+[?2004l[?2004h> 
+[?2004l[?2004h> lines = content.splitlines()
+[?2004l[?2004h> print("Blank lines present?", "" in lines)
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('sequences.fasta') as f:
+[?2004l[?2004h>     seq_lines = f.read().splitlines()
+[?2004l[?2004h> 
+[?2004l[?2004h> seqs = {}
+[?2004l[?2004h> curr = None
+[?2004l[?2004h> for line in seq_lines:
+[?2004l[?2004h>     if line.startswith('>'):
+[?2004l[?2004h>         curr = line[1:]
+[?2004l[?2004h>         seqs[curr] = []
+[?2004l[?2004h>     else:
+[?2004l[?2004h>         seqs[curr].append(line)
+[?2004l[?2004h> 
+[?2004l[?2004h> for k in seqs:
+[?2004l[?2004h>     seqs[k] = ''.join(seqs[k])
+[?2004l[?2004h> 
+[?2004l[?2004h> templates = {
+[?2004l[?2004h>     'input': seqs['input'][690:] + seqs['input'][:214],
+[?2004l[?2004h>     'egfp': seqs['egfp'][:-3],
+[?2004l[?2004h>     'flag': seqs['flag'][3:-3],
+[?2004l[?2004h>     'snap': seqs['snap'][3:]
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> # Parse primers.fasta
+[?2004l[?2004h> i = 0
+[?2004l[?2004h> while i < len(lines):
+[?2004l[?2004h>     header = lines[i][1:]
+[?2004l[?2004h>     seq = lines[i+1]
+[?2004l[?2004h>     part, dir_ = header.split('_')
+[?2004l[?2004h>     ann = seq[13:] # annealing part
+[?2004l[?2004h>     tm = get_tm(ann)
+[?2004l[?2004h>     print(f"{header}: len(ann)={len(ann)}, Tm={tm}")
+[?2004l[?2004h>     assert 15 <= len(ann) <= 45, f"Length {len(ann)} out of range for {header}"
+[?2004l[?2004h>     assert 58 <= tm <= 72, f"Tm {tm} out of range for {header}"
+[?2004l[?2004h>     i += 2
+[?2004l[?2004h> 
+[?2004l[?2004h> print("All verification checks passed successfully!")
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@d69d6517eb0b:/app# python3 verify_primers.py
+[?2004l--- primers.fasta content ---:
+>input_fwd
+AGCGGTCTCtgagtgaggatcccgggaattc
+>input_rev
+AGCGGTCTCatgatcatatgtatatctccttcttaaagttaaa
+>egfp_fwd
+AGCGGTCTCatgaatgagcaagggcgaggag
+>egfp_rev
+AGCGGTCTCggtatttgtacagctcgtccatg
+>flag_fwd
+AGCGGTCTCggtaggtagtggctccggtagc
+>flag_rev
+AGCGGTCTCgacatgaaccactacctgaacca
+>snap_fwd
+AGCGGTCTCgacagacaaagactgcgaaatgaa
+>snap_rev
+AGCGGTCTCtgagttaacccagcccaggctt
+
+Blank lines present? False
+input_fwd: len(ann)=18, Tm=59.806508
+input_rev: len(ann)=30, Tm=58.138529
+egfp_fwd: len(ann)=18, Tm=63.265142
+egfp_rev: len(ann)=19, Tm=59.139706
+flag_fwd: len(ann)=18, Tm=63.301116
+flag_rev: len(ann)=19, Tm=59.489301
+snap_fwd: len(ann)=20, Tm=58.251996
+snap_rev: len(ann)=18, Tm=62.709354
+All verification checks passed successfully!
+[?2004hroot@d69d6517eb0b:/app# 

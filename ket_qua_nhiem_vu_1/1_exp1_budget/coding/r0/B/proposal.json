@@ -1,0 +1,57 @@
+{
+ "status": "done",
+ "summary": "Instruct agent to set appropriately longer durations for tests, builds, and data processing scripts rather than prematurely short ones",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Encouraging appropriate longer durations for heavy commands like training and testing helps prevent premature truncation and lets the agent see full test output and tracebacks.",
+   "targets_mode": "incorrect_logic_implementation",
+   "why_not_lower_lever": "Prose instructions in templates directly guide model duration selection and planning behavior.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": "corrective: bn-fit-modify would have more complete output logs to debug assertions; preservative: does not affect fast tasks; transfer: generalizes across any long-running compilation or training task.",
+   "regression_risk": "None",
+   "mechanism": "Encouraging appropriate longer durations for heavy commands like training and testing helps prevent premature truncation and lets the agent see full test output and tracebacks."
+  }
+ ],
+ "mechanism": "Instruct agent to set appropriately longer durations for tests, builds, and data processing scripts rather than prematurely short ones",
+ "targets_mode": "incorrect_logic_implementation",
+ "n_edits": 2,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "The \"duration\" attribute specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a...",
+   "new": "The \"duration\" attribute specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a..."
+  },
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-xml-plain.txt",
+   "old": "The `duration` attribute of <keystrokes> specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, ...",
+   "new": "The `duration` attribute of <keystrokes> specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, ..."
+  },
+  {
+   "action": "done",
+   "summary": "Instruct agent to set appropriately longer durations for tests, builds, and data processing scripts rather than prematurely short ones",
+   "edits": [
+    {
+     "id": "E1",
+     "component": "prompt",
+     "hypothesis": "Encouraging appropriate longer durations for heavy commands like training and testing helps prevent premature truncation and lets the agent see full test output and tracebacks.",
+     "targets_mode": "incorrect_logic_implementation",
+     "why_not_lower_lever": "Prose instructions in templates directly guide model duration selection and planning behavior.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": "corrective: bn-fit-modify would have more complete output logs to debug assertions; preservative: does not affect fast tasks; transfer: generalizes across any long-running compilation or training task.",
+     "regression_risk": "None",
+     "mechanism": "Encouraging appropriate longer durations for heavy commands like training and testing helps prevent premature truncation and lets the agent see full test output and tracebacks."
+    }
+   ]
+  }
+ ]
+}

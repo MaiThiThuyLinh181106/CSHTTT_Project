@@ -1,0 +1,71 @@
+{
+ "status": "done",
+ "summary": "Fix prompt typo and remove task-specific domain references to comply with task-independence rules",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to explicitly verify generated files and formatting for data processing tasks prevents premature task completion and ensures correct output format adherence.",
+   "targets_mode": "incorrect_logic_implementation",
+   "why_not_lower_lever": "Prose prompt guidance is the correct lever for reminding the policy about thorough verification steps before completion.",
+   "trigger_condition": "always present in prompt instructions",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": [
+     "bn-fit-modify would have been guided to check output files and CSV formats before final completion."
+    ],
+    "preservative": [
+     "Does not disrupt existing workflows as it only adds guidance for verification."
+    ],
+    "transfer": [
+     "Generalizes to other data processing and file generation tasks"
+    ]
+   },
+   "regression_risk": "None expected.",
+   "mechanism": "Instructing the policy to explicitly verify generated files and formatting for data processing tasks prevents premature task completion and ensures correct output format adherence."
+  }
+ ],
+ "mechanism": "Fix prompt typo and remove task-specific domain references to comply with task-independence rules",
+ "targets_mode": "incorrect_logic_implementation",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "IMPORTANT FOR DATA SCIENCE AND COMPLEX SCRIPT TASKS: When running data analysis, model training, or structure learning scripts (such as Bayesian Network estimation or sampling), verify output files ar...",
+   "new": "IMPORTANT FOR DATA PROCESSING AND FILE GENERATION TASKS: When running data analysis or file generation scripts, verify output files are actually generated and correctly formatted (check columns, row c..."
+  },
+  {
+   "action": "done",
+   "summary": "Fix prompt typo and remove task-specific domain references to comply with task-independence rules",
+   "edits": [
+    {
+     "id": "E1",
+     "component": "prompt",
+     "hypothesis": "Instructing the policy to explicitly verify generated files and formatting for data processing tasks prevents premature task completion and ensures correct output format adherence.",
+     "targets_mode": "incorrect_logic_implementation",
+     "why_not_lower_lever": "Prose prompt guidance is the correct lever for reminding the policy about thorough verification steps before completion.",
+     "trigger_condition": "always present in prompt instructions",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": {
+      "corrective": [
+       "bn-fit-modify would have been guided to check output files and CSV formats before final completion."
+      ],
+      "preservative": [
+       "Does not disrupt existing workflows as it only adds guidance for verification."
+      ],
+      "transfer": [
+       "Generalizes to other data processing and file generation tasks"
+      ]
+     },
+     "regression_risk": "None expected.",
+     "mechanism": "Instructing the policy to explicitly verify generated files and formatting for data processing tasks prevents premature task completion and ensures correct output format adherence."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "task_id": "adaptive-rejection-sampler",
+ "lens": "success",
+ "habits": [
+  {
+   "habit": "Ran the test function and verified output files before finishing",
+   "where_shown": "steps 11-12"
+  }
+ ],
+ "risk_if_removed": "Without running the test script and verifying sample outputs via R, the agent would not catch runtime bugs or missing file generation required by the test suite."
+}

@@ -1,0 +1,59 @@
+{
+ "status": "done",
+ "summary": "Enhance error notice feedback in terminus_2.py to catch FAILED and instruct policy to address errors before completion",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "control_flow",
+   "hypothesis": "Injecting explicit corrective prompt guidance upon detecting FAILED in terminal output prevents premature completion or blind looping.",
+   "targets_mode": "exhaustive_exploration_exhausts_turn_budget",
+   "why_not_lower_lever": "Prompt/instruction changes alone do not intercept live terminal observation strings as robustly as plumbing/control-flow integration.",
+   "trigger_condition": "terminal_output contains 'ERROR:', 'AssertionError', 'FAIL', or 'FAILED'",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": {
+    "corrective": "Would nudge the agent in extract-elf when test failures or parse failures occur, prompting corrective focus rather than endless exploration.",
+    "preservative": "Does not affect normal successful terminal output without error markers.",
+    "transfer": "Applies universally across debugging and sysadmin tasks where build/test errors appear."
+   },
+   "regression_risk": "Low; only prepends a notice banner to observation when failure keywords are present.",
+   "mechanism": "Injecting explicit corrective prompt guidance upon detecting FAILED in terminal output prevents premature completion or blind looping."
+  }
+ ],
+ "mechanism": "Enhance error notice feedback in terminus_2.py to catch FAILED and instruct policy to address errors before completion",
+ "targets_mode": "exhaustive_exploration_exhausts_turn_budget",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "                if \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output:\n                    observation = (\n                        f\"NOTICE: The previous c...",
+   "new": "                if \"ERROR:\" in terminal_output or \"AssertionError\" in terminal_output or \"FAIL\" in terminal_output or \"FAILED\" in terminal_output:\n                    observation = (\n                 ..."
+  },
+  {
+   "action": "done",
+   "summary": "Enhance error notice feedback in terminus_2.py to catch FAILED and instruct policy to address errors before completion",
+   "edits": [
+    {
+     "id": "E1",
+     "component": "control_flow",
+     "hypothesis": "Injecting explicit corrective prompt guidance upon detecting FAILED in terminal output prevents premature completion or blind looping.",
+     "targets_mode": "exhaustive_exploration_exhausts_turn_budget",
+     "why_not_lower_lever": "Prompt/instruction changes alone do not intercept live terminal observation strings as robustly as plumbing/control-flow integration.",
+     "trigger_condition": "terminal_output contains 'ERROR:', 'AssertionError', 'FAIL', or 'FAILED'",
+     "predicted_affected": [
+      "extract-elf"
+     ],
+     "retroactive_check": {
+      "corrective": "Would nudge the agent in extract-elf when test failures or parse failures occur, prompting corrective focus rather than endless exploration.",
+      "preservative": "Does not affect normal successful terminal output without error markers.",
+      "transfer": "Applies universally across debugging and sysadmin tasks where build/test errors appear."
+     },
+     "regression_risk": "Low; only prepends a notice banner to observation when failure keywords are present.",
+     "mechanism": "Injecting explicit corrective prompt guidance upon detecting FAILED in terminal output prevents premature completion or blind looping."
+    }
+   ]
+  }
+ ]
+}

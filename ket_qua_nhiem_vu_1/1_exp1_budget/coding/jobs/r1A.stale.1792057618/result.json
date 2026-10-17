@@ -1,0 +1,94 @@
+{
+    "id": "4f37897a-be28-4464-a2cb-1a8cd45bec07",
+    "started_at": "2026-10-15T14:49:21.286372",
+    "updated_at": "2026-10-15T09:46:57.848463Z",
+    "finished_at": null,
+    "n_total_trials": 89,
+    "stats": {
+        "n_completed_trials": 41,
+        "n_errored_trials": 34,
+        "n_running_trials": 0,
+        "n_pending_trials": 48,
+        "n_cancelled_trials": 2,
+        "n_retries": 0,
+        "evals": {
+            "rrsi-terminus2__gemini-3.5-flash-lite__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 9,
+                "n_errors": 34,
+                "metrics": [
+                    {
+                        "mean": 0.04878048780487805
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "write-compressor__uBV2a2r",
+                            "kv-store-grpc__WKNJyTn",
+                            "schemelike-metacircular-eval__EksD4dL",
+                            "dna-assembly__RpCPym2",
+                            "qemu-alpine-ssh__9yBxp29",
+                            "openssl-selfsigned-cert__YXFLrMP",
+                            "model-extraction-relu-logits__hCdxwAB"
+                        ],
+                        "1.0": [
+                            "pypi-server__kmL3c43",
+                            "log-summary-date-ranges__HJ9uaBJ"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "torch-tensor-parallelism__cL566uC",
+                        "schemelike-metacircular-eval__EksD4dL",
+                        "qemu-alpine-ssh__9yBxp29",
+                        "torch-pipeline-parallelism__roscNTS"
+                    ],
+                    "APIConnectionError": [
+                        "regex-chess__wPgBm5P",
+                        "mteb-leaderboard__HxRyDVY",
+                        "path-tracing__CascG5v",
+                        "sam-cell-seg__vstBWQw",
+                        "mteb-retrieve__EmgXP2e"
+                    ],
+                    "RuntimeError": [
+                        "regex-log__tYTXYDq",
+                        "caffe-cifar-10__vXVCuHD",
+                        "llm-inference-batching-scheduler__RWwhw8y",
+                        "pytorch-model-recovery__RaBQCcc",
+                        "circuit-fibsqrt__X5XSMjw",
+                        "merge-diff-arc-agi-task__FCKwoEz",
+                        "build-pov-ray__8JBJLNL",
+                        "cobol-modernization__HkaN7bJ",
+                        "mcmc-sampling-stan__3Z6HAJJ",
+                        "gpt2-codegolf__4wiQ9Jy",
+                        "filter-js-from-html__obMsZwD",
+                        "adaptive-rejection-sampler__FYgwC8i",
+                        "vulnerable-secret__ChPkyWX",
+                        "extract-elf__UJXMHBA",
+                        "nginx-request-logging__A35jFwp",
+                        "make-doom-for-mips__27pgZxM",
+                        "build-cython-ext__PvdT79g",
+                        "configure-git-webserver__ZgXA3SX",
+                        "compile-compcert__B8wZGnB",
+                        "train-fasttext__PbDgzJ5",
+                        "fix-ocaml-gc__rBskjw2"
+                    ],
+                    "RateLimitError": [
+                        "dna-insert__7XCrCyg",
+                        "gcode-to-text__yGdiqvQ"
+                    ],
+                    "CancelledError": [
+                        "raman-fitting__LsG4hKP",
+                        "overfull-hbox__exjoZ8J"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 11942997,
+        "n_cache_tokens": 9368532,
+        "n_output_tokens": 174323,
+        "cost_usd": 1.4892029600000005
+    }
+}

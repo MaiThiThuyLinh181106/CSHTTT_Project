@@ -1,0 +1,46 @@
+{
+ "failure_modes": [
+  {
+   "mode": "exhaustive_exploration_exhausts_turn_budget",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "extract-elf"
+   ],
+   "description": "The agent spends the entire episode budget on low-level exploration and trial-and-error inspection commands without transitioning to implementation and verification, leading to task timeout before completion.",
+   "needed_instead": "The scaffold or agent prompt should guide early transition from exploration to implementation and enforce a structured milestone checklist.",
+   "representative_evidence": [
+    {
+     "task_id": "extract-elf",
+     "where": "line 2",
+     "quote": "REWARD: 0.0 | episodes: 21 | summarizations: 0 | input_tokens: 354154 | output_tokens: 9042"
+    }
+   ]
+  }
+ ],
+ "capability_gaps": [
+  {
+   "gap": "complex_binary_parsing_implementation_timeout",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "extract-elf"
+   ],
+   "description": "The agent was unable to complete the complex programming task of parsing a binary file format and generating the required output format within the maximum turn limit.",
+   "representative_evidence": [
+    {
+     "task_id": "extract-elf",
+     "where": "line 957",
+     "quote": "AssertionError: Only found 0.00% of expected values (required: 75%)"
+    }
+   ]
+  }
+ ],
+ "success_habits": [
+  {
+   "habit": "systematic_state_history_inspection",
+   "n_tasks": 1,
+   "description": "Systematically inspecting version control logs and branch histories to locate lost state or target references before performing integration.",
+   "risk_if_removed": "Without checking history or reflogs to locate missing references, the agent would fail to identify the correct target state for recovery tasks."
+  }
+ ],
+ "n_digests": 3
+}

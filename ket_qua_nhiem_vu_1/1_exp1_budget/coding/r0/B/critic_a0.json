@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The prompt edit mentions generic examples like `python3 scripts/train.py` and `pytest`. While these touch on specific command patterns, they serve as general illustrative examples rather than task-specific leakage or hardcoded grading hooks."
+ ]
+}

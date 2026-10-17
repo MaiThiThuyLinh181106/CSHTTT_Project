@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/configure-git-webserver",
+        "ref": "sha256:e3dc712acfecdb1338a889f86c97b37422c3778351253f9aca4236e895fdb36e",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "configure-git-webserver__ZgXA3SX",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

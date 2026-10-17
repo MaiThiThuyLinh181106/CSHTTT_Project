@@ -1,0 +1,69 @@
+{
+ "status": "done",
+ "summary": "Automatically append newline to command keystrokes if missing to prevent command concatenation/hanging failures.",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "client_tool",
+   "hypothesis": "Automatically appending a newline to keystrokes that lack one prevents the common failure mode where commands hang or concatenate when the policy forgets the trailing newline.",
+   "targets_mode": "incorrect_logic_implementation",
+   "why_not_lower_lever": "A prompt instruction is often ignored by the policy under pressure; auto-correcting in the parser mechanism is robust and reliable.",
+   "trigger_condition": "when parsed keystrokes do not end with a newline character",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": "corrective: bn-fit-modify would have avoided hanging/concatenation issues; preservative: standard commands already ending in newline are untouched; transfer: applies universally to any task where commands are sent without newlines.",
+   "regression_risk": "extremely low, as command lines in a shell always require a trailing newline to execute.",
+   "mechanism": "Automatically appending a newline to keystrokes that lack one prevents the common failure mode where commands hang or concatenate when the policy forgets the trailing newline."
+  }
+ ],
+ "mechanism": "Automatically append newline to command keystrokes if missing to prevent command concatenation/hanging failures.",
+ "targets_mode": "incorrect_logic_implementation",
+ "n_edits": 4,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "            if is_task_complete:\n                if self._pending_completion:\n                    observation = terminal_output\n                else:\n                    self._pending_completion = Tru...",
+   "new": "            if is_task_complete:\n                if self._pending_completion:\n                    observation = terminal_output\n                else:\n                    self._pending_completion = Tru..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "            if is_task_complete:\n                if self._pending_completion:\n                    observation = terminal_output\n                else:\n                    self._pending_completion = Tru...",
+   "new": "            if is_task_complete:\n                if self._pending_completion:\n                    observation = terminal_output\n                else:\n                    self._pending_completion = Tru..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "            if is_task_complete:\n                if self._pending_completion:\n                    observation = terminal_output\n                else:\n                    self._pending_completion = Tru...",
+   "new": "            if is_task_complete:\n                if self._pending_completion:\n                    observation = terminal_output\n                else:\n                    self._pending_completion = Tru..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_json_plain_parser.py",
+   "old": "            # Check for newline at end of keystrokes if followed by another command\n            if i < len(commands_data) - 1 and not keystrokes.endswith(\"\\n\"):\n                warnings.append(\n      ...",
+   "new": "            if not keystrokes.endswith(\"\\n\") and not keystrokes.endswith(\"\\r\\n\"):\n                keystrokes += \"\\n\"\n            if i < len(commands_data) - 1 and not keystrokes.endswith(\"\\n\"):\n      ..."
+  },
+  {
+   "action": "done",
+   "summary": "Automatically append newline to command keystrokes if missing to prevent command concatenation/hanging failures.",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "client_tool",
+     "hypothesis": "Automatically appending a newline to keystrokes that lack one prevents the common failure mode where commands hang or concatenate when the policy forgets the trailing newline.",
+     "targets_mode": "incorrect_logic_implementation",
+     "why_not_lower_lever": "A prompt instruction is often ignored by the policy under pressure; auto-correcting in the parser mechanism is robust and reliable.",
+     "trigger_condition": "when parsed keystrokes do not end with a newline character",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": "corrective: bn-fit-modify would have avoided hanging/concatenation issues; preservative: standard commands already ending in newline are untouched; transfer: applies universally to any task where commands are sent without newlines.",
+     "regression_risk": "extremely low, as command lines in a shell always require a trailing newline to execute.",
+     "mechanism": "Automatically appending a newline to keystrokes that lack one prevents the common failure mode where commands hang or concatenate when the policy forgets the trailing newline."
+    }
+   ]
+  }
+ ]
+}

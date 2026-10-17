@@ -1,0 +1,2007 @@
+[?2004hroot@e1ebecd34fa9:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@e1ebecd34fa9:/app# clear
+[?2004l[H[J[?2004hroot@e1ebecd34fa9:/app# which qemu-system-x86_64
+[?2004l/usr/bin/qemu-system-x86_64
+[?2004hroot@e1ebecd34fa9:/app# cat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> 
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=120)
+[?2004l[?2004h> child.logfile = sys.stdout
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('login:')
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#')
+[?2004l[?2004h> print('Logged in successfully!')
+[?2004l[?2004h> 
+[?2004l[?2004h> # Configure network / set password / install openssh
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#')
+[?2004l[?2004h> 
+[?2004l[?2004h> print('SSH server setup complete inside VM.')
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[1] 117
+[?2004hroot@e1ebecd34fa9:/app# Traceback (most recent call last):
+  File "/app/setup_vm.py", line 1, in <module>
+    import pexpect
+ModuleNotFoundError: No module named 'pexpect'
+apt-get update && apt-get install -y python3-pexpect
+[?2004l0% [Working]            Hit:1 http://deb.debian.org/debian bullseye InRelease
+0% [Working]            Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.1 kB]
+0% [2 InRelease 17.5 kB/27.1 kB 64%]                                    0% [Working]            Hit:3 http://deb.debian.org/debian bullseye-updates InRelease
+0% [Working]0% [Working]0% [Working]            Get:4 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [475 kB]
+0% [4 Packages 0 B/475 kB 0%]32% [4 Packages 61.2 kB/475 kB 13%]                                   98% [Working]98% [4 Packages store 0 B]                          100% [Working]              Fetched 502 kB in 1s (519 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 92%Reading package lists... 92%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+[1]+  Exit 1                  python3 setup_vm.py
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 92%Reading package lists... 92%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+The following additional packages will be installed:
+  python3-ptyprocess
+Suggested packages:
+  python-pexpect-doc
+The following NEW packages will be installed:
+  python3-pexpect python3-ptyprocess
+0 upgraded, 2 newly installed, 0 to remove and 69 not upgraded.
+Need to get 68.6 kB of archives.
+After this operation, 267 kB of additional disk space will be used.
+0% [Working]            Get:1 http://deb.debian.org/debian bullseye/main amd64 python3-ptyprocess all 0.7.0-1 [13.6 kB]
+7% [1 python3-ptyprocess 5824 B/13.6 kB 43%]                                            26% [Waiting for headers]                         Get:2 http://deb.debian.org/debian bullseye/main amd64 python3-pexpect all 4.8.0-2 [54.9 kB]
+29% [2 python3-pexpect 2912 B/54.9 kB 5%]                                         100% [Working]              Fetched 68.6 kB in 0s (295 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package python3-ptyprocess.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22331 files and directories currently installed.)
+Preparing to unpack .../python3-ptyprocess_0.7.0-1_all.deb ...
+Unpacking python3-ptyprocess (0.7.0-1) ...
+Selecting previously unselected package python3-pexpect.
+Preparing to unpack .../python3-pexpect_4.8.0-2_all.deb ...
+Unpacking python3-pexpect (4.8.0-2) ...
+Setting up python3-ptyprocess (0.7.0-1) ...
+Setting up python3-pexpect (4.8.0-2) ...
+[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[1] 443
+[?2004hroot@e1ebecd34fa9:/app# c[?7l[2J[0mSeaBIOS (version 1.14.0-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8F4C0+1FECF4C0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+Boot failed: could not read the boot disk
+
+Booting from Floppy...
+Boot failed: could not read the boot disk
+
+Booting from DVD/CD...
+
+ISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter Anvin et al
+boot: 
+c[?7l[2Jkillall qemu-system-x86_64 python3
+[?2004lbash: killall: command not found
+[?2004hroot@e1ebecd34fa9:/app# cat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> 
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=180)
+[?2004l[?2004h> child.logfile = sys.stdout
+[?2004l[?2004h> 
+[?2004l[?2004h> # Wait for boot prompt or login
+[?2004l[?2004h> child.expect(['boot:', 'login:'], timeout=60)
+[?2004l[?2004h> if child.after == 'boot:':
+[?2004l[?2004h>     child.sendline('')
+[?2004l[?2004h>     child.expect('login:', timeout=60)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> print('Logged in successfully!')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('SSH server setup complete inside VM.')
+[?2004l[?2004h> # Keep running so the VM stays up
+[?2004l[?2004h> child.interact()
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[2] 480
+[?2004hroot@e1ebecd34fa9:/app# qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'
+Traceback (most recent call last):
+  File "/app/setup_vm.py", line 8, in <module>
+    child.expect(['boot:', 'login:'], timeout=60)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x724c326ccfd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): "qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 481
+child_fd: 5
+closed: False
+timeout: 180
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('boot:')
+    1: re.compile('login:')
+pkill -f qemu-system-x86_64
+[?2004lbash: pkill: command not found
+[2]+  Exit 1                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[2] 510
+[?2004hroot@e1ebecd34fa9:/app# qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'
+Traceback (most recent call last):
+  File "/app/setup_vm.py", line 8, in <module>
+    child.expect(['boot:', 'login:'], timeout=60)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7975db9a4fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): "qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 511
+child_fd: 5
+closed: False
+timeout: 180
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('boot:')
+    1: re.compile('login:')
+ps aux | grep qemu
+[?2004lbash: ps: command not found
+[2]+  Exit 1                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import os, glob
+[?2004l[?2004h> for p in glob.glob("/proc/[0-9]*/cmdline"):
+[?2004l[?2004h>     try:
+[?2004l[?2004h>         with open(p) as f:
+[?2004l[?2004h>             cmd = f.read()
+[?2004l[?2004h>             if "qemu" in cmd:
+[?2004l[?2004h>                 pid = int(p.split("/")[2])
+[?2004l[?2004h>                 os.kill(pid, 9)
+[?2004l[?2004h>                 print(f"Killed {pid}")
+[?2004l[?2004h>     except Exception as e:
+[?2004l[?2004h>         pass
+[?2004l[?2004h> '
+[?2004lKilled 444
+Killed
+[?2004hroot@e1ebecd34fa9:/app# Traceback (most recent call last):
+  File "/app/setup_vm.py", line 7, in <module>
+    # Wait for boot prompt or login
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x739dd7ff2fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): '\r\n\r\nISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter Anvin et al\r\r\nboot: \r\r\n\x1bc\x1b[?7l\x1b[2J'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 444
+child_fd: 5
+closed: False
+timeout: 120
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('login:')
+python3 setup_vm.py &
+[?2004l[2] 559
+[1]   Exit 1                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# c[?7l[2J[0mSeaBIOS (version 1.14.0-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8F4C0+1FECF4C0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+Boot failed: could not read the boot disk
+
+Booting from Floppy...
+Boot failed: could not read the boot disk
+
+Booting from DVD/CD...
+
+ISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter Anvin et al
+boot:
+ 
+c[?7l[2Jcat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> import time
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Starting QEMU...')
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=180)
+[?2004l[?2004h> child.logfile = sys.stdout
+[?2004l[?2004h> 
+[?2004l[?2004h> # Wait for boot prompt or login
+[?2004l[?2004h> index = child.expect(['boot:', 'login:'], timeout=90)
+[?2004l[?2004h> if index == 0:
+[?2004l[?2004h>     print('Found boot prompt, sending newline...')
+[?2004l[?2004h>     child.sendline('')
+[?2004l[?2004h>     child.expect('login:', timeout=90)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Logging in as root...')
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> print('Logged in successfully!')
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Setting root password...')
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Installing openssh...')
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Configuring sshd...')
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Enabling and starting sshd...')
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('SSH server setup complete inside VM. Keeping QEMU running...')
+[?2004l[?2004h> while True:
+[?2004l[?2004h>     time.sleep(10)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[3] 589
+[?2004hroot@e1ebecd34fa9:/app# Starting QEMU...
+qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'
+Traceback (most recent call last):
+  File "/app/setup_vm.py", line 10, in <module>
+    index = child.expect(['boot:', 'login:'], timeout=90)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x78ab247a1fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): "qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 590
+child_fd: 5
+closed: False
+timeout: 180
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('boot:')
+    1: re.compile('login:')
+python3 -c 'import os, glob
+[?2004l[3]+  Exit 1                  python3 setup_vm.py
+[?2004h> for p in glob.glob("/proc/[0-9]*/cmdline"):
+[?2004l[?2004h>     try:
+[?2004l[?2004h>         with open(p) as f:
+[?2004l[?2004h>             cmd = f.read()
+[?2004l[?2004h>             if "qemu" in cmd:
+[?2004l[?2004h>                 pid = int(p.split("/")[2])
+[?2004l[?2004h>                 os.kill(pid, 9)
+[?2004l[?2004h>                 print(f"Killed {pid}")
+[?2004l[?2004h>     except Exception as e:
+[?2004l[?2004h>         pass
+[?2004l[?2004h> '
+[?2004lKilled 560
+Killed
+[?2004hroot@e1ebecd34fa9:/app# Traceback (most recent call last):
+  File "/app/setup_vm.py", line 11, in <module>
+    if index == 0:
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7ca471156fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): ' \r\r\n\x1bc\x1b[?7l\x1b[2J'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 560
+child_fd: 5
+closed: False
+timeout: 180
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('login:')
+python3 setup_vm.py &
+[?2004l[3] 619
+[2]   Exit 1                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# Starting QEMU...
+c[?7l[2J[0mSeaBIOS (version 1.14.0-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8F4C0+1FECF4C0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+Boot failed: could not read the boot disk
+
+Booting from Floppy...
+Boot failed: could not read the boot disk
+
+Booting from DVD/CD...
+
+ISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter[16;61H[16;62H Anvin et al
+boot[17;04H[17;05H: 
+c[?7l[2Jcat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> import time
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Starting QEMU...')
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=300)
+[?2004l[?2004h> child.logfile = sys.stdout
+[?2004l[?2004h> 
+[?2004l[?2004h> # Wait for boot prompt or login
+[?2004l[?2004h> index = child.expect(['boot:', 'login:'], timeout=120)
+[?2004l[?2004h> if index == 0:
+[?2004l[?2004h>     print('Found boot prompt, waiting 2s then sending newline...')
+[?2004l[?2004h>     time.sleep(2)
+[?2004l[?2004h>     child.sendline('')
+[?2004l[?2004h>     child.expect('login:', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Logging in as root...')
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> print('Logged in successfully!')
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Setting root password...')
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Installing openssh...')
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Configuring sshd...')
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Enabling and starting sshd...')
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('SSH server setup complete inside VM. Keeping QEMU running...')
+[?2004l[?2004h> while True:
+[?2004l[?2004h>     time.sleep(10)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[4] 650
+[?2004hroot@e1ebecd34fa9:/app# Starting QEMU...
+qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'
+Traceback (most recent call last):
+  File "/app/setup_vm.py", line 10, in <module>
+    index = child.expect(['boot:', 'login:'], timeout=120)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7321da88efd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): "qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 651
+child_fd: 5
+closed: False
+timeout: 300
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('boot:')
+    1: re.compile('login:')
+python3 -c 'import os, glob
+[?2004l[4]+  Exit 1                  python3 setup_vm.py
+[?2004h> for p in glob.glob("/proc/[0-9]*/cmdline"):
+[?2004l[?2004h>     try:
+[?2004l[?2004h>         with open(p) as f:
+[?2004l[?2004h>             cmd = f.read()
+[?2004l[?2004h>             if "qemu" in cmd:
+[?2004l[?2004h>                 pid = int(p.split("/")[2])
+[?2004l[?2004h>                 os.kill(pid, 9)
+[?2004l[?2004h>                 print(f"Killed {pid}")
+[?2004l[?2004h>     except Exception as e:
+[?2004l[?2004h>         pass
+[?2004l[?2004h> '
+[?2004lKilled 620
+Killed
+[?2004hroot@e1ebecd34fa9:/app# Traceback (most recent call last):
+  File "/app/setup_vm.py", line 10, in <module>
+    index = child.expect(['boot:', 'login:'], timeout=120)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7256a2f43fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): ' Copyright (C) 1994-2015 H. Peter\x1b[16;61H\x1b[16;62H Anvin et al\r\r\nboot\x1b[17;04H\x1b[17;05H: \r\r\n\x1bc\x1b[?7l\x1b[2J'
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 620
+child_fd: 5
+closed: False
+timeout: 180
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('boot:')
+    1: re.compile('login:')
+python3 setup_vm.py &
+[?2004l[4] 680
+[3]   Exit 1                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# Starting QEMU...
+c[?7l[2J[0mSeaBIOS (version 1.14.0-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8F4C0+1FECF4C0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+Boot failed: could not read the boot disk
+
+Booting from Floppy...
+Boot failed: could not read the boot disk
+
+Booting from DVD/CD...
+
+ISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter Anvin et al[16;73H
+boot:Found boot prompt, waiting 2s then sending newline...
+
+ 
+c[?7l[2Jps aux || python3 -c 'import glob; print(glob.glob("/proc/[0-9]*/cmdline"))'
+[?2004lbash: ps: command not found
+['/proc/1/cmdline', '/proc/7/cmdline', '/proc/34/cmdline', '/proc/35/cmdline', '/proc/37/cmdline', '/proc/39/cmdline', '/proc/53/cmdline', '/proc/56/cmdline', '/proc/57/cmdline', '/proc/58/cmdline', '/proc/680/cmdline', '/proc/681/cmdline', '/proc/711/cmdline']
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()]'
+[?2004lpython3 setup_vm.py 
+python3 -c import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()] 
+[?2004hroot@e1ebecd34fa9:/app# ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+[?2004lssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 -p 2222 root@localhost 'echo SUCCESS'
+python3 -c 'import glob; [print(open(p.replace("cmdline", "cwd")).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()]'
+apt-get install -y sshpass
+sshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+Traceback (most recent call last):
+  File "/app/setup_vm.py", line 15, in <module>
+    child.expect('login:', timeout=120)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 181, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 144, in timeout
+    raise exc
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f4b39e45fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ' \r\r\n\x1bc\x1b[?7l\x1b[2J'
+before (last 100 chars): ' \r\r\n\x1bc\x1b[?7l\x1b[2J'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 681
+child_fd: 5
+closed: False
+timeout: 300
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('login:')
+kex_exchange_identification: read: Connection reset by peer
+Connection reset by 127.0.0.1 port 2222
+[?2004hroot@e1ebecd34fa9:/app# ssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 -p 2222 root@localhost 'echo SUCCESS'
+[?2004lssh: connect to host localhost port 2222: Connection refused
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import glob; [print(open(p.replace("cmdline", "cwd")).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()]'
+[?2004lTraceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<string>", line 1, in <listcomp>
+IsADirectoryError: [Errno 21] Is a directory: '/proc/821/cwd'
+[4]+  Exit 1                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# apt-get install -y sshpass
+[?2004lReading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 92%Reading package lists... 92%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 68%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+The following NEW packages will be installed:
+  sshpass
+0 upgraded, 1 newly installed, 0 to remove and 69 not upgraded.
+Need to get 13.0 kB of archives.
+After this operation, 38.9 kB of additional disk space will be used.
+0% [Working]0% [Waiting for headers]                        Get:1 http://deb.debian.org/debian bullseye/main amd64 sshpass amd64 1.09-1+b1 [13.0 kB]
+66% [1 sshpass 10.7 kB/13.0 kB 83%]                                   100% [Working]              Fetched 13.0 kB in 1s (24.0 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package sshpass.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22361 files and directories currently installed.)
+Preparing to unpack .../sshpass_1.09-1+b1_amd64.deb ...
+Unpacking sshpass (1.09-1+b1) ...
+Setting up sshpass (1.09-1+b1) ...
+[?2004hroot@e1ebecd34fa9:/app# apt-get update && apt-get install -y sshpass
+[?2004l0% [Working]            Hit:1 http://deb.debian.org/debian bullseye InRelease
+0% [Working]0% [Waiting for headers]                        Hit:2 http://deb.debian.org/debian-security bullseye-security InRelease
+                        0% [Working]0% [Waiting for headers]                        Hit:3 http://deb.debian.org/debian bullseye-updates InRelease
+                        0% [Working]20% [Working]             Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 92%Reading package lists... 92%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 92%Reading package lists... 92%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 83%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+sshpass is already the newest version (1.09-1+b1).
+0 upgraded, 0 newly installed, 0 to remove and 69 not upgraded.
+[?2004hroot@e1ebecd34fa9:/app# sshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+[?2004lssh: connect to host localhost port 2222: Connection refused
+[?2004hroot@e1ebecd34fa9:/app# cat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> import time
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Starting QEMU with serial console...')
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=300)
+[?2004l[?2004h> child.logfile = sys.stdout
+[?2004l[?2004h> 
+[?2004l[?2004h> # Wait for boot prompt
+[?2004l[?2004h> child.expect('boot:', timeout=120)
+[?2004l[?2004h> print('Found boot prompt, sending boot args...')
+[?2004l[?2004h> # Alpine default kernel is usually 'alpine' or we can pass console=ttyS0
+[?2004l[?2004h> child.sendline('alpine console=ttyS0')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('login:', timeout=180)
+[?2004l[?2004h> print('Logging in as root...')
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> print('Logged in successfully!')
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Setting root password...')
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Installing openssh...')
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Configuring sshd...')
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Enabling and starting sshd...')
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('SSH server setup complete inside VM. Keeping QEMU running...')
+[?2004l[?2004h> while True:
+[?2004l[?2004h>     time.sleep(10)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[1] 1131
+[?2004hroot@e1ebecd34fa9:/app# Starting QEMU with serial console...
+c[?7l[2J[0mSeaBIOS (version 1.14.0-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8F4C0+1FECF4C0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+Boot failed: could not read the boot disk
+
+Booting from Floppy...
+Boot failed: could not read the boot disk
+
+Booting from DVD/CD...
+
+ISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter Anvin et al
+boot:Found boot prompt, sending boot args...
+alpine console=ttyS0
+ alpine console=sshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+[?2004lsshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+python3 -c 'import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()]'
+nc -z localhost 2222 && echo 'Port 2222 is open' || echo 'Port 2222 is closed'
+python3 -c 'import os, glob
+for p in glob.glob("/proc/[0-9]*/cmdline"):
+    try:
+        with open(p) as f:
+            cmd = f.read()
+            if "qemu" in cmd or "setup_vm" in cmd:
+                pid = int(p.split("/")[2])
+                os.kill(pid, 9)
+                print(f"Killed {pid}")
+    except Exception as e:
+        pass
+'
+isoinfo -d -i /app/alpine.iso
+isoinfo -l -i /app/alpine.iso
+kex_exchange_identification: read: Connection reset by peer
+Connection reset by 127.0.0.1 port 2222
+[?2004hroot@e1ebecd34fa9:/app# sshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+[?2004lpython3 -c '
+import subprocess
+subprocess.run(["osirrox", "-indev", "/app/alpine.iso", "-extract", "/isolinux/isolinux.cfg", "isolinux.cfg"], check=False)
+'
+cat isolinux.cfg 2>/dev/null || find . -name isolinux.cfg
+apt-get update && apt-get install -y xorriso
+osirrox -indev /app/alpine.iso -extract /isolinux/isolinux.cfg isolinux.cfg && cat isolinux.cfg
+cat isolinux.cfg
+xorriso -osirrox on -indev /app/alpine.iso -view_list
+xorriso -osirrox on -indev /app/alpine.iso -extract /isolinux/isolinux.cfg ./isolinux.cfg && cat isolinux.cfg
+Traceback (most recent call last):
+  File "/app/setup_vm.py", line 15, in <module>
+    child.expect('login:', timeout=180)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 181, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 144, in timeout
+    raise exc
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7f08467e6fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ' alpine console='
+before (last 100 chars): ' alpine console='
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 1132
+child_fd: 5
+closed: False
+timeout: 300
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('login:')
+kex_exchange_identification: read: Connection reset by peer
+Connection reset by 127.0.0.1 port 2222
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()]'
+[?2004lpython3 setup_vm.py 
+python3 -c import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()] 
+[?2004hroot@e1ebecd34fa9:/app# nc -z localhost 2222 && echo 'Port 2222 is open' || echo 'Port 2222 is closed'
+[?2004lPort 2222 is closed
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import os, glob
+[?2004l[?2004h> for p in glob.glob("/proc/[0-9]*/cmdline"):
+[?2004l[?2004h>     try:
+[?2004l[?2004h>         with open(p) as f:
+[?2004l[?2004h>             cmd = f.read()
+[?2004l[?2004h>             if "qemu" in cmd or "setup_vm" in cmd:
+[?2004l[?2004h>                 pid = int(p.split("/")[2])
+[?2004l[?2004h>                 os.kill(pid, 9)
+[?2004l[?2004h>                 print(f"Killed {pid}")
+[?2004l[?2004h>     except Exception as e:
+[?2004l[?2004h>         pass
+[?2004l[?2004h> '
+[?2004lKilled 1131
+Killed
+[?2004hroot@e1ebecd34fa9:/app# isoinfo -d -i /app/alpine.iso
+[?2004lbash: isoinfo: command not found
+[1]+  Killed                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# isoinfo -l -i /app/alpine.iso
+[?2004lbash: isoinfo: command not found
+[?2004hroot@e1ebecd34fa9:/app# python3 -c '
+[?2004l[?2004h> import subprocess
+[?2004l[?2004h> subprocess.run(["osirrox", "-indev", "/app/alpine.iso", "-extract", "/isolinux/isolinux.cfg", "isolinux.cfg"], check=False)
+[?2004l[?2004h> '
+[?2004lTraceback (most recent call last):
+  File "<string>", line 3, in <module>
+  File "/usr/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/usr/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.9/subprocess.py", line 1823, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'osirrox'
+[?2004hroot@e1ebecd34fa9:/app# cat isolinux.cfg 2>/dev/null || find . -name isolinux.cfg
+[?2004l[?2004hroot@e1ebecd34fa9:/app# apt-get update && apt-get install -y xorriso
+[?2004l0% [Working]0% [Connecting to debian.map.fastlydns.net (199.232.114.132)]                                                             0% [Waiting for headers]                        Hit:1 http://deb.debian.org/debian bullseye InRelease
+                        0% [Working]0% [Waiting for headers]                        Hit:2 http://deb.debian.org/debian-security bullseye-security InRelease
+                        0% [Working]0% [Waiting for headers]                        Hit:3 http://deb.debian.org/debian bullseye-updates InRelease
+                        0% [Working]20% [Working]             Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 92%Reading package lists... 92%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%find / -name isolinux.cfg 2>/dev/null
+Reading package lists... 92%Reading package lists... 92%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+The following additional packages will be installed:
+  libburn4 libisoburn1 libisofs6 libjte2
+Suggested packages:
+  xorriso-tcltk jigit cdck
+The following NEW packages will be installed:
+  libburn4 libisoburn1 libisofs6 libjte2 xorriso
+0 upgraded, 5 newly installed, 0 to remove and 69 not upgraded.
+Need to get 1102 kB of archives.
+After this operation, 2356 kB of additional disk space will be used.
+0% [Working]0% [Waiting for headers]0% [Waiting for headers]                        Get:1 http://deb.debian.org/debian bullseye/main amd64 libburn4 amd64 1.5.2-1 [165 kB]
+1% [1 libburn4 13.4 kB/165 kB 8%]7% [1 libburn4 93.9 kB/165 kB 57%]10% [1 libburn4 140 kB/165 kB 85%]                                  16% [Working]             Get:2 http://deb.debian.org/debian bullseye/main amd64 libjte2 amd64 1.22-3 [30.0 kB]
+16% [2 libjte2 0 B/30.0 kB 0%]                              22% [Waiting for headers]                         Get:3 http://deb.debian.org/debian bullseye/main amd64 libisofs6 amd64 1.5.2-1 [205 kB]
+22% [3 libisofs6 1270 B/205 kB 1%]27% [3 libisofs6 61.0 kB/205 kB 30%]                                    30% [3 libisofs6 110 kB/205 kB 54%]35% [3 libisofs6 177 kB/205 kB 87%]                                   41% [Waiting for headers]                         Get:4 http://deb.debian.org/debian bullseye/main amd64 libisoburn1 amd64 1.5.2-1 [391 kB]
+41% [4 libisoburn1 1080 B/391 kB 0%]44% [4 libisoburn1 47.7 kB/391 kB 12%]                                      50% [4 libisoburn1 120 kB/391 kB 31%]54% [4 libisoburn1 180 kB/391 kB 46%]                                                                                                              90.7 kB/s 5s57% [4 libisoburn1 225 kB/391 kB 58%]                                                                                                              90.7 kB/s 5s59% [4 libisoburn1 249 kB/391 kB 64%]                                                                                                              90.7 kB/s 5s62% [4 libisoburn1 294 kB/391 kB 75%]                                                                                                              90.7 kB/s 4s67% [4 libisoburn1 353 kB/391 kB 90%]                                                                                                              90.7 kB/s 3s73% [Working]                                                                                                                                      90.7 kB/s 3s                                                                                                                                                               Get:5 http://deb.debian.org/debian bullseye/main amd64 xorriso amd64 1.5.2-1 [311 kB]
+73% [5 xorriso 657 B/311 kB 0%]                                                                                                                    90.7 kB/s 3s80% [5 xorriso 85.9 kB/311 kB 28%]                                                                                                                 90.7 kB/s 2s86% [5 xorriso 179 kB/311 kB 58%]                                                                                                                  90.7 kB/s 1s92% [5 xorriso 258 kB/311 kB 83%]                                                                                                                  90.7 kB/s 0s100% [Working]                                                                                                                                     90.7 kB/s 0s                                                                                                                                                               Fetched 1102 kB in 11s (103 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libburn4:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22368 files and directories currently installed.)
+Preparing to unpack .../libburn4_1.5.2-1_amd64.deb ...
+Unpacking libburn4:amd64 (1.5.2-1) ...
+Selecting previously unselected package libjte2:amd64.
+Preparing to unpack .../libjte2_1.22-3_amd64.deb ...
+Unpacking libjte2:amd64 (1.22-3) ...
+Selecting previously unselected package libisofs6:amd64.
+Preparing to unpack .../libisofs6_1.5.2-1_amd64.deb ...
+Unpacking libisofs6:amd64 (1.5.2-1) ...
+Selecting previously unselected package libisoburn1:amd64.
+Preparing to unpack .../libisoburn1_1.5.2-1_amd64.deb ...
+Unpacking libisoburn1:amd64 (1.5.2-1) ...
+Selecting previously unselected package xorriso.
+Preparing to unpack .../xorriso_1.5.2-1_amd64.deb ...
+Unpacking xorriso (1.5.2-1) ...
+Setting up libjte2:amd64 (1.22-3) ...
+Setting up libburn4:amd64 (1.5.2-1) ...
+Setting up libisofs6:amd64 (1.5.2-1) ...
+Setting up libisoburn1:amd64 (1.5.2-1) ...
+Setting up xorriso (1.5.2-1) ...
+Processing triggers for libc-bin (2.31-13+deb11u13) ...
+xorriso -osirrox on -indev /app/alpine.iso -extract /isolinux/isolinux.cfg ./isolinux.cfg && cat isolinux.cfg
+[?2004hroot@e1ebecd34fa9:/app# xorriso -indev /app/alpine.iso -find
+[?2004lxorriso 1.5.2 : RockRidge filesystem manipulator, libburnia project.
+
+xorriso : NOTE : Loading ISO image tree from LBA 0
+xorriso : UPDATE :     522 nodes read in 1 seconds
+xorriso : NOTE : Detected El-Torito boot information which currently is set to be discarded
+Drive current: -indev '/app/alpine.iso'
+Media current: stdio file, overwriteable
+Media status : is written , is appendable
+Boot record  : El Torito , MBR isohybrid cyl-align-on GPT
+Media summary: 1 session, 489984 data blocks,  957m data,  896g free
+Volume id    : 'alpine-ext 3.19.0 x86_64'
+'.'
+'./.alpine-release'
+'./apks'
+'./apks/.boot_repository'
+'./apks/x86_64'
+'./apks/x86_64/APKINDEX.tar.gz'
+'./apks/x86_64/acct-6.6.4-r2.apk'
+'./apks/x86_64/acct-openrc-6.6.4-r2.apk'
+'./apks/x86_64/agetty-2.39.3-r0.apk'
+'./apks/x86_64/agetty-openrc-0.52.1-r0.apk'
+'./apks/x86_64/alpine-base-3.19.0-r0.apk'
+'./apks/x86_64/alpine-baselayout-3.4.3-r2.apk'
+'./apks/x86_64/alpine-baselayout-data-3.4.3-r2.apk'
+'./apks/x86_64/alpine-conf-3.17.0-r0.apk'
+'./apks/x86_64/alpine-keys-2.4-r1.apk'
+'./apks/x86_64/alpine-release-3.19.0-r0.apk'
+'./apks/x86_64/apk-tools-2.14.0-r5.apk'
+'./apks/x86_64/argon2-libs-20190702-r5.apk'
+'./apks/x86_64/arpon-3.0-r7.apk'
+'./apks/x86_64/arpon-openrc-3.0-r7.apk'
+'./apks/x86_64/arpwatch-3.5-r0.apk'
+'./apks/x86_64/arpwatch-openrc-3.5-r0.apk'
+'./apks/x86_64/awall-1.12.2-r1.apk'
+'./apks/x86_64/bash-5.2.21-r0.apk'
+'./apks/x86_64/blkid-2.39.3-r0.apk'
+'./apks/x86_64/bonding-2.6-r5.apk'
+'./apks/x86_64/botan-libs-2.19.3-r5.apk'
+'./apks/x86_64/bridge-1.5-r5.apk'
+'./apks/x86_64/bridge-utils-1.7.1-r2.apk'
+'./apks/x86_64/brotli-libs-1.1.0-r1.apk'
+'./apks/x86_64/btrfs-progs-6.6.2-r0.apk'
+'./apks/x86_64/btrfs-progs-openrc-6.6.2-r0.apk'
+'./apks/x86_64/busybox-1.36.1-r15.apk'
+'./apks/x86_64/busybox-binsh-1.36.1-r15.apk'
+'./apks/x86_64/busybox-mdev-openrc-1.36.1-r15.apk'
+'./apks/x86_64/busybox-openrc-1.36.1-r15.apk'
+'./apks/x86_64/busybox-suid-1.36.1-r15.apk'
+'./apks/x86_64/bwm-ng-0.6.3-r3.apk'
+'./apks/x86_64/c-ares-1.22.1-r0.apk'
+'./apks/x86_64/ca-certificates-20230506-r0.apk'
+'./apks/x86_64/ca-certificates-bundle-20230506-r0.apk'
+'./apks/x86_64/cfdisk-2.39.3-r0.apk'
+'./apks/x86_64/chrony-4.5-r0.apk'
+'./apks/x86_64/chrony-openrc-4.5-r0.apk'
+'./apks/x86_64/cksfv-1.3.15-r3.apk'
+'./apks/x86_64/conntrack-tools-1.4.8-r0.apk'
+'./apks/x86_64/conntrack-tools-openrc-1.4.8-r0.apk'
+'./apks/x86_64/coreutils-9.4-r1.apk'
+'./apks/x86_64/coreutils-env-9.4-r1.apk'
+'./apks/x86_64/coreutils-fmt-9.4-r1.apk'
+'./apks/x86_64/coreutils-sha512sum-9.4-r1.apk'
+'./apks/x86_64/cryptsetup-2.6.1-r8.apk'
+'./apks/x86_64/cryptsetup-libs-2.6.1-r8.apk'
+'./apks/x86_64/cryptsetup-openrc-2.6.1-r8.apk'
+'./apks/x86_64/curl-8.5.0-r0.apk'
+'./apks/x86_64/cutter-1.04-r5.apk'
+'./apks/x86_64/cyrus-sasl-2.1.28-r5.apk'
+'./apks/x86_64/cyrus-sasl-openrc-2.1.28-r5.apk'
+'./apks/x86_64/dbus-libs-1.14.10-r0.apk'
+'./apks/x86_64/device-mapper-event-libs-2.03.23-r0.apk'
+'./apks/x86_64/device-mapper-libs-2.03.23-r0.apk'
+'./apks/x86_64/dhcp-4.4.3_p1-r4.apk'
+'./apks/x86_64/dhcp-openrc-4.4.3_p1-r4.apk'
+'./apks/x86_64/dhcp-server-vanilla-4.4.3_p1-r4.apk'
+'./apks/x86_64/dhcpcd-10.0.5-r0.apk'
+'./apks/x86_64/dhcpcd-openrc-10.0.5-r0.apk'
+'./apks/x86_64/dhcrelay-4.4.3_p1-r4.apk'
+'./apks/x86_64/dhcrelay-openrc-4.4.3_p1-r4.apk'
+'./apks/x86_64/dnsmasq-2.89-r6.apk'
+'./apks/x86_64/dnsmasq-common-2.89-r6.apk'
+'./apks/x86_64/dnsmasq-openrc-2.89-r6.apk'
+'./apks/x86_64/dnssec-root-20190225-r2.apk'
+'./apks/x86_64/doas-6.8.2-r6.apk'
+'./apks/x86_64/dosfstools-4.2-r2.apk'
+'./apks/x86_64/drill-1.8.3-r2.apk'
+'./apks/x86_64/e2fsprogs-1.47.0-r5.apk'
+'./apks/x86_64/e2fsprogs-extra-1.47.0-r5.apk'
+'./apks/x86_64/e2fsprogs-libs-1.47.0-r5.apk'
+'./apks/x86_64/efibootmgr-18-r2.apk'
+'./apks/x86_64/efivar-libs-38-r4.apk'
+'./apks/x86_64/ethtool-6.6-r0.apk'
+'./apks/x86_64/eudev-3.2.14-r0.apk'
+'./apks/x86_64/eudev-dev-3.2.14-r0.apk'
+'./apks/x86_64/eudev-hwids-3.2.14-r0.apk'
+'./apks/x86_64/eudev-libs-3.2.14-r0.apk'
+'./apks/x86_64/eudev-openrc-3.2.14-r0.apk'
+'./apks/x86_64/f2fs-tools-1.16.0-r3.apk'
+'./apks/x86_64/f2fs-tools-libs-1.16.0-r3.apk'
+'./apks/x86_64/findmnt-2.39.3-r0.apk'
+'./apks/x86_64/flock-2.39.3-r0.apk'
+'./apks/x86_64/fping-5.1-r5.apk'
+'./apks/x86_64/fprobe-1.1-r13.apk'
+'./apks/x86_64/fprobe-openrc-1.1-r13.apk'
+'./apks/x86_64/fstrim-2.39.3-r0.apk'
+'./apks/x86_64/gdbm-1.23-r1.apk'
+'./apks/x86_64/gmp-6.3.0-r0.apk'
+'./apks/x86_64/gnutls-3.8.1-r0.apk'
+'./apks/x86_64/grub-2.06-r17.apk'
+'./apks/x86_64/grub-bios-2.06-r17.apk'
+'./apks/x86_64/grub-efi-2.06-r17.apk'
+'./apks/x86_64/heimdal-libs-7.8.0-r3.apk'
+'./apks/x86_64/hexdump-2.39.3-r0.apk'
+'./apks/x86_64/htop-3.2.2-r1.apk'
+'./apks/x86_64/hwdata-0.377.2-r0.apk'
+'./apks/x86_64/hwdata-net-0.377.2-r0.apk'
+'./apks/x86_64/hwdata-pci-0.377.2-r0.apk'
+'./apks/x86_64/hwdata-pnp-0.377.2-r0.apk'
+'./apks/x86_64/hwdata-usb-0.377.2-r0.apk'
+'./apks/x86_64/ifupdown-ng-0.12.1-r3.apk'
+'./apks/x86_64/ifupdown-ng-ethtool-0.12.1-r3.apk'
+'./apks/x86_64/ifupdown-ng-iproute2-0.12.1-r3.apk'
+'./apks/x86_64/ifupdown-ng-openrc-0.12.1-r3.apk'
+'./apks/x86_64/ifupdown-ng-ppp-0.12.1-r3.apk'
+'./apks/x86_64/ifupdown-ng-wifi-0.12.1-r3.apk'
+'./apks/x86_64/ifupdown-ng-wireguard-0.12.1-r3.apk'
+'./apks/x86_64/ifupdown-ng-wireguard-quick-0.12.1-r3.apk'
+'./apks/x86_64/igmpproxy-0.4-r1.apk'
+'./apks/x86_64/inih-57-r1.apk'
+'./apks/x86_64/iproute2-6.6.0-r0.apk'
+'./apks/x86_64/iproute2-minimal-6.6.0-r0.apk'
+'./apks/x86_64/iproute2-qos-0.5-r5.apk'
+'./apks/x86_64/iproute2-qos-openrc-0.5-r5.apk'
+'./apks/x86_64/iproute2-ss-6.6.0-r0.apk'
+'./apks/x86_64/iproute2-tc-6.6.0-r0.apk'
+'./apks/x86_64/ipset-7.19-r2.apk'
+'./apks/x86_64/ipset-openrc-7.19-r2.apk'
+'./apks/x86_64/iptables-1.8.10-r1.apk'
+'./apks/x86_64/iptables-openrc-1.8.10-r1.apk'
+'./apks/x86_64/iputils-20221126-r2.apk'
+'./apks/x86_64/iputils-arping-20221126-r2.apk'
+'./apks/x86_64/iputils-clockdiff-20221126-r2.apk'
+'./apks/x86_64/iputils-ping-20221126-r2.apk'
+'./apks/x86_64/iputils-tracepath-20221126-r2.apk'
+'./apks/x86_64/iw-5.19-r1.apk'
+'./apks/x86_64/jansson-2.14-r4.apk'
+'./apks/x86_64/jitterentropy-library-3.4.1-r0.apk'
+'./apks/x86_64/json-c-0.17-r0.apk'
+'./apks/x86_64/kbd-bkeymaps-2.6.3-r0.apk'
+'./apks/x86_64/kea-2.4.1-r0.apk'
+'./apks/x86_64/kea-common-2.4.1-r0.apk'
+'./apks/x86_64/kea-dhcp4-2.4.1-r0.apk'
+'./apks/x86_64/kea-dhcp6-2.4.1-r0.apk'
+'./apks/x86_64/keyutils-libs-1.6.3-r3.apk'
+'./apks/x86_64/kmod-31-r2.apk'
+'./apks/x86_64/kmod-libs-31-r2.apk'
+'./apks/x86_64/kmod-openrc-31-r2.apk'
+'./apks/x86_64/krb5-conf-1.0-r2.apk'
+'./apks/x86_64/krb5-libs-1.21.2-r0.apk'
+'./apks/x86_64/lddtree-1.27-r0.apk'
+'./apks/x86_64/ldns-1.8.3-r2.apk'
+'./apks/x86_64/ldns-tools-1.8.3-r2.apk'
+'./apks/x86_64/libacl-2.3.1-r4.apk'
+'./apks/x86_64/libaio-0.3.113-r2.apk'
+'./apks/x86_64/libattr-2.5.1-r5.apk'
+'./apks/x86_64/libblkid-2.39.3-r0.apk'
+'./apks/x86_64/libbz2-1.0.8-r6.apk'
+'./apks/x86_64/libc-utils-0.7.2-r5.apk'
+'./apks/x86_64/libcap-ng-0.8.3-r4.apk'
+'./apks/x86_64/libcap2-2.69-r1.apk'
+'./apks/x86_64/libcom_err-1.47.0-r5.apk'
+'./apks/x86_64/libcrypto3-3.1.4-r2.apk'
+'./apks/x86_64/libcurl-8.5.0-r0.apk'
+'./apks/x86_64/libdnet-1.17.0-r0.apk'
+'./apks/x86_64/libdw-0.190-r1.apk'
+'./apks/x86_64/libeconf-0.5.2-r2.apk'
+'./apks/x86_64/libedit-20230828.3.1-r3.apk'
+'./apks/x86_64/libelf-0.190-r1.apk'
+'./apks/x86_64/libev-4.33-r1.apk'
+'./apks/x86_64/libevent-2.1.12-r7.apk'
+'./apks/x86_64/libexpat-2.5.0-r2.apk'
+'./apks/x86_64/libfdisk-2.39.3-r0.apk'
+'./apks/x86_64/libffi-3.4.4-r3.apk'
+'./apks/x86_64/libgcc-13.2.1_git20231014-r0.apk'
+'./apks/x86_64/libgomp-13.2.1_git20231014-r0.apk'
+'./apks/x86_64/libidn2-2.3.4-r4.apk'
+'./apks/x86_64/libintl-0.22.3-r0.apk'
+'./apks/x86_64/libmnl-1.0.5-r2.apk'
+'./apks/x86_64/libmount-2.39.3-r0.apk'
+'./apks/x86_64/libncursesw-6.4_p20231125-r0.apk'
+'./apks/x86_64/libnet-1.3-r0.apk'
+'./apks/x86_64/libnetfilter_conntrack-1.0.9-r3.apk'
+'./apks/x86_64/libnetfilter_cthelper-1.0.1-r2.apk'
+'./apks/x86_64/libnetfilter_cttimeout-1.0.1-r2.apk'
+'./apks/x86_64/libnetfilter_queue-1.0.5-r2.apk'
+'./apks/x86_64/libnfnetlink-1.0.2-r3.apk'
+'./apks/x86_64/libnfsidmap-2.6.4-r0.apk'
+'./apks/x86_64/libnftnl-1.2.6-r0.apk'
+'./apks/x86_64/libnl3-3.9.0-r0.apk'
+'./apks/x86_64/libpanelw-6.4_p20231125-r0.apk'
+'./apks/x86_64/libpcap-1.10.4-r1.apk'
+'./apks/x86_64/libpq-16.1-r0.apk'
+'./apks/x86_64/libretls-3.7.0-r2.apk'
+'./apks/x86_64/libsasl-2.1.28-r5.apk'
+'./apks/x86_64/libseccomp-2.5.5-r0.apk'
+'./apks/x86_64/libsmartcols-2.39.3-r0.apk'
+'./apks/x86_64/libssl3-3.1.4-r2.apk'
+'./apks/x86_64/libstdc++-13.2.1_git20231014-r0.apk'
+'./apks/x86_64/libtasn1-4.19.0-r2.apk'
+'./apks/x86_64/libtirpc-1.3.4-r0.apk'
+'./apks/x86_64/libtirpc-conf-1.3.4-r0.apk'
+'./apks/x86_64/libunistring-1.1-r2.apk'
+'./apks/x86_64/libusb-1.0.26-r3.apk'
+'./apks/x86_64/libusb-dev-1.0.26-r3.apk'
+'./apks/x86_64/libuuid-2.39.3-r0.apk'
+'./apks/x86_64/libverto-0.3.2-r2.apk'
+'./apks/x86_64/libxtables-1.8.10-r1.apk'
+'./apks/x86_64/libxxhash-0.8.2-r2.apk'
+'./apks/x86_64/links-2.29-r1.apk'
+'./apks/x86_64/linux-firmware-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-3com-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-acenic-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-adaptec-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-advansys-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-amd-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-amd-ucode-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-amdgpu-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-amdtee-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-amlogic-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-amphion-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ar3k-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ath10k-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ath11k-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ath6k-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ath9k_htc-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-atmel-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-atusb-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-av7110-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-bnx2-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-bnx2x-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-brcm-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cadence-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cavium-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cirrus-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cis-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cnm-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cpia2-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cxgb3-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cxgb4-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-cypress-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-dabusb-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-dpaa2-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-dsp56k-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-e100-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-edgeport-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-emi26-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-emi62-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ene-ub6250-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ess-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-go7007-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-i915-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-imx-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-inside-secure-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-intel-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-isci-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ixp4xx-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-kaweth-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-keyspan-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-keyspan_pda-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-korg-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-libertas-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-liquidio-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-matrox-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-mediatek-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-mellanox-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-meson-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-microchip-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-moxa-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-mrvl-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-mwl8k-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-mwlwifi-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-myricom-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-netronome-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-none-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-nvidia-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-nxp-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ositech-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-other-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-qca-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-qcom-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-qed-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-qlogic-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-r128-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-radeon-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rockchip-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rsi-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rtl8192e-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rtl_bt-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rtl_nic-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rtlwifi-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rtw88-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-rtw89-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-s5p-mfc-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-sb16-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-slicoss-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-sun-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-sxg-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-synaptics-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-tehuti-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ti-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ti-connectivity-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ti-keystone-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-tigon-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ttusb-budget-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-ueagle-atm-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-vicam-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-vxge-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-wfx-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-yam-20231111-r1.apk'
+'./apks/x86_64/linux-firmware-yamaha-20231111-r1.apk'
+'./apks/x86_64/linux-lts-6.6.4-r1.apk'
+'./apks/x86_64/linux-pam-1.5.3-r7.apk'
+'./apks/x86_64/lm-sensors-3.6.0-r5.apk'
+'./apks/x86_64/lm-sensors-libs-3.6.0-r5.apk'
+'./apks/x86_64/log4cplus-2.1.1-r0.apk'
+'./apks/x86_64/logger-2.39.3-r0.apk'
+'./apks/x86_64/logrotate-3.21.0-r1.apk'
+'./apks/x86_64/logrotate-openrc-3.21.0-r1.apk'
+'./apks/x86_64/losetup-2.39.3-r0.apk'
+'./apks/x86_64/lsblk-2.39.3-r0.apk'
+'./apks/x86_64/lsof-4.99.0-r0.apk'
+'./apks/x86_64/lua-schema-0_git20170304-r2.apk'
+'./apks/x86_64/lua-stdlib-debug-1.0.1-r1.apk'
+'./apks/x86_64/lua-stdlib-normalize-2.0.3-r1.apk'
+'./apks/x86_64/lua5.4-5.4.6-r1.apk'
+'./apks/x86_64/lua5.4-alt-getopt-0.8.0-r0.apk'
+'./apks/x86_64/lua5.4-bit32-5.3.0-r5.apk'
+'./apks/x86_64/lua5.4-cjson-2.1.0-r11.apk'
+'./apks/x86_64/lua5.4-libs-5.4.6-r1.apk'
+'./apks/x86_64/lua5.4-lyaml-6.2.8-r1.apk'
+'./apks/x86_64/lua5.4-pc-1.0.0-r12.apk'
+'./apks/x86_64/lua5.4-posix-36.2.1-r0.apk'
+'./apks/x86_64/lua5.4-stringy-0.5.1-r3.apk'
+'./apks/x86_64/lvm2-2.03.23-r0.apk'
+'./apks/x86_64/lvm2-libs-2.03.23-r0.apk'
+'./apks/x86_64/lvm2-openrc-2.03.23-r0.apk'
+'./apks/x86_64/lxc-5.0.3-r0.apk'
+'./apks/x86_64/lxc-lvm-5.0.3-r0.apk'
+'./apks/x86_64/lxc-openrc-5.0.3-r0.apk'
+'./apks/x86_64/lxc-templates-5.0.3-r0.apk'
+'./apks/x86_64/lz4-1.9.4-r5.apk'
+'./apks/x86_64/lz4-libs-1.9.4-r5.apk'
+'./apks/x86_64/lzo-2.10-r5.apk'
+'./apks/x86_64/mariadb-connector-c-3.3.8-r0.apk'
+'./apks/x86_64/mcookie-2.39.3-r0.apk'
+'./apks/x86_64/mdadm-4.2-r4.apk'
+'./apks/x86_64/mdadm-openrc-4.2-r4.apk'
+'./apks/x86_64/mdadm-udev-4.2-r4.apk'
+'./apks/x86_64/mdev-conf-4.6-r0.apk'
+'./apks/x86_64/mkinitfs-3.9.0-r0.apk'
+'./apks/x86_64/mount-2.39.3-r0.apk'
+'./apks/x86_64/mpdecimal-2.5.1-r2.apk'
+'./apks/x86_64/mtools-4.0.43-r1.apk'
+'./apks/x86_64/musl-1.2.4_git20230717-r4.apk'
+'./apks/x86_64/musl-fts-1.2.7-r6.apk'
+'./apks/x86_64/musl-utils-1.2.4_git20230717-r4.apk'
+'./apks/x86_64/nano-7.2-r1.apk'
+'./apks/x86_64/ncurses-terminfo-6.4_p20231125-r0.apk'
+'./apks/x86_64/ncurses-terminfo-base-6.4_p20231125-r0.apk'
+'./apks/x86_64/net-snmp-5.9.4-r0.apk'
+'./apks/x86_64/net-snmp-agent-libs-5.9.4-r0.apk'
+'./apks/x86_64/net-snmp-libs-5.9.4-r0.apk'
+'./apks/x86_64/net-snmp-openrc-5.9.4-r0.apk'
+'./apks/x86_64/net-snmp-tools-5.9.4-r0.apk'
+'./apks/x86_64/nettle-3.9.1-r0.apk'
+'./apks/x86_64/network-extras-2.0-r0.apk'
+'./apks/x86_64/nfs-utils-2.6.4-r0.apk'
+'./apks/x86_64/nfs-utils-openrc-2.6.4-r0.apk'
+'./apks/x86_64/nftables-1.0.9-r0.apk'
+'./apks/x86_64/nftables-openrc-1.0.9-r0.apk'
+'./apks/x86_64/nghttp2-libs-1.58.0-r0.apk'
+'./apks/x86_64/nrpe-4.1.0-r2.apk'
+'./apks/x86_64/nrpe-openrc-4.1.0-r2.apk'
+'./apks/x86_64/nsd-4.7.0-r0.apk'
+'./apks/x86_64/nsd-openrc-4.7.0-r0.apk'
+'./apks/x86_64/opennhrp-0.14.1-r11.apk'
+'./apks/x86_64/opennhrp-openrc-0.14.1-r11.apk'
+'./apks/x86_64/openntpd-6.8_p1-r9.apk'
+'./apks/x86_64/openntpd-openrc-6.8_p1-r9.apk'
+'./apks/x86_64/openrc-0.52.1-r0.apk'
+'./apks/x86_64/openresolv-3.13.2-r0.apk'
+'./apks/x86_64/openssh-9.5_p1-r0.apk'
+'./apks/x86_64/openssh-client-common-9.5_p1-r0.apk'
+'./apks/x86_64/openssh-client-default-9.5_p1-r0.apk'
+'./apks/x86_64/openssh-keygen-9.5_p1-r0.apk'
+'./apks/x86_64/openssh-server-9.5_p1-r0.apk'
+'./apks/x86_64/openssh-server-common-9.5_p1-r0.apk'
+'./apks/x86_64/openssh-server-common-openrc-9.5_p1-r0.apk'
+'./apks/x86_64/openssh-sftp-server-9.5_p1-r0.apk'
+'./apks/x86_64/openssl-3.1.4-r2.apk'
+'./apks/x86_64/openvpn-2.6.8-r0.apk'
+'./apks/x86_64/openvpn-openrc-2.6.8-r0.apk'
+'./apks/x86_64/p11-kit-0.25.3-r0.apk'
+'./apks/x86_64/parted-3.6-r2.apk'
+'./apks/x86_64/partx-2.39.3-r0.apk'
+'./apks/x86_64/pciutils-3.10.0-r0.apk'
+'./apks/x86_64/pciutils-libs-3.10.0-r0.apk'
+'./apks/x86_64/pcre2-10.42-r2.apk'
+'./apks/x86_64/pcsc-lite-libs-2.0.0-r2.apk'
+'./apks/x86_64/pingu-1.5-r5.apk'
+'./apks/x86_64/pingu-openrc-1.5-r5.apk'
+'./apks/x86_64/pkgconf-2.1.0-r0.apk'
+'./apks/x86_64/popt-1.19-r3.apk'
+'./apks/x86_64/ppp-2.5.0-r5.apk'
+'./apks/x86_64/ppp-atm-2.5.0-r5.apk'
+'./apks/x86_64/ppp-chat-2.5.0-r5.apk'
+'./apks/x86_64/ppp-daemon-2.5.0-r5.apk'
+'./apks/x86_64/ppp-l2tp-2.5.0-r5.apk'
+'./apks/x86_64/ppp-minconn-2.5.0-r5.apk'
+'./apks/x86_64/ppp-openrc-2.5.0-r5.apk'
+'./apks/x86_64/ppp-passprompt-2.5.0-r5.apk'
+'./apks/x86_64/ppp-passwordfd-2.5.0-r5.apk'
+'./apks/x86_64/ppp-pppoe-2.5.0-r5.apk'
+'./apks/x86_64/ppp-radius-2.5.0-r5.apk'
+'./apks/x86_64/ppp-winbind-2.5.0-r5.apk'
+'./apks/x86_64/protobuf-c-1.4.1-r7.apk'
+'./apks/x86_64/pyc-3.11.6-r1.apk'
+'./apks/x86_64/python3-3.11.6-r1.apk'
+'./apks/x86_64/python3-pyc-3.11.6-r1.apk'
+'./apks/x86_64/python3-pycache-pyc0-3.11.6-r1.apk'
+'./apks/x86_64/quagga-1.2.4-r9.apk'
+'./apks/x86_64/quagga-openrc-1.2.4-r9.apk'
+'./apks/x86_64/readline-8.2.1-r2.apk'
+'./apks/x86_64/rng-tools-6.16-r3.apk'
+'./apks/x86_64/rng-tools-openrc-6.16-r3.apk'
+'./apks/x86_64/rpcbind-1.2.6-r2.apk'
+'./apks/x86_64/rpcbind-openrc-1.2.6-r2.apk'
+'./apks/x86_64/rsync-3.2.7-r4.apk'
+'./apks/x86_64/rsync-openrc-3.2.7-r4.apk'
+'./apks/x86_64/runuser-2.39.3-r0.apk'
+'./apks/x86_64/scanelf-1.3.7-r2.apk'
+'./apks/x86_64/setarch-2.39.3-r0.apk'
+'./apks/x86_64/setpriv-2.39.3-r0.apk'
+'./apks/x86_64/sfdisk-2.39.3-r0.apk'
+'./apks/x86_64/skalibs-2.14.0.1-r0.apk'
+'./apks/x86_64/sntpc-0.9-r11.apk'
+'./apks/x86_64/sntpc-openrc-0.9-r11.apk'
+'./apks/x86_64/socat-1.8.0.0-r0.apk'
+'./apks/x86_64/sqlite-libs-3.44.2-r0.apk'
+'./apks/x86_64/ssl_client-1.36.1-r15.apk'
+'./apks/x86_64/ssmtp-2.64-r20.apk'
+'./apks/x86_64/strace-6.6-r0.apk'
+'./apks/x86_64/strongswan-5.9.12-r0.apk'
+'./apks/x86_64/strongswan-openrc-5.9.12-r0.apk'
+'./apks/x86_64/sysfsutils-2.1.1-r3.apk'
+'./apks/x86_64/sysklogd-1.5.1-r5.apk'
+'./apks/x86_64/sysklogd-openrc-1.5.1-r5.apk'
+'./apks/x86_64/syslinux-6.04_pre1-r15.apk'
+'./apks/x86_64/tar-1.35-r2.apk'
+'./apks/x86_64/tcpdump-4.99.4-r1.apk'
+'./apks/x86_64/tiny-cloud-3.0.4-r1.apk'
+'./apks/x86_64/tiny-cloud-alpine-3.0.4-r1.apk'
+'./apks/x86_64/tiny-cloud-nocloud-3.0.4-r1.apk'
+'./apks/x86_64/tiny-cloud-openrc-3.0.4-r1.apk'
+'./apks/x86_64/tinyproxy-1.11.1-r3.apk'
+'./apks/x86_64/tinyproxy-openrc-1.11.1-r3.apk'
+'./apks/x86_64/tmux-3.3a_git20230428-r0.apk'
+'./apks/x86_64/tzdata-2023c-r1.apk'
+'./apks/x86_64/udev-init-scripts-35-r1.apk'
+'./apks/x86_64/udev-init-scripts-openrc-35-r1.apk'
+'./apks/x86_64/umount-2.39.3-r0.apk'
+'./apks/x86_64/unbound-1.19.0-r0.apk'
+'./apks/x86_64/unbound-libs-1.19.0-r0.apk'
+'./apks/x86_64/unbound-openrc-1.19.0-r0.apk'
+'./apks/x86_64/usb-modeswitch-2.6.1-r3.apk'
+'./apks/x86_64/usbutils-017-r0.apk'
+'./apks/x86_64/userspace-rcu-0.14.0-r2.apk'
+'./apks/x86_64/util-linux-2.39.3-r0.apk'
+'./apks/x86_64/util-linux-misc-2.39.3-r0.apk'
+'./apks/x86_64/util-linux-openrc-2.39.3-r0.apk'
+'./apks/x86_64/utmps-libs-0.1.2.2-r0.apk'
+'./apks/x86_64/uuidgen-2.39.3-r0.apk'
+'./apks/x86_64/v86d-0.1.10-r3.apk'
+'./apks/x86_64/vim-9.0.2127-r0.apk'
+'./apks/x86_64/vim-common-9.0.2127-r0.apk'
+'./apks/x86_64/vlan-2.3-r1.apk'
+'./apks/x86_64/wget-1.21.4-r0.apk'
+'./apks/x86_64/wipefs-2.39.3-r0.apk'
+'./apks/x86_64/wireguard-tools-1.0.20210914-r3.apk'
+'./apks/x86_64/wireguard-tools-wg-1.0.20210914-r3.apk'
+'./apks/x86_64/wireguard-tools-wg-quick-1.0.20210914-r3.apk'
+'./apks/x86_64/wireless-tools-30_pre9-r4.apk'
+'./apks/x86_64/wireless-tools-libs-30_pre9-r4.apk'
+'./apks/x86_64/wpa_supplicant-2.10-r9.apk'
+'./apks/x86_64/wpa_supplicant-openrc-2.10-r9.apk'
+'./apks/x86_64/xfsprogs-6.5.0-r0.apk'
+'./apks/x86_64/xtables-addons-3.25-r0.apk'
+'./apks/x86_64/xtables-addons-lts-6.6.4-r1.apk'
+'./apks/x86_64/xxd-9.0.2127-r0.apk'
+'./apks/x86_64/xz-libs-5.4.5-r0.apk'
+'./apks/x86_64/yaml-0.2.5-r2.apk'
+'./apks/x86_64/yx-1.0.0-r1.apk'
+'./apks/x86_64/zfs-2.2.2-r0.apk'
+'./apks/x86_64/zfs-libs-2.2.2-r0.apk'
+'./apks/x86_64/zfs-lts-6.6.4-r3.apk'
+'./apks/x86_64/zfs-openrc-2.2.2-r0.apk'
+'./apks/x86_64/zlib-1.3-r2.apk'
+'./apks/x86_64/zonenotify-0.1-r6.apk'
+'./apks/x86_64/zstd-1.5.5-r8.apk'
+'./apks/x86_64/zstd-libs-1.5.5-r8.apk'
+'./boot'
+'./boot/System.map-lts'
+'./boot/amd-ucode.img'
+'./boot/config-lts'
+'./boot/dtbs-lts'
+'./boot/grub'
+'./boot/grub/efi.img'
+'./boot/grub/grub.cfg'
+'./boot/initramfs-lts'
+'./boot/intel-ucode.img'
+'./boot/modloop-lts'
+'./boot/syslinux'
+'./boot/syslinux/boot.cat'
+'./boot/syslinux/isohdpfx.bin'
+'./boot/syslinux/isolinux.bin'
+'./boot/syslinux/ldlinux.c32'
+'./boot/syslinux/libcom32.c32'
+'./boot/syslinux/libutil.c32'
+'./boot/syslinux/mboot.c32'
+'./boot/syslinux/syslinux.cfg'
+'./boot/vmlinuz-lts'
+'./efi'
+'./efi/boot'
+'./efi/boot/bootx64.efi'
+[?2004hroot@e1ebecd34fa9:/app# xorriso -osirrox on -indev /app/alpine.iso -extract /boot/syslinux/syslinux.cfg ./syslinux.cfg && cat syslinux.cfg
+[?2004lxorriso 1.5.2 : RockRidge filesystem manipulator, libburnia project.
+
+Copying of file objects from ISO image to disk filesystem is: Enabled
+xorriso : NOTE : Loading ISO image tree from LBA 0
+xorriso : UPDATE :     522 nodes read in 1 seconds
+xorriso : NOTE : Detected El-Torito boot information which currently is set to be discarded
+Drive current: -indev '/app/alpine.iso'
+Media current: stdio file, overwriteable
+Media status : is written , is appendable
+Boot record  : El Torito , MBR isohybrid cyl-align-on GPT
+Media summary: 1 session, 489984 data blocks,  957m data,  896g free
+Volume id    : 'alpine-ext 3.19.0 x86_64'
+xorriso : UPDATE :       1 files restored (   235b) in 1 seconds = 0.0xD
+Extracted from ISO image: file '/boot/syslinux/syslinux.cfg'='/app/syslinux.cfg'
+TIMEOUT 10
+PROMPT 1
+DEFAULT lts
+
+LABEL lts
+MENU LABEL Linux lts
+KERNEL /boot/vmlinuz-lts
+INITRD /boot/intel-ucode.img,/boot/amd-ucode.img,/boot/initramfs-lts
+FDTDIR /boot/dtbs-lts
+APPEND modules=loop,squashfs,sd-mod,usb-storage quiet 
+[?2004hroot@e1ebecd34fa9:/app# cat << 'EOF' > setup_vm.py
+[?2004lwordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+child.expect('#', timeout=30)
+
+print('Enabling and starting sshd...')
+child.sendline('rc-update add sshd')
+child.expect('#', timeout=30)
+child.sendline('/etc/init.d/sshd start')
+child.expect('#', timeout=30)
+
+print('SSH server setup complete inside VM. Keeping QEMU running...')
+while True:
+    time.sleep(10)
+EOF
+[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> import time
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Starting QEMU with serial console...')
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=300)
+[?2004l[?2004h> child.logfile = sys.stdout
+[?2004l[?2004h> 
+[?2004l[?2004h> # Wait for boot prompt
+[?2004l[?2004h> child.expect('boot:', timeout=120)
+[?2004l[?2004h> print('Found boot prompt, sending lts console=ttyS0...')
+[?2004l[?2004h> child.sendline('lts console=ttyS0')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('login:', timeout=180)
+[?2004l[?2004h> print('Logging in as root...')
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> print('Logged in successfully!')
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Setting root password...')
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Installing openssh...')
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Configuring sshd...')
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Enabling and starting sshd...')
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('SSH server setup complete inside VM. Keeping QEMU running...')
+[?2004l[?2004h> while True:
+[?2004l[?2004h>     time.sleep(10)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[1] 1801
+[?2004hroot@e1ebecd34fa9:/app# Starting QEMU with serial console...
+c[?7l[2J[0mSeaBIOS (version 1.14.0-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8F4C0+1FECF4C0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+Boot failed: could not read the boot disk
+
+Booting from Floppy...
+Boot failed: could not read the boot disk
+
+Booting from DVD/CD...
+
+ISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter Anvin et al
+boot:Found boot prompt, sending lts console=ttyS0...
+lts console=ttyS0
+ lts console=ttysshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+[?2004lsshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+nc -z localhost 2222 && echo 'Port 2222 is open' || echo 'Port 2222 is closed'
+python3 -c 'import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()]'
+python3 -c 'import os, glob
+for p in glob.glob("/proc/[0-9]*/cmdline"):
+    try:
+        with open(p) as f:
+            cmd = f.read()
+            if "qemu" in cmd or "setup_vm" in cmd:
+                pid = int(p.split("/")[2])
+                os.kill(pid, 9)
+                print(f"Killed {pid}")
+    except Exception as e:
+        pass
+'
+cat << 'EOF' > setup_vm.py
+import pexpect
+import sys
+import time
+
+f = open('setup.log', 'w')
+child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=300)
+child.logfile = f
+
+child.expect('boot:', timeout=120)
+f.write('Found boot prompt\n')
+f.flush()
+time.sleep(1)
+child.sendline('lts console=ttyS0')
+
+child.expect('login:', timeout=180)
+f.write('Found login prompt\n')
+f.flush()
+child.sendline('root')
+
+child.expect('#', timeout=60)
+f.write('Logged in\n')
+f.flush()
+
+child.sendline('echo root:password123 | chpasswd')
+child.expect('#', timeout=30)
+
+child.sendline('apk update && apk add openssh')
+child.expect('#', timeout=120)
+
+child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+child.expect('#', timeout=30)
+child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+child.expect('#', timeout=30)
+
+child.sendline('rc-update add sshd')
+child.expect('#', timeout=30)
+child.sendline('/etc/init.d/sshd start')
+child.expect('#', timeout=30)
+
+f.write('Setup complete\n')
+f.flush()
+
+while True:
+    time.sleep(10)
+EOF
+python3 setup_vm.py &
+kex_exchange_identification: read: Connection reset by peer
+Connection reset by 127.0.0.1 port 2222
+[?2004hroot@e1ebecd34fa9:/app# sshpass -p 'password123' ssh -o StrictHostKeyChecking=no -p 2222 root@localhost 'echo SUCCESS'
+[?2004lcat << 'EOF' > setup_vm.py
+import pexpect
+import sys
+import time
+
+f = open('setup.log', 'w')
+child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=300)
+child.logfile = f
+
+child.expect('boot:', timeout=120)
+f.write('Found boot prompt\n')
+f.flush()
+time.sleep(1)
+child.sendline('lts console=ttyS0')
+
+child.expect('login:', timeout=180)
+f.write('Found login prompt\n')
+f.flush()
+child.sendline('root')
+
+child.expect('#', timeout=60)
+f.write('Logged in\n')
+f.flush()
+
+child.sendline('echo root:password123 | chpasswd')
+child.expect('#', timeout=30)
+
+child.sendline('apk update && apk add openssh')
+child.expect('#', timeout=120)
+
+child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+child.expect('#', timeout=30)
+child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+child.expect('#', timeout=30)
+
+child.sendline('rc-update add sshd')
+child.expect('#', timeout=30)
+child.sendline('/etc/init.d/sshd start')
+child.expect('#', timeout=30)
+
+f.write('Setup complete\n')
+f.flush()
+
+while True:
+    time.sleep(10)
+EOF
+python3 setup_vm.py &
+Traceback (most recent call last):
+  File "/app/setup_vm.py", line 14, in <module>
+    child.expect('login:', timeout=180)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 181, in expect_loop
+    return self.timeout(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 144, in timeout
+    raise exc
+pexpect.exceptions.TIMEOUT: Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7bbb3b915fd0>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ' lts console=tty'
+before (last 100 chars): ' lts console=tty'
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 1802
+child_fd: 5
+closed: False
+timeout: 300
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('login:')
+kex_exchange_identification: read: Connection reset by peer
+Connection reset by 127.0.0.1 port 2222
+[?2004hroot@e1ebecd34fa9:/app# nc -z localhost 2222 && echo 'Port 2222 is open' || echo 'Port 2222 is closed'
+[?2004lPort 2222 is closed
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()]'
+[?2004lpython3 setup_vm.py 
+python3 -c import glob; [print(open(p).read()) for p in glob.glob("/proc/[0-9]*/cmdline") if "setup_vm" in open(p).read()] 
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import os, glob
+[?2004l[?2004h> for p in glob.glob("/proc/[0-9]*/cmdline"):
+[?2004l[?2004h>     try:
+[?2004l[?2004h>         with open(p) as f:
+[?2004l[?2004h>             cmd = f.read()
+[?2004l[?2004h>             if "qemu" in cmd or "setup_vm" in cmd:
+[?2004l[?2004h>                 pid = int(p.split("/")[2])
+[?2004l[?2004h>                 os.kill(pid, 9)
+[?2004l[?2004h>                 print(f"Killed {pid}")
+[?2004l[?2004h>     except Exception as e:
+[?2004l[?2004h>         pass
+[?2004l[?2004h> '
+[?2004lKilled 1801
+Killed
+[1]+  Killed                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# cat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> import time
+[?2004l[?2004h> 
+[?2004l[?2004h> f = open('setup.log', 'w')
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=300)
+[?2004l[?2004h> child.logfile = f
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('boot:', timeout=120)
+[?2004l[?2004h> f.write('Found boot prompt\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> time.sleep(1)
+[?2004l[?2004h> child.sendline('lts console=ttyS0')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('login:', timeout=180)
+[?2004l[?2004h> f.write('Found login prompt\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> f.write('Logged in\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> f.write('Setup complete\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> 
+[?2004l[?2004h> while True:
+[?2004l[?2004h>     time.sleep(10)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[1] 1970
+[?2004hroot@e1ebecd34fa9:/app# cat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> import time
+[?2004l[?2004h> 
+[?2004l[?2004h> f = open('setup.log', 'w')
+[?2004l[?2004h> child = pexpect.spawn('qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic', encoding='utf-8', timeout=300)
+[?2004l[?2004h> child.logfile = f
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('boot:', timeout=120)
+[?2004l[?2004h> f.write('Found boot prompt\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> time.sleep(1)
+[?2004l[?2004h> child.sendline('lts console=ttyS0')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('login:', timeout=180)
+[?2004l[?2004h> f.write('Found login prompt\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> f.write('Logged in\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> f.write('Setup complete\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> 
+[?2004l[?2004h> while True:
+[?2004l[?2004h>     time.sleep(10)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[2] 1972
+[?2004hroot@e1ebecd34fa9:/app# Traceback (most recent call last):
+  File "/app/setup_vm.py", line 9, in <module>
+    child.expect('boot:', timeout=120)
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 343, in expect
+    return self.expect_list(compiled_pattern_list,
+  File "/usr/lib/python3/dist-packages/pexpect/spawnbase.py", line 372, in expect_list
+    return exp.expect_loop(timeout)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 179, in expect_loop
+    return self.eof(e)
+  File "/usr/lib/python3/dist-packages/pexpect/expect.py", line 122, in eof
+    raise exc
+pexpect.exceptions.EOF: End Of File (EOF). Exception style platform.
+<pexpect.pty_spawn.spawn object at 0x7749d6d88f70>
+command: /usr/bin/qemu-system-x86_64
+args: [b'/usr/bin/qemu-system-x86_64', b'-m', b'512', b'-cdrom', b'/app/alpine.iso', b'-net', b'nic,model=virtio', b'-net', b'user,hostfwd=tcp::2222-:22', b'-nographic']
+buffer (last 100 chars): ''
+before (last 100 chars): "qemu-system-x86_64: Could not set up host forwarding rule 'tcp::2222-:22'\r\n"
+after: <class 'pexpect.exceptions.EOF'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: True
+pid: 1974
+child_fd: 6
+closed: False
+timeout: 300
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <_io.TextIOWrapper name='setup.log' mode='w' encoding='UTF-8'>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile('boot:')
+cat setup.log
+[?2004lc[?7l[2J[0mSeaBIOS (version 1.14.0-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+1FF8F4C0+1FECF4C0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
+Boot failed: could not read the boot disk
+
+Booting from Floppy...
+Boot failed: could not read the boot disk
+
+Booting from DVD/CD...
+
+ISOLINUX 6.04 6.04-pre1 ETCD Copyright (C) 1994-2015 H. Peter Anvin et al
+boot:Found boot prompt
+lts console=ttyS0
+ 
+c[?7l[2J[1]-  Exit 1                  python3 setup_vm.py
+[?2004hroot@e1ebecd34fa9:/app# python3 -c 'import os, glob
+[?2004l[?2004h> for p in glob.glob("/proc/[0-9]*/cmdline"):
+[?2004l[?2004h>     try:
+[?2004l[?2004h>         with open(p) as f:
+[?2004l[?2004h>             cmd = f.read()
+[?2004l[?2004h>             if "qemu" in cmd or "setup_vm" in cmd:
+[?2004l[?2004h>                 pid = int(p.split("/")[2])
+[?2004l[?2004h>                 os.kill(pid, 9)
+[?2004l[?2004h>                 print(f"Killed {pid}")
+[?2004l[?2004h>     except Exception as e:
+[?2004l[?2004h>         pass
+[?2004l[?2004h> '
+[?2004lKilled 1972
+Killed 1973
+[2]+  Killed                  python3 setup_vm.py
+Killed
+[?2004hroot@e1ebecd34fa9:/app# xorriso -osirrox on -indev /app/alpine.iso -extract /boot/vmlinuz-lts ./vmlinuz-lts -extract /boot/initramfs-lts ./initramfs-lts
+[?2004lxorriso 1.5.2 : RockRidge filesystem manipulator, libburnia project.
+
+Copying of file objects from ISO image to disk filesystem is: Enabled
+xorriso : NOTE : Loading ISO image tree from LBA 0
+xorriso : UPDATE :     522 nodes read in 1 seconds
+xorriso : NOTE : Detected El-Torito boot information which currently is set to be discarded
+Drive current: -indev '/app/alpine.iso'
+Media current: stdio file, overwriteable
+Media status : is written , is appendable
+Boot record  : El Torito , MBR isohybrid cyl-align-on GPT
+Media summary: 1 session, 489984 data blocks,  957m data,  895g free
+Volume id    : 'alpine-ext 3.19.0 x86_64'
+xorriso : UPDATE :       1 files restored ( 11601k) in 1 seconds = 8.6xD
+Extracted from ISO image: file '/boot/vmlinuz-lts'='/app/vmlinuz-lts'
+xorriso : UPDATE :       1 files restored ( 20006k) in 1 seconds = 14.8xD
+Extracted from ISO image: file '/boot/initramfs-lts'='/app/initramfs-lts'
+[?2004hroot@e1ebecd34fa9:/app# xorriso -osirrox on -indev /app/alpine.iso -extract /boot/modloop-lts ./modloop-lts
+[?2004lxorriso 1.5.2 : RockRidge filesystem manipulator, libburnia project.
+
+Copying of file objects from ISO image to disk filesystem is: Enabled
+xorriso : NOTE : Loading ISO image tree from LBA 0
+xorriso : UPDATE :     522 nodes read in 1 seconds
+xorriso : NOTE : Detected El-Torito boot information which currently is set to be discarded
+Drive current: -indev '/app/alpine.iso'
+Media current: stdio file, overwriteable
+Media status : is written , is appendable
+Boot record  : El Torito , MBR isohybrid cyl-align-on GPT
+Media summary: 1 session, 489984 data blocks,  957m data,  895g free
+Volume id    : 'alpine-ext 3.19.0 x86_64'
+xorriso : UPDATE :       1 files restored ( 172.4m) in 1 seconds = 130.5xD
+Extracted from ISO image: file '/boot/modloop-lts'='/app/modloop-lts'
+[?2004hroot@e1ebecd34fa9:/app# cat << 'EOF' > setup_vm.py
+[?2004l[?2004h> import pexpect
+[?2004l[?2004h> import sys
+[?2004l[?2004h> import time
+[?2004l[?2004h> 
+[?2004l[?2004h> f = open('setup.log', 'w')
+[?2004l[?2004h> cmd = ('qemu-system-x86_64 -m 512 ' \
+[?2004l[?2004h>        '-kernel ./vmlinuz-lts -initrd ./initramfs-lts ' \
+[?2004l[?2004h>        '-append "root=/dev/cdrom modules=loop,squashfs modloop=/boot/modloop-lts console=ttyS0" ' \
+[?2004l[?2004h>        '-cdrom /app/alpine.iso ' \
+[?2004l[?2004h>        '-net nic,model=virtio -net user,hostfwd=tcp::2222-:22 -nographic')
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Starting QEMU...')
+[?2004l[?2004h> child = pexpect.spawn(cmd, encoding='utf-8', timeout=300)
+[?2004l[?2004h> child.logfile = f
+[?2004l[?2004h> 
+[?2004l[?2004h> child.expect('login:', timeout=180)
+[?2004l[?2004h> f.write('Found login prompt\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> print('Found login prompt!')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('root')
+[?2004l[?2004h> child.expect('#', timeout=60)
+[?2004l[?2004h> f.write('Logged in\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> print('Logged in as root!')
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('echo root:password123 | chpasswd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('apk update && apk add openssh')
+[?2004l[?2004h> child.expect('#', timeout=120)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> child.sendline('rc-update add sshd')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> child.sendline('/etc/init.d/sshd start')
+[?2004l[?2004h> child.expect('#', timeout=30)
+[?2004l[?2004h> 
+[?2004l[?2004h> f.write('Setup complete\n')
+[?2004l[?2004h> f.flush()
+[?2004l[?2004h> print('SSH setup complete!')
+[?2004l[?2004h> 
+[?2004l[?2004h> while True:
+[?2004l[?2004h>     time.sleep(10)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@e1ebecd34fa9:/app# python3 setup_vm.py &
+[?2004l[1] 2052
+[?2004hroot@e1ebecd34fa9:/app# Starting QEMU...

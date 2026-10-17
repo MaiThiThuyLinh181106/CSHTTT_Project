@@ -1,0 +1,180 @@
+{
+    "id": "7789f1db-4eab-412a-93f9-ca0b07db8539",
+    "task_name": "terminal-bench/dna-assembly",
+    "trial_name": "dna-assembly__RpCPym2",
+    "trial_uri": "file:///D:/CSHTTT_project/rrsi/runs/coding/jobs/r1A/dna-assembly__RpCPym2",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "dna-assembly",
+        "ref": "sha256:e41a8e94d86019949b08d3b5f88a85f6d943ba0fd85d5e1d5ebb95cb8f66223f"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "e2acbc34aa5f20bbe3b10d2d297cdec9e6f2086c94a70068f2325e7bb7ab1212",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/dna-assembly",
+            "ref": "sha256:e41a8e94d86019949b08d3b5f88a85f6d943ba0fd85d5e1d5ebb95cb8f66223f",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "dna-assembly__RpCPym2",
+        "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "harbor_terminus2:AgentHarness",
+            "import_path": null,
+            "model_name": "gemini/gemini-3.5-flash-lite",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "llm_kwargs": {
+                    "num_retries": 10
+                }
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "rrsi-terminus2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gemini-3.5-flash-lite",
+            "provider": "gemini"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 969863,
+        "n_cache_tokens": 685997,
+        "n_output_tokens": 21617,
+        "cost_usd": 0.15978221000000004,
+        "model_usage": {
+            "gemini-3.5-flash-lite": {
+                "n_input_tokens": 969863,
+                "n_cache_tokens": 685997,
+                "n_output_tokens": 21617,
+                "cost_usd": 0.15978221000000004
+            }
+        },
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 43,
+            "api_request_times_msec": [
+                4017.021894454956,
+                6657.351493835449,
+                4960.738658905029,
+                5043.6601638793945,
+                5744.56787109375,
+                3868.5009479522705,
+                3922.4321842193604,
+                6830.270528793335,
+                5712.512016296387,
+                4887.595653533936,
+                6626.300096511841,
+                5002.770185470581,
+                5823.084592819214,
+                5081.551790237427,
+                22080.0883769989,
+                7148.125886917114,
+                9280.085802078247,
+                33411.893129348755,
+                7770.846843719482,
+                6192.7690505981445,
+                43640.09404182434,
+                5451.130390167236,
+                53758.94236564636,
+                5079.530477523804,
+                5980.151653289795,
+                6419.7986125946045,
+                33322.404861450195,
+                63291.58926010132,
+                5318.979501724243,
+                44416.5415763855,
+                5592.398405075073,
+                6843.566179275513,
+                6498.848915100098,
+                5796.683788299561,
+                32322.97706604004,
+                54462.37230300903,
+                12460.520029067993,
+                16888.28706741333,
+                8039.852142333984,
+                7788.559675216675,
+                4893.245697021484,
+                6498.558282852173,
+                4809.968709945679
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-10-15T08:24:53.993109Z",
+    "finished_at": "2026-10-15T08:37:35.735670Z",
+    "environment_setup": {
+        "started_at": "2026-10-15T08:24:54.004558Z",
+        "finished_at": "2026-10-15T08:24:56.402415Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-15T08:24:56.402442Z",
+        "finished_at": "2026-10-15T08:25:35.696491Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-15T08:25:35.696615Z",
+        "finished_at": "2026-10-15T08:36:56.022693Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-15T08:36:56.028291Z",
+        "finished_at": "2026-10-15T08:37:28.724751Z"
+    },
+    "step_results": null
+}

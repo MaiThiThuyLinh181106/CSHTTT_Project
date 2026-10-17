@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/log-summary-date-ranges",
+        "ref": "sha256:27b074a2f10fff7606e096f3abd8dced418ad8fda0f53d88acbe477f2d9ceaf6",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "log-summary-date-ranges__HJ9uaBJ",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

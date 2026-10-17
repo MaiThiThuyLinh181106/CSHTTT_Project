@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/kv-store-grpc",
+        "ref": "sha256:973c5d4c111fb61a344457936f1c36400acd2d9e44389e7b319586fe23a7a307",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "kv-store-grpc__WKNJyTn",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

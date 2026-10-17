@@ -1,0 +1,18 @@
+diff --git a/third_party/harbor_terminus2/terminus_2.py b/third_party/harbor_terminus2/terminus_2.py
+index 7909eb2..94bd5de 100644
+--- a/third_party/harbor_terminus2/terminus_2.py
++++ b/third_party/harbor_terminus2/terminus_2.py
+@@ -1429,10 +1429,10 @@ so ask everything you need to know."""
+                     )
+             else:
+                 self._pending_completion = False
+-                if "ERROR:" in terminal_output or "AssertionError" in terminal_output or "FAIL" in terminal_output:
++                if "ERROR:" in terminal_output or "AssertionError" in terminal_output or "FAIL" in terminal_output or "FAILED" in terminal_output:
+                     observation = (
+-                        f"NOTICE: The previous commands produced test failures or errors in the terminal output."
+-                        f" Please inspect the failure details below and correct them before completing:\n\n"
++                        f"NOTICE: The previous commands produced test failures or errors in the terminal output.\n"
++                        f"Please review your plan and address these errors before declaring task_complete.\n\n"
+                         f"{self._limit_output_length(terminal_output)}"
+                     )
+                 elif feedback and "WARNINGS:" in feedback:

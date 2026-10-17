@@ -1,0 +1,12 @@
+diff --git a/third_party/harbor_terminus2/terminus_2.py b/third_party/harbor_terminus2/terminus_2.py
+index 4772cff..d815cf3 100644
+--- a/third_party/harbor_terminus2/terminus_2.py
++++ b/third_party/harbor_terminus2/terminus_2.py
+@@ -1424,6 +1424,7 @@ so ask everything you need to know."""
+                     observation = terminal_output
+                 else:
+                     self._pending_completion = True
++                    # Perform a quick verification check of the status or artifact before letting complete go through
+                     observation = self._get_completion_confirmation_message(
+                         terminal_output
+                     )

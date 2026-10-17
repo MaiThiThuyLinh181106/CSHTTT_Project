@@ -1,0 +1,21 @@
+{
+ "gate_failure": "smoke_fail",
+ "detail": "{\"stage\": \"smoke_run\", \"fix-git__mfg6VUk\": \"{'exception_type': 'RuntimeError', 'exception_message': 'Command timed out after 120 seconds', 'exception_traceback': 'Traceback (most recent call last):\\\\n  File \\\"C:\\\\\\\\Users\\\\\\\\Thuy Linh\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Python\\\\\\\\pythoncore-3.14-64\\\\\\\\Lib\\\\\\\\asyncio\\\\\\\\tasks.py\\\", line 488, in wait_for\\\\n    return await fut\\\\n           ^^^^^^^^^\\\\n  File \\\"C:\\\\\\\\Users\\\\\\\\Thuy Linh\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Python\\\\\\\\pythoncore-3.14-64\\\\\\\\Lib\\\\\\\\\"}",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Encouraging appropriate longer durations for heavy commands like training and testing helps prevent premature truncation and lets the agent see full test output and tracebacks.",
+   "targets_mode": "incorrect_logic_implementation",
+   "why_not_lower_lever": "Prose instructions in templates directly guide model duration selection and planning behavior.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": "corrective: bn-fit-modify would have more complete output logs to debug assertions; preservative: does not affect fast tasks; transfer: generalizes across any long-running compilation or training task.",
+   "regression_risk": "None",
+   "mechanism": "Encouraging appropriate longer durations for heavy commands like training and testing helps prevent premature truncation and lets the agent see full test output and tracebacks."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\r0\\B\\diff.patch"
+}

@@ -1,0 +1,142 @@
+{
+    "id": "f6a6f6ea-3726-4b98-8d05-8a114760673b",
+    "task_name": "terminal-bench/pypi-server",
+    "trial_name": "pypi-server__kmL3c43",
+    "trial_uri": "file:///D:/CSHTTT_project/rrsi/runs/coding/jobs/r1A/pypi-server__kmL3c43",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "pypi-server",
+        "ref": "sha256:1a1e0542f58e2d3362fec17a9bbb98667717d9a4a3e9a4c8413d3150a4fa0ff1"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "9eb21236249d5b42ee64c7229bb1e5a3b3c0be7ed5ee9801bdd0d16ca575941a",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/pypi-server",
+            "ref": "sha256:1a1e0542f58e2d3362fec17a9bbb98667717d9a4a3e9a4c8413d3150a4fa0ff1",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "pypi-server__kmL3c43",
+        "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "harbor_terminus2:AgentHarness",
+            "import_path": null,
+            "model_name": "gemini/gemini-3.5-flash-lite",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "llm_kwargs": {
+                    "num_retries": 10
+                }
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "rrsi-terminus2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gemini-3.5-flash-lite",
+            "provider": "gemini"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 14562,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 1265,
+        "cost_usd": 0.0075311,
+        "model_usage": {
+            "gemini-3.5-flash-lite": {
+                "n_input_tokens": 14562,
+                "n_cache_tokens": 0,
+                "n_output_tokens": 1265,
+                "cost_usd": 0.0075311
+            }
+        },
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 5,
+            "api_request_times_msec": [
+                52990.492820739746,
+                4846.474885940552,
+                9195.976495742798,
+                3709.9547386169434,
+                3732.4042320251465
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-10-15T08:22:29.597672Z",
+    "finished_at": "2026-10-15T08:24:53.972154Z",
+    "environment_setup": {
+        "started_at": "2026-10-15T08:22:29.608878Z",
+        "finished_at": "2026-10-15T08:22:32.677392Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-15T08:22:32.677418Z",
+        "finished_at": "2026-10-15T08:22:54.504737Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-15T08:22:54.504832Z",
+        "finished_at": "2026-10-15T08:24:31.710424Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-15T08:24:31.712554Z",
+        "finished_at": "2026-10-15T08:24:49.666718Z"
+    },
+    "step_results": null
+}

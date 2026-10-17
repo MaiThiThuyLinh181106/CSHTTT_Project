@@ -1,0 +1,28 @@
+{
+ "failure_modes": [
+  {
+   "mode": "incorrect_logic_implementation",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "bn-fit-modify"
+   ],
+   "description": "The agent attempted code modifications but failed to satisfy all evaluation test assertions correctly.",
+   "needed_instead": "Accurately implement structure learning, output formatting, and intervention steps according to exact structural assertions.",
+   "representative_evidence": [
+    {
+     "task_id": "bn-fit-modify",
+     "where": "end of file",
+     "quote": "AssertionError"
+    }
+   ]
+  }
+ ],
+ "success_habits": [
+  {
+   "habit": "correct_specification_alignment",
+   "n_tasks": 1,
+   "description": "Successfully implementing the required logic to pass all unit test assertions on the first attempt.",
+   "risk_if_broken": "Regressing leads to incorrect implementations passing unnoticed without rigorous test verification."
+  }
+ ]
+}

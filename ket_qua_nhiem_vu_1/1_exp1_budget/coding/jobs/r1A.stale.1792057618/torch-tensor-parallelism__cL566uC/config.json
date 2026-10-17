@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/torch-tensor-parallelism",
+        "ref": "sha256:f32ce74a5aeb6638480247ab799fe46127bbee631acdd0921b0f394ec49b3684",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "torch-tensor-parallelism__cL566uC",
+    "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07"
+}

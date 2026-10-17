@@ -1,0 +1,188 @@
+{
+    "id": "684bce3b-0dfd-4b21-ab98-3904e31e2890",
+    "task_name": "terminal-bench/qemu-alpine-ssh",
+    "trial_name": "qemu-alpine-ssh__9yBxp29",
+    "trial_uri": "file:///D:/CSHTTT_project/rrsi/runs/coding/jobs/r1A/qemu-alpine-ssh__9yBxp29",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "qemu-alpine-ssh",
+        "ref": "sha256:60b7050b0e0aa51641208cf65766743d340e59575db2c4d2f8628240846c2a28"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "48bb495efc325f96892d45c341d8997c4a13b71bbe7051119f28dcaa7970df4f",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/qemu-alpine-ssh",
+            "ref": "sha256:60b7050b0e0aa51641208cf65766743d340e59575db2c4d2f8628240846c2a28",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "qemu-alpine-ssh__9yBxp29",
+        "trials_dir": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "harbor_terminus2:AgentHarness",
+            "import_path": null,
+            "model_name": "gemini/gemini-3.5-flash-lite",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "llm_kwargs": {
+                    "num_retries": 10
+                }
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "4f37897a-be28-4464-a2cb-1a8cd45bec07",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "rrsi-terminus2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gemini-3.5-flash-lite",
+            "provider": "gemini"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 972268,
+        "n_cache_tokens": 684384,
+        "n_output_tokens": 13898,
+        "cost_usd": 0.14164172,
+        "model_usage": {
+            "gemini-3.5-flash-lite": {
+                "n_input_tokens": 927846,
+                "n_cache_tokens": 643966,
+                "n_output_tokens": 13695,
+                "cost_usd": 0.13872048
+            }
+        },
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 46,
+            "api_request_times_msec": [
+                5740.102767944336,
+                5593.475580215454,
+                4280.9107303619385,
+                6297.056674957275,
+                5137.389659881592,
+                5056.430339813232,
+                5119.747638702393,
+                10565.186738967896,
+                5090.259552001953,
+                5917.685270309448,
+                5267.994165420532,
+                4708.571434020996,
+                5413.2726192474365,
+                5176.2449741363525,
+                5859.951734542847,
+                28245.755910873413,
+                6100.109577178955,
+                7941.026210784912,
+                4935.641765594482,
+                7897.221326828003,
+                5129.890918731689,
+                5046.300411224365,
+                5864.925146102905,
+                5163.118362426758,
+                5301.443576812744,
+                4688.807249069214,
+                8686.351776123047,
+                5627.796411514282,
+                4754.094123840332,
+                4408.565044403076,
+                5299.197196960449,
+                4071.338415145874,
+                8696.141719818115,
+                5857.639789581299,
+                9501.364469528198,
+                18858.070850372314,
+                10761.743068695068,
+                5732.0122718811035,
+                5602.1728515625,
+                7395.657300949097,
+                19610.39090156555,
+                5360.798358917236,
+                8143.882036209106,
+                27544.690132141113,
+                7091.65358543396,
+                46962.93568611145
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "AgentTimeoutError",
+        "exception_message": "Agent execution timed out after 900.0 seconds",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Thuy Linh\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\asyncio\\tasks.py\", line 488, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"D:\\CSHTTT_project\\rrsi\\runs\\coding\\wt\\r1A\\third_party\\harbor_terminus2\\terminus_2.py\", line 1622, in run\n    await self._run_agent_loop(\n    ...<3 lines>...\n    )\n  File \"D:\\CSHTTT_project\\rrsi\\runs\\coding\\wt\\r1A\\third_party\\harbor_terminus2\\terminus_2.py\", line 1413, in _run_agent_loop\n    timeout_occurred, terminal_output = await self._execute_commands(\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<2 lines>...\n    )\n    ^\n  File \"D:\\CSHTTT_project\\rrsi\\runs\\coding\\wt\\r1A\\third_party\\harbor_terminus2\\terminus_2.py\", line 1229, in _execute_commands\n    await session.send_keys(\n    ...<3 lines>...\n    )\n  File \"D:\\CSHTTT_project\\rrsi\\runs\\coding\\wt\\r1A\\third_party\\harbor_terminus2\\tmux_session.py\", line 831, in send_keys\n    await self._send_non_blocking_keys(\n    ...<2 lines>...\n    )\n  File \"D:\\CSHTTT_project\\rrsi\\runs\\coding\\wt\\r1A\\third_party\\harbor_terminus2\\tmux_session.py\", line 791, in _send_non_blocking_keys\n    await asyncio.sleep(min_timeout_sec - elapsed_time_sec)\n  File \"C:\\Users\\Thuy Linh\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\asyncio\\tasks.py\", line 705, in sleep\n    return await future\n           ^^^^^^^^^^^^\nasyncio.exceptions.CancelledError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\CSHTTT_project\\rrsi\\domains\\coding\\.venv\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 651, in _run_agent_phase\n    await asyncio.wait_for(\n    ...<6 lines>...\n    )\n  File \"C:\\Users\\Thuy Linh\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\asyncio\\tasks.py\", line 487, in wait_for\n    async with timeouts.timeout(timeout):\n               ~~~~~~~~~~~~~~~~^^^^^^^^^\n  File \"C:\\Users\\Thuy Linh\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\asyncio\\timeouts.py\", line 115, in __aexit__\n    raise TimeoutError from exc_val\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\CSHTTT_project\\rrsi\\domains\\coding\\.venv\\Lib\\site-packages\\harbor\\trial\\single_step.py\", line 76, in _run_agent\n    await self._run_agent_phase(\n    ...<5 lines>...\n    )\n  File \"D:\\CSHTTT_project\\rrsi\\domains\\coding\\.venv\\Lib\\site-packages\\harbor\\trial\\trial.py\", line 660, in _run_agent_phase\n    raise AgentTimeoutError(\n        f\"Agent execution timed out after {timeout_sec} seconds\"\n    ) from exc\nharbor.trial.errors.AgentTimeoutError: Agent execution timed out after 900.0 seconds\n",
+        "occurred_at": "2026-10-15T08:52:42.676744Z"
+    },
+    "started_at": "2026-10-15T08:37:35.755329Z",
+    "finished_at": "2026-10-15T08:52:54.511686Z",
+    "environment_setup": {
+        "started_at": "2026-10-15T08:37:35.763108Z",
+        "finished_at": "2026-10-15T08:37:38.883041Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-15T08:37:38.883068Z",
+        "finished_at": "2026-10-15T08:37:42.663017Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-15T08:37:42.663148Z",
+        "finished_at": "2026-10-15T08:52:42.674807Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-15T08:52:42.684763Z",
+        "finished_at": "2026-10-15T08:52:49.537568Z"
+    },
+    "step_results": null
+}

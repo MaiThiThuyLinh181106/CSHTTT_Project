@@ -1,0 +1,25 @@
+{
+ "gate_failure": "smoke_fail",
+ "detail": "{\"stage\": \"smoke_run\", \"fix-git__WKjnLpE\": \"{'exception_type': 'RuntimeError', 'exception_message': 'Failed to start tmux session. Error: None', 'exception_traceback': 'Traceback (most recent call last):\\\\n  File \\\"D:\\\\\\\\CSHTTT_project\\\\\\\\rrsi\\\\\\\\domains\\\\\\\\coding\\\\\\\\.venv\\\\\\\\Lib\\\\\\\\site-packages\\\\\\\\harbor\\\\\\\\trial\\\\\\\\trial.py\\\", line 497, in run\\\\n    await self._prepare()\\\\n  File \\\"D:\\\\\\\\CSHTTT_project\\\\\\\\rrsi\\\\\\\\domains\\\\\\\\coding\\\\\\\\.venv\\\\\\\\Lib\\\\\\\\site-packages\\\\\\\\harbor\\\\\\\\tria\"}",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "control_flow",
+   "hypothesis": "Injecting explicit corrective prompt guidance upon detecting FAILED in terminal output prevents premature completion or blind looping.",
+   "targets_mode": "exhaustive_exploration_exhausts_turn_budget",
+   "why_not_lower_lever": "Prompt/instruction changes alone do not intercept live terminal observation strings as robustly as plumbing/control-flow integration.",
+   "trigger_condition": "terminal_output contains 'ERROR:', 'AssertionError', 'FAIL', or 'FAILED'",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": {
+    "corrective": "Would nudge the agent in extract-elf when test failures or parse failures occur, prompting corrective focus rather than endless exploration.",
+    "preservative": "Does not affect normal successful terminal output without error markers.",
+    "transfer": "Applies universally across debugging and sysadmin tasks where build/test errors appear."
+   },
+   "regression_risk": "Low; only prepends a notice banner to observation when failure keywords are present.",
+   "mechanism": "Injecting explicit corrective prompt guidance upon detecting FAILED in terminal output prevents premature completion or blind looping."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_project\\rrsi\\runs_exp4_e1\\coding\\r0\\A\\diff.patch"
+}
