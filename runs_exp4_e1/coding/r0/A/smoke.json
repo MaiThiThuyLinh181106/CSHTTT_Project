@@ -1,5 +1,0 @@
-{
- "ok": false,
- "stage": "smoke_run",
- "fix-git__WKjnLpE": "{'exception_type': 'RuntimeError', 'exception_message': 'Failed to start tmux session. Error: None', 'exception_traceback': 'Traceback (most recent call last):\\n  File \"D:\\\\CSHTTT_project\\\\rrsi\\\\domains\\\\coding\\\\.venv\\\\Lib\\\\site-packages\\\\harbor\\\\trial\\\\trial.py\", line 497, in run\\n    await self._prepare()\\n  File \"D:\\\\CSHTTT_project\\\\rrsi\\\\domains\\\\coding\\\\.venv\\\\Lib\\\\site-packages\\\\harbor\\\\tria"
-}

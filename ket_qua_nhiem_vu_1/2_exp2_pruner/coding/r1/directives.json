@@ -1,0 +1,26 @@
+{
+ "t": 1,
+ "b_t": 2,
+ "sigma_t": 0,
+ "tried": [
+  "prompt"
+ ],
+ "explore": {
+  "sigma": 0,
+  "untried": [
+   "control_flow",
+   "config",
+   "output_plumbing",
+   "context_mgmt",
+   "client_tool",
+   "skill",
+   "memory",
+   "subagent"
+  ],
+  "m_draft": 1,
+  "text": "Components not yet exercised in this run: ['control_flow', 'config', 'output_plumbing', 'context_mgmt', 'client_tool', 'skill', 'memory', 'subagent']. Not mandatory this round (sigma_t = 0), but evidence about them is still missing."
+ },
+ "prune_set": [],
+ "delta": 0.017,
+ "S_star": 1.0
+}

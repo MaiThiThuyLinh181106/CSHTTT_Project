@@ -1,0 +1,11 @@
+{
+ "task_id": "adaptive-rejection-sampler",
+ "lens": "success",
+ "habits": [
+  {
+   "habit": "Executed the defined R test function using Rscript to verify correctness against known distributions and generate sample outputs",
+   "where_shown": "steps 7-8"
+  }
+ ],
+ "risk_if_removed": "Without running the test command via Rscript, there would be no confirmation that the R implementation successfully executes its tests and generates the required sample files."
+}

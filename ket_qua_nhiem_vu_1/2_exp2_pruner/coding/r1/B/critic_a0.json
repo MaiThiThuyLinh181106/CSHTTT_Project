@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "General prompt improvement advising the model to check that output files are non-empty and formatted correctly; does not contain any task-specific leakage or grader gaming."
+ ]
+}

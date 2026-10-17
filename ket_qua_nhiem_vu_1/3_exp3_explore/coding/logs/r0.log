@@ -1,0 +1,10 @@
+[rrsi:coding] 14:56:00 === round 0/2 incumbent t=0 b6e8818 S=0.5000 C=1059350.0 S*=0.5000 delta=0.01700 ===
+[Gemini 429 Rate Limit] Free Tier quota reached. Waiting 46.3s to recover (attempt 1/10)...
+[analyst] 2 digests done (total 2)
+[rrsi:coding] 14:57:05 top modes: ['omitted_final_deliverable']
+[rrsi:coding] 14:57:05 b_t=4 sigma_t=0 untried=['prompt', 'control_flow', 'config', 'output_plumbing', 'context_mgmt', 'client_tool', 'skill', 'memory', 'subagent'] prune=[]
+[rrsi:coding] 15:00:03 A: 1 edit(s) on ['prompt'] -> 28bbddd
+[rrsi:coding] 15:03:35 B: 1 edit(s) on ['prompt'] -> 0207ab4
+[rrsi:coding] 15:44:26 A: S=1.0000 dS=+0.5000 dC=+1.752 nu=0 -> ACCEPTED: admissible: gain +0.5000 > delta 0.0170; cost change +1.752 <= budget 10.200 (beta0 0.2 + beta1 20.0 * dS)
+[rrsi:coding] 15:44:26 B: S=1.0000 dS=+0.5000 dC=-0.144 nu=0 -> LOST: admissible: gain +0.5000 > delta 0.0170; cost change -0.144 <= budget 10.200 (beta0 0.2 + beta1 20.0 * dS)
+[rrsi:coding] 15:44:27 ACCEPTED r0A -> 28bbddd S=1.0000 S*=1.0000

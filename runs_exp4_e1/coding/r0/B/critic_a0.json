@@ -1,7 +1,0 @@
-{
- "verdict": "accept",
- "reasons": [],
- "risk_notes": [
-  "Minor prompt adjustment when terminal output contains errors; general practice rather than task leakage."
- ]
-}

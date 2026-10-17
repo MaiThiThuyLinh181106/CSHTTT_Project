@@ -1,0 +1,301 @@
+Agent 'rrsi-terminus2' does not declare an options_model; leftover kwargs are ignored
+Agent 'rrsi-terminus2' does not declare an options_model; leftover kwargs are ignored
+Installing: tmux
+Installing: tmux
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux
+Sending keys: ['python3 -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.head()); print(df.columns)"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['R --version\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: ['pip install pandas numpy pgmpy\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Sending keys: ['apt-get update && apt-get install -y r-base\n'] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['apt-get update && apt-get install -y python3-venv python3-pip python3-pandas python3-numpy\n'] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Sending keys: ['pip install pgmpy --break-system-packages\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 20.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: ['export DEBIAN_FRONTEND=noninteractive\necho "tzdata tzdata/Areas select Etc" debconf/frontend select noninteractive | debconf-set-selections\necho "tzdata tzdata/Zones/Etc select UTC" | debconf-set-selections\napt-get install -f -y\n'] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['python3 -m venv /app/venv && /app/venv/bin/pip install pandas numpy pgmpy\n'] min_timeout_sec: 20.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['export DEBIAN_FRONTEND=noninteractive\napt-get update && apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" r-base\n'] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 20.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: ['11\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['1\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 30.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/solve.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.estimators import HillClimbSearch, BicScore\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import MaximumLikelihoodEstimator\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nprint("Data columns:", df.columns.tolist())\n\n# Let\'s use HillClimbSearch with BicScore\n# Constraint: U has no parents. We can specify blacklists or whitelist if needed, or filter learned edges.\n# Let\'s run HillClimbSearch.\nsc = HillClimbSearch(df)\nbic = BicScore(df)\n\n# To enforce U has no parents: blacklist any edge TO \'U\'\nvariables = df.columns.tolist()\nblack_list = [(v, \'U\') for v in variables if v != \'U\']\n\nbest_model = sc.estimate(scoring_method=bic, black_list=black_list, max_indegree=3)\nedges = list(best_model.edges())\nprint("Learned edges (to, from):", edges)\n\n# Note: pgmpy edges are (from, to). The output format requested is: to,from\n# Let\'s check if there are 6 edges. If not 6 edges, or if we need to adjust, let\'s see.\nEOF\n/app/venv/bin/python /app/solve.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.metrics import BicScore; print(BicScore)"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/solve.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.estimators import HillClimbSearch\nfrom pgmpy.metrics import BicScore\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import MaximumLikelihoodEstimator\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nprint("Data columns:", df.columns.tolist())\n\nsc = HillClimbSearch(df)\nbic = BicScore(df)\n\nvariables = df.columns.tolist()\nblack_list = [(v, \'U\') for v in variables if v != \'U\']\n\nbest_model = sc.estimate(scoring_method=bic, black_list=black_list)\nedges = list(best_model.edges())\nprint("Learned edges (from, to):", edges)\nprint("Number of edges:", len(edges))\n\n# Note task instructions:\n# - U has no parents\n# - There are six total edges in the DAG that the data was sampled from\n# - There may be edges not involving U for which directionality is not clear, in this case you may assume that the node labeled with the letter that comes first in the alphabet is the child of the node that comes second.\n\nEOF\n/app/venv/bin/python /app/solve.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "import pgmpy.estimators as e; print(dir(e))"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "import pgmpy; print(dir(pgmpy)); import pgmpy.structure_score as s; print(dir(s))"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/solve.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.estimators import HillClimbSearch, BIC\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import MaximumLikelihoodEstimator\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nprint("Data columns:", df.columns.tolist()) \n\nsc = HillClimbSearch(df)\nbic = BIC(df)\n\nvariables = df.columns.tolist()\nblack_list = [(v, \'U\') for v in variables if v != \'U\']\n\nbest_model = sc.estimate(scoring_method=bic, black_list=black_list)\nedges = list(best_model.edges())\nprint("Learned edges (from, to):", edges)\nprint("Number of edges:", len(edges))\nEOF\n/app/venv/bin/python /app/solve.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/ars.R\ncompute_log_density <- function(density_function, x) {\n  val <- density_function(x)\n  log_val <- log(val)\n  return(log_val)\n}\n\nnum_deriv <- function(density_function, x, h = 1e-5) {\n  (compute_log_density(density_function, x + h) - compute_log_density(density_function, x - h)) / (2 * h)\n}\n\nars_init <- function(density_function, domain, n_init = 4) {\n  lower <- domain[1]\n  upper <- domain[2]\n  if (is.finite(lower) && is.finite(upper)) {\n    x <- seq(lower + 1e-4, upper - 1e-4, length.out = n_init)\n  } else if (is.finite(lower)) {\n    x <- lower + seq(0.1, 3.0, length.out = n_init)\n  } else if (is.finite(upper)) {\n    x <- upper - seq(3.0, 0.1, length.out = n_init)\n  } else {\n    x <- seq(-1.5, 1.5, length.out = n_init)\n  }\n  hx <- compute_log_density(density_function, x)\n  dhx <- num_deriv(density_function, x)\n  ord <- order(x)\n  list(x = x[ord], hx = hx[ord], dhx = dhx[ord], lower = lower, upper = upper)\n}\n\nupdate_hulls <- function(state, x_new, density_function) {\n  hx_new <- compute_log_density(density_function, x_new)\n  dhx_new <- num_deriv(density_function, x_new)\n  x <- c(state$x, x_new)\n  hx <- c(state$hx, hx_new)\n  dhx <- c(state$dhx, dhx_new)\n  ord <- order(x)\n  x <- x[ord]\n  hx <- hx[ord]\n  dhx <- dhx[ord]\n  k <- length(x)\n  for (i in 1:(k - 1)) {\n    if (dhx[i] < dhx[i+1] - 1e-7) {\n      stop("Non-log-concave density detected.")\n    }\n  }\n  state$x <- x\n  state$hx <- hx\n  state$dhx <- dhx\n  return(state)\n}\n\nsample_upper_hull <- function(state) {\n  x <- state$x\n  hx <- state$hx\n  dhx <- state$dhx\n  k <- length(x)\n  z <- numeric(k + 1)\n  z[1] <- state$lower\n  z[k+1] <- state$upper\n  for (i in 1:(k - 1)) {\n    denom <- dhx[i] - dhx[i+1]\n    if (abs(denom) < 1e-12) {\n      z[i+1] <- (x[i] + x[i+1]) / 2\n    } else {\n      z[i+1] <- (hx[i+1] - hx[i] - x[i+1]*dhx[i+1] + x[i]*dhx[i]) / denom\n    }\n  }\n  z[1] <- max(z[1], state$lower)\n  z[k+1] <- min(z[k+1], state$upper)\n  for (i in 2:k) {\n    if (z[i] <= x[i-1]) z[i] <- x[i-1] + 1e-6\n    if (z[i] >= x[i]) z[i] <- x[i] - 1e-6\n  }\n  log_weights <- numeric(k)\n  for (i in 1:k) {\n    d <- dhx[i]\n    c_val <- hx[i] - d * x[i]\n    if (abs(d) < 1e-10) {\n      log_weights[i] <- c_val + log(z[i+1] - z[i])\n    } else {\n      term1 <- d * z[i+1]\n      term2 <- d * z[i]\n      max_t <- max(term1, term2)\n      log_diff <- max_t + log(abs(exp(term1 - max_t) - exp(term2 - max_t))) - log(abs(d))\n      log_weights[i] <- c_val + log_diff\n    }\n  }\n  max_lw <- max(log_weights)\n  weights <- exp(log_weights - max_lw)\n  probs <- weights / sum(weights)\n  i <- sample(k, 1, prob = probs)\n  d <- dhx[i]\n  z_left <- z[i]\n  z_right <- z[i+1]\n  u_uni <- runif(1)\n  if (abs(d) < 1e-10) {\n    x_star <- z_left + u_uni * (z_right - z_left)\n  } else {\n    x_star <- z_left + log(1.0 + u_uni * (exp(d * (z_right - z_left)) - 1.0)) / d\n  }\n  list(x_star = x_star, z = z)\n}\n\neval_lower_hull <- function(state, x_star) {\n  x <- state$x\n  hx <- state$hx\n  k <- length(x)\n  if (x_star < x[1] || x_star > x[k]) return(-Inf)\n  idx <- max(which(x <= x_star))\n  if (idx == k) idx <- k - 1\n  hx[idx] + (hx[idx+1] - hx[idx]) * (x_star - x[idx]) / (x[idx+1] - x[idx])\n}\n\nars <- function(density_function, domain, n = 1000) {\n  if (!is.function(density_function)) stop("density_function must be a function.")\n  if (!is.numeric(domain) || length(domain) != 2 || domain[1] >= domain[2]) stop("Invalid domain.")\n  if (!is.numeric(n) || length(n) != 1 || n <= 0 || n != round(n)) stop("Invalid n.")\n  state <- ars_init(density_function, domain)\n  samples <- numeric(n)\n  accepted <- 0\n  while (accepted < n) {\n    res <- sample_upper_hull(state)\n    x_star <- res$x_star\n    x <- state$x\n    hx <- state$hx\n    dhx <- state$dhx\n    idx <- max(which(res$z <= x_star))\n    if (idx > length(dhx)) idx <- length(dhx)\n    if (idx < 1) idx <- 1\n    u_star <- hx[idx] + dhx[idx] * (x_star - x[idx])\n    w <- runif(1)\n    l_star <- eval_lower_hull(state, x_star)\n    if (log(w) <= l_star - u_star) {\n      accepted <- accepted + 1\n      samples[accepted] <- x_star\n      next\n    }\n    h_star <- compute_log_density(density_function, x_star)\n    if (!is.finite(h_star)) {\n      state <- update_hulls(state, x_star, density_function)\n      next\n    }\n    if (log(w) <= h_star - u_star) {\n      accepted <- accepted + 1\n      samples[accepted] <- x_star\n    }\n    state <- update_hulls(state, x_star, density_function)\n  }\n  return(samples)\n}\n\ntest <- function() {\n  cat("Running Adaptive Rejection Sampling Tests...\\n")\n  all_passed <- TRUE\n  tryCatch({\n    set.seed(42)\n    samples_norm <- ars(function(x) dnorm(x), domain = c(-4, 4), n = 500)\n    m <- mean(samples_norm)\n    s <- sd(samples_norm)\n    writeLines(as.character(samples_norm), "/app/normal_samples.txt")\n    if (abs(m) < 0.3 && abs(s - 1) < 0.3) {\n      cat(sprintf("NORMAL_TEST: PASS (mean = %.4f, sd = %.4f)\\n", m, s))\n    } else {\n      cat(sprintf("NORMAL_TEST: FAIL (mean = %.4f, sd = %.4f)\\n", m, s))\n      all_passed <- FALSE\n    }\n  }, error = function(e) {\n    cat(sprintf("NORMAL_TEST: FAIL (Error: %s)\\n", e$message))\n    all_passed <- FALSE\n  })\n  \n  tryCatch({\n    set.seed(42)\n    samples_exp <- ars(function(x) dexp(x), domain = c(0.01, 10), n = 500)\n    m <- mean(samples_exp)\n    s <- sd(samples_exp)\n    writeLines(as.character(samples_exp), "/app/exponential_samples.txt")\n    if (abs(m - 1) < 0.3 && abs(s - 1) < 0.3) {\n      cat(sprintf("EXPONENTIAL_TEST: PASS (mean = %.4f, sd = %.4f)\\n", m, s))\n    } else {\n      cat(sprintf("EXPONENTIAL_TEST: FAIL (mean = %.4f, sd = %.4f)\\n", m, s))\n      all_passed <- FALSE\n    }\n  }, error = function(e) {\n    cat(sprintf("EXPONENTIAL_TEST: FAIL (Error: %s)\\n", e$message))\n    all_passed <- FALSE\n  })\n  \n  tryCatch({\n    ars(function(x) dnorm(x), domain = c(-3, 3), n = -10)\n    cat("INPUT_VALIDATION_TEST: FAIL\\n")\n    all_passed <- FALSE\n  }, error = function(e) {\n    cat("INPUT_VALIDATION_TEST: PASS\\n")\n  })\n  \n  tryCatch({\n    ars(function(x) dcauchy(x), domain = c(-5, 5), n = 100)\n    cat("NON_LOG_CONCAVE_TEST: FAIL\\n")\n    all_passed <- FALSE\n  }, error = function(e) {\n    cat(sprintf("NON_LOG_CONCAVE_TEST: PASS (Error: %s)\\n", e$message))\n  })\n  \n  if (all_passed) {\n    cat("OVERALL_TEST_RESULT: PASS\\n")\n  } else {\n    cat("OVERALL_TEST_RESULT: FAIL\\n")\n  }\n}\nEOF\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.estimators import HillClimbSearch; import inspect; print(inspect.signature(HillClimbSearch.estimate))"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['Rscript -e \'source("/app/ars.R"); test()\'\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.estimators import HillClimbSearch; import inspect; print(inspect.signature(HillClimbSearch.estimate))"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['ls -la /app/\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/solve.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.estimators import HillClimbSearch, BIC\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nprint("Data columns:", df.columns.tolist())\n\nsc = HillClimbSearch(df)\nbic = BIC(df)\n\nbest_model = sc.estimate(scoring_method=bic)\nedges = list(best_model.edges())\nprint("Learned edges (from, to):", edges)\nprint("Number of edges:", len(edges))\nEOF\n/app/venv/bin/python /app/solve.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\adaptive-rejection-sampler__3fVcFWW\agent\trajectory.json
+Collecting main service artifacts
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 20.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/solve.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.estimators import HillClimbSearch, BIC\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nsc = HillClimbSearch(df)\nbic = BIC(df)\n\nbest_model = sc.estimate(scoring_method=bic, show_progress=False)\nedges = list(best_model.edges())\nprint("Learned edges (from, to):", edges)\nprint("Number of edges:", len(edges))\nEOF\n/app/venv/bin/python /app/solve.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ["cat << 'EOF' > /app/solve.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.estimators import HillClimbSearch, AIC, BDeu\n\ndf = pd.read_csv('/app/bn_sample_10k.csv')\nprint(df.corr())\n\nfor name, score in [('AIC', AIC(df)), ('BDeu', BDeu(df))]:\n    sc = HillClimbSearch(df)\n    model = sc.estimate(scoring_method=score, show_progress=False)\n    print(name, list(model.edges()))\nEOF\n/app/venv/bin/python /app/solve.py\n"] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.dtypes); print(df.head())"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['/app/venv/bin/python -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.dtypes); print(df.head())"\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 3.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.dtypes); print(df.head()); print(df.describe())"\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 20.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 20.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 20.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.head(2))\n"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 3.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['/app/venv/bin/python -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.head(2))"\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 3.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.head(2))"\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -u -c "import pandas as pd; df = pd.read_csv(\'/app/bn_sample_10k.csv\'); print(df.head(2), flush=True)"\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['head -n 5 /app/bn_sample_10k.csv\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\nhead -n 5 /app/bn_sample_10k.csv\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['head -n 5 /app/bn_sample_10k.csv\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['ls -l /app\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\necho "hello"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/process.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.estimators import HillClimbSearch, BICGauss\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nsc = HillClimbSearch(df)\nbic_g = BICGauss(df)\nbest_model = sc.estimate(scoring_method=bic_g, show_progress=False)\nedges = list(best_model.edges())\nprint("Learned edges (from, to):", edges)\nprint("Number of edges:", len(edges))\nEOF\n/app/venv/bin/python /app/process.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/process_pc.py\nimport pandas as pd\nfrom pgmpy.estimators import PC\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\npc = PC(df)\nmodel = pc.estimate(show_progress=False)\nprint("PC edges:", list(model.edges()))\nEOF\n/app/venv/bin/python /app/process_pc.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/find_dag.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import LinearGaussianMLE\nfrom itertools import combinations\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nvars = sorted(df.columns.tolist())\nnon_u = [v for v in vars if v != \'U\']\nall_pairs = list(combinations(non_u, 2))\n\nbest_score = -np.inf\nbest_edges = None\n\nfor p1, p2 in combinations(all_pairs, 2):\n    edges = [(\'U\', v) for v in non_u]\n    for x, y in [p1, p2]:\n        if x < y:\n            edges.append((y, x))\n        else:\n            edges.append((x, y))\n    try:\n        bn = BayesianNetwork(edges)\n        est = LinearGaussianMLE(bn, df)\n        params = est.get_parameters()\n        ll = 0\n        for node, cpd in params.items():\n            ll += cpd.log_likelihood(df)\n        score = ll\n        if score > best_score:\n            best_score = score\n            best_edges = edges\n    except Exception as e:\n        continue\n\nprint("Best score:", best_score)\nprint("Best edges (from, to):", best_edges)\nEOF\n/app/venv/bin/python /app/find_dag.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ["cat << 'EOF' > /app/test_ll.py\nimport pandas as pd\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import LinearGaussianMLE\n\ndf = pd.read_csv('/app/bn_sample_10k.csv')\nedges = [('U', 'D'), ('U', 'M'), ('U', 'R'), ('U', 'Y'), ('R', 'D'), ('Y', 'M')]\nbn = BayesianNetwork(edges)\nest = LinearGaussianMLE(bn, df)\nparams = est.get_parameters()\nprint(params)\nEOF\n/app/venv/bin/python /app/test_ll.py\n"] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/test_mle.py\nimport pandas as pd\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import MaximumLikelihoodEstimator\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\n# Discretize continuous data into bins for discrete Bayesian network estimation\ndf_disc = df.apply(lambda x: pd.qcut(x, 3, labels=[0, 1, 2]))\nedges = [(\'U\', \'D\'), (\'U\', \'M\'), (\'U\', \'R\'), (\'U\', \'Y\'), (\'R\', \'D\'), (\'Y\', \'M\')]\nbn = BayesianNetwork(edges)\nbn.fit(df_disc, estimator=MaximumLikelihoodEstimator)\nprint("Fitted successfully!")\nprint(bn.get_cpds(\'D\'))\nEOF\n/app/venv/bin/python /app/test_mle.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/test_mle2.py\nimport pandas as pd\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import MaximumLikelihoodEstimator\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\ndf_disc = pd.DataFrame()\nfor col in df.columns:\n    df_disc[col] = pd.cut(df[col], bins=3, labels=False)\n\nedges = [(\'U\', \'D\'), (\'U\', \'M\'), (\'U\', \'R\'), (\'U\', \'Y\'), (\'R\', \'D\'), (\'Y\', \'M\')]\nbn = BayesianNetwork(edges)\nbn.fit(df_disc, estimator=MaximumLikelihoodEstimator)\nprint("Fitted successfully 2!")\nEOF\n/app/venv/bin/python /app/test_mle2.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 10.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\npython3 -c "with open(\'/app/script.py\', \'w\') as f: f.write(\'import pandas as pd\\nprint(pd.read_csv(\\\'/app/bn_sample_10k.csv\\\').shape)\\n\')"\n/app/venv/bin/python /app/script.py\n'] min_timeout_sec: 5.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 3.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['C-c\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/full_solution.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import LinearGaussianMLE\nfrom itertools import combinations\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nnon_u = sorted([v for v in df.columns if v != \'U\'])\nall_possible_non_u_edges = []\nfor a, b in combinations(non_u, 2):\n    all_possible_non_u_edges.append((b, a))\n\nbase_edges = [(\'U\', v) for v in non_u]\nbest_score = -np.inf\nbest_edges = None\n\nfor p1, p2 in combinations(all_possible_non_u_edges, 2):\n    edges = base_edges + [p1, p2]\n    try:\n        bn = BayesianNetwork(edges)\n        if not bn.is_dag():\n            continue\n        est = LinearGaussianMLE(bn, df)\n        params = est.get_parameters()\n        ll = 0\n        for node, cpd in params.items():\n            ll += cpd.log_likelihood(df)\n        if ll > best_score:\n            best_score = ll\n            best_edges = edges\n    except Exception as e:\n        continue\n\nprint("Best edges (from, to):", best_edges)\n\nlearned_list = [{\'to\': to, \'from\': frm} for frm, to in best_edges]\npd.DataFrame(learned_list).to_csv(\'/app/learned_dag.csv\', index=False)\nprint("Saved /app/learned_dag.csv")\n\nintervened_edges = [e for e in best_edges if e[1] != \'Y\']\nintervened_list = [{\'to\': to, \'from\': frm} for frm, to in intervened_edges]\npd.DataFrame(intervened_list).to_csv(\'/app/intervened_dag.csv\', index=False)\nprint("Saved /app/intervened_dag.csv")\n\nbn_int = BayesianNetwork(intervened_edges)\nbn_int.fit(df, estimator=LinearGaussianMLE)\n\nfrom pgmpy.factors.continuous import LinearGaussianCPD\nnew_y_cpd = LinearGaussianCPD(\'Y\', beta=[0.0], variance=10e-9, evidence=[])\nbn_int.add_cpds(new_y_cpd)\n\nsamples = bn_int.simulate(n_samples=10000)\nsamples = samples[df.columns]\nsamples.to_csv(\'/app/final_bn_sample.csv\', index=False)\nprint("Saved /app/final_bn_sample.csv with shape:", samples.shape)\nEOF\n/app/venv/bin/python /app/full_solution.py\n'] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/run_all.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import LinearGaussianMLE\nfrom itertools import combinations\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\nnon_u = sorted([v for v in df.columns if v != \'U\'])\nall_possible_non_u_edges = []\nfor a, b in combinations(non_u, 2):\n    all_possible_non_u_edges.append((b, a))\n\nbase_edges = [(\'U\', v) for v in non_u]\nbest_score = -np.inf\nbest_edges = None\n\nfor p1, p2 in combinations(all_possible_non_u_edges, 2):\n    edges = base_edges + [p1, p2]\n    try:\n        bn = BayesianNetwork(edges)\n        if not bn.is_dag():\n            continue\n        est = LinearGaussianMLE(bn, df)\n        params = est.get_parameters()\n        ll = 0\n        for node, cpd in params.items():\n            ll += cpd.log_likelihood(df)\n        if ll > best_score:\n            best_score = ll\n            best_edges = edges\n    except Exception as e:\n        continue\n\nprint("Best edges (from, to):", best_edges)\n\nlearned_list = [{\'to\': to, \'from\': frm} for frm, to in best_edges]\npd.DataFrame(learned_list).to_csv(\'/app/learned_dag.csv\', index=False)\nprint("Saved /app/learned_dag.csv")\n\nintervened_edges = [e for e in best_edges if e[1] != \'Y\']\nintervened_list = [{\'to\': to, \'from\': frm} for frm, to in intervened_edges]\npd.DataFrame(intervened_list).to_csv(\'/app/intervened_dag.csv\', index=False)\nprint("Saved /app/intervened_dag.csv")\n\nbn_int = BayesianNetwork(intervened_edges)\nbn_int.fit(df, estimator=LinearGaussianMLE)\n\nfrom pgmpy.factors.continuous import LinearGaussianCPD\nnew_y_cpd = LinearGaussianCPD(\'Y\', beta=[0.0], variance=10e-9, evidence=[])\nbn_int.add_cpds(new_y_cpd)\n\nsamples = bn_int.simulate(n_samples=10000)\nsamples = samples[df.columns]\nsamples.to_csv(\'/app/final_bn_sample.csv\', index=False)\nprint("Saved /app/final_bn_sample.csv with shape:", samples.shape)\nEOF\n/app/venv/bin/python /app/run_all.py\n'] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/pipeline.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import BayesianNetwork\nfrom pgmpy.estimators import HillClimbSearch, BIC, MaximumLikelihoodEstimator\nfrom pgmpy.factors.discrete import TabularCPD\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\ncols = df.columns.tolist()\n\ndf_disc = pd.DataFrame()\nbins_dict = {}\nfor col in cols:\n    df_disc[col], bins = pd.qcut(df[col], q=3, labels=[0, 1, 2], retbins=True, duplicates=\'drop\')\n    df_disc[col] = df_disc[col].astype(int)\n    bins_dict[col] = bins\n\nsc = HillClimbSearch(df_disc)\nbic = BIC(df_disc)\nbest_model = sc.estimate(scoring_method=bic, show_progress=False)\nedges = list(best_model.edges())\nedges = [e for e in edges if e[1] != \'U\']\n\nlearned_list = [{\'to\': to, \'from\': frm} for frm, to in edges]\npd.DataFrame(learned_list).to_csv(\'/app/learned_dag.csv\', index=False)\nprint("Saved /app/learned_dag.csv")\n\nintervened_edges = [e for e in edges if e[1] != \'Y\']\nintervened_list = [{\'to\': to, \'from\': frm} for frm, to in intervened_edges]\npd.DataFrame(intervened_list).to_csv(\'/app/intervened_dag.csv\', index=False)\nprint("Saved /app/intervened_dag.csv")\n\nbn_int = BayesianNetwork(intervened_edges)\nbn_int.fit(df_disc, estimator=MaximumLikelihoodEstimator)\n\ncpd_y = TabularCPD(variable=\'Y\', variable_card=3, values=[[1.0], [0.0], [0.0]])\nbn_int.add_cpds(cpd_y)\n\nsamples_disc = bn_int.simulate(n_samples=10000)\n\nsamples_cont = pd.DataFrame()\nfor col in cols:\n    bins = bins_dict[col]\n    midpoints = [(bins[i] + bins[i+1])/2 for i in range(len(bins)-1)]\n    col_states = samples_disc[col].values\n    mapped = np.array([midpoints[s] for s in col_states])\n    noise = np.random.normal(0, np.sqrt(10e-9), size=len(mapped))\n    samples_cont[col] = mapped + noise\n\nsamples_cont = samples_cont[cols]\nsamples_cont.to_csv(\'/app/final_bn_sample.csv\', index=False)\nprint("Saved /app/final_bn_sample.csv with shape:", samples_cont.shape)\nEOF\n/app/venv/bin/python /app/pipeline.py\n'] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.models import DiscreteBayesianNetwork; print(DiscreteBayesianNetwork)"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/pipeline.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import DiscreteBayesianNetwork\nfrom pgmpy.estimators import HillClimbSearch, BIC, MaximumLikelihoodEstimator\nfrom pgmpy.factors.discrete import TabularCPD\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\ncols = df.columns.tolist()\n\ndf_disc = pd.DataFrame()\nbins_dict = {}\nfor col in cols:\n    df_disc[col], bins = pd.qcut(df[col], q=3, labels=[0, 1, 2], retbins=True, duplicates=\'drop\')\n    df_disc[col] = df_disc[col].astype(int)\n    bins_dict[col] = bins\n\nsc = HillClimbSearch(df_disc)\nbic = BIC(df_disc)\nbest_model = sc.estimate(scoring_method=bic, show_progress=False)\nedges = list(best_model.edges())\nedges = [e for e in edges if e[1] != \'U\']\n\nlearned_list = [{\'to\': to, \'from\': frm} for frm, to in edges]\npd.DataFrame(learned_list).to_csv(\'/app/learned_dag.csv\', index=False)\nprint("Saved /app/learned_dag.csv")\n\nintervened_edges = [e for e in edges if e[1] != \'Y\']\nintervened_list = [{\'to\': to, \'from\': frm} for frm, to in intervened_edges]\npd.DataFrame(intervened_list).to_csv(\'/app/intervened_dag.csv\', index=False)\nprint("Saved /app/intervened_dag.csv")\n\nbn_int = DiscreteBayesianNetwork(intervened_edges)\nbn_int.fit(df_disc, estimator=MaximumLikelihoodEstimator)\n\ncpd_y = TabularCPD(variable=\'Y\', variable_card=3, values=[[1.0], [0.0], [0.0]])\nbn_int.add_cpds(cpd_y)\n\nsamples_disc = bn_int.simulate(n_samples=10000)\n\nsamples_cont = pd.DataFrame()\nfor col in cols:\n    bins = bins_dict[col]\n    midpoints = [(bins[i] + bins[i+1])/2 for i in range(len(bins)-1)]\n    col_states = samples_disc[col].values\n    mapped = np.array([midpoints[s] for s in col_states])\n    noise = np.random.normal(0, np.sqrt(10e-9), size=len(mapped))\n    samples_cont[col] = mapped + noise\n\nsamples_cont = samples_cont[cols]\nsamples_cont.to_csv(\'/app/final_bn_sample.csv\', index=False)\nprint("Saved /app/final_bn_sample.csv with shape:", samples_cont.shape)\nprint(samples_cont.head())\nEOF\n/app/venv/bin/python /app/pipeline.py\n'] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.estimators import DiscreteMLE; print(DiscreteMLE)"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/pipeline.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import DiscreteBayesianNetwork\nfrom pgmpy.estimators import HillClimbSearch, BIC, DiscreteMLE\nfrom pgmpy.factors.discrete import TabularCPD\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\ncols = df.columns.tolist()\n\ndf_disc = pd.DataFrame()\nbins_dict = {}\nfor col in cols:\n    df_disc[col], bins = pd.qcut(df[col], q=3, labels=[0, 1, 2], retbins=True, duplicates=\'drop\')\n    df_disc[col] = df_disc[col].astype(int)\n    bins_dict[col] = bins\n\nsc = HillClimbSearch(df_disc)\nbic = BIC(df_disc)\nbest_model = sc.estimate(scoring_method=bic, show_progress=False)\nedges = list(best_model.edges())\nedges = [e for e in edges if e[1] != \'U\']\n\nlearned_list = [{\'to\': to, \'from\': frm} for frm, to in edges]\npd.DataFrame(learned_list).to_csv(\'/app/learned_dag.csv\', index=False)\nprint("Saved /app/learned_dag.csv")\n\nintervened_edges = [e for e in edges if e[1] != \'Y\']\nintervened_list = [{\'to\': to, \'from\': frm} for frm, to in intervened_edges]\npd.DataFrame(intervened_list).to_csv(\'/app/intervened_dag.csv\', index=False)\nprint("Saved /app/intervened_dag.csv")\n\nbn_int = DiscreteBayesianNetwork(intervened_edges)\nbn_int.fit(df_disc, estimator=DiscreteMLE())\n\ncpd_y = TabularCPD(variable=\'Y\', variable_card=3, values=[[1.0], [0.0], [0.0]])\nbn_int.add_cpds(cpd_y)\n\nsamples_disc = bn_int.simulate(n_samples=10000)\n\nsamples_cont = pd.DataFrame()\nfor col in cols:\n    bins = bins_dict[col]\n    midpoints = [(bins[i] + bins[i+1])/2 for i in range(len(bins)-1)]\n    col_states = samples_disc[col].values\n    mapped = np.array([midpoints[s] for s in col_states])\n    noise = np.random.normal(0, np.sqrt(10e-9), size=len(mapped))\n    samples_cont[col] = mapped + noise\n\nsamples_cont = samples_cont[cols]\nsamples_cont.to_csv(\'/app/final_bn_sample.csv\', index=False)\nprint("Saved /app/final_bn_sample.csv with shape:", samples_cont.shape)\nprint(samples_cont.head())\nEOF\n/app/venv/bin/python /app/pipeline.py\n'] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "import pgmpy.estimators as e; print([x for x in dir(e) if \'MLE\' in x or \'Estimator\' in x])"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.estimators import MLE; import pandas as pd; df = pd.DataFrame({\'A\': [0, 1], \'B\': [1, 0]}); est = MLE(None, df); print(est)"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.estimators import MaximumLikelihoodEstimator; print(MaximumLikelihoodEstimator)"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['/app/venv/bin/python -c "from pgmpy.models import DiscreteBayesianNetwork; from pgmpy.estimators import MaximumLikelihoodEstimator; import pandas as pd; df = pd.DataFrame({\'U\': [0, 1], \'Y\': [1, 0]}); bn = DiscreteBayesianNetwork([(\'U\', \'Y\')]); est = MaximumLikelihoodEstimator(bn, df); print(est.get_parameters())"\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: [''] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/pipeline.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import DiscreteBayesianNetwork\nfrom pgmpy.estimators import HillClimbSearch, BIC, MaximumLikelihoodEstimator\nfrom pgmpy.factors.discrete import TabularCPD\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\ncols = df.columns.tolist()\n\ndf_disc = pd.DataFrame()\nbins_dict = {}\nfor col in cols:\n    df_disc[col], bins = pd.qcut(df[col], q=3, labels=[0, 1, 2], retbins=True, duplicates=\'drop\')\n    df_disc[col] = df_disc[col].astype(int)\n    bins_dict[col] = bins\n\nsc = HillClimbSearch(df_disc)\nbic = BIC(df_disc)\nbest_model = sc.estimate(scoring_method=bic, show_progress=False)\nedges = list(best_model.edges())\nedges = [e for e in edges if e[1] != \'U\']\n\nlearned_list = [{\'to\': to, \'from\': frm} for frm, to in edges]\npd.DataFrame(learned_list).to_csv(\'/app/learned_dag.csv\', index=False)\nprint("Saved /app/learned_dag.csv")\n\nintervened_edges = [e for e in edges if e[1] != \'Y\']\nintervened_list = [{\'to\': to, \'from\': frm} for frm, to in intervened_edges]\npd.DataFrame(intervened_list).to_csv(\'/app/intervened_dag.csv\', index=False)\nprint("Saved /app/intervened_dag.csv")\n\nbn_int = DiscreteBayesianNetwork(intervened_edges)\nest = MaximumLikelihoodEstimator(bn_int, df_disc)\tcpds = est.get_parameters()\nfor cpd in cpds:\n    bn_int.add_cpds(cpd)\n\ncpd_y = TabularCPD(variable=\'Y\', variable_card=3, values=[[1.0], [0.0], [0.0]])\nbn_int.add_cpds(cpd_y)\n\nsamples_disc = bn_int.simulate(n_samples=10000)\n\nsamples_cont = pd.DataFrame()\nfor col in cols:\n    bins = bins_dict[col]\n    midpoints = [(bins[i] + bins[i+1])/2 for i in range(len(bins)-1)]\n    col_states = samples_disc[col].values\n    mapped = np.array([midpoints[s] for s in col_states])\n    noise = np.random.normal(0, np.sqrt(10e-9), size=len(mapped))\n    samples_cont[col] = mapped + noise\n\nsamples_cont = samples_cont[cols]\nsamples_cont.to_csv(\'/app/final_bn_sample.csv\', index=False)\nprint("Saved /app/final_bn_sample.csv with shape:", samples_cont.shape)\nEOF\n/app/venv/bin/python /app/pipeline.py\n'] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['cat << \'EOF\' > /app/pipeline.py\nimport pandas as pd\nimport numpy as np\nfrom pgmpy.models import DiscreteBayesianNetwork\nfrom pgmpy.estimators import HillClimbSearch, BIC, MaximumLikelihoodEstimator\nfrom pgmpy.factors.discrete import TabularCPD\n\ndf = pd.read_csv(\'/app/bn_sample_10k.csv\')\ncols = df.columns.tolist()\n\ndf_disc = pd.DataFrame()\nbins_dict = {}\nfor col in cols:\n    df_disc[col], bins = pd.qcut(df[col], q=3, labels=[0, 1, 2], retbins=True, duplicates=\'drop\')\n    df_disc[col] = df_disc[col].astype(int)\n    bins_dict[col] = bins\n\nsc = HillClimbSearch(df_disc)\nbic = BIC(df_disc)\nbest_model = sc.estimate(scoring_method=bic, show_progress=False)\nedges = list(best_model.edges())\nedges = [e for e in edges if e[1] != \'U\']\n\nlearned_list = [{\'to\': to, \'from\': frm} for frm, to in edges]\npd.DataFrame(learned_list).to_csv(\'/app/learned_dag.csv\', index=False)\nprint("Saved /app/learned_dag.csv")\n\nintervened_edges = [e for e in edges if e[1] != \'Y\']\nintervened_list = [{\'to\': to, \'from\': frm} for frm, to in intervened_edges]\npd.DataFrame(intervened_list).to_csv(\'/app/intervened_dag.csv\', index=False)\nprint("Saved /app/intervened_dag.csv")\n\nbn_int = DiscreteBayesianNetwork(intervened_edges)\nest = MaximumLikelihoodEstimator(bn_int, df_disc)\ncpds = est.get_parameters()\nfor cpd in cpds:\n    bn_int.add_cpds(cpd)\n\ncpd_y = TabularCPD(variable=\'Y\', variable_card=3, values=[[1.0], [0.0], [0.0]])\nbn_int.add_cpds(cpd_y)\n\nsamples_disc = bn_int.simulate(n_samples=10000)\n\nsamples_cont = pd.DataFrame()\nfor col in cols:\n    bins = bins_dict[col]\n    midpoints = [(bins[i] + bins[i+1])/2 for i in range(len(bins)-1)]\n    col_states = samples_disc[col].values\n    mapped = np.array([midpoints[s] for s in col_states])\n    noise = np.random.normal(0, np.sqrt(10e-9), size=len(mapped))\n    samples_cont[col] = mapped + noise\n\nsamples_cont = samples_cont[cols]\nsamples_cont.to_csv(\'/app/final_bn_sample.csv\', index=False)\nprint("Saved /app/final_bn_sample.csv with shape:", samples_cont.shape)\nEOF\n/app/venv/bin/python /app/pipeline.py\n'] min_timeout_sec: 15.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Sending keys: ['ls -l /app/learned_dag.csv /app/intervened_dag.csv /app/final_bn_sample.csv\nhead -n 5 /app/learned_dag.csv\nhead -n 5 /app/intervened_dag.csv\nhead -n 5 /app/final_bn_sample.csv\n'] min_timeout_sec: 2.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1B\bn-fit-modify__zDQNAiR\agent\trajectory.json
+Collecting main service artifacts

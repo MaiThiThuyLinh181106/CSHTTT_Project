@@ -1,0 +1,21 @@
+  2/2 Mean: 0.500 ---------------------------------------- 0:15:38 0:00:00
+terminal-bench/terminal-bench-2-1 • rrsi-terminus2 • gemini-3.5-flash-lite
+┌────────┬────────────┬───────┐
+│ Trials │ Exceptions │  Mean │
+├────────┼────────────┼───────┤
+│      2 │          0 │ 0.500 │
+└────────┴────────────┴───────┘
+
+┌────────┬───────┐
+│ Reward │ Count │
+├────────┼───────┤
+│ 0.0    │     1 │
+│ 1.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 15m 38s
+Results written to D:\CSHTTT_Project\runs\coding\jobs\r0A\result.json
+Inspect results by running `harbor view D:\CSHTTT_Project\runs\coding\jobs`
+Share results by running `harbor upload D:\CSHTTT_Project\runs\coding\jobs\r0A`
+

@@ -1,7 +1,0 @@
-{
- "verdict": "accept",
- "reasons": [],
- "risk_notes": [
-  "Prompt addition provides general-purpose guidance against premature task completion without referencing specific tasks, entities, or test cases."
- ]
-}

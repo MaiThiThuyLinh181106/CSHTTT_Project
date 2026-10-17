@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/bn-fit-modify",
+        "ref": "sha256:b5f9644970c17ad9ddb46b7266f7bcd87c761d77d7e6f55d7cfe7284d5ff66e9",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "bn-fit-modify__Ku7Bgu7",
+    "trials_dir": "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r1A",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "9420ef11-4b24-4167-b50a-95a6df0285a4"
+}

@@ -1,5 +1,0 @@
-{
- "task_id": "extract-elf",
- "lens": "failure",
- "error": "digester hit max turns without returning"
-}

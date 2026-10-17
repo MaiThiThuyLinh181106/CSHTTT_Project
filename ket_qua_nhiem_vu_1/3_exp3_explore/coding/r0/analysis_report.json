@@ -1,0 +1,29 @@
+{
+ "failure_modes": [
+  {
+   "mode": "omitted_final_deliverable",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "bn-fit-modify"
+   ],
+   "description": "The agent completed all intermediate workflow stages successfully but failed to execute the final required step to generate and save the primary output artifact before signaling completion.",
+   "needed_instead": "The agent needed to ensure all requested output files are generated, validated, and confirmed to exist on disk prior to task termination.",
+   "representative_evidence": [
+    {
+     "task_id": "bn-fit-modify",
+     "where": "line 3112",
+     "quote": "FileNotFoundError: [Errno 2] No such file or directory: '/app/final_bn_sample.csv'"
+    }
+   ]
+  }
+ ],
+ "capability_gaps": [],
+ "success_habits": [
+  {
+   "habit": "iterative_artifact_generation",
+   "description": "The agent thoroughly implements and executes intermediate modeling steps, ensuring core logic passes baseline checks and all mandatory output files are explicitly verified via inspection and existence checks.",
+   "risk_if_broken": "Without iterative development and testing via execution, syntax errors or missing requirements such as sample output files and formal test outputs would cause test failures."
+  }
+ ],
+ "n_digests": 2
+}

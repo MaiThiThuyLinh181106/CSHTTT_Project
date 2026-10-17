@@ -1,0 +1,51 @@
+{
+ "job": "r0B",
+ "k": 1,
+ "S": 1.0,
+ "C": 906906.5,
+ "n_expected": 2,
+ "missing": 0,
+ "extra": {
+  "total_passes": 2,
+  "n_trials": 2,
+  "pass_rate": 1.0
+ },
+ "per_task": {
+  "adaptive-rejection-sampler": {
+   "rewards": [
+    1.0
+   ],
+   "weights": [
+    1.0
+   ],
+   "tokens": [
+    469986
+   ],
+   "missing": 0,
+   "extra": {
+    "passes": 1,
+    "trial_dirs": [
+     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0B\\adaptive-rejection-sampler__HkjCo4a"
+    ]
+   }
+  },
+  "bn-fit-modify": {
+   "rewards": [
+    1.0
+   ],
+   "weights": [
+    1.0
+   ],
+   "tokens": [
+    1343827
+   ],
+   "missing": 0,
+   "extra": {
+    "passes": 1,
+    "trial_dirs": [
+     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0B\\bn-fit-modify__W8JFLSi"
+    ]
+   }
+  }
+ }
+}

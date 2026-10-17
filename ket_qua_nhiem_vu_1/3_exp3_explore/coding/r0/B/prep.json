@@ -1,0 +1,22 @@
+{
+ "commit": "0207ab4",
+ "branch": "coding/r0B",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Adding an explicit verification instruction for final output files in the prompt template prevents premature task completion when intermediate steps succeed but final artifacts are omitted.",
+   "targets_mode": "omitted_final_deliverable",
+   "why_not_lower_lever": "Prose instructions in the template are the correct lever to guide policy completion behavior.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": "Corrective: bn-fit-modify would have verified output files and avoided omitting the final sample file. Preservative: iterative artifact generation habits remain intact. Transfer: generalizes to all tasks requiring output file deliverables.",
+   "regression_risk": "None expected",
+   "mechanism": "Adding an explicit verification instruction for final output files in the prompt template prevents premature task completion when intermediate steps succeed but final artifacts are omitted."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r0\\B\\diff.patch",
+ "mechanism": "Instruct policy to explicitly verify output files before declaring task completion"
+}

@@ -1,0 +1,26 @@
+{
+ "commit": "9153a68",
+ "branch": "coding/r0A",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion.",
+   "targets_mode": "premature_task_completion",
+   "why_not_lower_lever": "Prose instructions in the system template are the precise lever for guiding high-level decision policies regarding when to declare completion.",
+   "trigger_condition": "always present in agent instructions",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": "On bn-fit-modify, the agent completed early before running sampling; the prompt constraint instructs it to verify file existence first, forcing it to execute the sampling step.",
+    "preservative": "Does not disrupt successful iteration since successful agents naturally verify their outputs before concluding.",
+    "transfer": "Applies generally across tasks where agents finish core logic but forget final file generation/saving."
+   },
+   "regression_risk": "None expected; only discourages premature stopping.",
+   "mechanism": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r0\\A\\diff.patch",
+ "mechanism": "Instruct the policy via template to verify output files exist before marking task_complete to prevent premature completion."
+}

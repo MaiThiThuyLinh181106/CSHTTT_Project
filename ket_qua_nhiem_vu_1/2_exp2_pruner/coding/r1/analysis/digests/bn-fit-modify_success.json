@@ -1,0 +1,11 @@
+{
+ "task_id": "bn-fit-modify",
+ "lens": "success",
+ "habits": [
+  {
+   "habit": "Systematic verification of all required output files (/app/learned_dag.csv, /app/intervened_dag.csv, /app/final_bn_sample.csv) via python inspection and existence checks",
+   "where_shown": "steps 58-62"
+  }
+ ],
+ "risk_if_removed": "Without explicit verification steps, incorrect CSV formats or missing files would go undetected, leading to task failure."
+}

@@ -1,0 +1,11 @@
+{
+ "failure_modes": [],
+ "success_habits": [
+  {
+   "habit": "iterative_artifact_generation",
+   "n_tasks": 2,
+   "description": "The agent thoroughly implements and executes intermediate modeling steps, ensuring core logic passes baseline checks and all mandatory output files are explicitly verified via inspection and existence checks.",
+   "risk_if_broken": "Without explicit execution and verification steps, incorrect output formats, missing files, or failing logic would go undetected, leading to task failure."
+  }
+ ]
+}

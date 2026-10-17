@@ -1,0 +1,51 @@
+{
+ "status": "done",
+ "summary": "Instruct policy to explicitly verify output files before declaring task completion",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Adding an explicit verification instruction for final output files in the prompt template prevents premature task completion when intermediate steps succeed but final artifacts are omitted.",
+   "targets_mode": "omitted_final_deliverable",
+   "why_not_lower_lever": "Prose instructions in the template are the correct lever to guide policy completion behavior.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": "Corrective: bn-fit-modify would have verified output files and avoided omitting the final sample file. Preservative: iterative artifact generation habits remain intact. Transfer: generalizes to all tasks requiring output file deliverables.",
+   "regression_risk": "None expected",
+   "mechanism": "Adding an explicit verification instruction for final output files in the prompt template prevents premature task completion when intermediate steps succeed but final artifacts are omitted."
+  }
+ ],
+ "mechanism": "Instruct policy to explicitly verify output files before declaring task completion",
+ "targets_mode": "omitted_final_deliverable",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "Important notes:\n- Each command's keystrokes are sent exactly as written to the terminal\n- Do not include extra whitespace before or after the keystrokes unless it's part of the intended command\n- Ext...",
+   "new": "Important notes:\n- CRITICAL: Before marking 'task_complete': true, you MUST ensure that all required final output files and artifacts have been fully generated, saved to their correct target paths, an..."
+  },
+  {
+   "action": "done",
+   "summary": "Instruct policy to explicitly verify output files before declaring task completion",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Adding an explicit verification instruction for final output files in the prompt template prevents premature task completion when intermediate steps succeed but final artifacts are omitted.",
+     "targets_mode": "omitted_final_deliverable",
+     "why_not_lower_lever": "Prose instructions in the template are the correct lever to guide policy completion behavior.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": "Corrective: bn-fit-modify would have verified output files and avoided omitting the final sample file. Preservative: iterative artifact generation habits remain intact. Transfer: generalizes to all tasks requiring output file deliverables.",
+     "regression_risk": "None expected",
+     "mechanism": "Adding an explicit verification instruction for final output files in the prompt template prevents premature task completion when intermediate steps succeed but final artifacts are omitted."
+    }
+   ]
+  }
+ ]
+}

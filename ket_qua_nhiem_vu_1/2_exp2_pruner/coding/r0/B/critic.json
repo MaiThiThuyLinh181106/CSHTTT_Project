@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The added prompt text provides general, task-agnostic guidance to verify output artifacts before completing tasks, which is standard procedure and does not leak specific task names or answers."
+ ]
+}

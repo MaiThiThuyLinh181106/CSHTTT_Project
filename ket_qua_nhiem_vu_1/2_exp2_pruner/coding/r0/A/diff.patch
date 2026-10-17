@@ -1,0 +1,28 @@
+diff --git a/third_party/harbor_terminus2/templates/terminus-json-plain.txt b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+index 6481d56..5421c80 100644
+--- a/third_party/harbor_terminus2/templates/terminus-json-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+@@ -30,6 +30,9 @@ Command object structure:
+ - "keystrokes": String containing the exact keystrokes to send to the terminal (required)
+ - "duration": Number of seconds to wait for the command to complete before the next command will be executed (defaults to 1.0 if not present)
+ 
++CRITICAL RULE FOR COMPLETION:
++- Never mark "task_complete": true until you have fully generated, verified, and saved all required final output files and artifacts specified in the task description. Always run verification checks or inspect generated files before declaring completion.
++
+ IMPORTANT: The text inside "keystrokes" will be used completely verbatim as keystrokes. Write commands exactly as you want them sent to the terminal:
+ - You must end every command with a newline (\n) or it will not execute.
+ - For special key sequences, use tmux-style escape sequences:
+diff --git a/third_party/harbor_terminus2/templates/terminus-xml-plain.txt b/third_party/harbor_terminus2/templates/terminus-xml-plain.txt
+index 6386356..ef0a5ba 100644
+--- a/third_party/harbor_terminus2/templates/terminus-xml-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-xml-plain.txt
+@@ -35,6 +35,9 @@ Optional sections:
+   - <task_complete></task_complete> (empty, equivalent to false)
+   - If not present, task is assumed not complete
+ 
++CRITICAL RULE FOR COMPLETION:
++- Never mark task_complete as true until you have fully generated, verified, and saved all required final output files and artifacts specified in the task description. Always run verification checks or inspect generated files before declaring completion.
++
+ IMPORTANT: The text inside each <keystrokes></keystrokes> tag will be used completely verbatim as keystrokes. DO NOT XML-encode special characters - write them directly:
+ - Use < and > directly, NOT &lt; and &gt;
+ - Use & directly, NOT &amp;

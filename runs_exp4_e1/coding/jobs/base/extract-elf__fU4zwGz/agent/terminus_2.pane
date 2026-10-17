@@ -1,618 +1,0 @@
-[?2004hroot@a50088227235:/app# asciinema rec --stdin /logs/agent/recording.cast
-[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
-[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
-[?2004hroot@a50088227235:/app# clear
-[?2004l[H[J[3J[?2004hroot@a50088227235:/app# ls -la /app
-[?2004ltotal 28
-drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
-drwxr-xr-x 1 root root  4096 Oct 16 10:01 [01;34m..[0m
--rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
--rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
-[?2004hroot@a50088227235:/app# readelf -l /app/a.out
-[?2004l
-Elf file type is DYN (Position-Independent Executable file)
-Entry point 0x1060
-There are 13 program headers, starting at offset 64
-
-Program Headers:
-  Type           Offset             VirtAddr           PhysAddr
-                 FileSiz            MemSiz              Flags  Align
-  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
-                 0x00000000000002d8 0x00000000000002d8  R      0x8
-  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
-                 0x000000000000001c 0x000000000000001c  R      0x1
-      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
-  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
-                 0x0000000000000628 0x0000000000000628  R      0x1000
-  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
-                 0x0000000000000175 0x0000000000000175  R E    0x1000
-  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
-                 0x00000000000000f4 0x00000000000000f4  R      0x1000
-  LOAD           0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
-                 0x0000000000000258 0x0000000000000260  RW     0x1000
-  DYNAMIC        0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8
-                 0x00000000000001f0 0x00000000000001f0  RW     0x8
-  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
-                 0x0000000000000030 0x0000000000000030  R      0x8
-  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
-                 0x0000000000000044 0x0000000000000044  R      0x4
-  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
-                 0x0000000000000030 0x0000000000000030  R      0x8
-  GNU_EH_FRAME   0x0000000000002010 0x0000000000002010 0x0000000000002010
-                 0x0000000000000034 0x0000000000000034  R      0x4
-  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
-                 0x0000000000000000 0x0000000000000000  RW     0x10
-  GNU_RELRO      0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
-                 0x0000000000000248 0x0000000000000248  R      0x1
-
- Section to Segment mapping:
-  Segment Sections...
-   00     
-   01     .interp 
-   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
-   03     .init .plt .plt.got .plt.sec .text .fini 
-   04     .rodata .eh_frame_hdr .eh_frame 
-   05     .init_array .fini_array .dynamic .got .data .bss 
-   06     .dynamic 
-   07     .note.gnu.property 
-   08     .note.gnu.build-id .note.ABI-tag 
-   09     .note.gnu.property 
-   10     .eh_frame_hdr 
-   11     
-   12     .init_array .fini_array .dynamic .got 
-[?2004hroot@a50088227235:/app# readelf -S /app/a.out
-[?2004lThere are 31 section headers, starting at offset 0x3698:
-
-Section Headers:
-  [Nr] Name              Type             Address           Offset
-       Size              EntSize          Flags  Link  Info  Align
-  [ 0]                   NULL             0000000000000000  00000000
-       0000000000000000  0000000000000000           0     0     0
-  [ 1] .interp           PROGBITS         0000000000000318  00000318
-       000000000000001c  0000000000000000   A       0     0     1
-  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
-       0000000000000030  0000000000000000   A       0     0     8
-  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
-       0000000000000024  0000000000000000   A       0     0     4
-  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
-       0000000000000020  0000000000000000   A       0     0     4
-  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
-       0000000000000024  0000000000000000   A       6     0     8
-  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
-       00000000000000a8  0000000000000018   A       7     1     8
-  [ 7] .dynstr           STRTAB           0000000000000480  00000480
-       000000000000008d  0000000000000000   A       0     0     1
-  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
-       000000000000000e  0000000000000002   A       6     0     2
-  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
-       0000000000000030  0000000000000000   A       7     1     8
-  [10] .rela.dyn         RELA             0000000000000550  00000550
-       00000000000000c0  0000000000000018   A       6     0     8
-  [11] .rela.plt         RELA             0000000000000610  00000610
-       0000000000000018  0000000000000018  AI       6    24     8
-  [12] .init             PROGBITS         0000000000001000  00001000
-       000000000000001b  0000000000000000  AX       0     0     4
-  [13] .plt              PROGBITS         0000000000001020  00001020
-       0000000000000020  0000000000000010  AX       0     0     16
-  [14] .plt.got          PROGBITS         0000000000001040  00001040
-       0000000000000010  0000000000000010  AX       0     0     16
-  [15] .plt.sec          PROGBITS         0000000000001050  00001050
-       0000000000000010  0000000000000010  AX       0     0     16
-  [16] .text             PROGBITS         0000000000001060  00001060
-       0000000000000107  0000000000000000  AX       0     0     16
-  [17] .fini             PROGBITS         0000000000001168  00001168
-       000000000000000d  0000000000000000  AX       0     0     4
-  [18] .rodata           PROGBITS         0000000000002000  00002000
-       0000000000000010  0000000000000000   A       0     0     4
-  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
-       0000000000000034  0000000000000000   A       0     0     4
-  [20] .eh_frame         PROGBITS         0000000000002048  00002048
-       00000000000000ac  0000000000000000   A       0     0     8
-  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
-       0000000000000008  0000000000000008  WA       0     0     8
-  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
-       0000000000000008  0000000000000008  WA       0     0     8
-  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
-       00000000000001f0  0000000000000010  WA       7     0     8
-  [24] .got              PROGBITS         0000000000003fb8  00002fb8
-       0000000000000048  0000000000000008  WA       0     0     8
-  [25] .data             PROGBITS         0000000000004000  00003000
-       0000000000000010  0000000000000000  WA       0     0     8
-  [26] .bss              NOBITS           0000000000004010  00003010
-       0000000000000008  0000000000000000  WA       0     0     1
-  [27] .comment          PROGBITS         0000000000000000  00003010
-       000000000000002b  0000000000000001  MS       0     0     1
-  [28] .symtab           SYMTAB           0000000000000000  00003040
-       0000000000000360  0000000000000018          29    18     8
-  [29] .strtab           STRTAB           0000000000000000  000033a0
-       00000000000001d8  0000000000000000           0     0     1
-  [30] .shstrtab         STRTAB           0000000000000000  00003578
-       000000000000011a  0000000000000000           0     0     1
-Key to Flags:
-  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
-  L (link order), O (extra OS processing required), G (group), T (TLS),
-  C (compressed), x (unknown), o (OS specific), E (exclude),
-  D (mbind), l (large), p (processor specific)
-[?2004hroot@a50088227235:/app# cat /app/hi.c
-[?2004l#include<stdio.h>
-
-int main() {
-  printf("Hello world\n");
-}
-[?2004hroot@a50088227235:/app# find / -name "*extract*" 2>/dev/null
-[?2004l/usr/share/doc/node-postcss-modules-extract-imports
-/usr/share/nodejs/tar/lib/extract.js
-/usr/share/nodejs/postcss-modules-extract-imports
-/usr/share/nodejs/@babel/eslint-parser/lib/worker/extract-parser-options-plugin.cjs
-/usr/share/nodejs/eslint/lib/cli-engine/config-array/extracted-config.js
-/usr/share/nodejs/icss-utils/src/extractICSS.js
-/usr/share/nodejs/webpack/lib/util/extractUrlAndGlobal.js
-/usr/share/nodejs/normalize-package-data/lib/extract_description.js
-/var/lib/dpkg/info/node-postcss-modules-extract-imports.md5sums
-/var/lib/dpkg/info/node-postcss-modules-extract-imports.list
-[?2004hroot@a50088227235:/app# env
-[?2004lSHELL=/bin/bash
-TERM_PROGRAM_VERSION=3.4
-ASCIINEMA_REC=1
-TMUX=/tmp/tmux-0/default,317,0
-HOSTNAME=a50088227235
-PWD=/app
-HOME=/root
-LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
-LESSCLOSE=/usr/bin/lesspipe %s %s
-TERM=tmux-256color
-LESSOPEN=| /usr/bin/lesspipe %s
-TMUX_PANE=%0
-SHLVL=2
-LC_CTYPE=C.UTF-8
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-TERM_PROGRAM=tmux
-_=/usr/bin/env
-[?2004hroot@a50088227235:/app# npm list -g
-[?2004l[0m/usr/local/lib[0m
-[0m└── (empty)[0m
-[0m[0m
-[?2004hroot@a50088227235:/app# python3 -c "import elftools"
-[?2004lTraceback (most recent call last):
-  File "<string>", line 1, in <module>
-ModuleNotFoundError: No module named 'elftools'
-[?2004hroot@a50088227235:/app# pip3 --version || python3 -m pip --version
-[?2004lbash: pip3: command not found
-/usr/bin/python3: No module named pip
-[?2004hroot@a50088227235:/app# objdump -s /app/a.out
-[?2004l
-/app/a.out:     file format elf64-x86-64
-
-Contents of section .interp:
- 0318 2f6c6962 36342f6c 642d6c69 6e75782d  /lib64/ld-linux-
- 0328 7838362d 36342e73 6f2e3200           x86-64.so.2.    
-Contents of section .note.gnu.property:
- 0338 04000000 20000000 05000000 474e5500  .... .......GNU.
- 0348 020000c0 04000000 03000000 00000000  ................
- 0358 028000c0 04000000 01000000 00000000  ................
-Contents of section .note.gnu.build-id:
- 0368 04000000 14000000 03000000 474e5500  ............GNU.
- 0378 02cdae52 f08928e9 505a81d5 6c353b65  ...R..(.PZ..l5;e
- 0388 ae8d1241                             ...A            
-Contents of section .note.ABI-tag:
- 038c 04000000 10000000 01000000 474e5500  ............GNU.
- 039c 00000000 03000000 02000000 00000000  ................
-Contents of section .gnu.hash:
- 03b0 02000000 06000000 01000000 06000000  ................
- 03c0 00008100 00000000 06000000 00000000  ................
- 03d0 d165ce6d                             .e.m            
-Contents of section .dynsym:
- 03d8 00000000 00000000 00000000 00000000  ................
- 03e8 00000000 00000000 06000000 12000000  ................
- 03f8 00000000 00000000 00000000 00000000  ................
- 0408 48000000 20000000 00000000 00000000  H... ...........
- 0418 00000000 00000000 01000000 12000000  ................
- 0428 00000000 00000000 00000000 00000000  ................
- 0438 64000000 20000000 00000000 00000000  d... ...........
- 0448 00000000 00000000 73000000 20000000  ........s... ...
- 0458 00000000 00000000 00000000 00000000  ................
- 0468 18000000 22000000 00000000 00000000  ...."...........
- 0478 00000000 00000000                    ........        
-Contents of section .dynstr:
- 0480 00707574 73005f5f 6c696263 5f737461  .puts.__libc_sta
- 0490 72745f6d 61696e00 5f5f6378 615f6669  rt_main.__cxa_fi
- 04a0 6e616c69 7a65006c 6962632e 736f2e36  nalize.libc.so.6
- 04b0 00474c49 42435f32 2e322e35 00474c49  .GLIBC_2.2.5.GLI
- 04c0 42435f32 2e333400 5f49544d 5f646572  BC_2.34._ITM_der
- 04d0 65676973 74657254 4d436c6f 6e655461  egisterTMCloneTa
- 04e0 626c6500 5f5f676d 6f6e5f73 74617274  ble.__gmon_start
- 04f0 5f5f005f 49544d5f 72656769 73746572  __._ITM_register
- 0500 544d436c 6f6e6554 61626c65 00        TMCloneTable.   
-Contents of section .gnu.version:
- 050e 00000200 01000300 01000100 0300      ..............  
-Contents of section .gnu.version_r:
- 0520 01000200 27000000 10000000 00000000  ....'...........
- 0530 751a6909 00000300 31000000 10000000  u.i.....1.......
- 0540 b4919606 00000200 3d000000 00000000  ........=.......
-Contents of section .rela.dyn:
- 0550 b83d0000 00000000 08000000 00000000  .=..............
- 0560 40110000 00000000 c03d0000 00000000  @........=......
- 0570 08000000 00000000 00110000 00000000  ................
- 0580 08400000 00000000 08000000 00000000  .@..............
- 0590 08400000 00000000 d83f0000 00000000  .@.......?......
- 05a0 06000000 01000000 00000000 00000000  ................
- 05b0 e03f0000 00000000 06000000 02000000  .?..............
- 05c0 00000000 00000000 e83f0000 00000000  .........?......
- 05d0 06000000 04000000 00000000 00000000  ................
- 05e0 f03f0000 00000000 06000000 05000000  .?..............
- 05f0 00000000 00000000 f83f0000 00000000  .........?......
- 0600 06000000 06000000 00000000 00000000  ................
-Contents of section .rela.plt:
- 0610 d03f0000 00000000 07000000 03000000  .?..............
- 0620 00000000 00000000                    ........        
-Contents of section .init:
- 1000 f30f1efa 4883ec08 488b05d9 2f000048  ....H...H.../..H
- 1010 85c07402 ffd04883 c408c3             ..t...H....     
-Contents of section .plt:
- 1020 ff359a2f 0000ff25 9c2f0000 0f1f4000  .5./...%./....@.
- 1030 f30f1efa 68000000 00e9e2ff ffff6690  ....h.........f.
-Contents of section .plt.got:
- 1040 f30f1efa ff25ae2f 0000660f 1f440000  .....%./..f..D..
-Contents of section .plt.sec:
- 1050 f30f1efa ff25762f 0000660f 1f440000  .....%v/..f..D..
-Contents of section .text:
- 1060 f30f1efa 31ed4989 d15e4889 e24883e4  ....1.I..^H..H..
- 1070 f0505445 31c031c9 488d3dca 000000ff  .PTE1.1.H.=.....
- 1080 15532f00 00f4662e 0f1f8400 00000000  .S/...f.........
- 1090 488d3d79 2f000048 8d05722f 00004839  H.=y/..H..r/..H9
- 10a0 f8741548 8b05362f 00004885 c07409ff  .t.H..6/..H..t..
- 10b0 e00f1f80 00000000 c30f1f80 00000000  ................
- 10c0 488d3d49 2f000048 8d35422f 00004829  H.=I/..H.5B/..H)
- 10d0 fe4889f0 48c1ee3f 48c1f803 4801c648  .H..H..?H...H..H
- 10e0 d1fe7414 488b0505 2f000048 85c07408  ..t.H.../..H..t.
- 10f0 ffe0660f 1f440000 c30f1f80 00000000  ..f..D..........
- 1100 f30f1efa 803d052f 00000075 2b554883  .....=./...u+UH.
- 1110 3de22e00 00004889 e5740c48 8b3de62e  =.....H..t.H.=..
- 1120 0000e819 ffffffe8 64ffffff c605dd2e  ........d.......
- 1130 0000015d c30f1f00 c30f1f80 00000000  ...]............
- 1140 f30f1efa e977ffff fff30f1e fa554889  .....w.......UH.
- 1150 e5488d05 ac0e0000 4889c7e8 f0feffff  .H......H.......
- 1160 b8000000 005dc3                      .....].         
-Contents of section .fini:
- 1168 f30f1efa 4883ec08 4883c408 c3        ....H...H....   
-Contents of section .rodata:
- 2000 01000200 48656c6c 6f20776f 726c6400  ....Hello world.
-Contents of section .eh_frame_hdr:
- 2010 011b033b 34000000 05000000 10f0ffff  ...;4...........
- 2020 68000000 30f0ffff 90000000 40f0ffff  h...0.......@...
- 2030 a8000000 50f0ffff 50000000 39f1ffff  ....P...P...9...
- 2040 c0000000                             ....            
-Contents of section .eh_frame:
- 2048 14000000 00000000 017a5200 01781001  .........zR..x..
- 2058 1b0c0708 90010000 14000000 1c000000  ................
- 2068 f8efffff 26000000 00440710 00000000  ....&....D......
- 2078 24000000 34000000 a0efffff 20000000  $...4....... ...
- 2088 000e1046 0e184a0f 0b770880 003f1a39  ...F..J..w...?.9
- 2098 2a332422 00000000 14000000 5c000000  *3$"........\...
- 20a8 98efffff 10000000 00000000 00000000  ................
- 20b8 14000000 74000000 90efffff 10000000  ....t...........
- 20c8 00000000 00000000 1c000000 8c000000  ................
- 20d8 71f0ffff 1e000000 00450e10 8602430d  q........E....C.
- 20e8 06550c07 08000000 00000000           .U..........    
-Contents of section .init_array:
- 3db8 40110000 00000000                    @.......        
-Contents of section .fini_array:
- 3dc0 00110000 00000000                    ........        
-Contents of section .dynamic:
- 3dc8 01000000 00000000 27000000 00000000  ........'.......
- 3dd8 0c000000 00000000 00100000 00000000  ................
- 3de8 0d000000 00000000 68110000 00000000  ........h.......
- 3df8 19000000 00000000 b83d0000 00000000  .........=......
- 3e08 1b000000 00000000 08000000 00000000  ................
- 3e18 1a000000 00000000 c03d0000 00000000  .........=......
- 3e28 1c000000 00000000 08000000 00000000  ................
- 3e38 f5feff6f 00000000 b0030000 00000000  ...o............
- 3e48 05000000 00000000 80040000 00000000  ................
- 3e58 06000000 00000000 d8030000 00000000  ................
- 3e68 0a000000 00000000 8d000000 00000000  ................
- 3e78 0b000000 00000000 18000000 00000000  ................
- 3e88 15000000 00000000 00000000 00000000  ................
- 3e98 03000000 00000000 b83f0000 00000000  .........?......
- 3ea8 02000000 00000000 18000000 00000000  ................
- 3eb8 14000000 00000000 07000000 00000000  ................
- 3ec8 17000000 00000000 10060000 00000000  ................
- 3ed8 07000000 00000000 50050000 00000000  ........P.......
- 3ee8 08000000 00000000 c0000000 00000000  ................
- 3ef8 09000000 00000000 18000000 00000000  ................
- 3f08 1e000000 00000000 08000000 00000000  ................
- 3f18 fbffff6f 00000000 01000008 00000000  ...o............
- 3f28 feffff6f 00000000 20050000 00000000  ...o.... .......
- 3f38 ffffff6f 00000000 01000000 00000000  ...o............
- 3f48 f0ffff6f 00000000 0e050000 00000000  ...o............
- 3f58 f9ffff6f 00000000 03000000 00000000  ...o............
- 3f68 00000000 00000000 00000000 00000000  ................
- 3f78 00000000 00000000 00000000 00000000  ................
- 3f88 00000000 00000000 00000000 00000000  ................
- 3f98 00000000 00000000 00000000 00000000  ................
- 3fa8 00000000 00000000 00000000 00000000  ................
-Contents of section .got:
- 3fb8 c83d0000 00000000 00000000 00000000  .=..............
- 3fc8 00000000 00000000 30100000 00000000  ........0.......
- 3fd8 00000000 00000000 00000000 00000000  ................
- 3fe8 00000000 00000000 00000000 00000000  ................
- 3ff8 00000000 00000000                    ........        
-Contents of section .data:
- 4000 00000000 00000000 08400000 00000000  .........@......
-Contents of section .comment:
- 0000 4743433a 20285562 756e7475 2031332e  GCC: (Ubuntu 13.
- 0010 332e302d 36756275 6e747532 7e32342e  3.0-6ubuntu2~24.
- 0020 30342920 31332e33 2e3000             04) 13.3.0.     
-[?2004hroot@a50088227235:/app# find / -name "*test*" 2>/dev/null
-[?2004l/usr/include/openssl/self_test.h
-/usr/include/nodejs/deps/v8/include/cppgc/testing.h
-/usr/include/linux/pcitest.h
-/usr/share/perl5/Mail/Mailer/testfile.pm
-/usr/share/doc/node-webpack-cli-configtest
-/usr/share/doc/git/contrib/coccinelle/tests
-/usr/share/doc/node-babel-helper-plugin-test-runner
-/usr/share/doc/node-npmcli-smoke-tests
-/usr/share/doc/node-babel-helper-transform-fixture-test-runner
-/usr/share/doc/node-babel-eslint-tests
-/usr/share/doc/node-tape/examples/stream/test
-/usr/share/nodejs/safer-buffer/tests.js
-/usr/share/nodejs/tap-mocha-reporter/lib/test.js
-/usr/share/nodejs/caniuse-lite/data/features/date-tolocaledatestring.js
-/usr/share/nodejs/caniuse-lite/data/features/testfeat.js
-/usr/share/nodejs/libtap/lib/test.js
-/usr/share/nodejs/libtap/lib/parse-test-args.js
-/usr/share/nodejs/istanbul/lib/command/test.js
-/usr/share/nodejs/test-exclude
-/usr/share/nodejs/acorn-static-class-features/run_test262.js
-/usr/share/nodejs/@npmcli/smoke-tests
-/usr/share/nodejs/acorn-export-ns-from/run_test262.js
-/usr/share/nodejs/acorn-export-ns-from/test262.whitelist
-/usr/share/nodejs/@types/node/ts4.8/test.d.ts
-/usr/share/nodejs/@types/node/test.d.ts
-/usr/share/nodejs/acorn-private-methods/run_test262.js
-/usr/share/nodejs/yaml/dist/test-events.js
-/usr/share/nodejs/yaml/dist/test-events.d.ts
-/usr/share/nodejs/tape/lib/test.js
-/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.d.ts
-/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.js
-/usr/share/nodejs/@babel/helper-plugin-test-runner
-/usr/share/nodejs/@babel/helper-transform-fixture-test-runner
-/usr/share/nodejs/@babel/eslint-tests
-/usr/share/nodejs/eslint/lib/cli-engine/config-array/override-tester.js
-/usr/share/nodejs/eslint/lib/rule-tester
-/usr/share/nodejs/eslint/lib/rule-tester/rule-tester.js
-/usr/share/nodejs/@bcoe/v8-coverage/src/test
-/usr/share/nodejs/es-abstract/node_modules/safe-regex-test
-/usr/share/nodejs/core-js-pure/features/regexp/test.js
-/usr/share/nodejs/core-js-pure/stable/regexp/test.js
-/usr/share/nodejs/core-js-pure/es/regexp/test.js
-/usr/share/nodejs/core-js-pure/actual/regexp/test.js
-/usr/share/nodejs/core-js-pure/full/regexp/test.js
-/usr/share/nodejs/core-js-pure/modules/es.regexp.test.js
-/usr/share/nodejs/acorn-numeric-separator/run_test262.js
-/usr/share/nodejs/core-js/features/regexp/test.js
-/usr/share/nodejs/core-js/stable/regexp/test.js
-/usr/share/nodejs/core-js/es/regexp/test.js
-/usr/share/nodejs/core-js/actual/regexp/test.js
-/usr/share/nodejs/core-js/full/regexp/test.js
-/usr/share/nodejs/core-js/modules/es.regexp.test.js
-/usr/share/nodejs/@webpack-cli/configtest
-/usr/share/nodejs/@webassemblyjs/helper-test-framework
-/usr/share/nodejs/@webassemblyjs/helper-testsuite-runner
-/usr/share/nodejs/tap-yaml/node_modules/yaml/dist/test-events.js
-/usr/share/nodejs/acorn-import-meta/run_test262.js
-/usr/share/nodejs/get-caller-file/test.js
-/usr/share/nodejs/fs-monkey/lib/__tests__
-/usr/share/nodejs/fs-monkey/lib/__tests__/patchFs.test.js
-/usr/share/nodejs/acorn-bigint/run_test262.js
-/usr/share/nodejs/object-inspect/test-core-js.js
-/usr/share/nodejs/npm/node_modules/just-diff/index.tests.ts
-/usr/share/nodejs/npm/node_modules/cli-columns/test.js
-/usr/share/nodejs/npm/node_modules/fastest-levenshtein
-/usr/share/nodejs/npm/node_modules/fastest-levenshtein/test.ts
-/usr/share/nodejs/npm/node_modules/just-diff-apply/index.tests.ts
-/usr/share/nodejs/npm/lib/commands/install-ci-test.js
-/usr/share/nodejs/npm/lib/commands/test.js
-/usr/share/nodejs/npm/lib/commands/install-test.js
-/usr/share/nodejs/acorn-class-fields/run_test262.js
-/usr/share/perl/5.38.2/filetest.pm
-/usr/share/perl/5.38.2/Test2/Event/Subtest.pm
-/usr/share/perl/5.38.2/Test2/Hub/Subtest.pm
-/usr/share/perl/5.38.2/ExtUtils/testlib.pm
-/usr/lib/x86_64-linux-gnu/libicutest.so.74
-/usr/lib/x86_64-linux-gnu/libicutest.so.74.2
-/usr/lib/python3.12/lib-dynload/_testinternalcapi.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_testcapi.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_testimportmultiple.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_testclinic.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_ctypes_test.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_xxtestfuzz.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_testsinglephase.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_testmultiphase.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/lib-dynload/_testbuffer.cpython-312-x86_64-linux-gnu.so
-/usr/lib/python3.12/__pycache__/doctest.cpython-312.pyc
-/usr/lib/python3.12/doctest.py
-/usr/lib/python3.12/test
-/usr/lib/python3.12/test/__pycache__/regrtest.cpython-312.pyc
-/usr/lib/python3.12/test/__pycache__/test_support.cpython-312.pyc
-/usr/lib/python3.12/test/libregrtest
-/usr/lib/python3.12/test/libregrtest/__pycache__/runtests.cpython-312.pyc
-/usr/lib/python3.12/test/libregrtest/__pycache__/testresult.cpython-312.pyc
-/usr/lib/python3.12/test/libregrtest/__pycache__/findtests.cpython-312.pyc
-/usr/lib/python3.12/test/libregrtest/testresult.py
-/usr/lib/python3.12/test/libregrtest/findtests.py
-/usr/lib/python3.12/test/libregrtest/runtests.py
-/usr/lib/python3.12/test/test_support.py
-/usr/lib/python3.12/test/regrtest.py
-/usr/lib/python3.12/test/support/__pycache__/testcase.cpython-312.pyc
-/usr/lib/python3.12/test/support/testcase.py
-/usr/lib/python3.12/unittest
-/usr/lib/python3/dist-packages/gyp/MSVSSettings_test.py
-/usr/lib/python3/dist-packages/gyp/__pycache__/input_test.cpython-312.pyc
-/usr/lib/python3/dist-packages/gyp/__pycache__/MSVSSettings_test.cpython-312.pyc
-/usr/lib/python3/dist-packages/gyp/__pycache__/common_test.cpython-312.pyc
-/usr/lib/python3/dist-packages/gyp/__pycache__/easy_xml_test.cpython-312.pyc
-/usr/lib/python3/dist-packages/gyp/common_test.py
-/usr/lib/python3/dist-packages/gyp/easy_xml_test.py
-/usr/lib/python3/dist-packages/gyp/generator/__pycache__/msvs_test.cpython-312.pyc
-/usr/lib/python3/dist-packages/gyp/generator/__pycache__/ninja_test.cpython-312.pyc
-/usr/lib/python3/dist-packages/gyp/generator/__pycache__/xcode_test.cpython-312.pyc
-/usr/lib/python3/dist-packages/gyp/generator/xcode_test.py
-/usr/lib/python3/dist-packages/gyp/generator/ninja_test.py
-/usr/lib/python3/dist-packages/gyp/generator/msvs_test.py
-/usr/lib/python3/dist-packages/gyp/input_test.py
-/usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
-/usr/bin/test
-/sys/devices/virtual/net/eth0/testing
-/sys/devices/virtual/net/lo/testing
-/sys/module/cryptomgr/parameters/notests
-/sys/module/8250/parameters/skip_txen_test
-/sys/module/8250_core/parameters/skip_txen_test
-/sys/module/sata_sx4/parameters/dimm_test
-/sys/module/sr_mod/parameters/xa_test
-[?2004hroot@a50088227235:/app# ls -la /root
-[?2004ltotal 24
-drwx------ 1 root root 4096 Oct 16 10:01 [0m[01;34m.[0m
-drwxr-xr-x 1 root root 4096 Oct 16 10:01 [01;34m..[0m
--rw-r--r-- 1 root root 3106 Apr 22  2024 .bashrc
-drwxr-xr-x 3 root root 4096 Oct 16 10:00 [01;34m.config[0m
-drwxr-xr-x 3 root root 4096 Oct 16 10:01 [01;34m.npm[0m
--rw-r--r-- 1 root root  161 Apr 22  2024 .profile
-[?2004hroot@a50088227235:/app# cat << 'EOF' > test_elf.js
-[?2004l[?2004h> const fs = require('fs');
-[?2004l[?2004h> const buf = fs.readFileSync('/app/a.out');
-[?2004l[?2004h> console.log('ELF magic:', buf.slice(0, 4));
-[?2004l[?2004h> EOF
-[?2004l[?2004hroot@a50088227235:/app# node test_elf.js
-[?2004lELF magic: <Buffer 7f 45 4c 46>
-[?2004hroot@a50088227235:/app# cat << 'EOF' > extract.js
-[?2004l[?2004h> const fs = require('fs');
-[?2004l[?2004h> 
-[?2004l[?2004h> function parseELF(filePath) {
-[?2004l[?2004h>   const buf = fs.readFileSync(filePath);
-[?2004l[?2004h>   if (buf[0] !== 0x7f || buf.slice(1, 4).toString() !== 'ELF') {
-[?2004l[?2004h>     throw new Error('Not an ELF file');
-[?2004l[?2004h>   }
-[?2004l[?2004h>   const is64 = buf[4] === 2;
-[?2004l[?2004h>   if (!is64) throw new Error('Only 64-bit ELF supported');
-[?2004l[?2004h>   
-[?2004l[?2004h>   const e_type = buf.readUInt16LE(16);
-[?2004l[?2004h>   const e_phoff = Number(buf.readBigUInt64LE(32));
-[?2004l[?2004h>   const e_phentsize = buf.readUInt16LE(54);
-[?2004l[?2004h>   const e_phnum = buf.readUInt16LE(56);
-[?2004l[?2004h>   
-[?2004l[?2004h>   const memory = {};
-[?2004l[?2004h>   const baseAddr = (e_type === 3) ? 0x400000 : 0;
-[?2004l[?2004h>   
-[?2004l[?2004h>   for (let i = 0; i < e_phnum; i++) {
-[?2004l[?2004h>     const phOffset = e_phoff + i * e_phentsize;
-[?2004l[?2004h>     const p_type = buf.readUInt32LE(phOffset);
-[?2004l[?2004h>     if (p_type === 1) {
-[?2004l[?2004h>       const p_offset = Number(buf.readBigUInt64LE(phOffset + 8));
-[?2004l[?2004h>       const p_vaddr = Number(buf.readBigUInt64LE(phOffset + 16));
-[?2004l[?2004h>       const p_filesz = Number(buf.readBigUInt64LE(phOffset + 32));
-[?2004l[?2004h>       const p_memsz = Number(buf.readBigUInt64LE(phOffset + 40));
-[?2004l[?2004h>       
-[?2004l[?2004h>       const startAddr = baseAddr + p_vaddr;
-[?2004l[?2004h>       const segmentData = Buffer.alloc(p_memsz);
-[?2004l[?2004h>       buf.copy(segmentData, 0, p_offset, p_offset + p_filesz);
-[?2004l[?2004h>       
-[?2004l[?2004h>       for (let offset = 0; offset < p_memsz; offset += 4) {
-[?2004l[?2004h>         const addr = startAddr + offset;
-[?2004l[?2004h>         const val = segmentData.readInt32LE(offset);
-[?2004l[?2004h>         memory[addr.toString()] = val;
-[?2004l[?2004h>       }
-[?2004l[?2004h>     }
-[?2004l[?2004h>   }
-[?2004l[?2004h>   console.log(JSON.stringify(memory));
-[?2004l[?2004h> }
-[?2004l[?2004h> 
-[?2004l[?2004h> parseELF(process.argv[2]);
-[?2004l[?2004h> EOF
-[?2004l[?2004hroot@a50088227235:/app# node extract.js /app/a.out > out.json
-[?2004lnode:internal/buffer:88
-  throw new ERR_OUT_OF_RANGE(type || 'offset',
-  ^
-
-RangeError [ERR_OUT_OF_RANGE]: The value of "offset" is out of range. It must be >= 0 and <= 369. Received 372
-[90m    at new NodeError (node:internal/errors:405:5)[39m
-[90m    at boundsError (node:internal/buffer:88:9)[39m
-[90m    at Buffer.readInt32LE (node:internal/buffer:392:5)[39m
-    at parseELF [90m(/app/[39mextract.js:34:33[90m)[39m
-    at Object.<anonymous> [90m(/app/[39mextract.js:42:1[90m)[39m
-[90m    at Module._compile (node:internal/modules/cjs/loader:1356:14)[39m
-[90m    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)[39m
-[90m    at Module.load (node:internal/modules/cjs/loader:1197:32)[39m
-[90m    at Module._load (node:internal/modules/cjs/loader:1013:12)[39m
-[90m    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:128:12)[39m {
-  code: [32m'ERR_OUT_OF_RANGE'[39m
-}
-
-Node.js v18.19.1
-[?2004hroot@a50088227235:/app# head -n 5 out.json
-[?2004l[?2004hroot@a50088227235:/app# cat << 'EOF' > extract.js
-[?2004l[?2004h> const fs = require('fs');
-[?2004l[?2004h> 
-[?2004l[?2004h> function parseELF(filePath) {
-[?2004l[?2004h>   const buf = fs.readFileSync(filePath);
-[?2004l[?2004h>   if (buf[0] !== 0x7f || buf.slice(1, 4).toString() !== 'ELF') {
-[?2004l[?2004h>     throw new Error('Not an ELF file');
-[?2004l[?2004h>   }
-[?2004l[?2004h>   const is64 = buf[4] === 2;
-[?2004l[?2004h>   if (!is64) throw new Error('Only 64-bit ELF supported');
-[?2004l[?2004h>   
-[?2004l[?2004h>   const e_type = buf.readUInt16LE(16);
-[?2004l[?2004h>   const e_phoff = Number(buf.readBigUInt64LE(32));
-[?2004l[?2004h>   const e_phentsize = buf.readUInt16LE(54);
-[?2004l[?2004h>   const e_phnum = buf.readUInt16LE(56);
-[?2004l[?2004h>   
-[?2004l[?2004h>   const memory = {};
-[?2004l[?2004h>   const baseAddr = (e_type === 3) ? 0x400000 : 0;
-[?2004l[?2004h>   
-[?2004l[?2004h>   for (let i = 0; i < e_phnum; i++) {
-[?2004l[?2004h>     const phOffset = e_phoff + i * e_phentsize;
-[?2004l[?2004h>     const p_type = buf.readUInt32LE(phOffset);
-[?2004l[?2004h>     if (p_type === 1) {
-[?2004l[?2004h>       const p_offset = Number(buf.readBigUInt64LE(phOffset + 8));
-[?2004l[?2004h>       const p_vaddr = Number(buf.readBigUInt64LE(phOffset + 16));
-[?2004l[?2004h>       const p_filesz = Number(buf.readBigUInt64LE(phOffset + 32));
-[?2004l[?2004h>       const p_memsz = Number(buf.readBigUInt64LE(phOffset + 40));
-[?2004l[?2004h>       
-[?2004l[?2004h>       const startAddr = baseAddr + p_vaddr;
-[?2004l[?2004h>       const segmentData = Buffer.alloc(p_memsz);
-[?2004l[?2004h>       if (p_filesz > 0) {
-[?2004l[?2004h>         buf.copy(segmentData, 0, p_offset, p_offset + p_filesz);
-[?2004l[?2004h>       }
-[?2004l[?2004h>       
-[?2004l[?2004h>       for (let offset = 0; offset + 4 <= p_memsz; offset += 4) {
-[?2004l[?2004h>         const addr = startAddr + offset;
-[?2004l[?2004h>         const val = segmentData.readInt32LE(offset);
-[?2004l[?2004h>         memory[addr.toString()] = val;
-[?2004l[?2004h>       }
-[?2004l[?2004h>     }
-[?2004l[?2004h>   }
-[?2004l[?2004h>   console.log(JSON.stringify(memory));
-[?2004l[?2004h> }
-[?2004l[?2004h> 
-[?2004l[?2004h> parseELF(process.argv[2]);
-[?2004l[?2004h> EOF
-[?2004l[?2004hroot@a50088227235:/app# node extract.js /app/a.out > out.json
-[?2004l[?2004hroot@a50088227235:/app# node -e "const d = require('./out.json'); console.log(Object.keys(d).length);"
-[?2004l[33m700[39m
-[?2004hroot@a50088227235:/app# node -e "const d = require('./out.json'); console.log(Object.entries(d).slice(0, 10));"
-[?2004l[
-  [ [32m'4194304'[39m, [33m1179403647[39m ],
-  [ [32m'4194308'[39m, [33m65794[39m ],
-  [ [32m'4194312'[39m, [33m0[39m ],
-  [ [32m'4194316'[39m, [33m0[39m ],
-  [ [32m'4194320'[39m, [33m4063235[39m ],
-  [ [32m'4194324'[39m, [33m1[39m ],
-  [ [32m'4194328'[39m, [33m4192[39m ],
-  [ [32m'4194332'[39m, [33m0[39m ],
-  [ [32m'4194336'[39m, [33m64[39m ],
-  [ [32m'4194340'[39m, [33m0[39m ]
-]
-[?2004hroot@a50088227235:/app# node extract.js /app/a.out > out.json && node -e "JSON.parse(require('fs').readFileSync('out.json', 'utf8')); console.log('JSON valid!');"
-[?2004lbash: !': event not found
-[?2004hroot@a50088227235:/app# node extract.js /app/a.out > out.json && node -e 'JSON.parse(require("fs").readFileSync("out.json", "utf8")); console.log("JSON valid!");'
-[?2004lJSON valid!
-[?2004hroot@a50088227235:/app# 

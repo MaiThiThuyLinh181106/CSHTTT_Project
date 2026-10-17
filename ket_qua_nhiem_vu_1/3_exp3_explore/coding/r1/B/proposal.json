@@ -1,0 +1,91 @@
+{
+ "status": "done",
+ "summary": "Added robust command duration boundary clamping to prevent invalid or extreme wait times in JSON parser.",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "control_flow",
+   "hypothesis": "Clamping command duration values to a valid range [0.0, 60.0] in the parser ensures execution stability when the policy emits aberrant numbers.",
+   "targets_mode": "invalid_command_duration",
+   "why_not_lower_lever": "A prose prompt instruction cannot reliably prevent numerical hallucinations from an LLM.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": "(corrective) would protect loops against timeouts from malformed durations; (preservative) preserves normal command timing since valid ranges are untouched; (transfer) universally applicable to any terminal task where duration is parsed from LLM JSON.",
+   "regression_risk": "None.",
+   "mechanism": "Clamping command duration values to a valid range [0.0, 60.0] in the parser ensures execution stability when the policy emits aberrant numbers."
+  }
+ ],
+ "mechanism": "Added robust command duration boundary clamping to prevent invalid or extreme wait times in JSON parser.",
+ "targets_mode": "invalid_command_duration",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "terminus_json_plain_parser.py",
+   "old": "            # Check for unknown fields\n            known_fields = {\"keystrokes\", \"duration\"}\n            unknown_fields = set(cmd_data.keys()) - known_fields\n            if unknown_fields:\n           ...",
+   "new": "            # Check for unknown fields\n            known_fields = {\"keystrokes\", \"duration\"}\n            unknown_fields = set(cmd_data.keys()) - known_fields\n            if unknown_fields:\n           ..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_xml_plain_parser.py",
+   "old": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat...",
+   "new": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_xml_plain_parser.py",
+   "old": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat...",
+   "new": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_xml_plain_parser.py",
+   "old": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat...",
+   "new": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat..."
+  },
+  {
+   "action": "read_file",
+   "path": "terminus_xml_plain_parser.py"
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_xml_plain_parser.py",
+   "old": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat...",
+   "new": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_xml_plain_parser.py",
+   "old": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat...",
+   "new": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_xml_plain_parser.py",
+   "old": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat...",
+   "new": "            # Parse duration attribute\n            duration_match = re.search(\n                r'duration\\s*=\\s*[\"\\']([^\"\\']*)[\"\\']',\n                attributes_str,\n            )\n            if durat..."
+  },
+  {
+   "action": "done",
+   "summary": "Added robust command duration boundary clamping to prevent invalid or extreme wait times in JSON parser.",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "control_flow",
+     "hypothesis": "Clamping command duration values to a valid range [0.0, 60.0] in the parser ensures execution stability when the policy emits aberrant numbers.",
+     "targets_mode": "invalid_command_duration",
+     "why_not_lower_lever": "A prose prompt instruction cannot reliably prevent numerical hallucinations from an LLM.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": "(corrective) would protect loops against timeouts from malformed durations; (preservative) preserves normal command timing since valid ranges are untouched; (transfer) universally applicable to any terminal task where duration is parsed from LLM JSON.",
+     "regression_risk": "None.",
+     "mechanism": "Clamping command duration values to a valid range [0.0, 60.0] in the parser ensures execution stability when the policy emits aberrant numbers."
+    }
+   ]
+  }
+ ]
+}

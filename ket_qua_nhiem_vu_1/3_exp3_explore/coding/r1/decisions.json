@@ -1,0 +1,24 @@
+[
+ {
+  "variant": "A",
+  "admissible": false,
+  "reason": "no_proposal",
+  "S": null,
+  "C": null,
+  "delta_S": null,
+  "delta_C": null,
+  "novelty": 0,
+  "guards": []
+ },
+ {
+  "variant": "B",
+  "admissible": false,
+  "reason": "below noise-adjusted floor: S' 0.5000 < S* 1.0000 - delta 0.0170",
+  "S": 0.5,
+  "C": 2596925.0,
+  "delta_S": -0.5,
+  "delta_C": -0.1091316132250264,
+  "novelty": 0,
+  "guards": []
+ }
+]

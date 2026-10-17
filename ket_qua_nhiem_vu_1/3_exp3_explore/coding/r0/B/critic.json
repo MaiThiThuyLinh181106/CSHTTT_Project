@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The prompt instruction is general and applies to any task requiring output files, so it does not constitute task-specific leakage or grader gaming."
+ ]
+}

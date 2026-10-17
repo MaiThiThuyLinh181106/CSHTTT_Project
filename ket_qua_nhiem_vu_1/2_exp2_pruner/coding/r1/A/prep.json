@@ -1,0 +1,26 @@
+{
+ "commit": "8d7fc4e",
+ "branch": "coding/r1A",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Strengthening the artifact verification instruction in terminus-json-plain.txt with explicit empirical proof requirements prevents the model from prematurely declaring task completion without checking final artifacts.",
+   "targets_mode": "premature_task_completion",
+   "why_not_lower_lever": "Prose instructions in the prompt template are the appropriate lever to remind the frozen LLM policy of necessary pre-completion verification steps.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": "On tasks like bn-fit-modify, reminding the model of mandatory empirical verification prevents skipping file checks before calling task_complete.",
+    "preservative": "Does not disrupt iterative_artifact_generation success habit because it reinforces the exact behavior already observed in successful trials.",
+    "transfer": "Generalizes to any coding/sysadmin task requiring generated artifact files."
+   },
+   "regression_risk": "Slight token overhead or unnecessary extra verification check command, but within acceptable parameters.",
+   "mechanism": "Strengthening the artifact verification instruction in terminus-json-plain.txt with explicit empirical proof requirements prevents the model from prematurely declaring task completion without checking final artifacts."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r1\\A\\diff.patch",
+ "mechanism": "Reinforce artifact verification instructions in the json plain template to further reduce premature task completion based on round 1 evidence."
+}

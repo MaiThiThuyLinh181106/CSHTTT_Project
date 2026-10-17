@@ -1,0 +1,65 @@
+{
+ "status": "done",
+ "summary": "Instruct the policy via template to verify output files exist before marking task_complete to prevent premature completion.",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion.",
+   "targets_mode": "premature_task_completion",
+   "why_not_lower_lever": "Prose instructions in the system template are the precise lever for guiding high-level decision policies regarding when to declare completion.",
+   "trigger_condition": "always present in agent instructions",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": "On bn-fit-modify, the agent completed early before running sampling; the prompt constraint instructs it to verify file existence first, forcing it to execute the sampling step.",
+    "preservative": "Does not disrupt successful iteration since successful agents naturally verify their outputs before concluding.",
+    "transfer": "Applies generally across tasks where agents finish core logic but forget final file generation/saving."
+   },
+   "regression_risk": "None expected; only discourages premature stopping.",
+   "mechanism": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion."
+  }
+ ],
+ "mechanism": "Instruct the policy via template to verify output files exist before marking task_complete to prevent premature completion.",
+ "targets_mode": "premature_task_completion",
+ "n_edits": 2,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "Command object structure:\n- \"keystrokes\": String containing the exact keystrokes to send to the terminal (required)\n- \"duration\": Number of seconds to wait for the command to complete before the next ...",
+   "new": "Command object structure:\n- \"keystrokes\": String containing the exact keystrokes to send to the terminal (required)\n- \"duration\": Number of seconds to wait for the command to complete before the next ..."
+  },
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-xml-plain.txt",
+   "old": "Optional sections:\n- <task_complete>: Include this tag if the task is complete. Can be:\n  - <task_complete>true</task_complete> (task complete)\n  - <task_complete>false</task_complete> (task not compl...",
+   "new": "Optional sections:\n- <task_complete>: Include this tag if the task is complete. Can be:\n  - <task_complete>true</task_complete> (task complete)\n  - <task_complete>false</task_complete> (task not compl..."
+  },
+  {
+   "action": "done",
+   "summary": "Instruct the policy via template to verify output files exist before marking task_complete to prevent premature completion.",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion.",
+     "targets_mode": "premature_task_completion",
+     "why_not_lower_lever": "Prose instructions in the system template are the precise lever for guiding high-level decision policies regarding when to declare completion.",
+     "trigger_condition": "always present in agent instructions",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": {
+      "corrective": "On bn-fit-modify, the agent completed early before running sampling; the prompt constraint instructs it to verify file existence first, forcing it to execute the sampling step.",
+      "preservative": "Does not disrupt successful iteration since successful agents naturally verify their outputs before concluding.",
+      "transfer": "Applies generally across tasks where agents finish core logic but forget final file generation/saving."
+     },
+     "regression_risk": "None expected; only discourages premature stopping.",
+     "mechanism": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,175 @@
+{
+    "id": "73df1ebc-43dc-4155-837e-f1d3cf9e8644",
+    "task_name": "terminal-bench/bn-fit-modify",
+    "trial_name": "bn-fit-modify__oxhDYVG",
+    "trial_uri": "file:///D:/CSHTTT_Project/runs/coding/jobs/r1B/bn-fit-modify__oxhDYVG",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "bn-fit-modify",
+        "ref": "sha256:b5f9644970c17ad9ddb46b7266f7bcd87c761d77d7e6f55d7cfe7284d5ff66e9"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "de87a0c253c75b7dfbc68a2fcf120d5bd77b1df632c7469e3d0a3b74321d26c2",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/bn-fit-modify",
+            "ref": "sha256:b5f9644970c17ad9ddb46b7266f7bcd87c761d77d7e6f55d7cfe7284d5ff66e9",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "bn-fit-modify__oxhDYVG",
+        "trials_dir": "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r1B",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "harbor_terminus2:AgentHarness",
+            "import_path": null,
+            "model_name": "gemini/gemini-3.5-flash-lite",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "llm_kwargs": {
+                    "num_retries": 10
+                }
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "6c6baddf-dfec-4c5e-af47-e168f9f3258e",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "rrsi-terminus2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gemini-3.5-flash-lite",
+            "provider": "gemini"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 1052438,
+        "n_cache_tokens": 938343,
+        "n_output_tokens": 8648,
+        "cost_usd": 0.08399878999999998,
+        "model_usage": {
+            "gemini-3.5-flash-lite": {
+                "n_input_tokens": 1052438,
+                "n_cache_tokens": 938343,
+                "n_output_tokens": 8648,
+                "cost_usd": 0.08399878999999998
+            }
+        },
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 38,
+            "api_request_times_msec": [
+                1702.2969722747803,
+                4880.586385726929,
+                1529.529333114624,
+                1474.7860431671143,
+                6214.378118515015,
+                1209.8045349121094,
+                1431.518316268921,
+                1422.3127365112305,
+                1502.7527809143066,
+                1276.453971862793,
+                2709.7036838531494,
+                1391.4275169372559,
+                6938.790559768677,
+                1749.8619556427002,
+                1790.1930809020996,
+                1671.1807250976562,
+                1474.815845489502,
+                2062.981128692627,
+                28662.339210510254,
+                1638.758659362793,
+                1797.2123622894287,
+                1770.4226970672607,
+                1615.1015758514404,
+                1494.4097995758057,
+                1843.2683944702148,
+                2172.7681159973145,
+                1569.8466300964355,
+                2325.4148960113525,
+                45756.46686553955,
+                1650.2833366394043,
+                1295.8664894104004,
+                39508.92210006714,
+                4645.269393920898,
+                1381.8974494934082,
+                2891.3204669952393,
+                39019.83857154846,
+                1534.2762470245361,
+                1385.3285312652588
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-10-17T03:09:54.278639Z",
+    "finished_at": "2026-10-17T03:20:06.903708Z",
+    "environment_setup": {
+        "started_at": "2026-10-17T03:09:54.546586Z",
+        "finished_at": "2026-10-17T03:09:56.243704Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-17T03:09:56.243726Z",
+        "finished_at": "2026-10-17T03:10:17.232029Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-17T03:10:17.232137Z",
+        "finished_at": "2026-10-17T03:18:56.149837Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-17T03:18:56.152035Z",
+        "finished_at": "2026-10-17T03:20:02.341383Z"
+    },
+    "step_results": null
+}

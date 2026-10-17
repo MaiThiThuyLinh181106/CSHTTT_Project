@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "Prompt template update is general and does not contain hardcoded task-specific names or identifiers."
+ ]
+}

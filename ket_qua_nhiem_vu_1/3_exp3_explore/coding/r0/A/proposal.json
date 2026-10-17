@@ -1,0 +1,59 @@
+{
+ "status": "done",
+ "summary": "Strengthened task completion prompt instruction in JSON template to prevent premature completion when final deliverables are omitted.",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Adding an explicit prompt requirement in the JSON template instructing the model to verify output file existence before task completion prevents premature finishes like the one observed in bn-fit-modify.",
+   "targets_mode": "omitted_final_deliverable",
+   "why_not_lower_lever": "A prose prompt instruction directly targets the policy's omission of the final sampling step by making file verification a pre-condition for completion.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": "bn-fit-modify omitted the final sample output file generation; explicit instruction in the prompt template forces the agent to verify artifact existence before declaring completion.",
+    "preservative": "Does not restrict successful iterative development habits or intermediate artifact verification (such as iterative test runs).",
+    "transfer": "Generalizes to any terminal task where the agent might finish data processing steps without creating the final target file."
+   },
+   "regression_risk": "Slight risk of overly conservative behavior on tasks without explicit file deliverables, though mitigated by conditional wording.",
+   "mechanism": "Adding an explicit prompt requirement in the JSON template instructing the model to verify output file existence before task completion prevents premature finishes like the one observed in bn-fit-modify."
+  }
+ ],
+ "mechanism": "Strengthened task completion prompt instruction in JSON template to prevent premature completion when final deliverables are omitted.",
+ "targets_mode": "omitted_final_deliverable",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "Important notes:\n- Each command's keystrokes are sent exactly as written to the terminal\n- Do not include extra whitespace before or after the keystrokes unless it's part of the intended command\n- Ext...",
+   "new": "Important notes:\n- MANDATORY: Before marking task_complete as true, ensure all final output files requested by the task description have been successfully generated and verified to exist on disk (e.g...."
+  },
+  {
+   "action": "done",
+   "summary": "Strengthened task completion prompt instruction in JSON template to prevent premature completion when final deliverables are omitted.",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Adding an explicit prompt requirement in the JSON template instructing the model to verify output file existence before task completion prevents premature finishes like the one observed in bn-fit-modify.",
+     "targets_mode": "omitted_final_deliverable",
+     "why_not_lower_lever": "A prose prompt instruction directly targets the policy's omission of the final sampling step by making file verification a pre-condition for completion.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": {
+      "corrective": "bn-fit-modify omitted the final sample output file generation; explicit instruction in the prompt template forces the agent to verify artifact existence before declaring completion.",
+      "preservative": "Does not restrict successful iterative development habits or intermediate artifact verification (such as iterative test runs).",
+      "transfer": "Generalizes to any terminal task where the agent might finish data processing steps without creating the final target file."
+     },
+     "regression_risk": "Slight risk of overly conservative behavior on tasks without explicit file deliverables, though mitigated by conditional wording.",
+     "mechanism": "Adding an explicit prompt requirement in the JSON template instructing the model to verify output file existence before task completion prevents premature finishes like the one observed in bn-fit-modify."
+    }
+   ]
+  }
+ ]
+}

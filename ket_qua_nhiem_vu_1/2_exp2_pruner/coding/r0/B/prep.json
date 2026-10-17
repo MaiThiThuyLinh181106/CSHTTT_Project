@@ -1,0 +1,26 @@
+{
+ "commit": "ae5ef1e",
+ "branch": "coding/r0B",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to explicitly verify output files before declaring task complete reduces premature completions on tasks like bn-fit-modify.",
+   "targets_mode": "premature_task_completion",
+   "why_not_lower_lever": "Prose guidance is the correct lever to explicitly remind the policy to perform final verification checks before signaling completion.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": "On bn-fit-modify, the agent stopped at step 65 without running the sampling code; reminding it to verify required artifacts would have prompted it to execute the remaining commands.",
+    "preservative": "Does not disrupt successful trial loops since agents that already produce artifacts naturally benefit from checking them.",
+    "transfer": "Generalizes to any coding/data task where an agent might stop prematurely before generating final required files."
+   },
+   "regression_risk": "Slight risk of adding an extra turn of verification on simple tasks.",
+   "mechanism": "Instructing the policy to explicitly verify output files before declaring task complete reduces premature completions on tasks like bn-fit-modify."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r0\\B\\diff.patch",
+ "mechanism": "Add explicit artifact verification guidance to template to prevent premature task completion."
+}

@@ -1,0 +1,57 @@
+{
+ "status": "done",
+ "summary": "Enhance artifact verification guidelines in both JSON and XML prompt templates to check that output files are non-empty and formatted correctly before task completion.",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to check that generated artifact files are non-empty and correctly formatted before declaring task completion prevents premature completion with empty or malformed files.",
+   "targets_mode": "premature_task_completion",
+   "why_not_lower_lever": "Prose instructions guide the frozen model's decision criteria on when artifacts are truly ready.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": "(corrective) would have helped ensure files like learned_dag.csv were validated for content; (preservative) reinforces existing artifact verification success habit without breaking it; (transfer) generalizes to any task requiring output generation.",
+   "regression_risk": "none",
+   "mechanism": "Instructing the policy to check that generated artifact files are non-empty and correctly formatted before declaring task completion prevents premature completion with empty or malformed files."
+  }
+ ],
+ "mechanism": "Enhance artifact verification guidelines in both JSON and XML prompt templates to check that output files are non-empty and formatted correctly before task completion.",
+ "targets_mode": "premature_task_completion",
+ "n_edits": 2,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "- ARTIFACT VERIFICATION: Before declaring task completion, always run verification commands or inspect output files to ensure that all requested final output artifacts exist and are fully populated.",
+   "new": "- ARTIFACT VERIFICATION: Before declaring task completion, always run verification commands or inspect output files to ensure that all requested final output artifacts exist and are fully populated. C..."
+  },
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-xml-plain.txt",
+   "old": "IMPORTANT: The text inside each <keystrokes></keystrokes> tag will be used completely verbatim as keystrokes. DO NOT XML-encode special characters - write them directly:",
+   "new": "IMPORTANT: The text inside each <keystrokes></keystrokes> tag will be used completely verbatim as keystrokes. DO NOT XML-encode special characters - write them directly:\n- ARTIFACT VERIFICATION: Befor..."
+  },
+  {
+   "action": "done",
+   "summary": "Enhance artifact verification guidelines in both JSON and XML prompt templates to check that output files are non-empty and formatted correctly before task completion.",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Instructing the policy to check that generated artifact files are non-empty and correctly formatted before declaring task completion prevents premature completion with empty or malformed files.",
+     "targets_mode": "premature_task_completion",
+     "why_not_lower_lever": "Prose instructions guide the frozen model's decision criteria on when artifacts are truly ready.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": "(corrective) would have helped ensure files like learned_dag.csv were validated for content; (preservative) reinforces existing artifact verification success habit without breaking it; (transfer) generalizes to any task requiring output generation.",
+     "regression_risk": "none",
+     "mechanism": "Instructing the policy to check that generated artifact files are non-empty and correctly formatted before declaring task completion prevents premature completion with empty or malformed files."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "failure_modes": [
+  {
+   "mode": "premature_task_completion",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "bn-fit-modify"
+   ],
+   "description": "The agent signals task completion before executing the final step required to generate and save mandatory output artifacts.",
+   "needed_instead": "The agent needs to verify the existence of all required output files before marking the task as complete.",
+   "representative_evidence": [
+    {
+     "task_id": "bn-fit-modify",
+     "where": "step 65",
+     "quote": "\"task_complete\": true"
+    }
+   ]
+  }
+ ],
+ "capability_gaps": [],
+ "success_habits": [
+  {
+   "habit": "iterative_artifact_generation",
+   "n_tasks": 1,
+   "description": "The agent thoroughly implements and executes intermediate modeling steps, ensuring core logic passes baseline checks.",
+   "risk_if_broken": "Core functionality and partial test passes would regress if intermediate execution steps are disrupted."
+  }
+ ],
+ "n_digests": 1
+}

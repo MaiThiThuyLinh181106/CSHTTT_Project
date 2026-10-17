@@ -1,0 +1,26 @@
+{
+ "commit": "28bbddd",
+ "branch": "coding/r0A",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Adding an explicit prompt requirement in the JSON template instructing the model to verify output file existence before task completion prevents premature finishes like the one observed in bn-fit-modify.",
+   "targets_mode": "omitted_final_deliverable",
+   "why_not_lower_lever": "A prose prompt instruction directly targets the policy's omission of the final sampling step by making file verification a pre-condition for completion.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": "bn-fit-modify omitted the final sample output file generation; explicit instruction in the prompt template forces the agent to verify artifact existence before declaring completion.",
+    "preservative": "Does not restrict successful iterative development habits or intermediate artifact verification (such as iterative test runs).",
+    "transfer": "Generalizes to any terminal task where the agent might finish data processing steps without creating the final target file."
+   },
+   "regression_risk": "Slight risk of overly conservative behavior on tasks without explicit file deliverables, though mitigated by conditional wording.",
+   "mechanism": "Adding an explicit prompt requirement in the JSON template instructing the model to verify output file existence before task completion prevents premature finishes like the one observed in bn-fit-modify."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r0\\A\\diff.patch",
+ "mechanism": "Strengthened task completion prompt instruction in JSON template to prevent premature completion when final deliverables are omitted."
+}

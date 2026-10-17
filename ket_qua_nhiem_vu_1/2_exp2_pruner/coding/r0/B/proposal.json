@@ -1,0 +1,59 @@
+{
+ "status": "done",
+ "summary": "Add explicit artifact verification guidance to template to prevent premature task completion.",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to explicitly verify output files before declaring task complete reduces premature completions on tasks like bn-fit-modify.",
+   "targets_mode": "premature_task_completion",
+   "why_not_lower_lever": "Prose guidance is the correct lever to explicitly remind the policy to perform final verification checks before signaling completion.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "bn-fit-modify"
+   ],
+   "retroactive_check": {
+    "corrective": "On bn-fit-modify, the agent stopped at step 65 without running the sampling code; reminding it to verify required artifacts would have prompted it to execute the remaining commands.",
+    "preservative": "Does not disrupt successful trial loops since agents that already produce artifacts naturally benefit from checking them.",
+    "transfer": "Generalizes to any coding/data task where an agent might stop prematurely before generating final required files."
+   },
+   "regression_risk": "Slight risk of adding an extra turn of verification on simple tasks.",
+   "mechanism": "Instructing the policy to explicitly verify output files before declaring task complete reduces premature completions on tasks like bn-fit-modify."
+  }
+ ],
+ "mechanism": "Add explicit artifact verification guidance to template to prevent premature task completion.",
+ "targets_mode": "premature_task_completion",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "IMPORTANT: The text inside \"keystrokes\" will be used completely verbatim as keystrokes. Write commands exactly as you want them sent to the terminal:\n- You must end every command with a newline (\\n) o...",
+   "new": "IMPORTANT: The text inside \"keystrokes\" will be used completely verbatim as keystrokes. Write commands exactly as you want them sent to the terminal:\n- You must end every command with a newline (\\n) o..."
+  },
+  {
+   "action": "done",
+   "summary": "Add explicit artifact verification guidance to template to prevent premature task completion.",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Instructing the policy to explicitly verify output files before declaring task complete reduces premature completions on tasks like bn-fit-modify.",
+     "targets_mode": "premature_task_completion",
+     "why_not_lower_lever": "Prose guidance is the correct lever to explicitly remind the policy to perform final verification checks before signaling completion.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "bn-fit-modify"
+     ],
+     "retroactive_check": {
+      "corrective": "On bn-fit-modify, the agent stopped at step 65 without running the sampling code; reminding it to verify required artifacts would have prompted it to execute the remaining commands.",
+      "preservative": "Does not disrupt successful trial loops since agents that already produce artifacts naturally benefit from checking them.",
+      "transfer": "Generalizes to any coding/data task where an agent might stop prematurely before generating final required files."
+     },
+     "regression_risk": "Slight risk of adding an extra turn of verification on simple tasks.",
+     "mechanism": "Instructing the policy to explicitly verify output files before declaring task complete reduces premature completions on tasks like bn-fit-modify."
+    }
+   ]
+  }
+ ]
+}

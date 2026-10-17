@@ -1,0 +1,24 @@
+[
+ {
+  "variant": "A",
+  "admissible": false,
+  "reason": "cost rule failed: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = -4.7980 <= 0 (nu=0)",
+  "S": 0.5,
+  "C": 1398204.0,
+  "delta_S": 0.0,
+  "delta_C": 0.31986973143909003,
+  "novelty": 0,
+  "guards": []
+ },
+ {
+  "variant": "B",
+  "admissible": true,
+  "reason": "admissible: gain +0.5000 > delta 0.0170; cost change -0.392 <= budget 10.050 (beta0 0.05 + beta1 20.0 * dS)",
+  "S": 1.0,
+  "C": 644589.5,
+  "delta_S": 0.5,
+  "delta_C": -0.3915235757775995,
+  "novelty": 0,
+  "guards": []
+ }
+]

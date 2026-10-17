@@ -1,0 +1,77 @@
+Agent 'rrsi-terminus2' does not declare an options_model; leftover kwargs are ignored
+Agent 'rrsi-terminus2' does not declare an options_model; leftover kwargs are ignored
+Installing: tmux
+Installing: tmux
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git branch -a\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git log --all --oneline -n 20\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git reflog -n 20\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\fix-git__yTuuw3T\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['git show c499730\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\fix-git__yTuuw3T\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['git cherry-pick c499730\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git log -n 3 --oneline\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\fix-git__yTuuw3T\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['readelf -l /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['readelf -S /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['q\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Sending keys: ['git cherry-pick c499730\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git log -n 3 --oneline\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['cat /app/hi.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['objdump -d /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\fix-git__yTuuw3T\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\fix-git__yTuuw3T\agent\trajectory.json
+Collecting main service artifacts
+Sending keys: ['readelf -s /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['ls -la /app / \n'] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['ls -la /logs\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['history\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['ls -la /logs/verifier /logs/artifacts\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ["cat << 'EOF' > extract.js\nconst fs = require('fs');\nconst filename = process.argv[2] || '/app/a.out';\nconst buf = fs.readFileSync(filename);\n\n// Simple ELF parser for LOAD segments\n// ELF Header 64-bit\nconst e_phoff = buf.readBigUInt64LE(32);\nconst e_phentsize = buf.readUInt16LE(54);\nconst e_phnum = buf.readUInt16LE(56);\n\nlet result = {};\n\nfor (let i = 0; i < e_phnum; i++) {\n  let off = Number(e_phoff) + i * e_phentsize;\n  let p_type = buf.readUInt32LE(off);\n  if (p_type === 1) { // PT_LOAD\n    let p_offset = Number(buf.readBigUInt64LE(off + 8));\n    let p_vaddr = Number(buf.readBigUInt64LE(off + 16));\n    let p_filesz = Number(buf.readBigUInt64LE(off + 32));\n    let p_memsz = Number(buf.readBigUInt64LE(off + 40));\n    \n    for (let addr = p_vaddr; addr < p_vaddr + p_filesz; addr += 4) {\n      let fileOffset = p_offset + (addr - p_vaddr);\n      if (fileOffset + 4 <= buf.length) {\n        let val = buf.readInt32LE(fileOffset);\n        result[addr.toString()] = val;\n      }\n    }\n  }\n}\n\nconsole.log(JSON.stringify(result, null, 2));\nEOF\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['node extract.js /app/a.out > out.json\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['head -n 20 out.json\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['node extract.js /app/a.out | head -n 10\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['ls -lh extract.js out.json\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r1A_smoke\extract-elf__qUto7xZ\agent\trajectory.json
+Collecting main service artifacts

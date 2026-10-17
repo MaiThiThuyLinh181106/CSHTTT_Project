@@ -1,0 +1,18 @@
+diff --git a/third_party/harbor_terminus2/terminus_json_plain_parser.py b/third_party/harbor_terminus2/terminus_json_plain_parser.py
+index d2ea6d8..0bfe1ef 100644
+--- a/third_party/harbor_terminus2/terminus_json_plain_parser.py
++++ b/third_party/harbor_terminus2/terminus_json_plain_parser.py
+@@ -302,6 +302,13 @@ class TerminusJSONPlainParser:
+                     f"Command {i + 1}: Unknown fields: {', '.join(unknown_fields)}"
+                 )
+ 
++            # Validate duration range to guard against negative or absurdly large waits
++            if isinstance(duration, (int, float)) and (duration < 0.0 or duration > 60.0):
++                warnings.append(
++                    f"Command {i + 1}: Duration {duration} out of bounds [0, 60], clamping to 60.0"
++                )
++                duration = min(max(float(duration), 0.0), 60.0)
++
+             # Check for newline at end of keystrokes if followed by another command
+             if i < len(commands_data) - 1 and not keystrokes.endswith("\n"):
+                 warnings.append(

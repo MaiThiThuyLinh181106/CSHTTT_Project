@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The prompt addition guides the policy LLM to verify file existence before completing tasks, which is a general prompt engineering improvement for avoiding premature completion without hardcoding specific task names, files, or answers."
+ ]
+}

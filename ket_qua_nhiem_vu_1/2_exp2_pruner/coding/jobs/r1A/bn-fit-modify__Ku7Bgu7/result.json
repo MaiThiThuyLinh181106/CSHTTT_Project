@@ -1,0 +1,178 @@
+{
+    "id": "ef87cb68-72fa-4aed-b050-bfbd00a59955",
+    "task_name": "terminal-bench/bn-fit-modify",
+    "trial_name": "bn-fit-modify__Ku7Bgu7",
+    "trial_uri": "file:///D:/CSHTTT_Project/runs/coding/jobs/r1A/bn-fit-modify__Ku7Bgu7",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "bn-fit-modify",
+        "ref": "sha256:b5f9644970c17ad9ddb46b7266f7bcd87c761d77d7e6f55d7cfe7284d5ff66e9"
+    },
+    "source": "terminal-bench/terminal-bench-2-1",
+    "task_checksum": "de87a0c253c75b7dfbc68a2fcf120d5bd77b1df632c7469e3d0a3b74321d26c2",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/bn-fit-modify",
+            "ref": "sha256:b5f9644970c17ad9ddb46b7266f7bcd87c761d77d7e6f55d7cfe7284d5ff66e9",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2-1"
+        },
+        "trial_name": "bn-fit-modify__Ku7Bgu7",
+        "trials_dir": "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r1A",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "harbor_terminus2:AgentHarness",
+            "import_path": null,
+            "model_name": "gemini/gemini-3.5-flash-lite",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "llm_kwargs": {
+                    "num_retries": 10
+                }
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "9420ef11-4b24-4167-b50a-95a6df0285a4",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "rrsi-terminus2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gemini-3.5-flash-lite",
+            "provider": "gemini"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 810997,
+        "n_cache_tokens": 661296,
+        "n_output_tokens": 10871,
+        "cost_usd": 0.09192668000000001,
+        "model_usage": {
+            "gemini-3.5-flash-lite": {
+                "n_input_tokens": 810997,
+                "n_cache_tokens": 661296,
+                "n_output_tokens": 10871,
+                "cost_usd": 0.09192668000000001
+            }
+        },
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 41,
+            "api_request_times_msec": [
+                1764.7743225097656,
+                1183.7916374206543,
+                1269.2594528198242,
+                1641.404151916504,
+                1260.030746459961,
+                1679.4331073760986,
+                1246.8173503875732,
+                1573.6312866210938,
+                1209.646463394165,
+                1270.4339027404785,
+                1520.113229751587,
+                4795.260190963745,
+                4323.089599609375,
+                18340.599298477173,
+                1428.4892082214355,
+                2896.056890487671,
+                1459.4824314117432,
+                1887.3372077941895,
+                3600.3098487854004,
+                2132.828712463379,
+                2515.03586769104,
+                1412.140130996704,
+                1478.022575378418,
+                1612.5702857971191,
+                2318.181037902832,
+                3208.8401317596436,
+                2791.8965816497803,
+                7550.079584121704,
+                6727.160453796387,
+                1522.9854583740234,
+                1890.0985717773438,
+                2698.7504959106445,
+                3461.2979888916016,
+                1454.359531402588,
+                1708.2018852233887,
+                1663.8002395629883,
+                4934.833526611328,
+                2535.842180252075,
+                1858.7989807128906,
+                2224.689483642578,
+                1610.1887226104736
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-10-17T03:02:18.279835Z",
+    "finished_at": "2026-10-17T03:09:46.279353Z",
+    "environment_setup": {
+        "started_at": "2026-10-17T03:02:18.556578Z",
+        "finished_at": "2026-10-17T03:02:20.210355Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-17T03:02:20.210403Z",
+        "finished_at": "2026-10-17T03:02:38.161497Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-17T03:02:38.161596Z",
+        "finished_at": "2026-10-17T03:08:53.073532Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-17T03:08:53.077455Z",
+        "finished_at": "2026-10-17T03:09:41.980675Z"
+    },
+    "step_results": null
+}

@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/adaptive-rejection-sampler",
+        "ref": "sha256:bcaa2399985cd57666018025846289ab25e193ae0dd8fb7f0ffab2410c24d4de",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "adaptive-rejection-sampler__HkjCo4a",
+    "trials_dir": "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0B",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 10
+            }
+        }
+    },
+    "job_id": "ee872384-49ca-47e7-a82b-94ff96a1b3a9"
+}

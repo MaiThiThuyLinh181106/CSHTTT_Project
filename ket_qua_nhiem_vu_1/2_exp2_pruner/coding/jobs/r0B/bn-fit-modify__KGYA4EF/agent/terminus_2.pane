@@ -1,0 +1,877 @@
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pgmpy; import pandas as pd; print(pd.read_csv('/app/bn_sample_10k.csv').head())"
+[?2004lTraceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'pgmpy'
+[?2004hroot@68c73f4b0621:/app# pip install pgmpy pandas numpy scikit-learn networkx
+[?2004l[1;31merror[0m: [1mexternally-managed-environment[0m
+
+[31m×[0m This environment is externally managed
+[31m╰─>[0m To install Python packages system-wide, try apt install
+[31m   [0m python3-xyz, where xyz is the package you are trying to
+[31m   [0m install.
+[31m   [0m 
+[31m   [0m If you wish to install a non-Debian-packaged Python package,
+[31m   [0m create a virtual environment using python3 -m venv path/to/venv.
+[31m   [0m Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+[31m   [0m sure you have python3-full installed.
+[31m   [0m 
+[31m   [0m If you wish to install a non-Debian packaged Python application,
+[31m   [0m it may be easiest to use pipx install xyz, which will manage a
+[31m   [0m virtual environment for you. Make sure you have pipx installed.
+[31m   [0m 
+[31m   [0m See /usr/share/doc/python3.12/README.venv for more information.
+
+[1;35mnote[0m: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+[1;36mhint[0m: See PEP 668 for the detailed specification.
+[?2004hroot@68c73f4b0621:/app# python3 -m venv /app/venv && /app/venv/bin/pip install pgmpy pandas numpy scikit-learn networkx
+[?2004lThe virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.12-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+
+Failing command: /app/venv/bin/python3
+
+[?2004hroot@68c73f4b0621:/app# pip install --break-system-packages pgmpy pandas numpy scikit-learn networkx
+[?2004lCollecting pgmpy
+  Downloading pgmpy-1.1.2-py3-none-any.whl.metadata (13 kB)
+Collecting pandas
+  Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+[?25l     [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/79.5 kB[0m [31m?[0m eta [36m-:--:--[0m[2K     [38;5;197m━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m10.2/79.5 kB[0m [31m?[0m eta [36m-:--:--[0m[2K     [38;5;197m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m30.7/79.5 kB[0m [31m767.8 kB/s[0m eta [36m0:00:01[0m[2K     [38;5;197m━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m41.0/79.5 kB[0m [31m354.2 kB/s[0m eta [36m0:00:01[0m[2K     [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m79.5/79.5 kB[0m [31m582.8 kB/s[0m eta [36m0:00:00[0m
+[?25hCollecting numpy
+  Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting scikit-learn
+  Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting networkx
+  Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Collecting huggingface_hub>=0.23 (from pgmpy)
+  Downloading huggingface_hub-2.2.0-py3-none-any.whl.metadata (16 kB)
+Collecting scipy>=1.10 (from pgmpy)
+  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+[?25l     [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/62.4 kB[0m [31m?[0m eta [36m-:--:--[0m[2K     [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m62.4/62.4 kB[0m [31m2.3 MB/s[0m eta [36m0:00:00[0m
+[?25hCollecting statsmodels>=0.14.5 (from pgmpy)
+  Downloading statsmodels-0.15.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.6 kB)
+Collecting tqdm>=4.64 (from pgmpy)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+[?25l     [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/57.4 kB[0m [31m?[0m eta [36m-:--:--[0m[2K     [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m57.4/57.4 kB[0m [31m2.3 MB/s[0m eta [36m0:00:00[0m
+[?25hCollecting pyparsing>=3.0 (from pgmpy)
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting joblib>=1.2 (from pgmpy)
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting opt_einsum>=3.3 (from pgmpy)
+  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+Collecting scikit-base>=0.12.4 (from pgmpy)
+  Downloading scikit_base-1.2.0-py3-none-any.whl.metadata (8.9 kB)
+Collecting python-dateutil>=2.8.2 (from pandas)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn)
+  Downloading narwhals-2.27.1-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn)
+  Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface_hub>=0.23->pgmpy)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting filelock>=3.10.0 (from huggingface_hub>=0.23->pgmpy)
+  Downloading filelock-4.2.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting fsspec>=2023.5.0 (from huggingface_hub>=0.23->pgmpy)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub>=0.23->pgmpy)
+  Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface_hub>=0.23->pgmpy)
+  Downloading httpx2-2.13.1-py3-none-any.whl.metadata (9.8 kB)
+Collecting packaging>=20.9 (from huggingface_hub>=0.23->pgmpy)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml>=5.1 (from huggingface_hub>=0.23->pgmpy)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting typing-extensions>=4.1.0 (from huggingface_hub>=0.23->pgmpy)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting cloudpickle>=3.0 (from joblib>=1.2->pgmpy)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting patsy>=0.5.6 (from statsmodels>=0.14.5->pgmpy)
+  Downloading patsy-1.0.3-py2.py3-none-any.whl.metadata (3.7 kB)
+Collecting formulaic>=1.1.0 (from statsmodels>=0.14.5->pgmpy)
+  Downloading formulaic-1.2.2-py3-none-any.whl.metadata (7.0 kB)
+Collecting interface-meta>=1.2.0 (from formulaic>=1.1.0->statsmodels>=0.14.5->pgmpy)
+  Downloading interface_meta-2.0.1-py3-none-any.whl.metadata (6.4 kB)
+Collecting wrapt>=1.0 (from formulaic>=1.1.0->statsmodels>=0.14.5->pgmpy)
+  Downloading wrapt-2.5.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.6 kB)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface_hub>=0.23->pgmpy)
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.13.1 (from httpx2<3,>=2.0.0->huggingface_hub>=0.23->pgmpy)
+  Downloading httpcore2-2.13.1-py3-none-any.whl.metadata (26 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface_hub>=0.23->pgmpy)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface_hub>=0.23->pgmpy)
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.13.1->httpx2<3,>=2.0.0->huggingface_hub>=0.23->pgmpy)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Downloading pgmpy-1.1.2-py3-none-any.whl (2.4 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/2.4 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.1/2.4 MB[0m [31m2.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.1/2.4 MB[0m [31m2.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.2/2.4 MB[0m [31m1.4 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.3/2.4 MB[0m [31m2.1 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.4/2.4 MB[0m [31m2.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.4/2.4 MB[0m [31m2.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.7/2.4 MB[0m [31m2.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.9/2.4 MB[0m [31m3.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/2.4 MB[0m [31m3.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━[0m [32m1.5/2.4 MB[0m [31m4.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━[0m [32m2.0/2.4 MB[0m [31m5.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━[0m [32m2.3/2.4 MB[0m [31m5.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m2.4/2.4 MB[0m [31m5.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.4/2.4 MB[0m [31m5.2 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/10.8 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/10.8 MB[0m [31m31.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.7/10.8 MB[0m [31m24.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.2/10.8 MB[0m [31m21.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.0/10.8 MB[0m [31m21.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.1/10.8 MB[0m [31m23.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.7/10.8 MB[0m [31m21.9 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m5.5/10.8 MB[0m [31m22.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━[0m [32m6.6/10.8 MB[0m [31m23.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━[0m [32m7.7/10.8 MB[0m [31m23.9 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━[0m [32m8.4/10.8 MB[0m [31m23.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━[0m [32m9.3/10.8 MB[0m [31m23.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━[0m [32m10.3/10.8 MB[0m [31m24.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m10.8/10.8 MB[0m [31m23.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m10.8/10.8 MB[0m [31m21.8 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/16.7 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.9/16.7 MB[0m [31m26.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.7/16.7 MB[0m [31m23.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.5/16.7 MB[0m [31m22.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.8/16.7 MB[0m [31m19.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.6/16.7 MB[0m [31m20.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.5/16.7 MB[0m [31m20.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.4/16.7 MB[0m [31m21.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.3/16.7 MB[0m [31m21.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m7.3/16.7 MB[0m [31m22.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m8.4/16.7 MB[0m [31m23.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m [32m8.9/16.7 MB[0m [31m22.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━[0m [32m9.7/16.7 MB[0m [31m22.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━[0m [32m10.6/16.7 MB[0m [31m22.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━[0m [32m11.6/16.7 MB[0m [31m22.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━[0m [32m11.7/16.7 MB[0m [31m21.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━[0m [32m12.7/16.7 MB[0m [31m21.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━[0m [32m13.6/16.7 MB[0m [31m23.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━[0m [32m14.0/16.7 MB[0m [31m22.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━[0m [32m15.0/16.7 MB[0m [31m22.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━[0m [32m15.7/16.7 MB[0m [31m22.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m16.6/16.7 MB[0m [31m22.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m16.7/16.7 MB[0m [31m21.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m16.7/16.7 MB[0m [31m19.8 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/9.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.7/9.2 MB[0m [31m22.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/9.2 MB[0m [31m24.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.4/9.2 MB[0m [31m23.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.6/9.2 MB[0m [31m25.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m4.7/9.2 MB[0m [31m26.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━[0m [32m5.4/9.2 MB[0m [31m25.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━[0m [32m6.3/9.2 MB[0m [31m25.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━[0m [32m7.3/9.2 MB[0m [31m25.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━[0m [32m8.2/9.2 MB[0m [31m25.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m9.2/9.2 MB[0m [31m26.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m9.2/9.2 MB[0m [31m24.4 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading networkx-3.7-py3-none-any.whl (2.1 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/2.1 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.8/2.1 MB[0m [31m26.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━[0m [32m1.5/2.1 MB[0m [31m22.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.1/2.1 MB[0m [31m20.8 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading huggingface_hub-2.2.0-py3-none-any.whl (839 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/839.9 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m839.7/839.9 kB[0m [31m28.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m839.9/839.9 kB[0m [31m20.1 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading joblib-1.6.0-py3-none-any.whl (306 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/306.1 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m306.1/306.1 kB[0m [31m14.9 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading narwhals-2.27.1-py3-none-any.whl (483 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/483.2 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m483.2/483.2 kB[0m [31m18.8 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/71.9 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m71.9/71.9 kB[0m [31m2.1 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/126.4 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m126.4/126.4 kB[0m [31m4.8 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/229.9 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m229.9/229.9 kB[0m [31m15.3 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading scikit_base-1.2.0-py3-none-any.whl (162 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/162.6 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m162.6/162.6 kB[0m [31m10.1 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/35.3 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.9/35.3 MB[0m [31m27.7 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.6/35.3 MB[0m [31m24.1 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.8/35.3 MB[0m [31m27.0 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.6/35.3 MB[0m [31m26.4 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.6/35.3 MB[0m [31m26.6 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.8/35.3 MB[0m [31m27.8 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.4/35.3 MB[0m [31m26.0 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m7.4/35.3 MB[0m [31m26.4 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m8.2/35.3 MB[0m [31m25.7 MB/s[0m eta [36m0:00:02[0m[2K   [38;5;197m━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m9.2/35.3 MB[0m [31m26.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m10.3/35.3 MB[0m [31m26.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m11.4/35.3 MB[0m [31m26.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m12.5/35.3 MB[0m [31m27.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m13.2/35.3 MB[0m [31m26.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m [32m14.2/35.3 MB[0m [31m27.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m15.3/35.3 MB[0m [31m26.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━[0m [32m15.8/35.3 MB[0m [31m25.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━[0m [32m16.5/35.3 MB[0m [31m25.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━[0m [32m17.1/35.3 MB[0m [31m24.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━[0m [32m18.1/35.3 MB[0m [31m25.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━[0m [32m18.7/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━[0m [32m19.5/35.3 MB[0m [31m23.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━[0m [32m20.5/35.3 MB[0m [31m23.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━[0m [32m21.5/35.3 MB[0m [31m23.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━[0m [32m22.6/35.3 MB[0m [31m23.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━[0m [32m23.5/35.3 MB[0m [31m23.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━[0m [32m24.4/35.3 MB[0m [31m23.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━[0m [32m25.1/35.3 MB[0m [31m23.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━[0m [32m25.9/35.3 MB[0m [31m23.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━[0m [32m26.9/35.3 MB[0m [31m24.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━[0m [32m27.9/35.3 MB[0m [31m24.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━[0m [32m29.0/35.3 MB[0m [31m26.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━[0m [32m30.1/35.3 MB[0m [31m26.9 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━[0m [32m30.9/35.3 MB[0m [31m26.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━[0m [32m31.9/35.3 MB[0m [31m26.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━[0m [32m32.4/35.3 MB[0m [31m24.9 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━[0m [32m33.4/35.3 MB[0m [31m25.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━[0m [32m34.2/35.3 MB[0m [31m24.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m34.9/35.3 MB[0m [31m24.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m35.3/35.3 MB[0m [31m24.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m35.3/35.3 MB[0m [31m13.4 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading statsmodels-0.15.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/12.0 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.0/12.0 MB[0m [31m30.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.9/12.0 MB[0m [31m28.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m2.9/12.0 MB[0m [31m28.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.1/12.0 MB[0m [31m29.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.0/12.0 MB[0m [31m29.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━[0m [32m5.9/12.0 MB[0m [31m28.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━━━━[0m [32m7.2/12.0 MB[0m [31m29.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━[0m [32m8.1/12.0 MB[0m [31m29.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━[0m [32m8.9/12.0 MB[0m [31m28.2 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━[0m [32m9.9/12.0 MB[0m [31m28.4 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━[0m [32m10.7/12.0 MB[0m [31m27.6 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━[0m [32m11.6/12.0 MB[0m [31m27.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m12.0/12.0 MB[0m [31m26.5 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m12.0/12.0 MB[0m [31m24.4 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/80.2 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━[0m [32m71.7/80.2 kB[0m [31m7.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m80.2/80.2 kB[0m [31m2.2 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading click-8.5.0-py3-none-any.whl (125 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/125.3 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m125.3/125.3 kB[0m [31m7.7 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading filelock-4.2.0-py3-none-any.whl (135 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/135.0 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m135.0/135.0 kB[0m [31m8.2 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading formulaic-1.2.2-py3-none-any.whl (118 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/118.9 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m118.9/118.9 kB[0m [31m8.1 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/221.7 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m221.7/221.7 kB[0m [31m6.9 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/4.2 MB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.9/4.2 MB[0m [31m27.0 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━[0m[38;5;237m╺[0m[38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.5/4.2 MB[0m [31m21.3 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━━━━━━━━━━━━[0m [32m2.8/4.2 MB[0m [31m26.8 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m[38;5;237m━━[0m [32m4.0/4.2 MB[0m [31m28.1 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.2/4.2 MB[0m [31m24.6 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading httpx2-2.13.1-py3-none-any.whl (95 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/95.6 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m95.6/95.6 kB[0m [31m7.3 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading httpcore2-2.13.1-py3-none-any.whl (83 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/83.4 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m83.4/83.4 kB[0m [31m4.9 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading packaging-26.3-py3-none-any.whl (129 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/130.0 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m130.0/130.0 kB[0m [31m7.9 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading patsy-1.0.3-py2.py3-none-any.whl (233 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/233.3 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m233.3/233.3 kB[0m [31m8.1 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/807.9 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;197m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m[38;5;197m╸[0m [32m798.7/807.9 kB[0m [31m29.7 MB/s[0m eta [36m0:00:01[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m807.9/807.9 kB[0m [31m20.3 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/45.6 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m45.6/45.6 kB[0m [31m4.0 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading anyio-4.15.1-py3-none-any.whl (132 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/132.1 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m132.1/132.1 kB[0m [31m7.4 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading idna-3.20-py3-none-any.whl (69 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/69.6 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m69.6/69.6 kB[0m [31m3.9 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading interface_meta-2.0.1-py3-none-any.whl (15 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Downloading wrapt-2.5.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (250 kB)
+[?25l   [38;5;237m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m0.0/250.4 kB[0m [31m?[0m eta [36m-:--:--[0m[2K   [38;5;70m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m250.4/250.4 kB[0m [31m9.1 MB/s[0m eta [36m0:00:00[0m
+[?25hDownloading h11-0.16.0-py3-none-any.whl (37 kB)
+Installing collected packages: wrapt, typing-extensions, truststore, tqdm, threadpoolctl, six, scikit-base, pyyaml, pyparsing, packaging, opt_einsum, numpy, networkx, narwhals, interface-meta, idna, hf-xet, h11, fsspec, filelock, cloudpickle, click, scipy, python-dateutil, patsy, joblib, httpcore2, anyio, scikit-learn, pandas, httpx2, huggingface_hub, formulaic, statsmodels, pgmpy
+Successfully installed anyio-4.15.1 click-8.5.0 cloudpickle-3.1.2 filelock-4.2.0 formulaic-1.2.2 fsspec-2026.9.0 h11-0.16.0 hf-xet-1.7.0 httpcore2-2.13.1 httpx2-2.13.1 huggingface_hub-2.2.0 idna-3.20 interface-meta-2.0.1 joblib-1.6.0 narwhals-2.27.1 networkx-3.7 numpy-2.5.4 opt_einsum-3.4.0 packaging-26.3 pandas-3.0.6 patsy-1.0.3 pgmpy-1.1.2 pyparsing-3.3.3 python-dateutil-2.9.0.post0 pyyaml-6.0.3 scikit-base-1.2.0 scikit-learn-1.9.1 scipy-1.18.1 six-1.17.0 statsmodels-0.15.0 threadpoolctl-3.7.0 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 wrapt-2.5.1
+[33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv[0m[33m
+[0m[?2004hroot@68c73f4b0621:/app# python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.columns.tolist())"
+[?2004l['U', 'Y', 'R', 'D', 'M']
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/learn_dag.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.estimators import HillClimbSearch, BicScore
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> bic = BicScore(df)
+[?2004l[?2004h> hc = HillClimbSearch(df)
+[?2004l[?2004h> best_model = hc.estimate(scoring_method=bic)
+[?2004l[?2004h> print('Edges:', list(best_model.edges()))
+[?2004l[?2004h> print('Number of edges:', len(best_model.edges()))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/learn_dag.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Traceback (most recent call last):
+  File "/app/learn_dag.py", line 2, in <module>
+    from pgmpy.estimators import HillClimbSearch, BicScore
+ImportError: cannot import name 'BicScore' from 'pgmpy.estimators' (/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py)
+[?2004hroot@68c73f4b0621:/app# python3 -c "from pgmpy.metrics import BDeuScore, BicScore; print(BicScore)"
+[?2004lTraceback (most recent call last):
+  File "<string>", line 1, in <module>
+ImportError: cannot import name 'BDeuScore' from 'pgmpy.metrics' (/usr/local/lib/python3.12/dist-packages/pgmpy/metrics/__init__.py)
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pgmpy.estimators; print(dir(pgmpy.estimators)); import pgmpy; print(dir(pgmpy))"
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+['AIC', 'AICCondGauss', 'AICGauss', 'BDeu', 'BDs', 'BIC', 'BICCondGauss', 'BICGauss', 'BaseConstraintEstimator', 'BaseEstimator', 'BayesianEstimator', 'CITests', 'EM', 'ExhaustiveSearch', 'ExpectationMaximization', 'ExpertInLoop', 'ExpertKnowledge', 'GES', 'HillClimbSearch', 'IVEstimator', 'K2', 'LinearModel', 'LogLikelihoodCondGauss', 'LogLikelihoodGauss', 'MLE', 'MarginalEstimator', 'MaximumLikelihoodEstimator', 'MirrorDescentEstimator', 'MmhcEstimator', 'PC', 'ParameterEstimator', 'SEMEstimator', 'ScoreCache', 'StructureEstimator', 'StructureScore', 'TreeSearch', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__warningregistry__', 'base', 'expert']
+['__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__version__', 'base', 'causal_discovery', 'ci_tests', 'config', 'estimators', 'extern', 'factors', 'global_vars', 'independencies', 'inference', 'logger', 'metrics', 'models', 'structure_score', 'utils', 'version']
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pgmpy; print([m for m in dir(pgmpy) if 'score' in m.lower() or 'estim' in m.lower()])"
+[?2004l[]
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/learn_dag.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.estimators import HillClimbSearch, BIC
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> bic = BIC(df)
+[?2004l[?2004h> hc = HillClimbSearch(df)
+[?2004l[?2004h> best_model = hc.estimate(scoring_method=bic)
+[?2004l[?2004h> print('Edges:', list(best_model.edges()))
+[?2004l[?2004h> print('Number of edges:', len(best_model.edges()))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/learn_dag.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+/app/learn_dag.py:6: FutureWarning: HillClimbSearch is deprecated and will be removed in v1.3.0. Please use
+            pgmpy.causal_discovery.HillClimbSearch instead.
+  hc = HillClimbSearch(df)
+  0%|                                                                                                                              | 0/1000000 [00:00<?, ?it/s]cat << 'EOF' > /app/learn_dag.py
+import pandas as pd
+from pgmpy.estimators import HillClimbSearch, BIC
+
+df = pd.read_csv('/app/bn_sample_10k.csv')
+bic = BIC(df)
+hc = HillClimbSearch(df)
+best_model = hc.estimate(scoring_method=bic, show_progress=False)
+print('Edges:', list(best_model.edges()))
+print('Number of edges:', len(best_model.edges()))
+EOF
+python3 /app/learn_dag.py
+C-c
+python3 /app/learn_dag.py
+python3 /app/learn_dag.py
+
+  0%|                                                                                                                              | 0/1000000 [00:37<?, ?it/s]
+Edges: []
+Number of edges: 0
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/learn_dag.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.estimators import HillClimbSearch, BIC
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> bic = BIC(df)
+[?2004l[?2004h> hc = HillClimbSearch(df)
+[?2004l[?2004h> best_model = hc.estimate(scoring_method=bic, show_progress=False)
+[?2004l[?2004h> print('Edges:', list(best_model.edges()))
+[?2004l[?2004h> print('Number of edges:', len(best_model.edges()))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/learn_dag.py
+[?2004lpython3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.nunique())"
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+/app/learn_dag.py:6: FutureWarning: HillClimbSearch is deprecated and will be removed in v1.3.0. Please use
+            pgmpy.causal_discovery.HillClimbSearch instead.
+  hc = HillClimbSearch(df)
+python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.nunique())"
+
+python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.nunique()); print(df.head())"
+C-c
+python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.nunique()); print(df.head())"
+
+python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.nunique()); print(df.head())"
+C-c
+clear
+python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.nunique()); print(df.head())"
+
+Edges: []
+Number of edges: 0
+C-c
+[?2004hroot@68c73f4b0621:/app# C-c
+[?2004lbash: C-c: command not found
+[?2004hroot@68c73f4b0621:/app# python3 /app/learn_dag.py
+[?2004lpython3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.head())"
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+/app/learn_dag.py:6: FutureWarning: HillClimbSearch is deprecated and will be removed in v1.3.0. Please use
+            pgmpy.causal_discovery.HillClimbSearch instead.
+  hc = HillClimbSearch(df)
+^Cpython3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.head())"
+Traceback (most recent call last):
+  File "/app/learn_dag.py", line 7, in <module>
+    best_model = hc.estimate(scoring_method=bic, show_progress=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/HillClimbSearch.py", line 255, in estimate
+    best_operation, best_score_delta = max(
+                                       ^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/HillClimbSearch.py", line 97, in _legal_operations
+    score_delta = score(Y, new_parents) - score(Y, old_parents)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/ScoreCache.py", line 42, in local_score
+    return self.cache(variable, hashable)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/ScoreCache.py", line 88, in __call__
+    value = self.original_function(*key)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/ScoreCache.py", line 46, in _wrapped_original
+    return self.base_scorer.local_score(variable, expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/StructureScore.py", line 810, in local_score
+    ll, num_parents_states, var_cardinality = self._log_likelihood(variable=variable, parents=parents)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/StructureScore.py", line 711, in _log_likelihood
+    np.log(counts, out=log_likelihoods, where=counts > 0)
+KeyboardInterrupt
+
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.head())"
+[?2004lU    float64
+Y    float64
+R    float64
+D    float64
+M    float64
+dtype: object
+           U          Y          R          D          M
+0  65.159579  55.049745  73.150627  57.661555  64.338468
+1  44.602905  43.600176  38.589413  45.940194  21.246949
+2  54.456424  54.130761  47.302574  41.819419  52.392400
+3  57.321001  61.049137  48.989910  54.499890  52.223173
+4  54.893330  61.596230  58.221443  24.961445  50.931500
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pandas as pd; df = pd.read_csv('/app/bn_sample_10k.csv'); print(df.dtypes); print(df.head())"
+[?2004lU    float64
+Y    float64
+R    float64
+D    float64
+M    float64
+dtype: object
+           U          Y          R          D          M
+0  65.159579  55.049745  73.150627  57.661555  64.338468
+1  44.602905  43.600176  38.589413  45.940194  21.246949
+2  54.456424  54.130761  47.302574  41.819419  52.392400
+3  57.321001  61.049137  48.989910  54.499890  52.223173
+4  54.893330  61.596230  58.221443  24.961445  50.931500
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/learn_dag_gaussian.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.estimators import PC
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> pc = PC(df)
+[?2004l[?2004h> estimated_model = pc.estimate(variant='stable', ci_test='pearson', signif_level=0.01)
+[?2004l[?2004h> print('PC Edges:', list(estimated_model.edges()))
+[?2004l[?2004h> print('Number of edges:', len(estimated_model.edges()))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/learn_dag_gaussian.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+/app/learn_dag_gaussian.py:5: FutureWarning: PC is deprecated and will be removed in v1.3.0. Please use pgmpy.causal_discovery.PC instead.
+  pc = PC(df)
+Traceback (most recent call last):
+  File "/app/learn_dag_gaussian.py", line 6, in <module>
+    estimated_model = pc.estimate(variant='stable', ci_test='pearson', signif_level=0.01)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/PC.py", line 237, in estimate
+    ci_test = ci_registry.get_test(ci_test, data=self.data)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/CITests.py", line 112, in get_test
+    raise ValueError(
+ValueError: `ci_test` must either be one of ['independence_match', 'pearsonr', 'power_divergence', 'chi_square', 'g_sq', 'log_likelihood', 'modified_log_likelihood', 'pillai', 'gcm', 'pearsonr_equivalence'], or a callable. Got: pearson
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/learn_dag_gaussian.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.estimators import PC
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> pc = PC(df)
+[?2004l[?2004h> estimated_model = pc.estimate(variant='stable', ci_test='pearsonr', signif_level=0.01)
+[?2004l[?2004h> print('PC Edges:', list(estimated_model.edges()))
+[?2004l[?2004h> print('Number of edges:', len(estimated_model.edges()))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/learn_dag_gaussian.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+/app/learn_dag_gaussian.py:5: FutureWarning: PC is deprecated and will be removed in v1.3.0. Please use pgmpy.causal_discovery.PC instead.
+  pc = PC(df)
+  0%|                                                                                                                                    | 0/5 [00:00<?, ?it/s]Working for n conditional variables: 0:   0%|                                                                                            | 0/5 [00:00<?, ?it/s]/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+Working for n conditional variables: 1:  20%|████████████████▊                                                                   | 1/5 [00:00<00:00, 51.81it/s]/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+Working for n conditional variables: 1:  40%|█████████████████████████████████▌                                                  | 2/5 [00:00<00:00, 12.94it/s]Working for n conditional variables: 2:  40%|█████████████████████████████████▌                                                  | 2/5 [00:00<00:00, 12.94it/s]/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+Working for n conditional variables: 3:  60%|██████████████████████████████████████████████████▍                                 | 3/5 [00:00<00:00, 12.94it/s]/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/BaseConstraintEstimator.py:219: FutureWarning: `pearsonr` is deprecated and will be removed in v1.3.0. Please use `pgmpy.ci_tests.Pearsonr` instead.
+  if ci_test(
+Working for n conditional variables: 4:  80%|███████████████████████████████████████████████████████████████████▏                | 4/5 [00:00<00:00, 12.94it/s]Working for n conditional variables: 5: 100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 12.94it/s]Working for n conditional variables: 5: 100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 20.99it/s]
+PC Edges: [('D', 'Y'), ('D', 'U'), ('Y', 'U'), ('U', 'D'), ('U', 'R'), ('U', 'Y'), ('U', 'M'), ('R', 'U'), ('R', 'M'), ('M', 'U')]
+Number of edges: 10
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/learn_dag_gauss_hc.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.estimators import HillClimbSearch, BICGauss
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> bic = BICGauss(df)
+[?2004l[?2004h> hc = HillClimbSearch(df)
+[?2004l[?2004h> best_model = hc.estimate(scoring_method=bic, show_progress=False)
+[?2004l[?2004h> print('Edges:', list(best_model.edges()))
+[?2004l[?2004h> print('Number of edges:', len(best_model.edges()))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/learn_dag_gauss_hc.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+/app/learn_dag_gauss_hc.py:6: FutureWarning: HillClimbSearch is deprecated and will be removed in v1.3.0. Please use
+            pgmpy.causal_discovery.HillClimbSearch instead.
+  hc = HillClimbSearch(df)
+Edges: [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('Y', 'D'), ('R', 'U'), ('R', 'M')]
+Number of edges: 6
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/test_dag.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.estimators import BICGauss
+[?2004l[?2004h> from pgmpy.models import BayesianNetwork
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges1 = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('Y', 'D'), ('U', 'R'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> model = BayesianNetwork(edges1)
+[?2004l[?2004h> bic = BICGauss(df)
+[?2004l[?2004h> score = bic.score(model)
+[?2004l[?2004h> print('score:', score)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/test_dag.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Traceback (most recent call last):
+  File "/app/test_dag.py", line 8, in <module>
+    model = BayesianNetwork(edges1)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/models/BayesianNetwork.py", line 3, in __init__
+    raise ImportError("`BayesianNetwork` is deprecated. Please use `DiscreteBayesianNetwork` instead.")
+ImportError: `BayesianNetwork` is deprecated. Please use `DiscreteBayesianNetwork` instead.
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pgmpy.models; print(dir(pgmpy.models))"
+[?2004l['BayesianNetwork', 'ClusterGraph', 'DiscreteBayesianNetwork', 'DiscreteMarkovNetwork', 'DynamicBayesianNetwork', 'FactorGraph', 'FunctionalBayesianNetwork', 'JunctionTree', 'LinearGaussianBayesianNetwork', 'MarkovChain', 'MarkovNetwork', 'NaiveBayes', 'SEM', 'SEMAlg', 'SEMGraph', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__']
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/test_lgbn.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges1 = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('Y', 'D'), ('U', 'R'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges1)
+[?2004l[?2004h> print('Nodes:', model.nodes())
+[?2004l[?2004h> print('Edges:', model.edges())
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/test_lgbn.py
+[?2004lNodes: ['U', 'M', 'Y', 'D', 'R']
+Edges: [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/solution.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> from pgmpy.estimators import MaximumLikelihoodEstimator
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> 
+[?2004l[?2004h> edges = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> learned_edges_df = pd.DataFrame([{'to': edge[1], 'from': edge[0]} for edge in edges])
+[?2004l[?2004h> learned_edges_df.to_csv('/app/learned_dag.csv', index=False)
+[?2004l[?2004h> print('Saved learned_dag.csv')
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges)
+[?2004l[?2004h> model.fit(df, estimator=MaximumLikelihoodEstimator)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_edges = [e for e in edges if e[1] != 'Y']
+[?2004l[?2004h> print('Intervened edges:', intervened_edges)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_model = LinearGaussianBayesianNetwork(intervened_edges)
+[?2004l[?2004h> intervened_model.fit(df, estimator=MaximumLikelihoodEstimator)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_edges_df = pd.DataFrame([{'to': edge[1], 'from': edge[0]} for edge in intervened_edges])
+[?2004l[?2004h> intervened_edges_df.to_csv('/app/intervened_dag.csv', index=False)
+[?2004l[?2004h> print('Saved intervened_dag.csv')
+[?2004l[?2004h> 
+[?2004l[?2004h> print('CPDs:', intervened_model.get_cpds())
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/solution.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Saved learned_dag.csv
+Traceback (most recent call last):
+  File "/app/solution.py", line 14, in <module>
+    model.fit(df, estimator=MaximumLikelihoodEstimator)
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/models/LinearGaussianBayesianNetwork.py", line 928, in fit
+    raise TypeError(
+TypeError: estimator must be an instance of a Gaussian parameter estimator. Pass an initialized estimator, for example `LinearGaussianMLE()`.
+[?2004hroot@68c73f4b0621:/app# python3 -c "from pgmpy.estimators import LinearGaussianMLE; print(LinearGaussianMLE)"
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ImportError: cannot import name 'LinearGaussianMLE' from 'pgmpy.estimators' (/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py)
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/test_cpd.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> from pgmpy.estimators import LinearGaussianMLE
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges)
+[?2004l[?2004h> model.fit(df, estimator=LinearGaussianMLE())
+[?2004l[?2004h> 
+[?2004l[?2004h> for cpd in model.get_cpds():
+[?2004l[?2004h>     print(cpd.variable, cpd.mean, cpd.variance, cpd.beta)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/test_cpd.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Traceback (most recent call last):
+  File "/app/test_cpd.py", line 3, in <module>
+    from pgmpy.estimators import LinearGaussianMLE
+ImportError: cannot import name 'LinearGaussianMLE' from 'pgmpy.estimators' (/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py)
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pgmpy.estimators; print([e for e in dir(pgmpy.estimators) if 'Gauss' in e or 'MLE' in e or 'Linear' in e])"
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+['AICCondGauss', 'AICGauss', 'BICCondGauss', 'BICGauss', 'LinearModel', 'LogLikelihoodCondGauss', 'LogLikelihoodGauss', 'MLE']
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pgmpy.estimators; print(dir(pgmpy.estimators))"
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+['AIC', 'AICCondGauss', 'AICGauss', 'BDeu', 'BDs', 'BIC', 'BICCondGauss', 'BICGauss', 'BaseConstraintEstimator', 'BaseEstimator', 'BayesianEstimator', 'CITests', 'EM', 'ExhaustiveSearch', 'ExpectationMaximization', 'ExpertInLoop', 'ExpertKnowledge', 'GES', 'HillClimbSearch', 'IVEstimator', 'K2', 'LinearModel', 'LogLikelihoodCondGauss', 'LogLikelihoodGauss', 'MLE', 'MarginalEstimator', 'MaximumLikelihoodEstimator', 'MirrorDescentEstimator', 'MmhcEstimator', 'PC', 'ParameterEstimator', 'SEMEstimator', 'ScoreCache', 'StructureEstimator', 'StructureScore', 'TreeSearch', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__warningregistry__', 'base', 'expert']
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/test_mle.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> from pgmpy.estimators import MLE
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges)
+[?2004l[?2004h> model.fit(df, estimator=MLE)
+[?2004l[?2004h> for cpd in model.get_cpds():
+[?2004l[?2004h>     print(cpd.variable, cpd)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/test_mle.py
+[?2004l/usr/local/lib/python3.12/dist-packages/pgmpy/estimators/__init__.py:4: FutureWarning: `pgmpy.estimators.StructureScore` is deprecated and will be removed in v1.3.0. Use `pgmpy.structure_score` instead.
+  from .StructureScore import (
+Traceback (most recent call last):
+  File "/app/test_mle.py", line 9, in <module>
+    model.fit(df, estimator=MLE)
+  File "/usr/local/lib/python3.12/dist-packages/pgmpy/models/LinearGaussianBayesianNetwork.py", line 928, in fit
+    raise TypeError(
+TypeError: estimator must be an instance of a Gaussian parameter estimator. Pass an initialized estimator, for example `LinearGaussianMLE()`.
+[?2004hroot@68c73f4b0621:/app# python3 -c "import pgmpy; import inspect; from pgmpy.models import LinearGaussianBayesianNetwork; print(inspect.getsource(LinearGaussianBBayesianNetwork.fit))"
+[?2004l    def fit(
+        self,
+        data: pd.DataFrame,
+        estimator=None,
+    ) -> LinearGaussianBayesianNetwork:
+        """
+        Estimates (fits) the Linear Gaussian CPDs from data.
+
+        Parameters
+        ----------
+        data : pd.DataFrame
+            Continuous-valued data containing all model variables.
+
+        estimator : LinearGaussianMLE, optional
+            An initialized Gaussian parameter estimator from
+            `pgmpy.parameter_estimator`. If not specified, defaults to
+            ``LinearGaussianMLE()``.
+
+        Returns
+        -------
+        self: LinearGaussianBayesianNetwork
+            Returns the model with fitted CPDs added. CPDs can be accessed via
+            ``model.cpds``.
+
+        Examples
+        --------
+        >>> import numpy as np
+        >>> import pandas as pd
+        >>> from pgmpy.models import LinearGaussianBayesianNetwork
+        >>> from pgmpy.parameter_estimator import LinearGaussianMLE
+        >>> rng = np.random.default_rng(42)
+        >>> df = pd.DataFrame(
+        ...     rng.normal(0, 1, (100, 3)), columns=["x1", "x2", "x3"]
+        ... )
+        >>> model = LinearGaussianBayesianNetwork([("x1", "x2"), ("x2", "x3")])
+        >>> model.fit(df) # doctest: +ELLIPSIS
+        <pgmpy.models.LinearGaussianBayesianNetwork.LinearGaussianBayesianNetwork object at 0x...>
+        >>> model.cpds # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+        [<LinearGaussianCPD: P(x1) = N(-0.029; 0.902) at 0x...,
+        <LinearGaussianCPD: P(x2 | x1) = N(0.046*x1 + -0.012; 0.981) at 0x...,
+        <LinearGaussianCPD: P(x3 | x2) = N(0.172*x2 + -0.078; 0.908) at 0x...]
+        """
+        from pgmpy.parameter_estimator import LinearGaussianMLE
+        from pgmpy.parameter_estimator.base import GaussianParameterEstimator
+
+        if estimator is None:
+            estimator = LinearGaussianMLE()
+        elif not isinstance(estimator, GaussianParameterEstimator):
+            raise TypeError(
+                "estimator must be an instance of a Gaussian parameter estimator. "
+                "Pass an initialized estimator, for example `LinearGaussianMLE()`."
+            )
+
+        estimator.fit(self, data)
+        self.add_cpds(*estimator.parameters_)
+        return self
+
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/test_fit.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges)
+[?2004l[?2004h> model.fit(df)
+[?2004l[?2004h> for cpd in model.get_cpds():
+[?2004l[?2004h>     print(cpd.variable, cpd)
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/test_fit.py
+[?2004lU P(U) = N(50.48; 10.685)
+M P(M | U, R) = N(0.768*U + 0.303*R + -11.357; 12.482)
+Y P(Y | U) = N(0.751*U + 12.428; 10.627)
+D P(D | U, Y) = N(0.55*U + 0.449*Y + -12.297; 14.092)
+R P(R | U) = N(0.983*U + -3.197; 10.581)
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/test_intervention.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> import numpy as np
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> from pgmpy.factors.continuous import LinearGaussianCPD
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges)
+[?2004l[?2004h> model.fit(df)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_edges = [e for e in edges if e[1] != 'Y']
+[?2004l[?2004h> print('Intervened edges:', intervened_edges)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_model = LinearGaussianBayesianNetwork(intervened_edges)
+[?2004l[?2004h> 
+[?2004l[?2004h> for cpd in model.get_cpds():
+[?2004l[?2004h>     if cpd.variable != 'Y':
+[?2004l[?2004h>         intervened_model.add_cpds(cpd)
+[?2004l[?2004h> 
+[?2004l[?2004h> y_cpd = LinearGaussianCPD(variable='Y', beta=[0.0], variance=1e-9, evidence=[])
+[?2004l[?2004h> intervened_model.add_cpds(y_cpd)
+[?2004l[?2004h> 
+[?2004l[?2004h> print('Intervened model CPDs:', intervened_model.get_cpds())
+[?2004l[?2004h> 
+[?2004l[?2004h> samples = intervened_model.simulate(n_samples=10000)
+[?2004l[?2004h> print(samples.head())
+[?2004l[?2004h> print(samples['Y'].mean(), samples['Y'].var())
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/test_intervention.py
+[?2004lIntervened edges: [('U', 'M'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+Traceback (most recent call last):
+  File "/app/test_intervention.py", line 21, in <module>
+    y_cpd = LinearGaussianCPD(variable='Y', beta=[0.0], variance=1e-9, evidence=[])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LinearGaussianCPD.__init__() got an unexpected keyword argument 'variance'
+[?2004hroot@68c73f4b0621:/app# python3 -c "from pgmpy.factors.continuous import LinearGaussianCPD; import inspect; print(inspect.signature(LinearGaussianCPD.__init__))""
+[?2004l(self, variable, beta, std, evidence=[])
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/test_intervention.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> import numpy as np
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> from pgmpy.factors.continuous import LinearGaussianCPD
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges)
+[?2004l[?2004h> model.fit(df)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_edges = [e for e in edges if e[1] != 'Y']
+[?2004l[?2004h> intervened_model = LinearGaussianBayesianNetwork(intervened_edges)
+[?2004l[?2004h> 
+[?2004l[?2004h> for cpd in model.get_cpds():
+[?2004l[?2004h>     if cpd.variable != 'Y':
+[?2004l[?2004h>         intervened_model.add_cpds(cpd)
+[?2004l[?2004h> 
+[?2004l[?2004h> y_cpd = LinearGaussianCPD(variable='Y', beta=[0.0], std=np.sqrt(10e-9), evidence=[])
+[?2004l[?2004h> intervened_model.add_cpds(y_cpd)
+[?2004l[?2004h> 
+[?2004l[?2004h> samples = intervened_model.simulate(n_samples=10000)
+[?2004l[?2004h> print(samples.head())
+[?2004l[?2004h> print(samples['Y'].mean(), samples['Y'].var())
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/test_intervention.py
+[?2004l           U         Y          R          D          M
+0  38.160488  0.000025  50.465922  19.189326  19.484124
+1  63.971229 -0.000154  46.669453  13.971422  46.487496
+2  53.121045  0.000080  55.718164  23.242017  42.126808
+3  57.725976 -0.000045  45.039156  17.025721  75.984759
+4  54.569326 -0.000181  35.646655  12.481568  50.506408
+-1.1013668802863144e-06 1.0067742724935582e-08
+[?2004hroot@68c73f4b0621:/app# cat << 'EOF' > /app/run_full_solution.py
+[?2004l[?2004h> import pandas as pd
+[?2004l[?2004h> import numpy as np
+[?2004l[?2004h> from pgmpy.models import LinearGaussianBayesianNetwork
+[?2004l[?2004h> from pgmpy.factors.continuous import LinearGaussianCPD
+[?2004l[?2004h> 
+[?2004l[?2004h> df = pd.read_csv('/app/bn_sample_10k.csv')
+[?2004l[?2004h> edges = [('U', 'M'), ('U', 'Y'), ('U', 'D'), ('U', 'R'), ('Y', 'D'), ('R', 'M')]
+[?2004l[?2004h> 
+[?2004l[?2004h> learned_edges_df = pd.DataFrame([{'to': edge[1], 'from': edge[0]} for edge in edges])
+[?2004l[?2004h> learned_edges_df.to_csv('/app/learned_dag.csv', index=False)
+[?2004l[?2004h> print('Saved /app/learned_dag.csv')
+[?2004l[?2004h> 
+[?2004l[?2004h> model = LinearGaussianBayesianNetwork(edges)
+[?2004l[?2004h> model.fit(df)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_edges = [e for e in edges if e[1] != 'Y']
+[?2004l[?2004h> intervened_model = LinearGaussianBayesianNetwork(intervened_edges)
+[?2004l[?2004h> 
+[?2004l[?2004h> for cpd in model.get_cpds():
+[?2004l[?2004h>     if cpd.variable != 'Y':
+[?2004l[?2004h>         intervened_model.add_cpds(cpd)
+[?2004l[?2004h> 
+[?2004l[?2004h> y_cpd = LinearGaussianCPD(variable='Y', beta=[0.0], std=np.sqrt(10e-9), evidence=[])
+[?2004l[?2004h> intervened_model.add_cpds(y_cpd)
+[?2004l[?2004h> 
+[?2004l[?2004h> intervened_edges_df = pd.DataFrame([{'to': edge[1], 'from': edge[0]} for edge in intervened_edges])
+[?2004l[?2004h> intervened_edges_df.to_csv('/app/intervened_dag.csv', index=False)
+[?2004l[?2004h> print('Saved /app/intervened_dag.csv')
+[?2004l[?2004h> 
+[?2004l[?2004h> samples = intervened_model.simulate(n_samples=10000)
+[?2004l[?2004h> samples.to_csv('/app/final_bn_sample.csv', index=False)
+[?2004l[?2004h> print('Saved /app/final_bn_sample.csv with shape:', samples.shape)
+[?2004l[?2004h> print(samples.head())
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@68c73f4b0621:/app# python3 /app/run_full_solution.py
+[?2004lSaved /app/learned_dag.csv
+Saved /app/intervened_dag.csv
+Saved /app/final_bn_sample.csv with shape: (10000, 5)
+           U         Y          R          D          M
+0  45.913854 -0.000020  46.153241  41.633110  35.044464
+1  53.115774 -0.000105  50.574480  14.204767  46.236461
+2  51.023805 -0.000108  39.209309  24.017622  67.744413
+3  37.927344  0.000012  31.355470  -5.491663  50.271608
+4  47.664773  0.000150  54.904335   2.005554  29.811146
+[?2004hroot@68c73f4b0621:/app# cat /app/learned_dag.csv && echo '---' && cat /app/intervened_dag.csv && echo '---' && head -n 5 /app/final_bn_sample.csv
+[?2004lto,from
+M,U
+Y,U
+D,U
+R,U
+D,Y
+M,R
+---
+to,from
+M,U
+D,U
+R,U
+D,Y
+M,R
+---
+U,Y,R,D,M
+45.91385381921819,-1.982540614257655e-05,46.15324053726059,41.63310991557002,35.04446414011936
+53.11577358890355,-0.00010544159518673475,50.57448047472347,14.204766825542182,46.23646057743822
+51.02380478976856,-0.00010835982518288431,39.20930911557978,24.01762220367275,67.74441297566011
+37.927343520510185,1.217558717615169e-05,31.355470358198026,-5.491662681416081,50.27160753163692
+[?2004hroot@68c73f4b0621:/app# 

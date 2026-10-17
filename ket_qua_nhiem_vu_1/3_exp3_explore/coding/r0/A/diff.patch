@@ -1,0 +1,12 @@
+diff --git a/third_party/harbor_terminus2/templates/terminus-json-plain.txt b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+index 6481d56..94103bf 100644
+--- a/third_party/harbor_terminus2/templates/terminus-json-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+@@ -41,6 +41,7 @@ The "duration" attribute specifies the number of seconds to wait for the command
+ It is better to set a smaller duration than a longer duration. It is always possible to wait again if the prior output has not finished, by running {{"keystrokes": "", "duration": 10.0}} on subsequent requests to wait longer. Never wait longer than 60 seconds; prefer to poll to see intermediate result status.
+ 
+ Important notes:
++- MANDATORY: Before marking task_complete as true, ensure all final output files requested by the task description have been successfully generated and verified to exist on disk (e.g., using `ls` or file checks).
+ - Each command's keystrokes are sent exactly as written to the terminal
+ - Do not include extra whitespace before or after the keystrokes unless it's part of the intended command
+ - Extra text before or after the JSON will generate warnings but be tolerated

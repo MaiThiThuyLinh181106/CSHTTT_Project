@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The added prompt rule is general and applies to checking output files across any task rather than hardcoding specific task files or names."
+ ]
+}
