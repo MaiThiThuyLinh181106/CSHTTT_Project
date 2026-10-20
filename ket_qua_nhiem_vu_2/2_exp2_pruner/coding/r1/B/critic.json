@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The prompt instruction mentions 'ELF files' which slightly touches upon a specific binary format, but it is framed broadly as an example alongside custom formats and complex text parsing, functioning as general prompt advice rather than hardcoded task solutions."
+ ]
+}

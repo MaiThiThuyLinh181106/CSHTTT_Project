@@ -1,0 +1,16 @@
+diff --git a/third_party/harbor_terminus2/terminus_2.py b/third_party/harbor_terminus2/terminus_2.py
+index 4772cff..55a3595 100644
+--- a/third_party/harbor_terminus2/terminus_2.py
++++ b/third_party/harbor_terminus2/terminus_2.py
+@@ -1429,9 +1429,9 @@ so ask everything you need to know."""
+                     )
+             else:
+                 self._pending_completion = False
+-                if feedback and "WARNINGS:" in feedback:
++                if feedback and ("ERROR:" in feedback or "WARNINGS:" in feedback):
+                     observation = (
+-                        f"Previous response had warnings:\n{feedback}\n\n"
++                        f"Previous response had issues:\n{feedback}\n\n"
+                         f"{self._limit_output_length(terminal_output)}"
+                     )
+                 else:

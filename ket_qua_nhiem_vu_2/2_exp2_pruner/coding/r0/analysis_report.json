@@ -1,0 +1,36 @@
+{
+ "failure_modes": [
+  {
+   "mode": "incomplete_specification_alignment",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "extract-elf"
+   ],
+   "description": "Custom parsing and data extraction logic fails to match the exact subset, schema, or address mapping expected by the reference test harness.",
+   "needed_instead": "A robust pre-existing parsing utility or alignment guide that matches the reference test harness's exact extraction and filtering rules.",
+   "representative_evidence": [
+    {
+     "task_id": "extract-elf",
+     "where": "step 2",
+     "quote": "REWARD: 0.0 | episodes: 11 | summarizations: 0"
+    }
+   ]
+  }
+ ],
+ "capability_gaps": [],
+ "success_habits": [
+  {
+   "habit": "comprehensive_history_inspection",
+   "n_tasks": 1,
+   "description": "Using low-level history investigation tools (such as reflog) to locate lost commits or changes prior to integration.",
+   "risk_if_broken": "The agent fails to locate missing changes or lost state, leading to incomplete task resolution."
+  },
+  {
+   "habit": "systematic_conflict_resolution",
+   "n_tasks": 1,
+   "description": "Explicitly resolving merge conflicts during branch operations using targeted checkout strategies and continuing the workflow.",
+   "risk_if_broken": "The workflow aborts or leaves the working tree in a conflicted state when patches or cherry-picks fail to apply cleanly."
+  }
+ ],
+ "n_digests": 2
+}

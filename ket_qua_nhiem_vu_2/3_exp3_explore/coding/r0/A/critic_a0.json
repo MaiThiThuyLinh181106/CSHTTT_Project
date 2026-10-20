@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "Prompt addition provides general advice on writing parser scripts robustly without hard-coding task names, file names, or answers."
+ ]
+}

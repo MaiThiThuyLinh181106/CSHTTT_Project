@@ -1,0 +1,26 @@
+{
+ "commit": "8febb5c",
+ "branch": "coding/r1B",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Adding explicit instructions to test and verify custom parsing scripts and their output schema helps prevent schema/specification mismatches in tasks like extracting structured binary or text data.",
+   "targets_mode": "incomplete_specification_alignment",
+   "why_not_lower_lever": "Prose instructions guide the policy's planning process when authoring custom scripts in unfamiliar tasks.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": {
+    "corrective": "Would remind the policy to verify output against specification during binary/data extraction tasks like extract-elf.",
+    "preservative": "Does not restrict normal command execution or standard workflows.",
+    "transfer": "Applies generally to any task requiring custom scripts or parsers to match a strict output schema."
+   },
+   "regression_risk": "None expected.",
+   "mechanism": "Adding explicit instructions to test and verify custom parsing scripts and their output schema helps prevent schema/specification mismatches in tasks like extracting structured binary or text data."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r1\\B\\diff.patch",
+ "mechanism": "Instruct policy in prompt template to rigorously test and verify custom scripts and parser outputs against requirements before completion."
+}

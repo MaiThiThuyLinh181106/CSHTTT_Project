@@ -1,0 +1,57 @@
+{
+ "status": "done",
+ "summary": "Instruct policy via prompt templates to use robust standard libraries or install proper packages rather than writing fragile manual parsers for complex file formats (e.g. ELF).",
+ "edits": [
+  {
+   "id": "E1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to avoid fragile manual parsing of complex binary formats and use proper libraries/standard modules prevents zero-matching output extraction errors on binary parsing tasks.",
+   "targets_mode": "incomplete_specification_alignment",
+   "why_not_lower_lever": "Prose instruction in the system prompt guides the model's high-level strategy when designing parsing scripts.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": "(corrective) would have helped extract-elf by encouraging the use of standard libraries or existing tools instead of buggy custom parsing; (preservative) general advice on robust coding practices does not disrupt any existing successful shell/build workflows; (transfer) applies universally to any task requiring binary or file format parsing.",
+   "regression_risk": "None expected, as it is a general advisory instruction.",
+   "mechanism": "Instructing the policy to avoid fragile manual parsing of complex binary formats and use proper libraries/standard modules prevents zero-matching output extraction errors on binary parsing tasks."
+  }
+ ],
+ "mechanism": "Instruct policy via prompt templates to use robust standard libraries or install proper packages rather than writing fragile manual parsers for complex file formats (e.g. ELF).",
+ "targets_mode": "incomplete_specification_alignment",
+ "n_edits": 2,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "On slow commands (e.g., make, python3 [long running script], wget [file]) set an appropriate duration as you determine necessary.",
+   "new": "On slow commands (e.g., make, python3 [long running script], wget [file]) set an appropriate duration as you determine necessary. When writing custom scripts or programs (e.g., Python, Node.js, C++), ..."
+  },
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-xml-plain.txt",
+   "old": "On slow commands (e.g., make, python3 [long running script], wget [file]) set an apprpriate duration as you determine necessary.",
+   "new": "On slow commands (e.g., make, python3 [long running script], wget [file]) set an apprpriate duration as you determine necessary. When writing custom scripts or programs (e.g., Python, Node.js, C++), a..."
+  },
+  {
+   "action": "done",
+   "summary": "Instruct policy via prompt templates to use robust standard libraries or install proper packages rather than writing fragile manual parsers for complex file formats (e.g. ELF).",
+   "edits": [
+    {
+     "id": "E1",
+     "component": "prompt",
+     "hypothesis": "Instructing the policy to avoid fragile manual parsing of complex binary formats and use proper libraries/standard modules prevents zero-matching output extraction errors on binary parsing tasks.",
+     "targets_mode": "incomplete_specification_alignment",
+     "why_not_lower_lever": "Prose instruction in the system prompt guides the model's high-level strategy when designing parsing scripts.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "extract-elf"
+     ],
+     "retroactive_check": "(corrective) would have helped extract-elf by encouraging the use of standard libraries or existing tools instead of buggy custom parsing; (preservative) general advice on robust coding practices does not disrupt any existing successful shell/build workflows; (transfer) applies universally to any task requiring binary or file format parsing.",
+     "regression_risk": "None expected, as it is a general advisory instruction.",
+     "mechanism": "Instructing the policy to avoid fragile manual parsing of complex binary formats and use proper libraries/standard modules prevents zero-matching output extraction errors on binary parsing tasks."
+    }
+   ]
+  }
+ ]
+}

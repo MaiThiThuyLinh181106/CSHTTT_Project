@@ -1,0 +1,57 @@
+{
+ "status": "done",
+ "summary": "Enhance error prompt feedback for invalid json responses and parsing errors",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Providing more explicit formatting and escaping guidance upon JSON parse errors helps the model recover faster without burning multiple turns.",
+   "targets_mode": "incomplete_specification_alignment",
+   "why_not_lower_lever": "Prose instructions guide the policy model's recovery behavior when encountering parse error feedback loops.",
+   "trigger_condition": "always when feedback contains ERROR:",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": "corrective: helps parsing error recovery on tasks with complex JSON structures; preservative: does not disrupt successful terminal flows; transfer: applies universally to parse error loops across unfamiliar tasks.",
+   "regression_risk": "negligible token overhead on error paths",
+   "mechanism": "Providing more explicit formatting and escaping guidance upon JSON parse errors helps the model recover faster without burning multiple turns."
+  }
+ ],
+ "mechanism": "Enhance error prompt feedback for invalid json responses and parsing errors",
+ "targets_mode": "incomplete_specification_alignment",
+ "n_edits": 2,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "            if feedback and \"ERROR:\" in feedback:\n                prompt = (\n                    f\"Previous response had parsing errors:\\n{feedback}\\n\\n\"\n                    f\"Please fix these issues ...",
+   "new": "            if feedback and \"ERROR:\" in feedback:\n                prompt = (\n                    f\"Previous response had parsing errors:\\n{feedback}\\n\\n\"\n                    f\"Please fix these issues ..."
+  },
+  {
+   "action": "edit_file",
+   "path": "terminus_2.py",
+   "old": "            if feedback and \"ERROR:\" in feedback:\n                prompt = (\n                    f\"Previous response had parsing errors:\\n{feedback}\\n\\n\"\n                    f\"Please fix these issues ...",
+   "new": "            if feedback and \"ERROR:\" in feedback:\n                prompt = (\n                    f\"Previous response had parsing errors:\\n{feedback}\\n\\n\"\n                    f\"Please fix these issues ..."
+  },
+  {
+   "action": "done",
+   "summary": "Enhance error prompt feedback for invalid json responses and parsing errors",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Providing more explicit formatting and escaping guidance upon JSON parse errors helps the model recover faster without burning multiple turns.",
+     "targets_mode": "incomplete_specification_alignment",
+     "why_not_lower_lever": "Prose instructions guide the policy model's recovery behavior when encountering parse error feedback loops.",
+     "trigger_condition": "always when feedback contains ERROR:",
+     "predicted_affected": [
+      "extract-elf"
+     ],
+     "retroactive_check": "corrective: helps parsing error recovery on tasks with complex JSON structures; preservative: does not disrupt successful terminal flows; transfer: applies universally to parse error loops across unfamiliar tasks.",
+     "regression_risk": "negligible token overhead on error paths",
+     "mechanism": "Providing more explicit formatting and escaping guidance upon JSON parse errors helps the model recover faster without burning multiple turns."
+    }
+   ]
+  }
+ ]
+}

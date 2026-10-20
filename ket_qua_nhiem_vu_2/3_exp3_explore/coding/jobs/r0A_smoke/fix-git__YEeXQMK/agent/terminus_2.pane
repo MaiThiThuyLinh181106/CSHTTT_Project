@@ -1,0 +1,84 @@
+[?2004hroot@01e9b37ab2fe:/app/personal-site# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@01e9b37ab2fe:/app/personal-site# clear
+[?2004l[H[J[3J[?2004hroot@01e9b37ab2fe:/app/personal-site# git status
+[?2004lgit branch -a
+On branch master
+nothing to commit, working tree clean
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git branch -a
+[?2004l[?1h=* [32mmaster[m[m
+[K[?1l>[?2004hroot@01e9b37ab2fe:/app/personal-site# git reflog
+[?2004l[?1h=[33md7d3e4b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{0}: checkout: moving from c499730ae050deb27e5d22972ea28daf778060f2 to master[m
+[33mc499730[m HEAD@{1}: commit: Move to Stanford[m
+[33mc4e38a1[m HEAD@{2}: checkout: moving from master to HEAD~1[m
+[33md7d3e4b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m HEAD@{3}: reset: moving to d7d3e4b[m
+[33m19b5d10[m HEAD@{4}: clone: from https://github.com/TheMikeMerrill/personal-site.git[m
+[K[?1l>[?2004hroot@01e9b37ab2fe:/app/personal-site# git cherry-pick c499730
+[?2004lAuto-merging _includes/about.md
+CONFLICT (content): Merge conflict in _includes/about.md
+error: could not apply c499730... Move to Stanford
+[33mhint: After resolving the conflicts, mark them with[m
+[33mhint: "git add/rm <pathspec>", then run[m
+[33mhint: "git cherry-pick --continue".[m
+[33mhint: You can instead skip this commit with "git cherry-pick --skip".[m
+[33mhint: To abort and get back to the state before "git cherry-pick",[m
+[33mhint: run "git cherry-pick --abort".[m
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git log -n 3 --oneline
+[?2004l[?1h=[33md7d3e4b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m off the job market woo[m
+[33mc4e38a1[m Add code link for BLADE[m
+[33m6f46fa0[m CV Update[m
+[K[?1l>[?2004hroot@01e9b37ab2fe:/app/personal-site# git status
+[?2004lOn branch master
+You are currently cherry-picking commit c499730.
+  (fix conflicts and run "git cherry-pick --continue")
+  (use "git cherry-pick --skip" to skip this patch)
+  (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+Changes to be committed:
+	[32mmodified:   _layouts/default.html[m
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	[31mboth modified:   _includes/about.md[m
+
+[?2004hroot@01e9b37ab2fe:/app/personal-site# cat _includes/about.md
+[?2004l<<<<<<< HEAD
+I am a sixth PhD candidate at the [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/) at The University of Washington, where I am advised by [Tim Althoff](http://www.timalthoff.com/). I am affiliated with [UW NLP](https://twitter.com/uwnlp).
+
+ Previously, I was a Student Researcher at [Google Research](https://research.google/), an ML Research Intern at [Apple Health AI](https://machinelearning.apple.com/work-with-us) and a data scientist and the second full-time employee at [HealthRhythms](https://www.healthrhythms.com). 
+=======
+I am a Postdoctoral Researcher at Stanford CS.
+
+Previously, I was a Student Researcher at [Google Research](https://research.google/), an ML Research Intern at [Apple Health AI](https://machinelearning.apple.com/work-with-us) and a data scientist and the second full-time employee at [HealthRhythms](https://www.healthrhythms.com). 
+>>>>>>> c499730 (Move to Stanford)
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git checkout --theirs _includes/about.md
+[?2004lUpdated 1 path from the index
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git add _includes/about.md
+[?2004l[?2004hroot@01e9b37ab2fe:/app/personal-site# git cherry-pick --continue
+[?2004lhint: Waiting for your editor to close the file... error: cannot run editor: No such file or directory
+error: unable to start editor 'editor'
+Please supply the message using either -m or -F option.
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git status
+[?2004lOn branch master
+You are currently cherry-picking commit c499730.
+  (all conflicts fixed: run "git cherry-pick --continue")
+  (use "git cherry-pick --skip" to skip this patch)
+  (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+Changes to be committed:
+	[32mmodified:   _includes/about.md[m
+	[32mmodified:   _layouts/default.html[m
+
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git commit --no-edit
+[?2004l[master 0013f71] Move to Stanford
+ Date: Fri Apr 3 07:47:18 2026 +0000
+ 2 files changed, 19 insertions(+), 17 deletions(-)
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git status
+[?2004lOn branch master
+nothing to commit, working tree clean
+[?2004hroot@01e9b37ab2fe:/app/personal-site# git log -n 3 --oneline
+[?2004l[?1h=[33m0013f71[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m Move to Stanford[m
+[33md7d3e4b[m off the job market woo[m
+[33mc4e38a1[m Add code link for BLADE[m
+[K[?1l>[?2004hroot@01e9b37ab2fe:/app/personal-site# 

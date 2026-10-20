@@ -1,0 +1,563 @@
+[?2004hroot@b3adebe23a50:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@b3adebe23a50:/app# clear
+[?2004l[H[J[3J[?2004hroot@b3adebe23a50:/app# ls -la
+[?2004ltotal 28
+drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 18 11:14 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+[?2004hroot@b3adebe23a50:/app# cat hi.c
+[?2004l#include<stdio.h>
+
+int main() {
+  printf("Hello world\n");
+}
+[?2004hroot@b3adebe23a50:/app# readelf -l a.out
+[?2004l
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x1060
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000628 0x0000000000000628  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
+                 0x0000000000000175 0x0000000000000175  R E    0x1000
+  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
+                 0x00000000000000f4 0x00000000000000f4  R      0x1000
+  LOAD           0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000258 0x0000000000000260  RW     0x1000
+  DYNAMIC        0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8
+                 0x00000000000001f0 0x00000000000001f0  RW     0x8
+  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
+                 0x0000000000000044 0x0000000000000044  R      0x4
+  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  GNU_EH_FRAME   0x0000000000002010 0x0000000000002010 0x0000000000002010
+                 0x0000000000000034 0x0000000000000034  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000248 0x0000000000000248  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   03     .init .plt .plt.got .plt.sec .text .fini 
+   04     .rodata .eh_frame_hdr .eh_frame 
+   05     .init_array .fini_array .dynamic .got .data .bss 
+   06     .dynamic 
+   07     .note.gnu.property 
+   08     .note.gnu.build-id .note.ABI-tag 
+   09     .note.gnu.property 
+   10     .eh_frame_hdr 
+   11     
+   12     .init_array .fini_array .dynamic .got 
+[?2004hroot@b3adebe23a50:/app# readelf -S a.out
+[?2004lThere are 31 section headers, starting at offset 0x3698:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000318  00000318
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
+       0000000000000030  0000000000000000   A       0     0     8
+  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
+       0000000000000024  0000000000000000   A       6     0     8
+  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
+       00000000000000a8  0000000000000018   A       7     1     8
+  [ 7] .dynstr           STRTAB           0000000000000480  00000480
+       000000000000008d  0000000000000000   A       0     0     1
+  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
+       000000000000000e  0000000000000002   A       6     0     2
+  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
+       0000000000000030  0000000000000000   A       7     1     8
+  [10] .rela.dyn         RELA             0000000000000550  00000550
+       00000000000000c0  0000000000000018   A       6     0     8
+  [11] .rela.plt         RELA             0000000000000610  00000610
+       0000000000000018  0000000000000018  AI       6    24     8
+  [12] .init             PROGBITS         0000000000001000  00001000
+       000000000000001b  0000000000000000  AX       0     0     4
+  [13] .plt              PROGBITS         0000000000001020  00001020
+       0000000000000020  0000000000000010  AX       0     0     16
+  [14] .plt.got          PROGBITS         0000000000001040  00001040
+       0000000000000010  0000000000000010  AX       0     0     16
+  [15] .plt.sec          PROGBITS         0000000000001050  00001050
+       0000000000000010  0000000000000010  AX       0     0     16
+  [16] .text             PROGBITS         0000000000001060  00001060
+       0000000000000107  0000000000000000  AX       0     0     16
+  [17] .fini             PROGBITS         0000000000001168  00001168
+       000000000000000d  0000000000000000  AX       0     0     4
+  [18] .rodata           PROGBITS         0000000000002000  00002000
+       0000000000000010  0000000000000000   A       0     0     4
+  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
+       0000000000000034  0000000000000000   A       0     0     4
+  [20] .eh_frame         PROGBITS         0000000000002048  00002048
+       00000000000000ac  0000000000000000   A       0     0     8
+  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
+       0000000000000008  0000000000000008  WA       0     0     8
+  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
+       00000000000001f0  0000000000000010  WA       7     0     8
+  [24] .got              PROGBITS         0000000000003fb8  00002fb8
+       0000000000000048  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000004000  00003000
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           0000000000004010  00003010
+       0000000000000008  0000000000000000  WA       0     0     1
+  [27] .comment          PROGBITS         0000000000000000  00003010
+       000000000000002b  0000000000000001  MS       0     0     1
+  [28] .symtab           SYMTAB           0000000000000000  00003040
+       0000000000000360  0000000000000018          29    18     8
+  [29] .strtab           STRTAB           0000000000000000  000033a0
+       00000000000001d8  0000000000000000           0     0     1
+  [30] .shstrtab         STRTAB           0000000000000000  00003578
+       000000000000011a  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+[?2004hroot@b3adebe23a50:/app# find / -name "*extract*" -o -name "*test*" 2>/dev/null
+[?2004l/var/lib/dpkg/info/node-postcss-modules-extract-imports.list
+/var/lib/dpkg/info/node-postcss-modules-extract-imports.md5sums
+/sys/devices/virtual/net/lo/testing
+/sys/devices/virtual/net/eth0/testing
+/sys/module/cryptomgr/parameters/notests
+/sys/module/8250/parameters/skip_txen_test
+/sys/module/8250_core/parameters/skip_txen_test
+/sys/module/sr_mod/parameters/xa_test
+/usr/bin/test
+/usr/share/perl5/Mail/Mailer/testfile.pm
+/usr/share/doc/git/contrib/coccinelle/tests
+/usr/share/doc/node-webpack-cli-configtest
+/usr/share/doc/node-babel-helper-plugin-test-runner
+/usr/share/doc/node-postcss-modules-extract-imports
+/usr/share/doc/node-babel-eslint-tests
+/usr/share/doc/node-babel-helper-transform-fixture-test-runner
+/usr/share/doc/node-tape/examples/stream/test
+/usr/share/doc/node-npmcli-smoke-tests
+/usr/share/nodejs/caniuse-lite/data/features/testfeat.js
+/usr/share/nodejs/caniuse-lite/data/features/date-tolocaledatestring.js
+/usr/share/nodejs/acorn-export-ns-from/run_test262.js
+/usr/share/nodejs/acorn-export-ns-from/test262.whitelist
+/usr/share/nodejs/acorn-private-methods/run_test262.js
+/usr/share/nodejs/@bcoe/v8-coverage/src/test
+/usr/share/nodejs/acorn-numeric-separator/run_test262.js
+/usr/share/nodejs/icss-utils/src/extractICSS.js
+/usr/share/nodejs/get-caller-file/test.js
+/usr/share/nodejs/webpack/lib/util/extractUrlAndGlobal.js
+/usr/share/nodejs/yaml/dist/test-events.d.ts
+/usr/share/nodejs/yaml/dist/test-events.js
+/usr/share/nodejs/test-exclude
+/usr/share/nodejs/postcss-modules-extract-imports
+/usr/share/nodejs/es-abstract/node_modules/safe-regex-test
+/usr/share/nodejs/tar/lib/extract.js
+/usr/share/nodejs/fs-monkey/lib/__tests__
+/usr/share/nodejs/fs-monkey/lib/__tests__/patchFs.test.js
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.js
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.d.ts
+/usr/share/nodejs/acorn-class-fields/run_test262.js
+/usr/share/nodejs/acorn-static-class-features/run_test262.js
+/usr/share/nodejs/@types/node/test.d.ts
+/usr/share/nodejs/@types/node/ts4.8/test.d.ts
+/usr/share/nodejs/istanbul/lib/command/test.js
+/usr/share/nodejs/@npmcli/smoke-tests
+/usr/share/nodejs/tape/lib/test.js
+/usr/share/nodejs/object-inspect/test-core-js.js
+/usr/share/nodejs/tap-yaml/node_modules/yaml/dist/test-events.js
+/usr/share/nodejs/core-js-pure/modules/es.regexp.test.js
+/usr/share/nodejs/core-js-pure/full/regexp/test.js
+/usr/share/nodejs/core-js-pure/actual/regexp/test.js
+/usr/share/nodejs/core-js-pure/es/regexp/test.js
+/usr/share/nodejs/core-js-pure/stable/regexp/test.js
+/usr/share/nodejs/core-js-pure/features/regexp/test.js
+/usr/share/nodejs/safer-buffer/tests.js
+/usr/share/nodejs/acorn-bigint/run_test262.js
+/usr/share/nodejs/core-js/modules/es.regexp.test.js
+/usr/share/nodejs/core-js/full/regexp/test.js
+/usr/share/nodejs/core-js/actual/regexp/test.js
+/usr/share/nodejs/core-js/es/regexp/test.js
+/usr/share/nodejs/core-js/stable/regexp/test.js
+/usr/share/nodejs/core-js/features/regexp/test.js
+/usr/share/nodejs/normalize-package-data/lib/extract_description.js
+/usr/share/nodejs/acorn-import-meta/run_test262.js
+/usr/share/nodejs/libtap/lib/parse-test-args.js
+/usr/share/nodejs/libtap/lib/test.js
+/usr/share/nodejs/@webassemblyjs/helper-test-framework
+/usr/share/nodejs/@webassemblyjs/helper-testsuite-runner
+/usr/share/nodejs/eslint/lib/rule-tester
+/usr/share/nodejs/eslint/lib/rule-tester/rule-tester.js
+/usr/share/nodejs/eslint/lib/cli-engine/config-array/override-tester.js
+/usr/share/nodejs/eslint/lib/cli-engine/config-array/extracted-config.js
+/usr/share/nodejs/@babel/eslint-parser/lib/worker/extract-parser-options-plugin.cjs
+/usr/share/nodejs/@babel/helper-plugin-test-runner
+/usr/share/nodejs/@babel/helper-transform-fixture-test-runner
+/usr/share/nodejs/@babel/eslint-tests
+/usr/share/nodejs/tap-mocha-reporter/lib/test.js
+/usr/share/nodejs/@webpack-cli/configtest
+/usr/share/nodejs/npm/lib/commands/install-test.js
+/usr/share/nodejs/npm/lib/commands/test.js
+/usr/share/nodejs/npm/lib/commands/install-ci-test.js
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein/test.ts
+/usr/share/nodejs/npm/node_modules/cli-columns/test.js
+/usr/share/nodejs/npm/node_modules/just-diff-apply/index.tests.ts
+/usr/share/nodejs/npm/node_modules/just-diff/index.tests.ts
+/usr/share/perl/5.38.2/Test2/Event/Subtest.pm
+/usr/share/perl/5.38.2/Test2/Hub/Subtest.pm
+/usr/share/perl/5.38.2/filetest.pm
+/usr/share/perl/5.38.2/ExtUtils/testlib.pm
+/usr/lib/x86_64-linux-gnu/libicutest.so.74.2
+/usr/lib/x86_64-linux-gnu/libicutest.so.74
+/usr/lib/python3/dist-packages/gyp/input_test.py
+/usr/lib/python3/dist-packages/gyp/__pycache__/common_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/input_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/easy_xml_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/MSVSSettings_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/common_test.py
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/xcode_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/ninja_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/msvs_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/ninja_test.py
+/usr/lib/python3/dist-packages/gyp/generator/xcode_test.py
+/usr/lib/python3/dist-packages/gyp/generator/msvs_test.py
+/usr/lib/python3/dist-packages/gyp/easy_xml_test.py
+/usr/lib/python3/dist-packages/gyp/MSVSSettings_test.py
+/usr/lib/python3.12/test
+/usr/lib/python3.12/test/test_support.py
+/usr/lib/python3.12/test/libregrtest
+/usr/lib/python3.12/test/libregrtest/runtests.py
+/usr/lib/python3.12/test/libregrtest/__pycache__/findtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/runtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/testresult.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/findtests.py
+/usr/lib/python3.12/test/libregrtest/testresult.py
+/usr/lib/python3.12/test/__pycache__/test_support.cpython-312.pyc
+/usr/lib/python3.12/test/__pycache__/regrtest.cpython-312.pyc
+/usr/lib/python3.12/test/support/__pycache__/testcase.cpython-312.pyc
+/usr/lib/python3.12/test/support/testcase.py
+/usr/lib/python3.12/test/regrtest.py
+/usr/lib/python3.12/__pycache__/doctest.cpython-312.pyc
+/usr/lib/python3.12/unittest
+/usr/lib/python3.12/lib-dynload/_testclinic.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testmultiphase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testimportmultiple.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testbuffer.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testsinglephase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_ctypes_test.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testinternalcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_xxtestfuzz.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/doctest.py
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
+/usr/include/openssl/self_test.h
+/usr/include/nodejs/deps/v8/include/cppgc/testing.h
+/usr/include/linux/pcitest.h
+[?2004hroot@b3adebe23a50:/app# npm list -g --depth=0
+[?2004l[0m/usr/local/lib[0m
+[0m└── (empty)[0m
+[0m[0m
+[?2004hroot@b3adebe23a50:/app# python3 -c 'with open("a.out", "rb") as f: print(len(f.read()))'
+[?2004l15960
+[?2004hroot@b3adebe23a50:/app# python3 -c 'import elftools; print(elftools.__file__)' 2>/dev/null || echo 'no pyelftools'
+[?2004lno pyelftools
+[?2004hroot@b3adebe23a50:/app# python3 -c '
+[?2004l[?2004h> with open("a.out", "rb") as f:
+[?2004l[?2004h>     e = f.read()
+[?2004l[?2004h> # ELF64 header
+[?2004l[?2004h> # e_ident (16), e_type (2), e_machine (2), e_version (4), e_entry (8), e_phoff (8), e_shoff (8), e_flags (4), e_ehsize (2), e_phentsize (2), e_phnum (2), e_shentsize (2), e_shnum (2), e_shstrndx (2)
+[?2004l[?2004h> import struct
+[?2004l[?2004h> fmt = "<16sHHIQQQIHHHHHH"
+[?2004l[?2004h> header = struct.unpack_from(fmt, e, 0)
+[?2004l[?2004h> print("e_type:", header[1])
+[?2004l[?2004h> print("e_entry:", hex(header[4]))
+[?2004l[?2004h> print("e_phoff:", header[5])
+[?2004l[?2004h> print("e_phentsize:", header[9])
+[?2004l[?2004h> print("e_phnum:", header[10])
+[?2004l[?2004h> 
+[?2004l[?2004h> phoff = header[5]
+[?2004l[?2004h> phentsize = header[9]
+[?2004l[?2004h> phnum = header[10]
+[?2004l[?2004h> for i in range(phnum):
+[?2004l[?2004h>     ph = e[phoff + i*phentsize : phoff + (i+1)*phentsize]
+[?2004l[?2004h>     # p_type (4), p_flags (4), p_offset (8), p_vaddr (8), p_paddr (8), p_filesz (8), p_memsz (8), p_align (8)
+[?2004l[?2004h>     p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align = struct.unpack_from("<IIQQQQQQ", ph, 0)
+[?2004l[?2004h>     if p_type == 1: # PT_LOAD
+[?2004l[?2004h>         print(f"LOAD: offset={hex(p_offset)}, vaddr={hex(p_vaddr)}, filesz={hex(p_filesz)}, memsz={hex(p_memsz)}")
+[?2004l[?2004h> '
+[?2004le_type: 3
+e_entry: 0x1060
+e_phoff: 64
+e_phentsize: 56
+e_phnum: 13
+LOAD: offset=0x0, vaddr=0x0, filesz=0x628, memsz=0x628
+LOAD: offset=0x1000, vaddr=0x1000, filesz=0x175, memsz=0x175
+LOAD: offset=0x2000, vaddr=0x2000, filesz=0xf4, memsz=0xf4
+LOAD: offset=0x2db8, vaddr=0x3db8, filesz=0x258, memsz=0x260
+[?2004hroot@b3adebe23a50:/app# history
+[?2004l    1  clear
+    2  ls -la
+    3  cat hi.c
+    4  readelf -l a.out
+    5  readelf -S a.out
+    6  find / -name "*extract*" -o -name "*test*" 2>/dev/null
+    7  npm list -g --depth=0
+    8  python3 -c 'with open("a.out", "rb") as f: print(len(f.read()))'
+    9  python3 -c 'import elftools; print(elftools.__file__)' 2>/dev/null || echo 'no pyelftools'
+   10  python3 -c '
+with open("a.out", "rb") as f:
+    e = f.read()
+# ELF64 header
+# e_ident (16), e_type (2), e_machine (2), e_version (4), e_entry (8), e_phoff (8), e_shoff (8), e_flags (4), e_ehsize (2), e_phentsize (2), e_phnum (2), e_shentsize (2), e_shnum (2), e_shstrndx (2)
+import struct
+fmt = "<16sHHIQQQIHHHHHH"
+header = struct.unpack_from(fmt, e, 0)
+print("e_type:", header[1])
+print("e_entry:", hex(header[4]))
+print("e_phoff:", header[5])
+print("e_phentsize:", header[9])
+print("e_phnum:", header[10])
+
+phoff = header[5]
+phentsize = header[9]
+phnum = header[10]
+for i in range(phnum):
+    ph = e[phoff + i*phentsize : phoff + (i+1)*phentsize]
+    # p_type (4), p_flags (4), p_offset (8), p_vaddr (8), p_paddr (8), p_filesz (8), p_memsz (8), p_align (8)
+    p_type, p_flags, p_offset, p_vaddr, p_paddr, p_filesz, p_memsz, p_align = struct.unpack_from("<IIQQQQQQ", ph, 0)
+    if p_type == 1: # PT_LOAD
+        print(f"LOAD: offset={hex(p_offset)}, vaddr={hex(p_vaddr)}, filesz={hex(p_filesz)}, memsz={hex(p_memsz)}")
+'
+   11  history
+[?2004hroot@b3adebe23a50:/app# git status
+[?2004lfatal: not a git repository (or any of the parent directories): .git
+[?2004hroot@b3adebe23a50:/app# ls -la /
+[?2004ltotal 72
+drwxr-xr-x   1 root root 4096 Oct 18 11:14 [0m[01;34m.[0m
+drwxr-xr-x   1 root root 4096 Oct 18 11:14 [01;34m..[0m
+-rwxr-xr-x   1 root root    0 Oct 18 11:14 [01;32m.dockerenv[0m
+drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mapp[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mbin[0m -> [01;34musr/bin[0m
+drwxr-xr-x   2 root root 4096 Apr 22  2024 [01;34mboot[0m
+drwxr-xr-x   5 root root  340 Oct 18 11:14 [01;34mdev[0m
+drwxr-xr-x   1 root root 4096 Oct 18 11:14 [01;34metc[0m
+drwxr-xr-x   3 root root 4096 Oct  1  2025 [01;34mhome[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mlib[0m -> [01;34musr/lib[0m
+lrwxrwxrwx   1 root root    9 Apr 22  2024 [01;36mlib64[0m -> [01;34musr/lib64[0m
+drwxr-xr-x   5 root root 4096 Oct 18 11:14 [01;34mlogs[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmedia[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmnt[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mopt[0m
+dr-xr-xr-x 225 root root    0 Oct 18 11:14 [01;34mproc[0m
+drwx------   1 root root 4096 Oct 18 11:14 [01;34mroot[0m
+drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mrun[0m
+lrwxrwxrwx   1 root root    8 Apr 22  2024 [01;36msbin[0m -> [01;34musr/sbin[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34msrv[0m
+dr-xr-xr-x  12 root root    0 Oct 18 11:14 [01;34msys[0m
+drwxrwxrwt   1 root root 4096 Oct 18 11:14 [30;42mtmp[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34musr[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34mvar[0m
+[?2004hroot@b3adebe23a50:/app# ls -la /logs /root
+[?2004l/logs:
+total 8
+drwxr-xr-x 5 root root 4096 Oct 18 11:14 [0m[01;34m.[0m
+drwxr-xr-x 1 root root 4096 Oct 18 11:14 [01;34m..[0m
+drwxrwxrwx 1 root root  512 Oct 18 11:14 [34;42magent[0m
+drwxrwxrwx 1 root root  512 Oct 18 11:14 [34;42martifacts[0m
+drwxrwxrwx 1 root root  512 Oct 18 11:14 [34;42mverifier[0m
+
+/root:
+total 24
+drwx------ 1 root root 4096 Oct 18 11:14 [01;34m.[0m
+drwxr-xr-x 1 root root 4096 Oct 18 11:14 [01;34m..[0m
+-rw-r--r-- 1 root root 3106 Apr 22  2024 .bashrc
+drwxr-xr-x 3 root root 4096 Oct 18 11:14 [01;34m.config[0m
+drwxr-xr-x 3 root root 4096 Oct 18 11:14 [01;34m.npm[0m
+-rw-r--r-- 1 root root  161 Apr 22  2024 .profile
+[?2004hroot@b3adebe23a50:/app# cat << 'EOF' > test_extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> const filename = process.argv[2] || '/app/a.out';
+[?2004l[?2004h> const buf = fs.readFileSync(filename);
+[?2004l[?2004h> console.log('Buffer length:', buf.length);
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@b3adebe23a50:/app# node test_extract.js
+[?2004lBuffer length: [33m15960[39m
+[?2004hroot@b3adebe23a50:/app# cat << 'EOF' > extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> 
+[?2004l[?2004h> function extract(filename) {
+[?2004l[?2004h>     const buffer = fs.readFileSync(filename);
+[?2004l[?2004h>     const result = {};
+[?2004l[?2004h> 
+[?2004l[?2004h>     // Parse ELF Header
+[?2004l[?2004h>     const is64 = buffer.readUInt8(4) === 2;
+[?2004l[?2004h>     const phoff = is64 ? Number(buffer.readBigUInt64LE(32)) : buffer.readUInt32LE(28);
+[?2004l[?2004h>     const phentsize = buffer.readUInt16LE(is64 ? 54 : 42);
+[?2004l[?2004h>     const phnum = buffer.readUInt16LE(is64 ? 56 : 44);
+[?2004l[?2004h> 
+[?2004l[?2004h>     for (let i = 0; i < phnum; i++) {
+[?2004l[?2004h>         const phOffset = phoff + i * phentsize;
+[?2004l[?2004h>         const p_type = buffer.readUInt32LE(phOffset);
+[?2004l[?2004h>         if (p_type === 1) { // PT_LOAD
+[?2004l[?2004h>             const p_offset = Number(is64 ? buffer.readBigUInt64LE(phOffset + 8) : buffer.readUInt32LE(phOffset + 4));
+[?2004l[?2004h>             const p_vaddr = Number(is64 ? buffer.readBigUInt64LE(phOffset + 16) : buffer.readUInt32LE(phOffset + 8));
+[?2004l[?2004h>             const p_filesz = Number(is64 ? buffer.readBigUInt64LE(phOffset + 32) : buffer.readUInt32LE(phOffset + 16));
+[?2004l[?2004h>             const p_memsz = Number(is64 ? buffer.readBigUInt64LE(phOffset + 40) : buffer.readUInt32LE(phOffset + 20));
+[?2004l[?2004h> 
+[?2004l[?2004h>             // Base address adjustment if vaddr is small (PIE binary loaded at 0x400000)
+[?2004l[?2004h>             // Let\'s check if base needs 0x400000 or not. If p_vaddr < 0x10000, maybe add 0x400000?
+[?2004l[?2004h>             const base = (p_vaddr < 0x10000) ? 0x400000 : 0;
+[?2004l[?2004h> 
+[?2004l[?2004h>             for (let off = 0; off < p_memsz; off += 4) {
+[?2004l[?2004h>                 const addr = p_vaddr + off + base;
+[?2004l[?2004h>                 let val = 0;
+[?2004l[?2004h>                 if (off < p_filesz && (p_offset + off + 4) <= buffer.length) {
+[?2004l[?2004h>                     val = buffer.readInt32LE(p_offset + off);
+[?2004l[?2004h>                 }
+[?2004l[?2004h>                 result[addr.toString()] = val;
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h>     return result;
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> const out = extract(process.argv[2] || '/app/a.out');
+[?2004l[?2004h> console.log(JSON.stringify(out, null, 2));
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@b3adebe23a50:/app# node extract.js /app/a.out | head -n 20
+[?2004l{
+  "4194304": 1179403647,
+  "4194308": 65794,
+  "4194312": 0,
+  "4194316": 0,
+  "4194320": 4063235,
+  "4194324": 1,
+  "4194328": 4192,
+  "4194332": 0,
+  "4194336": 64,
+  "4194340": 0,
+  "4194344": 13976,
+  "4194348": 0,
+  "4194352": 0,
+  "4194356": 3670080,
+  "4194360": 4194317,
+  "4194364": 1966111,
+  "4194368": 6,
+  "4194372": 4,
+  "4194376": 64,
+[?2004hroot@b3adebe23a50:/app# find / -name "*verifier*" -o -name "*artifact*" 2>/dev/null
+[?2004l/usr/lib/x86_64-linux-gnu/nodejs/install-artifact-from-github
+/logs/verifier
+/logs/artifacts
+[?2004hroot@b3adebe23a50:/app# ls -la /logs/verifier /logs/artifacts
+[?2004l/logs/artifacts:
+total 4
+drwxrwxrwx 1 root root  512 Oct 18 11:14 [0m[34;42m.[0m
+drwxr-xr-x 5 root root 4096 Oct 18 11:14 [01;34m..[0m
+
+/logs/verifier:
+total 4
+drwxrwxrwx 1 root root  512 Oct 18 11:14 [34;42m.[0m
+drwxr-xr-x 5 root root 4096 Oct 18 11:14 [01;34m..[0m
+[?2004hroot@b3adebe23a50:/app# cat << 'EOF' > extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> 
+[?2004l[?2004h> function extract(filename) {
+[?2004l[?2004h>     const buffer = fs.readFileSync(filename);
+[?2004l[?2004h>     const result = {};
+[?2004l[?2004h> 
+[?2004l[?2004h>     const is64 = buffer.readUInt8(4) === 2;
+[?2004l[?2004h>     const phoff = is64 ? Number(buffer.readBigUInt64LE(32)) : buffer.readUInt32LE(28);
+[?2004l[?2004h>     const phentsize = buffer.readUInt16LE(is64 ? 54 : 42);
+[?2004l[?2004h>     const phnum = buffer.readUInt16LE(is64 ? 56 : 44);
+[?2004l[?2004h> 
+[?2004l[?2004h>     for (let i = 0; i < phnum; i++) {
+[?2004l[?2004h>         const phOffset = phoff + i * phentsize;
+[?2004l[?2004h>         const p_type = buffer.readUInt32LE(phOffset);
+[?2004l[?2004h>         if (p_type === 1) { // PT_LOAD
+[?2004l[?2004h>             const p_offset = Number(is64 ? buffer.readBigUInt64LE(phOffset + 8) : buffer.readUInt32LE(phOffset + 4));
+[?2004l[?2004h>             const p_vaddr = Number(is64 ? buffer.readBigUInt64LE(phOffset + 16) : buffer.readUInt32LE(phOffset + 8));
+[?2004l[?2004h>             const p_filesz = Number(is64 ? buffer.readBigUInt64LE(phOffset + 32) : buffer.readUInt32LE(phOffset + 16));
+[?2004l[?2004h>             const p_memsz = Number(is64 ? buffer.readBigUInt64LE(phOffset + 40) : buffer.readUInt32LE(phOffset + 20));
+[?2004l[?2004h> 
+[?2004l[?2004h>             const base = (p_vaddr < 0x10000) ? 0x400000 : 0;
+[?2004l[?2004h> 
+[?2004l[?2004h>             for (let off = 0; off < p_memsz; off += 4) {
+[?2004l[?2004h>                 const addr = p_vaddr + off + base;
+[?2004l[?2004h>                 let val = 0;
+[?2004l[?2004h>                 if (off < p_filesz && (p_offset + off + 4) <= buffer.length) {
+[?2004l[?2004h>                     val = buffer.readUInt32LE(p_offset + off);
+[?2004l[?2004h>                 }
+[?2004l[?2004h>                 result[addr.toString()] = val;
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h>     return result;
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> const out = extract(process.argv[2] || '/app/a.out');
+[?2004l[?2004h> console.log(JSON.stringify(out));
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@b3adebe23a50:/app# node extract.js /app/a.out > out.json
+[?2004l[?2004hroot@b3adebe23a50:/app# head -c 200 out.json
+[?2004l{"4194304":1179403647,"4194308":65794,"4194312":0,"4194316":0,"4194320":4063235,"4194324":1,"4194328":4192,"4194332":0,"4194336":64,"4194340":0,"4194344":13976,"4194348":0,"4194352":0,"4194356":367008[?2004hroot@b3adebe23a50:/app# cat extract.js
+[?2004lconst fs = require('fs');
+
+function extract(filename) {
+    const buffer = fs.readFileSync(filename);
+    const result = {};
+
+    const is64 = buffer.readUInt8(4) === 2;
+    const phoff = is64 ? Number(buffer.readBigUInt64LE(32)) : buffer.readUInt32LE(28);
+    const phentsize = buffer.readUInt16LE(is64 ? 54 : 42);
+    const phnum = buffer.readUInt16LE(is64 ? 56 : 44);
+
+    for (let i = 0; i < phnum; i++) {
+        const phOffset = phoff + i * phentsize;
+        const p_type = buffer.readUInt32LE(phOffset);
+        if (p_type === 1) { // PT_LOAD
+            const p_offset = Number(is64 ? buffer.readBigUInt64LE(phOffset + 8) : buffer.readUInt32LE(phOffset + 4));
+            const p_vaddr = Number(is64 ? buffer.readBigUInt64LE(phOffset + 16) : buffer.readUInt32LE(phOffset + 8));
+            const p_filesz = Number(is64 ? buffer.readBigUInt64LE(phOffset + 32) : buffer.readUInt32LE(phOffset + 16));
+            const p_memsz = Number(is64 ? buffer.readBigUInt64LE(phOffset + 40) : buffer.readUInt32LE(phOffset + 20));
+
+            const base = (p_vaddr < 0x10000) ? 0x400000 : 0;
+
+            for (let off = 0; off < p_memsz; off += 4) {
+                const addr = p_vaddr + off + base;
+                let val = 0;
+                if (off < p_filesz && (p_offset + off + 4) <= buffer.length) {
+                    val = buffer.readUInt32LE(p_offset + off);
+                }
+                result[addr.toString()] = val;
+            }
+        }
+    }
+    return result;
+}
+
+const out = extract(process.argv[2] || '/app/a.out');
+console.log(JSON.stringify(out));
+[?2004hroot@b3adebe23a50:/app# 

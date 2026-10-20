@@ -2,7 +2,7 @@
  "job": "base",
  "k": 1,
  "S": 0.5,
- "C": 189947.5,
+ "C": 57749.0,
  "n_expected": 2,
  "missing": 0,
  "extra": {
@@ -19,13 +19,13 @@
     1.0
    ],
    "tokens": [
-    363196
+    100035
    ],
    "missing": 0,
    "extra": {
     "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_project\\rrsi\\runs_exp4\\coding\\jobs\\base\\extract-elf__fU4zwGz"
+     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\base\\extract-elf__LKRGnK9"
     ]
    }
   },
@@ -37,13 +37,13 @@
     1.0
    ],
    "tokens": [
-    16699
+    15463
    ],
    "missing": 0,
    "extra": {
     "passes": 1,
     "trial_dirs": [
-     "D:\\CSHTTT_project\\rrsi\\runs_exp4\\coding\\jobs\\base\\fix-git__Cpc4XVM"
+     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\base\\fix-git__UfL72JY"
     ]
    }
   }

@@ -1,0 +1,14 @@
+{
+ "task_id": "extract-elf",
+ "lens": "failure",
+ "blocker": "The agent failed to extract any correct memory addresses or values from the ELF binary, yielding 0% coverage against the reference solution.",
+ "narrative": "The agent created an `extract.js` script to parse the compiled ELF binary and output memory values as JSON. When the test suite executed `node /app/extract.js /app/new.o`, the generated `out.json` contained none of the expected memory addresses, causing the percentage threshold check to fail with 0% found.",
+ "evidence": [
+  {
+   "where": "line 821",
+   "quote": "AssertionError: Only found 0.00% of expected values (required: 75%)"
+  }
+ ],
+ "verifier_evidence": "PASSED ../tests/test_outputs.py::test_extract_js_exists\nFAILED ../tests/test_outputs.py::test_output_matches_reference - AssertionError: Only found 0.00% of expected values (required: 75%)",
+ "needed_instead": "A robust ELF parser implementation in JavaScript that correctly reads segment load addresses and raw memory contents from the binary."
+}

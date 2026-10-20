@@ -1,0 +1,51 @@
+{
+ "status": "done",
+ "summary": "Refine prompt guidance for binary format and offset parsing in scripts to mitigate programmatic extraction failure.",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf.",
+   "targets_mode": "incorrect_programmatic_parsing",
+   "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer code generation practices for binary/ELF parsing scripts without adding heavy machinery.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": "corrective: would guide the agent on extract-elf to properly locate ELF headers and sections; preservative: does not affect successful terminal exploration or repo handling habits; transfer: generalizes to any low-level binary data extraction task.",
+   "regression_risk": "None expected for standard text-processing or repo navigation tasks.",
+   "mechanism": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf."
+  }
+ ],
+ "mechanism": "Refine prompt guidance for binary format and offset parsing in scripts to mitigate programmatic extraction failure.",
+ "targets_mode": "incorrect_programmatic_parsing",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "- \"keystrokes\": String containing the exact keystrokes to send to the terminal (required). WHEN WRITING PARSER SCRIPTS OR DATA EXTRACTION SCRIPTS (e.g., Python, Node.js, JavaScript), always write the ...",
+   "new": "- \"keystrokes\": String containing the exact keystrokes to send to the terminal (required). WHEN WRITING PARSER SCRIPTS OR DATA EXTRACTION SCRIPTS (e.g., Python, Node.js, JavaScript), always write the ..."
+  },
+  {
+   "action": "done",
+   "summary": "Refine prompt guidance for binary format and offset parsing in scripts to mitigate programmatic extraction failure.",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf.",
+     "targets_mode": "incorrect_programmatic_parsing",
+     "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer code generation practices for binary/ELF parsing scripts without adding heavy machinery.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "extract-elf"
+     ],
+     "retroactive_check": "corrective: would guide the agent on extract-elf to properly locate ELF headers and sections; preservative: does not affect successful terminal exploration or repo handling habits; transfer: generalizes to any low-level binary data extraction task.",
+     "regression_risk": "None expected for standard text-processing or repo navigation tasks.",
+     "mechanism": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf."
+    }
+   ]
+  }
+ ]
+}

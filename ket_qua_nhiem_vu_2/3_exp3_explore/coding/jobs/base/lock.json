@@ -1,6 +1,6 @@
 {
     "schema_version": 3,
-    "created_at": "2026-10-16T10:00:32.124393Z",
+    "created_at": "2026-10-18T09:28:49.433975Z",
     "harbor": {
         "version": "0.24.0",
         "is_editable": false
@@ -9,15 +9,15 @@
     "retry": {
         "max_retries": 0,
         "exclude_exceptions": [
-            "VerifierOutputParseError",
-            "VerifierTimeoutError",
-            "RewardFileEmptyError",
             "ApiUsageLimitError",
             "AgentTimeoutError",
             "ModelNotFoundError",
             "AgentSafetyRefusalError",
+            "RewardFileNotFoundError",
+            "VerifierOutputParseError",
             "AgentAuthenticationError",
-            "RewardFileNotFoundError"
+            "RewardFileEmptyError",
+            "VerifierTimeoutError"
         ],
         "wait_multiplier": 1.0,
         "min_wait_sec": 1.0,
@@ -42,7 +42,7 @@
                 "extra_allowed_hosts": [],
                 "kwargs": {
                     "llm_kwargs": {
-                        "num_retries": 10
+                        "num_retries": 3
                     }
                 },
                 "mcp_servers": []
@@ -83,7 +83,7 @@
                 "extra_allowed_hosts": [],
                 "kwargs": {
                     "llm_kwargs": {
-                        "num_retries": 10
+                        "num_retries": 3
                     }
                 },
                 "mcp_servers": []

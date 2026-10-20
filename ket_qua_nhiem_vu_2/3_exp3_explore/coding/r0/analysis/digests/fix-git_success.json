@@ -1,0 +1,11 @@
+{
+ "task_id": "fix-git",
+ "lens": "success",
+ "habits": [
+  {
+   "habit": "Systematic exploration and verification of the git repository status and file contents using standard CLI tools.",
+   "where_shown": "Steps 1 to 4"
+  }
+ ],
+ "risk_if_removed": "Without systematic exploration, the agent might fail to identify the required files or repository configuration, leading to incorrect modifications and failed verification tests."
+}

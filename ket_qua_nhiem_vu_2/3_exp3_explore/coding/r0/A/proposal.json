@@ -1,0 +1,51 @@
+{
+ "status": "done",
+ "summary": "Add robust script authoring instructions to JSON prompt template to address programmatic parsing and extraction failures",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to write robust program parsing/extraction scripts and properly handle data formats prevents incomplete/zero-coverage data parsing errors.",
+   "targets_mode": "incorrect_programmatic_parsing",
+   "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer the model's code generation style across various script-based tasks.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": "(corrective) 'extract-elf' failed because the custom script extracted 0% of expected values due to unguided parsing logic; explicit instructions for robust scripting would prompt the model to check parsing correctness and formats. (preservative) Standard terminal exploration and execution success habits remain untouched since instructions only augment script authoring quality. (transfer) Generalizes to any task requiring custom scripts to extract or parse structured data formats.",
+   "regression_risk": "Slight token count overhead in prompt; negligible regression risk.",
+   "mechanism": "Instructing the policy to write robust program parsing/extraction scripts and properly handle data formats prevents incomplete/zero-coverage data parsing errors."
+  }
+ ],
+ "mechanism": "Add robust script authoring instructions to JSON prompt template to address programmatic parsing and extraction failures",
+ "targets_mode": "incorrect_programmatic_parsing",
+ "n_edits": 1,
+ "log": [
+  {
+   "action": "edit_file",
+   "path": "templates/terminus-json-plain.txt",
+   "old": "Command object structure:\n- \"keystrokes\": String containing the exact keystrokes to send to the terminal (required)\n- \"duration\": Number of seconds to wait for the command to complete before the next ...",
+   "new": "Command object structure:\n- \"keystrokes\": String containing the exact keystrokes to send to the terminal (required). WHEN WRITING PARSER SCRIPTS OR DATA EXTRACTION SCRIPTS (e.g., Python, Node.js, Java..."
+  },
+  {
+   "action": "done",
+   "summary": "Add robust script authoring instructions to JSON prompt template to address programmatic parsing and extraction failures",
+   "edits": [
+    {
+     "id": "C1",
+     "component": "prompt",
+     "hypothesis": "Instructing the policy to write robust program parsing/extraction scripts and properly handle data formats prevents incomplete/zero-coverage data parsing errors.",
+     "targets_mode": "incorrect_programmatic_parsing",
+     "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer the model's code generation style across various script-based tasks.",
+     "trigger_condition": "always",
+     "predicted_affected": [
+      "extract-elf"
+     ],
+     "retroactive_check": "(corrective) 'extract-elf' failed because the custom script extracted 0% of expected values due to unguided parsing logic; explicit instructions for robust scripting would prompt the model to check parsing correctness and formats. (preservative) Standard terminal exploration and execution success habits remain untouched since instructions only augment script authoring quality. (transfer) Generalizes to any task requiring custom scripts to extract or parse structured data formats.",
+     "regression_risk": "Slight token count overhead in prompt; negligible regression risk.",
+     "mechanism": "Instructing the policy to write robust program parsing/extraction scripts and properly handle data formats prevents incomplete/zero-coverage data parsing errors."
+    }
+   ]
+  }
+ ]
+}

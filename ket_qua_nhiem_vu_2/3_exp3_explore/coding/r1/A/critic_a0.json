@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "The prompt addition is generic advice for JSON/XML parsing errors and does not leak task-specific solutions or data."
+ ]
+}

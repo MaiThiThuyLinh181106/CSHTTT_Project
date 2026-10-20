@@ -1,0 +1,26 @@
+{
+ "commit": "998ff64",
+ "branch": "coding/r1A",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Adding explicit reminder about required fields and formatting rules during parse error feedback helps the model correct syntax errors reliably.",
+   "targets_mode": "incorrect_programmatic_parsing",
+   "why_not_lower_lever": "Prompt feedback adjustment directly targets syntax/parsing adherence during loop recovery.",
+   "trigger_condition": "whenever a parse error occurs in agent interactions",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": {
+    "corrective": "Would help guide agents that produce malformed or incomplete syntax structures to recover quickly.",
+    "preservative": "Does not affect valid interactions since it only triggers on error feedback loops.",
+    "transfer": "Generalizes to any terminal task where structured response parsing fails."
+   },
+   "regression_risk": "None expected.",
+   "mechanism": "Adding explicit reminder about required fields and formatting rules during parse error feedback helps the model correct syntax errors reliably."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r1\\A\\diff.patch",
+ "mechanism": "Instruct the policy on strict JSON/XML validity and required fields when parsing errors occur."
+}

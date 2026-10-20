@@ -1,0 +1,24 @@
+[
+ {
+  "variant": "A",
+  "admissible": true,
+  "reason": "admissible: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = +3.3985 > 0 (nu=0, div_pen=0.00)",
+  "S": 0.5,
+  "C": 44665.0,
+  "delta_S": 0.0,
+  "delta_C": -0.22656669379556357,
+  "novelty": 0,
+  "guards": []
+ },
+ {
+  "variant": "B",
+  "admissible": false,
+  "reason": "no_proposal",
+  "S": null,
+  "C": null,
+  "delta_S": null,
+  "delta_C": null,
+  "novelty": 0,
+  "guards": []
+ }
+]

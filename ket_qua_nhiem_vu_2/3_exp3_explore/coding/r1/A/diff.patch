@@ -1,0 +1,12 @@
+diff --git a/third_party/harbor_terminus2/terminus_2.py b/third_party/harbor_terminus2/terminus_2.py
+index 4772cff..c97aefc 100644
+--- a/third_party/harbor_terminus2/terminus_2.py
++++ b/third_party/harbor_terminus2/terminus_2.py
+@@ -1369,6 +1369,7 @@ so ask everything you need to know."""
+             if feedback and "ERROR:" in feedback:
+                 prompt = (
+                     f"Previous response had parsing errors:\n{feedback}\n\n"
++                    f"CRITICAL: Ensure your JSON/XML is fully valid and complete. Double check all required fields (analysis, plan, commands) and proper quoting.\n"
+                     f"Please fix these issues and provide a proper "
+                     f"{self._get_error_response_type()}."
+                 )

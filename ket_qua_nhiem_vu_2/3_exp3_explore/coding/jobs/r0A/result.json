@@ -1,0 +1,42 @@
+{
+    "id": "5673c98c-6545-4b5b-a813-09d3f99d71c1",
+    "started_at": "2026-10-18T20:11:09.533646",
+    "updated_at": "2026-10-18T20:14:09.797588",
+    "finished_at": "2026-10-18T20:14:09.797588",
+    "n_total_trials": 2,
+    "stats": {
+        "n_completed_trials": 2,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "rrsi-terminus2__gemini-3.5-flash-lite__terminal-bench/terminal-bench-2-1": {
+                "n_trials": 2,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.5
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "extract-elf__3fUbvEZ"
+                        ],
+                        "1.0": [
+                            "fix-git__XR7FN6Z"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 83848,
+        "n_cache_tokens": 40627,
+        "n_output_tokens": 5482,
+        "cost_usd": 0.02789011
+    }
+}

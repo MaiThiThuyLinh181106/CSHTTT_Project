@@ -1,0 +1,51 @@
+{
+ "job": "r0B",
+ "k": 1,
+ "S": 0.0,
+ "C": 61523.5,
+ "n_expected": 2,
+ "missing": 0,
+ "extra": {
+  "total_passes": 0,
+  "n_trials": 2,
+  "pass_rate": 0.0
+ },
+ "per_task": {
+  "extract-elf": {
+   "rewards": [
+    0.0
+   ],
+   "weights": [
+    1.0
+   ],
+   "tokens": [
+    109452
+   ],
+   "missing": 0,
+   "extra": {
+    "passes": 0,
+    "trial_dirs": [
+     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0B\\extract-elf__mbaCQSC"
+    ]
+   }
+  },
+  "fix-git": {
+   "rewards": [
+    0.0
+   ],
+   "weights": [
+    1.0
+   ],
+   "tokens": [
+    13595
+   ],
+   "missing": 0,
+   "extra": {
+    "passes": 0,
+    "trial_dirs": [
+     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0B\\fix-git__6qKe8bk"
+    ]
+   }
+  }
+ }
+}

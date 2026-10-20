@@ -1,0 +1,15 @@
+{
+ "task_id": "fix-git",
+ "lens": "success",
+ "habits": [
+  {
+   "habit": "Checked git reflog and git branch -a / git log to locate lost commits or branches",
+   "where_shown": "Steps 1-2"
+  },
+  {
+   "habit": "Checked out the correct branch and merged changes into master",
+   "where_shown": "Steps 3-4"
+  }
+ ],
+ "risk_if_removed": "Without inspecting git reflog and branch history, the agent would not have found the lost personal site changes, failing to recover and merge them into master."
+}

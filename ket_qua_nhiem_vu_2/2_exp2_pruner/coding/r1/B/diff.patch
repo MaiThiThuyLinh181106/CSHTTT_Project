@@ -1,0 +1,13 @@
+diff --git a/third_party/harbor_terminus2/templates/terminus-json-plain.txt b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+index 6481d56..fb9249f 100644
+--- a/third_party/harbor_terminus2/templates/terminus-json-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+@@ -36,7 +36,7 @@ IMPORTANT: The text inside "keystrokes" will be used completely verbatim as keys
+   - C-c for Ctrl+C
+   - C-d for Ctrl+D
+ 
+-The "duration" attribute specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a duration of 0.1 seconds. On commands (e.g., gcc, find, rustc) set a duration of 1.0 seconds. On slow commands (e.g., make, python3 [long running script], wget [file]) set an appropriate duration as you determine necessary.
++The "duration" attribute specifies the number of seconds to wait for the command to complete (default: 1.0) before the next command will be executed. On immediate tasks (e.g., cd, ls, echo, cat) set a duration of 0.1 seconds. On commands (e.g., gcc, find, rustc) set a duration of 1.0 seconds. On slow commands (e.g., make, python3 [long running script], wget [file]) set an appropriate duration as you determine necessary. When writing custom scripts or programs (e.g., for parsing binary data like ELF files, custom formats, or complex text parsing), ALWAYS test your script with a dry run or unit check, verify its output schema against requirements, and handle edge cases (such as section headers, offsets, and mappings) robustly before declaring task completion.
+ 
+ It is better to set a smaller duration than a longer duration. It is always possible to wait again if the prior output has not finished, by running {{"keystrokes": "", "duration": 10.0}} on subsequent requests to wait longer. Never wait longer than 60 seconds; prefer to poll to see intermediate result status.
+ 

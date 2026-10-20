@@ -1,0 +1,21 @@
+{
+ "failure_modes": [
+  {
+   "mode": "incomplete_specification_alignment",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "extract-elf"
+   ],
+   "description": "Custom parsing and data extraction logic fails to match the exact subset, schema, or address mapping expected by the reference test harness.",
+   "needed_instead": "A robust parsing library or correct handling of structural format offsets and mappings.",
+   "representative_evidence": [
+    {
+     "task_id": "extract-elf",
+     "where": "end of file",
+     "quote": "Test failed: extracted 0 matching addresses (required >= 75%)"
+    }
+   ]
+  }
+ ],
+ "success_habits": []
+}
