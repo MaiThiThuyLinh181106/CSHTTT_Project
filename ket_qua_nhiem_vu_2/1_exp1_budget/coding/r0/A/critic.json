@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "Minor extension of existing generic error-detection string matching in observation injection; general purpose and clean."
+  "Prompt addition provides general advice on writing parser scripts robustly without hard-coding task names, file names, or answers."
  ]
 }

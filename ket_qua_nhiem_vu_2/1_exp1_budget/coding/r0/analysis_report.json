@@ -1,46 +1,30 @@
 {
  "failure_modes": [
   {
-   "mode": "exhaustive_exploration_exhausts_turn_budget",
+   "mode": "incorrect_programmatic_parsing",
    "n_tasks": 1,
    "affected_tasks": [
     "extract-elf"
    ],
-   "description": "The agent spends the entire episode budget on low-level exploration and trial-and-error inspection commands without transitioning to implementation and verification, leading to task timeout before completion.",
-   "needed_instead": "The scaffold or agent prompt should guide early transition from exploration to implementation and enforce a structured milestone checklist.",
+   "description": "The agent authored a programmatic parser script that failed to extract the expected data format or content from the target binary, resulting in complete failure against reference validation checks.",
+   "needed_instead": "Accurate file format parsing logic that correctly targets the expected structures and populates the required output schema.",
    "representative_evidence": [
     {
      "task_id": "extract-elf",
-     "where": "line 2",
-     "quote": "REWARD: 0.0 | episodes: 21 | summarizations: 0 | input_tokens: 354154 | output_tokens: 9042"
-    }
-   ]
-  }
- ],
- "capability_gaps": [
-  {
-   "gap": "complex_binary_parsing_implementation_timeout",
-   "n_tasks": 1,
-   "affected_tasks": [
-    "extract-elf"
-   ],
-   "description": "The agent was unable to complete the complex programming task of parsing a binary file format and generating the required output format within the maximum turn limit.",
-   "representative_evidence": [
-    {
-     "task_id": "extract-elf",
-     "where": "line 957",
+     "where": "line 821",
      "quote": "AssertionError: Only found 0.00% of expected values (required: 75%)"
     }
    ]
   }
  ],
+ "capability_gaps": [],
  "success_habits": [
   {
-   "habit": "systematic_state_history_inspection",
+   "habit": "systematic_repository_exploration",
    "n_tasks": 1,
-   "description": "Systematically inspecting version control logs and branch histories to locate lost state or target references before performing integration.",
-   "risk_if_removed": "Without checking history or reflogs to locate missing references, the agent would fail to identify the correct target state for recovery tasks."
+   "description": "Thoroughly inspecting workspace state, repository configuration, and file contents using standard command-line tools prior to making modifications.",
+   "risk_if_removed": "The agent could miss critical repository context or file locations, leading to flawed changes and failing verification tests."
   }
  ],
- "n_digests": 3
+ "n_digests": 2
 }

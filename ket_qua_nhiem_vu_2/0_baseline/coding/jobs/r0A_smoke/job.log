@@ -1,0 +1,62 @@
+Agent 'rrsi-terminus2' does not declare an options_model; leftover kwargs are ignored
+Agent 'rrsi-terminus2' does not declare an options_model; leftover kwargs are ignored
+Installing: tmux, asciinema
+Installing: tmux, asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_command': None}
+Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git branch -a\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git reflog\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\fix-git__YEeXQMK\agent\trajectory.json
+Sending keys: ['git cherry-pick c499730\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['git log -n 3 --oneline\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\fix-git__YEeXQMK\agent\trajectory.json
+Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['cat _includes/about.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\fix-git__YEeXQMK\agent\trajectory.json
+Sending keys: ['git checkout --theirs _includes/about.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git add _includes/about.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git cherry-pick --continue\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\fix-git__YEeXQMK\agent\trajectory.json
+Sending keys: ['git commit --no-edit\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['git log -n 3 --oneline\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\fix-git__YEeXQMK\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\fix-git__YEeXQMK\agent\trajectory.json
+Collecting main service artifacts
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['readelf -l /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['readelf -S /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\extract-elf__RZ2Vp6z\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['cat hi.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\extract-elf__RZ2Vp6z\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['find / -name "*extract*" 2>/dev/null\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['find / -name "*test*" 2>/dev/null\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\extract-elf__RZ2Vp6z\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ["cat << 'EOF' > extract.js\nconst fs = require('fs');\n\nconst filename = process.argv[2];\nconst buffer = fs.readFileSync(filename);\n\n// Parse ELF header\nconst is64 = buffer[4] === 2;\nconst littleEndian = buffer[5] === 1;\n\nfunction readU16(offset) {\n  return littleEndian ? buffer.readUInt16LE(offset) : buffer.readUInt16BE(offset);\n}\nfunction readU32(offset) {\n  return littleEndian ? buffer.readUInt32LE(offset) : buffer.readUInt32BE(offset);\n}\nfunction readU64(offset) {\n  const low = readU32(offset);\n  const high = readU32(offset + 4);\n  return high * 0x100000000 + low;\n}\n\nlet shoff, shentsize, shnum, shstrndx;\nif (is64) {\n  shoff = Number(readU64(0x28));\n  shentsize = readU16(0x3a);\n  shnum = readU16(0x3c);\n  shstrndx = readU16(0x3e);\n} else {\n  shoff = readU32(0x20);\n  shentsize = readU16(0x2e);\n  shnum = readU16(0x30);\n  shstrndx = readU16(0x32);\n}\n\nconst memory = {};\n\nfor (let i = 0; i < shnum; i++) {\n  const shOffset = shoff + i * shentsize;\n  const type = readU32(shOffset + 4);\n  const flags = is64 ? readU64(shOffset + 8) : readU32(shOffset + 8);\n  const addr = is64 ? readU64(shOffset + 16) : readU32(shOffset + 12);\n  const fileOffset = is64 ? readU64(shOffset + 24) : readU32(shOffset + 16);\n  const size = is64 ? readU64(shOffset + 32) : readU32(shOffset + 20);\n\n  // Check ALLOC flag (SHF_ALLOC = 0x2)\n  if ((flags & 0x2) !== 0 && type !== 8) { // Not NOBITS (BSS can be 0 or omitted, but let's check PROGBITS)\n    if (type === 1 && size > 0) { // SHT_PROGBITS\n      for (let offset = 0; offset < size; offset += 4) {\n        if (fileOffset + offset + 4 <= buffer.length) {\n          const val = littleEndian ? buffer.readInt32LE(fileOffset + offset) : buffer.readInt32BE(fileOffset + offset);\n          const vaddr = Number(addr) + offset;\n          memory[vaddr.toString()] = val;\n        }\n      }\n    }\n  }\n}\n\nconsole.log(JSON.stringify(memory));\nEOF\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['node extract.js /app/a.out > out.json && head -c 200 out.json && echo\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\extract-elf__RZ2Vp6z\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\extract-elf__RZ2Vp6z\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\r0A_smoke\extract-elf__RZ2Vp6z\agent\trajectory.json
+Collecting main service artifacts

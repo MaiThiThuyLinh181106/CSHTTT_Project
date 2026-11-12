@@ -1,35 +1,35 @@
 {
  "job": "r0A",
  "k": 1,
- "S": 1.0,
- "C": 2915049.0,
+ "S": 0.5,
+ "C": 44665.0,
  "n_expected": 2,
  "missing": 0,
  "extra": {
-  "total_passes": 2,
+  "total_passes": 1,
   "n_trials": 2,
-  "pass_rate": 1.0
+  "pass_rate": 0.5
  },
  "per_task": {
-  "adaptive-rejection-sampler": {
+  "extract-elf": {
    "rewards": [
-    1.0
+    0.0
    ],
    "weights": [
     1.0
    ],
    "tokens": [
-    472670
+    72819
    ],
    "missing": 0,
    "extra": {
-    "passes": 1,
+    "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0A\\adaptive-rejection-sampler__UFLfQuL"
+     "runs\\coding\\jobs\\r0A\\extract-elf__3fUbvEZ"
     ]
    }
   },
-  "bn-fit-modify": {
+  "fix-git": {
    "rewards": [
     1.0
    ],
@@ -37,13 +37,13 @@
     1.0
    ],
    "tokens": [
-    5357428
+    16511
    ],
    "missing": 0,
    "extra": {
     "passes": 1,
     "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0A\\bn-fit-modify__CYraJPq"
+     "runs\\coding\\jobs\\r0A\\fix-git__XR7FN6Z"
     ]
    }
   }

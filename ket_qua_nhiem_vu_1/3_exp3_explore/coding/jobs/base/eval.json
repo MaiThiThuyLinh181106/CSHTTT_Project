@@ -1,51 +1,20 @@
 {
- "job": "base",
- "k": 1,
- "S": 0.5,
- "C": 1059350.0,
- "n_expected": 2,
- "missing": 0,
- "extra": {
-  "total_passes": 1,
+  "S": 0.5,
+  "C": 57749.0,
+  "total_tokens": 115498,
   "n_trials": 2,
-  "pass_rate": 0.5
- },
- "per_task": {
-  "adaptive-rejection-sampler": {
-   "rewards": [
-    1.0
-   ],
-   "weights": [
-    1.0
-   ],
-   "tokens": [
-    223874
-   ],
-   "missing": 0,
-   "extra": {
-    "passes": 1,
-    "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\base\\adaptive-rejection-sampler__MRdkLkK"
-    ]
-   }
-  },
-  "bn-fit-modify": {
-   "rewards": [
-    0.0
-   ],
-   "weights": [
-    1.0
-   ],
-   "tokens": [
-    1894826
-   ],
-   "missing": 0,
-   "extra": {
-    "passes": 0,
-    "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\base\\bn-fit-modify__MTLSkWq"
-    ]
-   }
-  }
- }
+  "total_passes": 1,
+  "pass_rate": 0.5,
+  "trials": [
+    {
+      "task": "extract-elf",
+      "reward": 0.0,
+      "total_tokens": 100035
+    },
+    {
+      "task": "fix-git",
+      "reward": 1.0,
+      "total_tokens": 15463
+    }
+  ]
 }

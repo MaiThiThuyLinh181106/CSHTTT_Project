@@ -1,18 +1,18 @@
 {
  "failure_modes": [
   {
-   "mode": "omitted_final_deliverable",
+   "mode": "incorrect_programmatic_parsing",
    "n_tasks": 1,
    "affected_tasks": [
-    "bn-fit-modify"
+    "extract-elf"
    ],
-   "description": "The agent completed all intermediate workflow stages successfully but failed to execute the final required step to generate and save the primary output artifact before signaling completion.",
-   "needed_instead": "The agent needed to ensure all requested output files are generated, validated, and confirmed to exist on disk prior to task termination.",
+   "description": "The agent authored a programmatic parser script that failed to extract the expected data format or content from the target binary, resulting in complete failure against reference validation checks.",
+   "needed_instead": "Accurate file format parsing logic that correctly targets the expected structures and populates the required output schema.",
    "representative_evidence": [
     {
-     "task_id": "bn-fit-modify",
-     "where": "line 3112",
-     "quote": "FileNotFoundError: [Errno 2] No such file or directory: '/app/final_bn_sample.csv'"
+     "task_id": "extract-elf",
+     "where": "line 821",
+     "quote": "AssertionError: Only found 0.00% of expected values (required: 75%)"
     }
    ]
   }
@@ -20,9 +20,10 @@
  "capability_gaps": [],
  "success_habits": [
   {
-   "habit": "iterative_artifact_generation",
-   "description": "The agent thoroughly implements and executes intermediate modeling steps, ensuring core logic passes baseline checks and all mandatory output files are explicitly verified via inspection and existence checks.",
-   "risk_if_broken": "Without iterative development and testing via execution, syntax errors or missing requirements such as sample output files and formal test outputs would cause test failures."
+   "habit": "systematic_repository_exploration",
+   "n_tasks": 1,
+   "description": "Thoroughly inspecting workspace state, repository configuration, and file contents using standard command-line tools prior to making modifications.",
+   "risk_if_removed": "The agent could miss critical repository context or file locations, leading to flawed changes and failing verification tests."
   }
  ],
  "n_digests": 2

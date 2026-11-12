@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "The added prompt text provides general, task-agnostic guidance to verify output artifacts before completing tasks, which is standard procedure and does not leak specific task names or answers."
+  "The addition of escape/JSON formatting advice to the error recovery prompt is general and task-agnostic, improving robustness against invalid JSON outputs on any task."
  ]
 }

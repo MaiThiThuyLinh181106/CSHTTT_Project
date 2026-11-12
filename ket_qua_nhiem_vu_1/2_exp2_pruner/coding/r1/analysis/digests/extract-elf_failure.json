@@ -1,0 +1,15 @@
+{
+ "task_id": "extract-elf",
+ "lens": "failure",
+ "blocker": "The custom JavaScript extraction script failed to correctly parse the ELF binary's loadable segments and virtual memory addresses, resulting in zero matching memory values against the reference solution.",
+ "narrative": "The agent wrote a Node.js script `extract.js` to parse the compiled ELF binary `a.out` and output memory addresses as keys with integer values. However, manual parsing of the ELF headers, section offsets, and virtual addresses was flawed, causing the generated JSON to fail both the correctness and 75% coverage criteria required by the test harness.",
+ "evidence": [
+  {
+   "where": "end of file",
+   "quote": "Test failed: extracted 0 matching addresses (required >= 75%)"
+  }
+ ],
+ "verifier_evidence": "The test harness reported that 0% of the required memory values matched the reference solution.",
+ "capability_note": "The agent attempted to write a pure JavaScript parser for ELF binaries without using external native libraries.",
+ "needed_instead": "A robust ELF parsing library or correct handling of PT_LOAD segment virtual-to-file offset mappings."
+}

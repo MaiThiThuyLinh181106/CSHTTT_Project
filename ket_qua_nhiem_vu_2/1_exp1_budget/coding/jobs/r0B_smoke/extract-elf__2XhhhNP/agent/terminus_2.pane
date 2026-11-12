@@ -1,515 +1,0 @@
-[?2004hroot@5b9dc99b184b:/app# asciinema rec --stdin /logs/agent/recording.cast
-[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
-[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
-[?2004hroot@5b9dc99b184b:/app# clear
-[?2004l[H[J[3J[?2004hroot@5b9dc99b184b:/app# ls -la
-[?2004ltotal 28
-drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
-drwxr-xr-x 1 root root  4096 Oct 17 05:26 [01;34m..[0m
--rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
--rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
-[?2004hroot@5b9dc99b184b:/app# file a.out
-[?2004lbash: file: command not found
-[?2004hroot@5b9dc99b184b:/app# readelf -S a.out
-[?2004lThere are 31 section headers, starting at offset 0x3698:
-
-Section Headers:
-  [Nr] Name              Type             Address           Offset
-       Size              EntSize          Flags  Link  Info  Align
-  [ 0]                   NULL             0000000000000000  00000000
-       0000000000000000  0000000000000000           0     0     0
-  [ 1] .interp           PROGBITS         0000000000000318  00000318
-       000000000000001c  0000000000000000   A       0     0     1
-  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
-       0000000000000030  0000000000000000   A       0     0     8
-  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
-       0000000000000024  0000000000000000   A       0     0     4
-  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
-       0000000000000020  0000000000000000   A       0     0     4
-  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
-       0000000000000024  0000000000000000   A       6     0     8
-  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
-       00000000000000a8  0000000000000018   A       7     1     8
-  [ 7] .dynstr           STRTAB           0000000000000480  00000480
-       000000000000008d  0000000000000000   A       0     0     1
-  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
-       000000000000000e  0000000000000002   A       6     0     2
-  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
-       0000000000000030  0000000000000000   A       7     1     8
-  [10] .rela.dyn         RELA             0000000000000550  00000550
-       00000000000000c0  0000000000000018   A       6     0     8
-  [11] .rela.plt         RELA             0000000000000610  00000610
-       0000000000000018  0000000000000018  AI       6    24     8
-  [12] .init             PROGBITS         0000000000001000  00001000
-       000000000000001b  0000000000000000  AX       0     0     4
-  [13] .plt              PROGBITS         0000000000001020  00001020
-       0000000000000020  0000000000000010  AX       0     0     16
-  [14] .plt.got          PROGBITS         0000000000001040  00001040
-       0000000000000010  0000000000000010  AX       0     0     16
-  [15] .plt.sec          PROGBITS         0000000000001050  00001050
-       0000000000000010  0000000000000010  AX       0     0     16
-  [16] .text             PROGBITS         0000000000001060  00001060
-       0000000000000107  0000000000000000  AX       0     0     16
-  [17] .fini             PROGBITS         0000000000001168  00001168
-       000000000000000d  0000000000000000  AX       0     0     4
-  [18] .rodata           PROGBITS         0000000000002000  00002000
-       0000000000000010  0000000000000000   A       0     0     4
-  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
-       0000000000000034  0000000000000000   A       0     0     4
-  [20] .eh_frame         PROGBITS         0000000000002048  00002048
-       00000000000000ac  0000000000000000   A       0     0     8
-  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
-       0000000000000008  0000000000000008  WA       0     0     8
-  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
-       0000000000000008  0000000000000008  WA       0     0     8
-  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
-       00000000000001f0  0000000000000010  WA       7     0     8
-  [24] .got              PROGBITS         0000000000003fb8  00002fb8
-       0000000000000048  0000000000000008  WA       0     0     8
-  [25] .data             PROGBITS         0000000000004000  00003000
-       0000000000000010  0000000000000000  WA       0     0     8
-  [26] .bss              NOBITS           0000000000004010  00003010
-       0000000000000008  0000000000000000  WA       0     0     1
-  [27] .comment          PROGBITS         0000000000000000  00003010
-       000000000000002b  0000000000000001  MS       0     0     1
-  [28] .symtab           SYMTAB           0000000000000000  00003040
-       0000000000000360  0000000000000018          29    18     8
-  [29] .strtab           STRTAB           0000000000000000  000033a0
-       00000000000001d8  0000000000000000           0     0     1
-  [30] .shstrtab         STRTAB           0000000000000000  00003578
-       000000000000011a  0000000000000000           0     0     1
-Key to Flags:
-  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
-  L (link order), O (extra OS processing required), G (group), T (TLS),
-  C (compressed), x (unknown), o (OS specific), E (exclude),
-  D (mbind), l (large), p (processor specific)
-[?2004hroot@5b9dc99b184b:/app# cat hi.c
-[?2004l#include<stdio.h>
-
-int main() {
-  printf("Hello world\n");
-}
-[?2004hroot@5b9dc99b184b:/app# readelf -l a.out
-[?2004l
-Elf file type is DYN (Position-Independent Executable file)
-Entry point 0x1060
-There are 13 program headers, starting at offset 64
-
-Program Headers:
-  Type           Offset             VirtAddr           PhysAddr
-                 FileSiz            MemSiz              Flags  Align
-  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
-                 0x00000000000002d8 0x00000000000002d8  R      0x8
-  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
-                 0x000000000000001c 0x000000000000001c  R      0x1
-      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
-  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
-                 0x0000000000000628 0x0000000000000628  R      0x1000
-  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
-                 0x0000000000000175 0x0000000000000175  R E    0x1000
-  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
-                 0x00000000000000f4 0x00000000000000f4  R      0x1000
-  LOAD           0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
-                 0x0000000000000258 0x0000000000000260  RW     0x1000
-  DYNAMIC        0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8
-                 0x00000000000001f0 0x00000000000001f0  RW     0x8
-  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
-                 0x0000000000000030 0x0000000000000030  R      0x8
-  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
-                 0x0000000000000044 0x0000000000000044  R      0x4
-  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
-                 0x0000000000000030 0x0000000000000030  R      0x8
-  GNU_EH_FRAME   0x0000000000002010 0x0000000000002010 0x0000000000002010
-                 0x0000000000000034 0x0000000000000034  R      0x4
-  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
-                 0x0000000000000000 0x0000000000000000  RW     0x10
-  GNU_RELRO      0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
-                 0x0000000000000248 0x0000000000000248  R      0x1
-
- Section to Segment mapping:
-  Segment Sections...
-   00     
-   01     .interp 
-   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
-   03     .init .plt .plt.got .plt.sec .text .fini 
-   04     .rodata .eh_frame_hdr .eh_frame 
-   05     .init_array .fini_array .dynamic .got .data .bss 
-   06     .dynamic 
-   07     .note.gnu.property 
-   08     .note.gnu.build-id .note.ABI-tag 
-   09     .note.gnu.property 
-   10     .eh_frame_hdr 
-   11     
-   12     .init_array .fini_array .dynamic .got 
-[?2004hroot@5b9dc99b184b:/app# ls -la ..
-[?2004ltotal 76
-drwxr-xr-x   1 root root 4096 Oct 17 05:26 [0m[01;34m.[0m
-drwxr-xr-x   1 root root 4096 Oct 17 05:26 [01;34m..[0m
--rwxr-xr-x   1 root root    0 Oct 17 05:26 [01;32m.dockerenv[0m
-drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mapp[0m
-lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mbin[0m -> [01;34musr/bin[0m
-drwxr-xr-x   2 root root 4096 Apr 22  2024 [01;34mboot[0m
-drwxr-xr-x   5 root root  340 Oct 17 05:26 [01;34mdev[0m
-drwxr-xr-x   1 root root 4096 Oct 17 05:26 [01;34metc[0m
-drwxr-xr-x   3 root root 4096 Oct  1  2025 [01;34mhome[0m
-lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mlib[0m -> [01;34musr/lib[0m
-lrwxrwxrwx   1 root root    9 Apr 22  2024 [01;36mlib64[0m -> [01;34musr/lib64[0m
-drwxr-xr-x   5 root root 4096 Oct 17 05:26 [01;34mlogs[0m
-drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmedia[0m
-drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmnt[0m
-drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mopt[0m
-dr-xr-xr-x 252 root root    0 Oct 17 05:26 [01;34mproc[0m
-drwx------   1 root root 4096 Oct 17 05:26 [01;34mroot[0m
-drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mrun[0m
-lrwxrwxrwx   1 root root    8 Apr 22  2024 [01;36msbin[0m -> [01;34musr/sbin[0m
-drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34msrv[0m
-dr-xr-xr-x  13 root root    0 Oct 17 05:19 [01;34msys[0m
-drwxrwxrwt   1 root root 4096 Oct 17 05:26 [30;42mtmp[0m
-drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34musr[0m
-drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34mvar[0m
-[?2004hroot@5b9dc99b184b:/app# ls -la /logs
-[?2004ltotal 8
-drwxr-xr-x 5 root root 4096 Oct 17 05:26 [0m[01;34m.[0m
-drwxr-xr-x 1 root root 4096 Oct 17 05:26 [01;34m..[0m
-drwxrwxrwx 1 root root  512 Oct 17 05:26 [34;42magent[0m
-drwxrwxrwx 1 root root  512 Oct 17 05:26 [34;42martifacts[0m
-drwxrwxrwx 1 root root  512 Oct 17 05:26 [34;42mverifier[0m
-[?2004hroot@5b9dc99b184b:/app# npm list -g
-[?2004l[0m/usr/local/lib[0m
-[0m└── (empty)[0m
-[0m[0m
-[?2004hroot@5b9dc99b184b:/app# node -v
-[?2004lv18.19.1
-[?2004hroot@5b9dc99b184b:/app# ls -la
-[?2004ltotal 28
-drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
-drwxr-xr-x 1 root root  4096 Oct 17 05:26 [01;34m..[0m
--rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
--rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
-[?2004hroot@5b9dc99b184b:/app# python3 -c "import elftools; print('elftools found')" 2>/dev/null || echo 'no elftools'
-[?2004lno elftools
-[?2004hroot@5b9dc99b184b:/app# pip3 install pyelftools
-[?2004lbash: pip3: command not found
-[?2004hroot@5b9dc99b184b:/app# npm install elf-parser
-[?2004l[?25l([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠇ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠇ idealTree:app: [7msill[0m [35midealTree[0m buildDeps[0m[K([107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠼ idealTree:app: [32;40mtiming[0m [35midealTree:#root[0m Completed in 511ms[0m[K([107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠴ idealTree:app: [32;40mtiming[0m [35midealTree:#root[0m Completed in 511ms[0m[K([107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠼ reify:elf-parser: [32;40mtiming[0m [35mreify:loadBundles[0m Completed in 0ms[0m[K([107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠏ reify:elf-parser: [32;40mtiming[0m [35mreify:loadBundles[0m Completed in 0ms[0m[K([107;97m##############[0m[100;90m⠂⠂⠂⠂[0m) ⠴ reify:graceful-fs: [32;40mhttp[0m [35mfetch[0m GET 200 https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz 81ms (cache miss)[0m[K([107;97m################[0m[100;90m⠂⠂[0m) ⠧ reify:elf-parser: [32;40mhttp[0m [35mfetch[0m GET 200 https://registry.npmjs.org/elf-parser/-/elf-parser-1.0.1.tgz 142ms (cache miss)[0m[K[K[?25h
-added 5 packages in 917ms
-[?2004hroot@5b9dc99b184b:/app# node -e "const parse = require('elf-parser'); parse('/app/a.out', (err, obj) => { console.log(err, obj); });"
-[?2004lerr path of elf file: undefined
-[eval]:1
-const parse = require('elf-parser'); parse('/app/a.out', (err, obj) => { console.log(err, obj); });
-                                     ^
-
-TypeError: parse is not a function
-    at [eval]:1:38
-[90m    at Script.runInThisContext (node:vm:122:12)[39m
-[90m    at Object.runInThisContext (node:vm:298:38)[39m
-[90m    at node:internal/process/execution:82:21[39m
-    at [eval]-wrapper:6:24
-[90m    at runScript (node:internal/process/execution:81:62)[39m
-[90m    at evalScript (node:internal/process/execution:103:10)[39m
-[90m    at node:internal/main/eval_string:30:3[39m
-
-Node.js v18.19.1
-[?2004hroot@5b9dc99b184b:/app# node -e "console.log(require('elf-parser'))"
-[?2004lerr path of elf file: undefined
-{}
-[?2004hroot@5b9dc99b184b:/app# node -e "console.log(Object.keys(require('./node_modules/elf-parser')))"
-[?2004lerr path of elf file: undefined
-[]
-[?2004hroot@5b9dc99b184b:/app# npm uninstall elf-parser
-[?2004l[?25l([107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠧ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 53ms[0m[K([107;97m#########[0m[100;90m⠂⠂⠂⠂⠂⠂⠂⠂⠂[0m) ⠧ idealTree: [32;40mtiming[0m [35midealTree[0m Completed in 53ms[0m[K[K[?25h
-removed 5 packages, and audited 1 package in 216ms
-
-found [32m[1m0[22m[39m vulnerabilities
-[?2004hroot@5b9dc99b184b:/app# objdump -h a.out
-[?2004l
-a.out:     file format elf64-x86-64
-
-Sections:
-Idx Name          Size      VMA               LMA               File off  Algn
-  0 .interp       0000001c  0000000000000318  0000000000000318  00000318  2**0
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .note.gnu.property 00000030  0000000000000338  0000000000000338  00000338  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .note.gnu.build-id 00000024  0000000000000368  0000000000000368  00000368  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .note.ABI-tag 00000020  000000000000038c  000000000000038c  0000038c  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .gnu.hash     00000024  00000000000003b0  00000000000003b0  000003b0  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .dynsym       000000a8  00000000000003d8  00000000000003d8  000003d8  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  6 .dynstr       0000008d  0000000000000480  0000000000000480  00000480  2**0
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .gnu.version  0000000e  000000000000050e  000000000000050e  0000050e  2**1
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .gnu.version_r 00000030  0000000000000520  0000000000000520  00000520  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  9 .rela.dyn     000000c0  0000000000000550  0000000000000550  00000550  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
- 10 .rela.plt     00000018  0000000000000610  0000000000000610  00000610  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
- 11 .init         0000001b  0000000000001000  0000000000001000  00001000  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .plt          00000020  0000000000001020  0000000000001020  00001020  2**4
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 13 .plt.got      00000010  0000000000001040  0000000000001040  00001040  2**4
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .plt.sec      00000010  0000000000001050  0000000000001050  00001050  2**4
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 15 .text         00000107  0000000000001060  0000000000001060  00001060  2**4
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .fini         0000000d  0000000000001168  0000000000001168  00001168  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
- 17 .rodata       00000010  0000000000002000  0000000000002000  00002000  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
- 18 .eh_frame_hdr 00000034  0000000000002010  0000000000002010  00002010  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
- 19 .eh_frame     000000ac  0000000000002048  0000000000002048  00002048  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
- 20 .init_array   00000008  0000000000003db8  0000000000003db8  00002db8  2**3
-                  CONTENTS, ALLOC, LOAD, DATA
- 21 .fini_array   00000008  0000000000003dc0  0000000000003dc0  00002dc0  2**3
-                  CONTENTS, ALLOC, LOAD, DATA
- 22 .dynamic      000001f0  0000000000003dc8  0000000000003dc8  00002dc8  2**3
-                  CONTENTS, ALLOC, LOAD, DATA
- 23 .got          00000048  0000000000003fb8  0000000000003fb8  00002fb8  2**3
-                  CONTENTS, ALLOC, LOAD, DATA
- 24 .data         00000010  0000000000004000  0000000000004000  00003000  2**3
-                  CONTENTS, ALLOC, LOAD, DATA
- 25 .bss          00000008  0000000000004010  0000000000004010  00003010  2**0
-                  ALLOC
- 26 .comment      0000002b  0000000000000000  0000000000000000  00003010  2**0
-                  CONTENTS, READONLY
-[?2004hroot@5b9dc99b184b:/app# objdump -s a.out
-[?2004l
-a.out:     file format elf64-x86-64
-
-Contents of section .interp:
- 0318 2f6c6962 36342f6c 642d6c69 6e75782d  /lib64/ld-linux-
- 0328 7838362d 36342e73 6f2e3200           x86-64.so.2.    
-Contents of section .note.gnu.property:
- 0338 04000000 20000000 05000000 474e5500  .... .......GNU.
- 0348 020000c0 04000000 03000000 00000000  ................
- 0358 028000c0 04000000 01000000 00000000  ................
-Contents of section .note.gnu.build-id:
- 0368 04000000 14000000 03000000 474e5500  ............GNU.
- 0378 02cdae52 f08928e9 505a81d5 6c353b65  ...R..(.PZ..l5;e
- 0388 ae8d1241                             ...A            
-Contents of section .note.ABI-tag:
- 038c 04000000 10000000 01000000 474e5500  ............GNU.
- 039c 00000000 03000000 02000000 00000000  ................
-Contents of section .gnu.hash:
- 03b0 02000000 06000000 01000000 06000000  ................
- 03c0 00008100 00000000 06000000 00000000  ................
- 03d0 d165ce6d                             .e.m            
-Contents of section .dynsym:
- 03d8 00000000 00000000 00000000 00000000  ................
- 03e8 00000000 00000000 06000000 12000000  ................
- 03f8 00000000 00000000 00000000 00000000  ................
- 0408 48000000 20000000 00000000 00000000  H... ...........
- 0418 00000000 00000000 01000000 12000000  ................
- 0428 00000000 00000000 00000000 00000000  ................
- 0438 64000000 20000000 00000000 00000000  d... ...........
- 0448 00000000 00000000 73000000 20000000  ........s... ...
- 0458 00000000 00000000 00000000 00000000  ................
- 0468 18000000 22000000 00000000 00000000  ...."...........
- 0478 00000000 00000000                    ........        
-Contents of section .dynstr:
- 0480 00707574 73005f5f 6c696263 5f737461  .puts.__libc_sta
- 0490 72745f6d 61696e00 5f5f6378 615f6669  rt_main.__cxa_fi
- 04a0 6e616c69 7a65006c 6962632e 736f2e36  nalize.libc.so.6
- 04b0 00474c49 42435f32 2e322e35 00474c49  .GLIBC_2.2.5.GLI
- 04c0 42435f32 2e333400 5f49544d 5f646572  BC_2.34._ITM_der
- 04d0 65676973 74657254 4d436c6f 6e655461  egisterTMCloneTa
- 04e0 626c6500 5f5f676d 6f6e5f73 74617274  ble.__gmon_start
- 04f0 5f5f005f 49544d5f 72656769 73746572  __._ITM_register
- 0500 544d436c 6f6e6554 61626c65 00        TMCloneTable.   
-Contents of section .gnu.version:
- 050e 00000200 01000300 01000100 0300      ..............  
-Contents of section .gnu.version_r:
- 0520 01000200 27000000 10000000 00000000  ....'...........
- 0530 751a6909 00000300 31000000 10000000  u.i.....1.......
- 0540 b4919606 00000200 3d000000 00000000  ........=.......
-Contents of section .rela.dyn:
- 0550 b83d0000 00000000 08000000 00000000  .=..............
- 0560 40110000 00000000 c03d0000 00000000  @........=......
- 0570 08000000 00000000 00110000 00000000  ................
- 0580 08400000 00000000 08000000 00000000  .@..............
- 0590 08400000 00000000 d83f0000 00000000  .@.......?......
- 05a0 06000000 01000000 00000000 00000000  ................
- 05b0 e03f0000 00000000 06000000 02000000  .?..............
- 05c0 00000000 00000000 e83f0000 00000000  .........?......
- 05d0 06000000 04000000 00000000 00000000  ................
- 05e0 f03f0000 00000000 06000000 05000000  .?..............
- 05f0 00000000 00000000 f83f0000 00000000  .........?......
- 0600 06000000 06000000 00000000 00000000  ................
-Contents of section .rela.plt:
- 0610 d03f0000 00000000 07000000 03000000  .?..............
- 0620 00000000 00000000                    ........        
-Contents of section .init:
- 1000 f30f1efa 4883ec08 488b05d9 2f000048  ....H...H.../..H
- 1010 85c07402 ffd04883 c408c3             ..t...H....     
-Contents of section .plt:
- 1020 ff359a2f 0000ff25 9c2f0000 0f1f4000  .5./...%./....@.
- 1030 f30f1efa 68000000 00e9e2ff ffff6690  ....h.........f.
-Contents of section .plt.got:
- 1040 f30f1efa ff25ae2f 0000660f 1f440000  .....%./..f..D..
-Contents of section .plt.sec:
- 1050 f30f1efa ff25762f 0000660f 1f440000  .....%v/..f..D..
-Contents of section .text:
- 1060 f30f1efa 31ed4989 d15e4889 e24883e4  ....1.I..^H..H..
- 1070 f0505445 31c031c9 488d3dca 000000ff  .PTE1.1.H.=.....
- 1080 15532f00 00f4662e 0f1f8400 00000000  .S/...f.........
- 1090 488d3d79 2f000048 8d05722f 00004839  H.=y/..H..r/..H9
- 10a0 f8741548 8b05362f 00004885 c07409ff  .t.H..6/..H..t..
- 10b0 e00f1f80 00000000 c30f1f80 00000000  ................
- 10c0 488d3d49 2f000048 8d35422f 00004829  H.=I/..H.5B/..H)
- 10d0 fe4889f0 48c1ee3f 48c1f803 4801c648  .H..H..?H...H..H
- 10e0 d1fe7414 488b0505 2f000048 85c07408  ..t.H.../..H..t.
- 10f0 ffe0660f 1f440000 c30f1f80 00000000  ..f..D..........
- 1100 f30f1efa 803d052f 00000075 2b554883  .....=./...u+UH.
- 1110 3de22e00 00004889 e5740c48 8b3de62e  =.....H..t.H.=..
- 1120 0000e819 ffffffe8 64ffffff c605dd2e  ........d.......
- 1130 0000015d c30f1f00 c30f1f80 00000000  ...]............
- 1140 f30f1efa e977ffff fff30f1e fa554889  .....w.......UH.
- 1150 e5488d05 ac0e0000 4889c7e8 f0feffff  .H......H.......
- 1160 b8000000 005dc3                      .....].         
-Contents of section .fini:
- 1168 f30f1efa 4883ec08 4883c408 c3        ....H...H....   
-Contents of section .rodata:
- 2000 01000200 48656c6c 6f20776f 726c6400  ....Hello world.
-Contents of section .eh_frame_hdr:
- 2010 011b033b 34000000 05000000 10f0ffff  ...;4...........
- 2020 68000000 30f0ffff 90000000 40f0ffff  h...0.......@...
- 2030 a8000000 50f0ffff 50000000 39f1ffff  ....P...P...9...
- 2040 c0000000                             ....            
-Contents of section .eh_frame:
- 2048 14000000 00000000 017a5200 01781001  .........zR..x..
- 2058 1b0c0708 90010000 14000000 1c000000  ................
- 2068 f8efffff 26000000 00440710 00000000  ....&....D......
- 2078 24000000 34000000 a0efffff 20000000  $...4....... ...
- 2088 000e1046 0e184a0f 0b770880 003f1a39  ...F..J..w...?.9
- 2098 2a332422 00000000 14000000 5c000000  *3$"........\...
- 20a8 98efffff 10000000 00000000 00000000  ................
- 20b8 14000000 74000000 90efffff 10000000  ....t...........
- 20c8 00000000 00000000 1c000000 8c000000  ................
- 20d8 71f0ffff 1e000000 00450e10 8602430d  q........E....C.
- 20e8 06550c07 08000000 00000000           .U..........    
-Contents of section .init_array:
- 3db8 40110000 00000000                    @.......        
-Contents of section .fini_array:
- 3dc0 00110000 00000000                    ........        
-Contents of section .dynamic:
- 3dc8 01000000 00000000 27000000 00000000  ........'.......
- 3dd8 0c000000 00000000 00100000 00000000  ................
- 3de8 0d000000 00000000 68110000 00000000  ........h.......
- 3df8 19000000 00000000 b83d0000 00000000  .........=......
- 3e08 1b000000 00000000 08000000 00000000  ................
- 3e18 1a000000 00000000 c03d0000 00000000  .........=......
- 3e28 1c000000 00000000 08000000 00000000  ................
- 3e38 f5feff6f 00000000 b0030000 00000000  ...o............
- 3e48 05000000 00000000 80040000 00000000  ................
- 3e58 06000000 00000000 d8030000 00000000  ................
- 3e68 0a000000 00000000 8d000000 00000000  ................
- 3e78 0b000000 00000000 18000000 00000000  ................
- 3e88 15000000 00000000 00000000 00000000  ................
- 3e98 03000000 00000000 b83f0000 00000000  .........?......
- 3ea8 02000000 00000000 18000000 00000000  ................
- 3eb8 14000000 00000000 07000000 00000000  ................
- 3ec8 17000000 00000000 10060000 00000000  ................
- 3ed8 07000000 00000000 50050000 00000000  ........P.......
- 3ee8 08000000 00000000 c0000000 00000000  ................
- 3ef8 09000000 00000000 18000000 00000000  ................
- 3f08 1e000000 00000000 08000000 00000000  ................
- 3f18 fbffff6f 00000000 01000008 00000000  ...o............
- 3f28 feffff6f 00000000 20050000 00000000  ...o.... .......
- 3f38 ffffff6f 00000000 01000000 00000000  ...o............
- 3f48 f0ffff6f 00000000 0e050000 00000000  ...o............
- 3f58 f9ffff6f 00000000 03000000 00000000  ...o............
- 3f68 00000000 00000000 00000000 00000000  ................
- 3f78 00000000 00000000 00000000 00000000  ................
- 3f88 00000000 00000000 00000000 00000000  ................
- 3f98 00000000 00000000 00000000 00000000  ................
- 3fa8 00000000 00000000 00000000 00000000  ................
-Contents of section .got:
- 3fb8 c83d0000 00000000 00000000 00000000  .=..............
- 3fc8 00000000 00000000 30100000 00000000  ........0.......
- 3fd8 00000000 00000000 00000000 00000000  ................
- 3fe8 00000000 00000000 00000000 00000000  ................
- 3ff8 00000000 00000000                    ........        
-Contents of section .data:
- 4000 00000000 00000000 08400000 00000000  .........@......
-Contents of section .comment:
- 0000 4743433a 20285562 756e7475 2031332e  GCC: (Ubuntu 13.
- 0010 332e302d 36756275 6e747532 7e32342e  3.0-6ubuntu2~24.
- 0020 30342920 31332e33 2e3000             04) 13.3.0.     
-[?2004hroot@5b9dc99b184b:/app# cat << 'EOF' > test_parse.js
-[?2004l[?2004h> const fs = require('fs');
-[?2004l[?2004h> const buf = fs.readFileSync('/app/a.out');
-[?2004l[?2004h> console.log('ELF magic:', buf.readUInt32LE(0));
-[?2004l[?2004h> EOF
-[?2004l[?2004hroot@5b9dc99b184b:/app# node test_parse.js
-[?2004lELF magic: [33m1179403647[39m
-[?2004hroot@5b9dc99b184b:/app# cat << 'EOF' > extract.js
-[?2004l[?2004h> const fs = require('fs');
-[?2004l[?2004h> 
-[?2004l[?2004h> function parseElf(filename) {
-[?2004l[?2004h>   const buf = fs.readFileSync(filename);
-[?2004l[?2004h>   const is64 = buf.readUInt8(4) === 2;
-[?2004l[?2004h>   const le = buf.readUInt8(5) === 1;
-[?2004l[?2004h> 
-[?2004l[?2004h>   // Parse ELF header
-[?2004l[?2004h>   const phoff = is64 ? Number(buf.readBigUInt64LE(32)) : buf.readUInt32LE(28);
-[?2004l[?2004h>   const phentsize = is64 ? buf.readUInt16LE(54) : buf.readUInt16LE(42);
-[?2004l[?2004h>   const phnum = is64 ? buf.readUInt16LE(56) : buf.readUInt16LE(44);
-[?2004l[?2004h> 
-[?2004l[?2004h>   const result = {};
-[?2004l[?2004h>   const baseAddr = 0x400000; // standard base address for executables
-[?2004l[?2004h> 
-[?2004l[?2004h>   for (let i = 0; i < phnum; i++) {
-[?2004l[?2004h>     const phoff_i = phoff + i * phentsize;
-[?2004l[?2004h>     const type = buf.readUInt32LE(phoff_i);
-[?2004l[?2004h>     if (type === 1) { // PT_LOAD
-[?2004l[?2004h>       const offset = is64 ? Number(buf.readBigUInt64LE(phoff_i + 8)) : buf.readUInt32LE(phoff_i + 4);
-[?2004l[?2004h>       const vaddr = is64 ? Number(buf.readBigUInt64LE(phoff_i + 16)) : buf.readUInt32LE(phoff_i + 8);
-[?2004l[?2004h>       const filesz = is64 ? Number(buf.readBigUInt64LE(phoff_i + 32)) : buf.readUInt32LE(phoff_i + 16);
-[?2004l[?2004h>       const memsz = is64 ? Number(buf.readBigUInt64LE(phoff_i + 40)) : buf.readUInt32LE(phoff_i + 20);
-[?2004l[?2004h> 
-[?2004l[?2004h>       const startAddr = vaddr + baseAddr;
-[?2004l[?2004h>       for (let off = 0; off < filesz; off += 4) {
-[?2004l[?2004h>         if (offset + off + 4 <= buf.length) {
-[?2004l[?2004h>           const val = buf.readUInt32LE(offset + off);
-[?2004l[?2004h>           result[String(startAddr + off)] = val;
-[?2004l[?2004h>         }
-[?2004l[?2004h>       }
-[?2004l[?2004h>     }
-[?2004l[?2004h>   }
-[?2004l[?2004h>   console.log(JSON.stringify(result, null, 2));
-[?2004l[?2004h> }
-[?2004l[?2004h> 
-[?2004l[?2004h> parseElf(process.argv[2] || '/app/a.out');
-[?2004l[?2004h> EOF
-[?2004l[?2004hroot@5b9dc99b184b:/app# node extract.js /app/a.out | head -n 20
-[?2004l{
-  "4194304": 1179403647,
-  "4194308": 65794,
-  "4194312": 0,
-  "4194316": 0,
-  "4194320": 4063235,
-  "4194324": 1,
-  "4194328": 4192,
-  "4194332": 0,
-  "4194336": 64,
-  "4194340": 0,
-  "4194344": 13976,
-  "4194348": 0,
-  "4194352": 0,
-  "4194356": 3670080,
-  "4194360": 4194317,
-  "4194364": 1966111,
-  "4194368": 6,
-  "4194372": 4,
-  "4194376": 64,
-[?2004hroot@5b9dc99b184b:/app# node extract.js /app/a.out > out.json
-[?2004l[?2004hroot@5b9dc99b184b:/app# 

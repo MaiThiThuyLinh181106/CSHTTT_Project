@@ -1,0 +1,9 @@
+{
+  "component": "prompt",
+  "hypothesis": "Refining shell parsing prompts to emit concise status codes and eliminate verbose debug logs in extract-elf.",
+  "targets_mode": "incorrect_programmatic_parsing",
+  "predicted_affected": [
+    "extract-elf"
+  ],
+  "commit": "a1f04b2"
+}

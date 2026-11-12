@@ -1,0 +1,546 @@
+[?2004hroot@811441ed8e20:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@811441ed8e20:/app# clear
+[?2004l[H[J[3J[?2004hroot@811441ed8e20:/app# ls -la
+[?2004ltotal 28
+drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 18 13:33 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+[?2004hroot@811441ed8e20:/app# readelf -h a.out; readelf -S a.out; readelf -l a.out
+[?2004lELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x1060
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          13976 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         31
+  Section header string table index: 30
+There are 31 section headers, starting at offset 0x3698:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000318  00000318
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
+       0000000000000030  0000000000000000   A       0     0     8
+  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
+       0000000000000024  0000000000000000   A       6     0     8
+  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
+       00000000000000a8  0000000000000018   A       7     1     8
+  [ 7] .dynstr           STRTAB           0000000000000480  00000480
+       000000000000008d  0000000000000000   A       0     0     1
+  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
+       000000000000000e  0000000000000002   A       6     0     2
+  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
+       0000000000000030  0000000000000000   A       7     1     8
+  [10] .rela.dyn         RELA             0000000000000550  00000550
+       00000000000000c0  0000000000000018   A       6     0     8
+  [11] .rela.plt         RELA             0000000000000610  00000610
+       0000000000000018  0000000000000018  AI       6    24     8
+  [12] .init             PROGBITS         0000000000001000  00001000
+       000000000000001b  0000000000000000  AX       0     0     4
+  [13] .plt              PROGBITS         0000000000001020  00001020
+       0000000000000020  0000000000000010  AX       0     0     16
+  [14] .plt.got          PROGBITS         0000000000001040  00001040
+       0000000000000010  0000000000000010  AX       0     0     16
+  [15] .plt.sec          PROGBITS         0000000000001050  00001050
+       0000000000000010  0000000000000010  AX       0     0     16
+  [16] .text             PROGBITS         0000000000001060  00001060
+       0000000000000107  0000000000000000  AX       0     0     16
+  [17] .fini             PROGBITS         0000000000001168  00001168
+       000000000000000d  0000000000000000  AX       0     0     4
+  [18] .rodata           PROGBITS         0000000000002000  00002000
+       0000000000000010  0000000000000000   A       0     0     4
+  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
+       0000000000000034  0000000000000000   A       0     0     4
+  [20] .eh_frame         PROGBITS         0000000000002048  00002048
+       00000000000000ac  0000000000000000   A       0     0     8
+  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
+       0000000000000008  0000000000000008  WA       0     0     8
+  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
+       00000000000001f0  0000000000000010  WA       7     0     8
+  [24] .got              PROGBITS         0000000000003fb8  00002fb8
+       0000000000000048  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000004000  00003000
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           0000000000004010  00003010
+       0000000000000008  0000000000000000  WA       0     0     1
+  [27] .comment          PROGBITS         0000000000000000  00003010
+       000000000000002b  0000000000000001  MS       0     0     1
+  [28] .symtab           SYMTAB           0000000000000000  00003040
+       0000000000000360  0000000000000018          29    18     8
+  [29] .strtab           STRTAB           0000000000000000  000033a0
+       00000000000001d8  0000000000000000           0     0     1
+  [30] .shstrtab         STRTAB           0000000000000000  00003578
+       000000000000011a  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x1060
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000628 0x0000000000000628  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
+                 0x0000000000000175 0x0000000000000175  R E    0x1000
+  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
+                 0x00000000000000f4 0x00000000000000f4  R      0x1000
+  LOAD           0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000258 0x0000000000000260  RW     0x1000
+  DYNAMIC        0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8
+                 0x00000000000001f0 0x00000000000001f0  RW     0x8
+  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
+                 0x0000000000000044 0x0000000000000044  R      0x4
+  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  GNU_EH_FRAME   0x0000000000002010 0x0000000000002010 0x0000000000002010
+                 0x0000000000000034 0x0000000000000034  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000248 0x0000000000000248  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   03     .init .plt .plt.got .plt.sec .text .fini 
+   04     .rodata .eh_frame_hdr .eh_frame 
+   05     .init_array .fini_array .dynamic .got .data .bss 
+   06     .dynamic 
+   07     .note.gnu.property 
+   08     .note.gnu.build-id .note.ABI-tag 
+   09     .note.gnu.property 
+   10     .eh_frame_hdr 
+   11     
+   12     .init_array .fini_array .dynamic .got 
+[?2004hroot@811441ed8e20:/app# cat hi.c; objdump -d a.out; nm a.out
+[?2004l#include<stdio.h>
+
+int main() {
+  printf("Hello world\n");
+}
+
+a.out:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	f3 0f 1e fa          	endbr64
+    1004:	48 83 ec 08          	sub    $0x8,%rsp
+    1008:	48 8b 05 d9 2f 00 00 	mov    0x2fd9(%rip),%rax        # 3fe8 <__gmon_start__@Base>
+    100f:	48 85 c0             	test   %rax,%rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   *%rax
+    1016:	48 83 c4 08          	add    $0x8,%rsp
+    101a:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 9a 2f 00 00    	push   0x2f9a(%rip)        # 3fc0 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 9c 2f 00 00    	jmp    *0x2f9c(%rip)        # 3fc8 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+    1030:	f3 0f 1e fa          	endbr64
+    1034:	68 00 00 00 00       	push   $0x0
+    1039:	e9 e2 ff ff ff       	jmp    1020 <_init+0x20>
+    103e:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .plt.got:
+
+0000000000001040 <__cxa_finalize@plt>:
+    1040:	f3 0f 1e fa          	endbr64
+    1044:	ff 25 ae 2f 00 00    	jmp    *0x2fae(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    104a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Disassembly of section .plt.sec:
+
+0000000000001050 <puts@plt>:
+    1050:	f3 0f 1e fa          	endbr64
+    1054:	ff 25 76 2f 00 00    	jmp    *0x2f76(%rip)        # 3fd0 <puts@GLIBC_2.2.5>
+    105a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Disassembly of section .text:
+
+0000000000001060 <_start>:
+    1060:	f3 0f 1e fa          	endbr64
+    1064:	31 ed                	xor    %ebp,%ebp
+    1066:	49 89 d1             	mov    %rdx,%r9
+    1069:	5e                   	pop    %rsi
+    106a:	48 89 e2             	mov    %rsp,%rdx
+    106d:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    1071:	50                   	push   %rax
+    1072:	54                   	push   %rsp
+    1073:	45 31 c0             	xor    %r8d,%r8d
+    1076:	31 c9                	xor    %ecx,%ecx
+    1078:	48 8d 3d ca 00 00 00 	lea    0xca(%rip),%rdi        # 1149 <main>
+    107f:	ff 15 53 2f 00 00    	call   *0x2f53(%rip)        # 3fd8 <__libc_start_main@GLIBC_2.34>
+    1085:	f4                   	hlt
+    1086:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    108d:	00 00 00 
+
+0000000000001090 <deregister_tm_clones>:
+    1090:	48 8d 3d 79 2f 00 00 	lea    0x2f79(%rip),%rdi        # 4010 <__TMC_END__>
+    1097:	48 8d 05 72 2f 00 00 	lea    0x2f72(%rip),%rax        # 4010 <__TMC_END__>
+    109e:	48 39 f8             	cmp    %rdi,%rax
+    10a1:	74 15                	je     10b8 <deregister_tm_clones+0x28>
+    10a3:	48 8b 05 36 2f 00 00 	mov    0x2f36(%rip),%rax        # 3fe0 <_ITM_deregisterTMCloneTable@Base>
+    10aa:	48 85 c0             	test   %rax,%rax
+    10ad:	74 09                	je     10b8 <deregister_tm_clones+0x28>
+    10af:	ff e0                	jmp    *%rax
+    10b1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    10b8:	c3                   	ret
+    10b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000010c0 <register_tm_clones>:
+    10c0:	48 8d 3d 49 2f 00 00 	lea    0x2f49(%rip),%rdi        # 4010 <__TMC_END__>
+    10c7:	48 8d 35 42 2f 00 00 	lea    0x2f42(%rip),%rsi        # 4010 <__TMC_END__>
+    10ce:	48 29 fe             	sub    %rdi,%rsi
+    10d1:	48 89 f0             	mov    %rsi,%rax
+    10d4:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    10d8:	48 c1 f8 03          	sar    $0x3,%rax
+    10dc:	48 01 c6             	add    %rax,%rsi
+    10df:	48 d1 fe             	sar    $1,%rsi
+    10e2:	74 14                	je     10f8 <register_tm_clones+0x38>
+    10e4:	48 8b 05 05 2f 00 00 	mov    0x2f05(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable@Base>
+    10eb:	48 85 c0             	test   %rax,%rax
+    10ee:	74 08                	je     10f8 <register_tm_clones+0x38>
+    10f0:	ff e0                	jmp    *%rax
+    10f2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    10f8:	c3                   	ret
+    10f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001100 <__do_global_dtors_aux>:
+    1100:	f3 0f 1e fa          	endbr64
+    1104:	80 3d 05 2f 00 00 00 	cmpb   $0x0,0x2f05(%rip)        # 4010 <__TMC_END__>
+    110b:	75 2b                	jne    1138 <__do_global_dtors_aux+0x38>
+    110d:	55                   	push   %rbp
+    110e:	48 83 3d e2 2e 00 00 	cmpq   $0x0,0x2ee2(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1115:	00 
+    1116:	48 89 e5             	mov    %rsp,%rbp
+    1119:	74 0c                	je     1127 <__do_global_dtors_aux+0x27>
+    111b:	48 8b 3d e6 2e 00 00 	mov    0x2ee6(%rip),%rdi        # 4008 <__dso_handle>
+    1122:	e8 19 ff ff ff       	call   1040 <__cxa_finalize@plt>
+    1127:	e8 64 ff ff ff       	call   1090 <deregister_tm_clones>
+    112c:	c6 05 dd 2e 00 00 01 	movb   $0x1,0x2edd(%rip)        # 4010 <__TMC_END__>
+    1133:	5d                   	pop    %rbp
+    1134:	c3                   	ret
+    1135:	0f 1f 00             	nopl   (%rax)
+    1138:	c3                   	ret
+    1139:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001140 <frame_dummy>:
+    1140:	f3 0f 1e fa          	endbr64
+    1144:	e9 77 ff ff ff       	jmp    10c0 <register_tm_clones>
+
+0000000000001149 <main>:
+    1149:	f3 0f 1e fa          	endbr64
+    114d:	55                   	push   %rbp
+    114e:	48 89 e5             	mov    %rsp,%rbp
+    1151:	48 8d 05 ac 0e 00 00 	lea    0xeac(%rip),%rax        # 2004 <_IO_stdin_used+0x4>
+    1158:	48 89 c7             	mov    %rax,%rdi
+    115b:	e8 f0 fe ff ff       	call   1050 <puts@plt>
+    1160:	b8 00 00 00 00       	mov    $0x0,%eax
+    1165:	5d                   	pop    %rbp
+    1166:	c3                   	ret
+
+Disassembly of section .fini:
+
+0000000000001168 <_fini>:
+    1168:	f3 0f 1e fa          	endbr64
+    116c:	48 83 ec 08          	sub    $0x8,%rsp
+    1170:	48 83 c4 08          	add    $0x8,%rsp
+    1174:	c3                   	ret
+0000000000003dc8 d _DYNAMIC
+0000000000003fb8 d _GLOBAL_OFFSET_TABLE_
+0000000000002000 R _IO_stdin_used
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+00000000000020f0 r __FRAME_END__
+0000000000002010 r __GNU_EH_FRAME_HDR
+0000000000004010 D __TMC_END__
+000000000000038c r __abi_tag
+0000000000004010 B __bss_start
+                 w __cxa_finalize@GLIBC_2.2.5
+0000000000004000 D __data_start
+0000000000001100 t __do_global_dtors_aux
+0000000000003dc0 d __do_global_dtors_aux_fini_array_entry
+0000000000004008 D __dso_handle
+0000000000003db8 d __frame_dummy_init_array_entry
+                 w __gmon_start__
+                 U __libc_start_main@GLIBC_2.34
+0000000000004010 D _edata
+0000000000004018 B _end
+0000000000001168 T _fini
+0000000000001000 T _init
+0000000000001060 T _start
+0000000000004010 b completed.0
+0000000000004000 W data_start
+0000000000001090 t deregister_tm_clones
+0000000000001140 t frame_dummy
+0000000000001149 T main
+                 U puts@GLIBC_2.2.5
+00000000000010c0 t register_tm_clones
+[?2004hroot@811441ed8e20:/app# find / -name "*test*" 2>/dev/null
+[?2004l/sys/devices/virtual/net/eth0/testing
+/sys/devices/virtual/net/lo/testing
+/sys/module/cryptomgr/parameters/notests
+/sys/module/8250/parameters/skip_txen_test
+/sys/module/8250_core/parameters/skip_txen_test
+/sys/module/sr_mod/parameters/xa_test
+/usr/bin/test
+/usr/share/perl5/Mail/Mailer/testfile.pm
+/usr/share/doc/git/contrib/coccinelle/tests
+/usr/share/doc/node-webpack-cli-configtest
+/usr/share/doc/node-babel-helper-plugin-test-runner
+/usr/share/doc/node-babel-eslint-tests
+/usr/share/doc/node-babel-helper-transform-fixture-test-runner
+/usr/share/doc/node-tape/examples/stream/test
+/usr/share/doc/node-npmcli-smoke-tests
+/usr/share/nodejs/caniuse-lite/data/features/testfeat.js
+/usr/share/nodejs/caniuse-lite/data/features/date-tolocaledatestring.js
+/usr/share/nodejs/acorn-export-ns-from/run_test262.js
+/usr/share/nodejs/acorn-export-ns-from/test262.whitelist
+/usr/share/nodejs/acorn-private-methods/run_test262.js
+/usr/share/nodejs/@bcoe/v8-coverage/src/test
+/usr/share/nodejs/acorn-numeric-separator/run_test262.js
+/usr/share/nodejs/get-caller-file/test.js
+/usr/share/nodejs/yaml/dist/test-events.d.ts
+/usr/share/nodejs/yaml/dist/test-events.js
+/usr/share/nodejs/test-exclude
+/usr/share/nodejs/es-abstract/node_modules/safe-regex-test
+/usr/share/nodejs/fs-monkey/lib/__tests__
+/usr/share/nodejs/fs-monkey/lib/__tests__/patchFs.test.js
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.js
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.d.ts
+/usr/share/nodejs/acorn-class-fields/run_test262.js
+/usr/share/nodejs/acorn-static-class-features/run_test262.js
+/usr/share/nodejs/@types/node/test.d.ts
+/usr/share/nodejs/@types/node/ts4.8/test.d.ts
+/usr/share/nodejs/istanbul/lib/command/test.js
+/usr/share/nodejs/@npmcli/smoke-tests
+/usr/share/nodejs/tape/lib/test.js
+/usr/share/nodejs/object-inspect/test-core-js.js
+/usr/share/nodejs/tap-yaml/node_modules/yaml/dist/test-events.js
+/usr/share/nodejs/core-js-pure/modules/es.regexp.test.js
+/usr/share/nodejs/core-js-pure/full/regexp/test.js
+/usr/share/nodejs/core-js-pure/actual/regexp/test.js
+/usr/share/nodejs/core-js-pure/es/regexp/test.js
+/usr/share/nodejs/core-js-pure/stable/regexp/test.js
+/usr/share/nodejs/core-js-pure/features/regexp/test.js
+/usr/share/nodejs/safer-buffer/tests.js
+/usr/share/nodejs/acorn-bigint/run_test262.js
+/usr/share/nodejs/core-js/modules/es.regexp.test.js
+/usr/share/nodejs/core-js/full/regexp/test.js
+/usr/share/nodejs/core-js/actual/regexp/test.js
+/usr/share/nodejs/core-js/es/regexp/test.js
+/usr/share/nodejs/core-js/stable/regexp/test.js
+/usr/share/nodejs/core-js/features/regexp/test.js
+/usr/share/nodejs/acorn-import-meta/run_test262.js
+/usr/share/nodejs/libtap/lib/parse-test-args.js
+/usr/share/nodejs/libtap/lib/test.js
+/usr/share/nodejs/@webassemblyjs/helper-test-framework
+/usr/share/nodejs/@webassemblyjs/helper-testsuite-runner
+/usr/share/nodejs/eslint/lib/rule-tester
+/usr/share/nodejs/eslint/lib/rule-tester/rule-tester.js
+/usr/share/nodejs/eslint/lib/cli-engine/config-array/override-tester.js
+/usr/share/nodejs/@babel/helper-plugin-test-runner
+/usr/share/nodejs/@babel/helper-transform-fixture-test-runner
+/usr/share/nodejs/@babel/eslint-tests
+/usr/share/nodejs/tap-mocha-reporter/lib/test.js
+/usr/share/nodejs/@webpack-cli/configtest
+/usr/share/nodejs/npm/lib/commands/install-test.js
+/usr/share/nodejs/npm/lib/commands/test.js
+/usr/share/nodejs/npm/lib/commands/install-ci-test.js
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein/test.ts
+/usr/share/nodejs/npm/node_modules/cli-columns/test.js
+/usr/share/nodejs/npm/node_modules/just-diff-apply/index.tests.ts
+/usr/share/nodejs/npm/node_modules/just-diff/index.tests.ts
+/usr/share/perl/5.38.2/Test2/Event/Subtest.pm
+/usr/share/perl/5.38.2/Test2/Hub/Subtest.pm
+/usr/share/perl/5.38.2/filetest.pm
+/usr/share/perl/5.38.2/ExtUtils/testlib.pm
+/usr/lib/x86_64-linux-gnu/libicutest.so.74.2
+/usr/lib/x86_64-linux-gnu/libicutest.so.74
+/usr/lib/python3/dist-packages/gyp/input_test.py
+/usr/lib/python3/dist-packages/gyp/__pycache__/common_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/input_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/easy_xml_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/MSVSSettings_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/common_test.py
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/xcode_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/ninja_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/msvs_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/ninja_test.py
+/usr/lib/python3/dist-packages/gyp/generator/xcode_test.py
+/usr/lib/python3/dist-packages/gyp/generator/msvs_test.py
+/usr/lib/python3/dist-packages/gyp/easy_xml_test.py
+/usr/lib/python3/dist-packages/gyp/MSVSSettings_test.py
+/usr/lib/python3.12/test
+/usr/lib/python3.12/test/test_support.py
+/usr/lib/python3.12/test/libregrtest
+/usr/lib/python3.12/test/libregrtest/runtests.py
+/usr/lib/python3.12/test/libregrtest/__pycache__/findtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/runtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/testresult.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/findtests.py
+/usr/lib/python3.12/test/libregrtest/testresult.py
+/usr/lib/python3.12/test/__pycache__/test_support.cpython-312.pyc
+/usr/lib/python3.12/test/__pycache__/regrtest.cpython-312.pyc
+/usr/lib/python3.12/test/support/__pycache__/testcase.cpython-312.pyc
+/usr/lib/python3.12/test/support/testcase.py
+/usr/lib/python3.12/test/regrtest.py
+/usr/lib/python3.12/__pycache__/doctest.cpython-312.pyc
+/usr/lib/python3.12/unittest
+/usr/lib/python3.12/lib-dynload/_testclinic.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testmultiphase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testimportmultiple.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testbuffer.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testsinglephase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_ctypes_test.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testinternalcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_xxtestfuzz.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/doctest.py
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
+/usr/include/openssl/self_test.h
+/usr/include/nodejs/deps/v8/include/cppgc/testing.h
+/usr/include/linux/pcitest.h
+[?2004hroot@811441ed8e20:/app# npm list -g; node -e "console.log(module.paths)"
+[?2004l[0m/usr/local/lib[0m
+[0m└── (empty)[0m
+[0m[0m
+[ [32m'/app/node_modules'[39m, [32m'/node_modules'[39m ]
+[?2004hroot@811441ed8e20:/app# python3 -c "import elftools" 2>/dev/null && echo "yes" || echo "no"
+[?2004lno
+[?2004hroot@811441ed8e20:/app# cat << 'EOF' > test_parse.py
+[?2004l[?2004h> import struct
+[?2004l[?2004h> 
+[?2004l[?2004h> with open('a.out', 'rb') as f:
+[?2004l[?2004h>     data = f.read()
+[?2004l[?2004h> 
+[?2004l[?2004h> # ELF Header
+[?2004l[?2004h> # e_ident (16), e_type (2), e_machine (2), e_version (4), e_entry (8), e_phoff (8), e_shoff (8)
+[?2004l[?2004h> e_phoff = struct.unpack_from('<Q', data, 32)[0]
+[?2004l[?2004h> e_phentsize = struct.unpack_from('<H', data, 54)[0]
+[?2004l[?2004h> e_phnum = struct.unpack_from('<H', data, 56)[0]
+[?2004l[?2004h> 
+[?2004l[?2004h> print(f'phoff: {e_phoff}, phentsize: {e_phentsize}, phnum: {e_phnum}')
+[?2004l[?2004h> 
+[?2004l[?2004h> base = 0x400000
+[?2004l[?2004h> memory = {}
+[?2004l[?2004h> 
+[?2004l[?2004h> for i in range(e_phnum):
+[?2004l[?2004h>     ph_offset = e_phoff + i * e_phentsize
+[?2004l[?2004h>     p_type = struct.unpack_from('<I', data, ph_offset)[0]
+[?2004l[?2004h>     if p_type == 1: # PT_LOAD
+[?2004l[?2004h>         p_flags = struct.unpack_from('<I', data, ph_offset + 4)[0]
+[?2004l[?2004h>         p_offset = struct.unpack_from('<Q', data, ph_offset + 8)[0]
+[?2004l[?2004h>         p_vaddr = struct.unpack_from('<Q', data, ph_offset + 16)[0]
+[?2004l[?2004h>         p_filesz = struct.unpack_from('<Q', data, ph_offset + 32)[0]
+[?2004l[?2004h>         p_memsz = struct.unpack_from('<Q', data, ph_offset + 40)[0]
+[?2004l[?2004h>         
+[?2004l[?2004h>         print(f'LOAD seg: vaddr=0x{p_vaddr:x}, offset=0x{p_offset:x}, filesz={p_filesz}, memsz={p_memsz}')
+[?2004l[?2004h>         
+[?2004l[?2004h>         seg_data = data[p_offset : p_offset + p_filesz]
+[?2004l[?2004h>         # Pad with zeros up to memsz
+[?2004l[?2004h>         if len(seg_data) < p_memsz:
+[?2004l[?2004h>             seg_data += b'\x00' * (p_memsz - len(seg_data))
+[?2004l[?2004h>             
+[?2004l[?2004h>         # Extract 32-bit integers aligned by 4
+[?2004l[?2004h>         for off in range(0, len(seg_data), 4):
+[?2004l[?2004h>             if off + 4 <= len(seg_data):
+[?2004l[?2004h>                 val = struct.unpack_from('<I', seg_data, off)[0]
+[?2004l[?2004h>                 addr = base + p_vaddr + off
+[?2004l[?2004h>                 memory[str(addr)] = val
+[?2004l[?2004h> 
+[?2004l[?2004h> import json
+[?2004l[?2004h> print(json.dumps(dict(list(memory.items())[:5]), indent=2))
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@811441ed8e20:/app# python3 test_parse.py
+[?2004lphoff: 64, phentsize: 56, phnum: 13
+LOAD seg: vaddr=0x0, offset=0x0, filesz=1576, memsz=1576
+LOAD seg: vaddr=0x1000, offset=0x1000, filesz=373, memsz=373
+LOAD seg: vaddr=0x2000, offset=0x2000, filesz=244, memsz=244
+LOAD seg: vaddr=0x3db8, offset=0x2db8, filesz=600, memsz=608
+{
+  "4194304": 1179403647,
+  "4194308": 65794,
+  "4194312": 0,
+  "4194316": 0,
+  "4194320": 4063235
+}
+[?2004hroot@811441ed8e20:/app# cat << 'EOF' > extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> const filename = process.argv[2] || '/app/a.out';
+[?2004l[?2004h> const buf = fs.readFileSync(filename);
+[?2004l[?2004h> const e_phoff = Number(buf.readBigUInt64LE(32));
+[?2004l[?2004h> const e_phentsize = buf.readUInt16LE(54);
+[?2004l[?2004h> const e_phnum = buf.readUInt16LE(56);
+[?2004l[?2004h> const base = 0x400000;
+[?2004l[?2004h> const memory = {};
+[?2004l[?2004h> for (let i = 0; i < e_phnum; i++) {
+[?2004l[?2004h>     const ph_offset = e_phoff + i * e_phentsize;
+[?2004l[?2004h>     const p_type = buf.readUInt32LE(ph_offset);
+[?2004l[?2004h>     if (p_type === 1) {
+[?2004l[?2004h>         const p_offset = Number(buf.readBigUInt64LE(ph_offset + 8));
+[?2004l[?2004h>         const p_vaddr = Number(buf.readBigUInt64LE(ph_offset + 16));
+[?2004l[?2004h>         const p_filesz = Number(buf.readBigUInt64LE(ph_offset + 32));
+[?2004l[?2004h>         const p_memsz = Number(buf.readBigUInt64LE(ph_offset + 40));
+[?2004l[?2004h>         let segData = Buffer.alloc(p_memsz);
+[?2004l[?2004h>         buf.copy(segData, 0, p_offset, p_offset + p_filesz);
+[?2004l[?2004h>         for (let off = 0; off < segData.length; off += 4) {
+[?2004l[?2004h>             if (off + 4 <= segData.length) {
+[?2004l[?2004h>                 const val = segData.readUInt32LE(off);
+[?2004l[?2004h>                 const addr = base + p_vaddr + off;
+[?2004l[?2004h>                 memory[addr.toString()] = val;
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> }
+[?2004l[?2004h> console.log(JSON.stringify(memory));
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@811441ed8e20:/app# node extract.js /app/a.out > out.json
+[?2004l[?2004hroot@811441ed8e20:/app# head -n 20 out.json
+[?2004l{"4194304":1179403647,"4194308":65794,"4194312":0,"4194316":0,"4194320":4063235,"4194324":1,"4194328":4192,"4194332":0,"4194336":64,"4194340":0,"4194344":13976,"4194348":0,"4194352":0,"4194356":3670080,"4194360":4194317,"4194364":1966111,"4194368":6,"4194372":4,"4194376":64,"4194380":0,"4194384":64,"4194388":0,"4194392":64,"4194396":0,"4194400":728,"4194404":0,"4194408":728,"4194412":0,"4194416":8,"4194420":0,"4194424":3,"4194428":4,"4194432":792,"4194436":0,"4194440":792,"4194444":0,"4194448":792,"4194452":0,"4194456":28,"4194460":0,"4194464":28,"4194468":0,"4194472":1,"4194476":0,"4194480":1,"4194484":4,"4194488":0,"4194492":0,"4194496":0,"4194500":0,"4194504":0,"4194508":0,"4194512":1576,"4194516":0,"4194520":1576,"4194524":0,"4194528":4096,"4194532":0,"4194536":1,"4194540":5,"4194544":4096,"4194548":0,"4194552":4096,"4194556":0,"4194560":4096,"4194564":0,"4194568":373,"4194572":0,"4194576":373,"4194580":0,"4194584":4096,"4194588":0,"4194592":1,"4194596":4,"4194600":8192,"4194604":0,"4194608":8192,"4194612":0,"4194616":8192,"4194620":0,"4194624":244,"4194628":0,"4194632":244,"4194636":0,"4194640":4096,"4194644":0,"4194648":1,"4194652":6,"4194656":11704,"4194660":0,"4194664":15800,"4194668":0,"4194672":15800,"4194676":0,"4194680":600,"4194684":0,"4194688":608,"4194692":0,"4194696":4096,"4194700":0,"4194704":2,"4194708":6,"4194712":11720,"4194716":0,"4194720":15816,"4194724":0,"4194728":15816,"4194732":0,"4194736":496,"4194740":0,"4194744":496,"4194748":0,"4194752":8,"4194756":0,"4194760":4,"4194764":4,"4194768":824,"4194772":0,"4194776":824,"4194780":0,"4194784":824,"4194788":0,"4194792":48,"4194796":0,"4194800":48,"4194804":0,"4194808":8,"4194812":0,"4194816":4,"4194820":4,"4194824":872,"4194828":0,"4194832":872,"4194836":0,"4194840":872,"4194844":0,"4194848":68,"4194852":0,"4194856":68,"4194860":0,"4194864":4,"4194868":0,"4194872":1685382483,"4194876":4,"4194880":824,"4194884":0,"4194888":824,"4194892":0,"4194896":824,"4194900":0,"4194904":48,"4194908":0,"4194912":48,"4194916":0,"4194920":8,"4194924":0,"4194928":1685382480,"4194932":4,"4194936":8208,"4194940":0,"4194944":8208,"4194948":0,"4194952":8208,"4194956":0,"4194960":52,"4194964":0,"4194968":52,"4194972":0,"4194976":4,"4194980":0,"4194984":1685382481,"4194988":6,"4194992":0,"4194996":0,"4195000":0,"4195004":0,"4195008":0,"4195012":0,"4195016":0,"4195020":0,"4195024":0,"4195028":0,"4195032":16,"4195036":0,"4195040":1685382482,"4195044":4,"4195048":11704,"4195052":0,"4195056":15800,"4195060":0,"4195064":15800,"4195068":0,"4195072":584,"4195076":0,"4195080":584,"4195084":0,"4195088":1,"4195092":0,"4195096":1651076143,"4195100":1815032886,"4195104":1768697188,"4195108":762869102,"4195112":758528120,"4195116":1932407862,"4195120":3288687,"4195124":0,"4195128":4,"4195132":32,"4195136":5,"4195140":5590599,"4195144":3221225474,"4195148":4,"4195152":3,"4195156":0,"4195160":3221258242,"4195164":4,"4195168":1,"4195172":0,"4195176":4,"4195180":20,"4195184":3,"4195188":5590599,"4195192":1387187458,"4195196":3911748080,"4195200":3582024272,"4195204":1698379116,"4195208":1091734958,"4195212":4,"4195216":16,"4195220":1,"4195224":5590599,"4195228":0,"4195232":3,"4195236":2,"4195240":0,"4195244":0,"4195248":2,"4195252":6,"4195256":1,"4195260":6,"4195264":8454144,"4195268":0,"4195272":6,"4195276":0,"4195280":1842243025,"4195284":0,"4195288":0,"4195292":0,"4195296":0,"4195300":0,"4195304":0,"4195308":0,"4195312":6,"4195316":18,"4195320":0,"4195324":0,"4195328":0,"4195332":0,"4195336":72,"4195340":32,"4195344":0,"4195348":0,"4195352":0,"4195356":0,"4195360":1,"4195364":18,"4195368":0,"4195372":0,"4195376":0,"4195380":0,"4195384":100,"4195388":32,"4195392":0,"4195396":0,"4195400":0,"4195404":0,"4195408":115,"4195412":32,"4195416":0,"4195420":0,"4195424":0,"4195428":0,"4195432":24,"4195436":34,"4195440":0,"4195444":0,"4195448":0,"4195452":0,"4195456":1953853440,"4195460":1600061555,"4195464":1667393900,"4195468":1635021663,"4195472":1834972274,"4195476":7235937,"4195480":2019778399,"4195484":1768316769,"4195488":1768710510,"4195492":1811965306,"4195496":778265193,"4195500":909012851,"4195504":1229735680,"4195508":845103938,"4195512":892219950,"4195516":1229735680,"4195520":845103938,"4195524":3420974,"4195528":1297369439,"4195532":1919247455,"4195536":1936287589,"4195540":1416783220,"4195544":1869366093,"4195548":1632920942,"4195552":6646882,"4195556":1835491167,"4195560":1935634031,"4195564":1953653108,"4195568":1593859935,"4195572":1598903369,"4195576":1768383858,"4195580":1919251571,"4195584":1816350036,"4195588":1415933551,"4195592":1701601889,"4195596":0,"4195600":65538,"4195604":65539,"4195608":196609,"4195612":0,"4195616":131073,"4195620":39,"4195624":16,"4195628":0,"4195632":157882997,"4195636":196608,"4195640":49,"4195644":16,"4195648":110530996,"4195652":131072,"4195656":61,"4195660":0,"4195664":15800,"4195668":0,"4195672":8,"4195676":0,"4195680":4416,"4195684":0,"4195688":15808,"4195692":0,"4195696":8,"4195700":0,"4195704":4352,"4195708":0,"4195712":16392,"4195716":0,"4195720":8,"4195724":0,"4195728":16392,"4195732":0,"4195736":16344,"4195740":0,"4195744":6,"4195748":1,"4195752":0,"4195756":0,"4195760":16352,"4195764":0,"4195768":6,"4195772":2,"4195776":0,"4195780":0,"4195784":16360,"4195788":0,"4195792":6,"4195796":4,"4195800":0,"4195804":0,"4195808":16368,"4195812":0,"4195816":6,"4195820":5,"4195824":0,"4195828":0,"4195832":16376,"4195836":0,"4195840":6,"4195844":6,"4195848":0,"4195852":0,"4195856":16336,"4195860":0,"4195864":7,"4195868":3,"4195872":0,"4195876":0,"4198400":4196274163,"4198404":149717832,"4198408":3641019208,"4198412":1207959599,"4198416":41205893,"4198420":2202587391,"4198424":12781764,"4198428":0,"4198432":798635519,"4198436":637468672,"4198440":12188,"4198444":4202255,"4198448":4196274163,"4198452":104,"4198456":4293060864,"4198460":2422669311,"4198464":4196274163,"4198468":799942143,"4198472":258342912,"4198476":17439,"4198480":4196274163,"4198484":796272127,"4198488":258342912,"4198492":17439,"4198496":4196274163,"4198500":2303323441,"4198504":2303221457,"4198508":3833809122,"4198512":1163153648,"4198516":3375480881,"4198520":3393031496,"4198524":4278190080,"4198528":3101461,"4198532":778499072,"4198536":8658703,"4198540":0,"4198544":2034077000,"4198548":1207959599,"4198552":796001677,"4198556":961019904,"4198560":1209365752,"4198564":792069515,"4198568":2236088320,"4198572":4278809792,"4198576":2149519328,"4198580":0,"4198584":2149519299,"4198588":0,"4198592":1228770632,"4198596":1207959599,"4198600":792868237,"4198604":692584448,"4198608":4035528958,"4198612":1072611656,"4198616":66634056,"4198620":1220936008,"4198624":343211729,"4198628":84249416,"4198632":1207959599,"4198636":141869189,"4198640":258400511,"4198644":17439,"4198648":2149519299,"4198652":0,"4198656":4196274163,"4198660":788872576,"4198664":1962934272,"4198668":2202555691,"4198672":3072573,"4198676":2303197184,"4198680":1208775909,"4198684":786840971,"4198688":434634752,"4198692":3909091327,"4198696":4294967140,"4198700":786236870,"4198704":1560346624,"4198708":2035651,"4198712":2149519299,"4198716":0,"4198720":4196274163,"4198724":4294932457,"4198728":504361983,"4198732":2303219194,"4198736":93145317,"4198740":3756,"4198744":3905390920,"4198748":4294967024,"4198752":184,"4198756":12803328,"4198760":4196274163,"4198764":149717832,"4198768":147096392,"4202496":131073,"4202500":1819043144,"4202504":1870078063,"4202508":6581362,"4202512":990059265,"4202516":52,"4202520":5,"4202524":4294963216,"4202528":104,"4202532":4294963248,"4202536":144,"4202540":4294963264,"4202544":168,"4202548":4294963280,"4202552":80,"4202556":4294963513,"4202560":192,"4202564":0,"4202568":20,"4202572":0,"4202576":5405185,"4202580":17856513,"4202584":134679579,"4202588":400,"4202592":20,"4202596":28,"4202600":4294963192,"4202604":38,"4202608":268911616,"4202612":0,"4202616":36,"4202620":52,"4202624":4294963104,"4202628":32,"4202632":1175457280,"4202636":256514062,"4202640":2148038411,"4202644":958021376,"4202648":572797738,"4202652":0,"4202656":20,"4202660":92,"4202664":4294963096,"4202668":16,"4202672":0,"4202676":0,"4202680":20,"4202684":116,"4202688":4294963088,"4202692":16,"4202696":0,"4202700":0,"4202704":28,"4202708":140,"4202712":4294963313,"4202716":30,"4202720":269370624,"4202724":222495366,"4202728":118248710,"4202732":8,"4202736":0,"4210104":4416,"4210108":0,"4210112":4352,"4210116":0,"4210120":1,"4210124":0,"4210128":39,"4210132":0,"4210136":12,"4210140":0,"4210144":4096,"4210148":0,"4210152":13,"4210156":0,"4210160":4456,"4210164":0,"4210168":25,"4210172":0,"4210176":15800,"4210180":0,"4210184":27,"4210188":0,"4210192":8,"4210196":0,"4210200":26,"4210204":0,"4210208":15808,"4210212":0,"4210216":28,"4210220":0,"4210224":8,"4210228":0,"4210232":1879047925,"4210236":0,"4210240":944,"4210244":0,"4210248":5,"4210252":0,"4210256":1152,"4210260":0,"4210264":6,"4210268":0,"4210272":984,"4210276":0,"4210280":10,"4210284":0,"4210288":141,"4210292":0,"4210296":11,"4210300":0,"4210304":24,"4210308":0,"4210312":21,"4210316":0,"4210320":0,"4210324":0,"4210328":3,"4210332":0,"4210336":16312,"4210340":0,"4210344":2,"4210348":0,"4210352":24,"4210356":0,"4210360":20,"4210364":0,"4210368":7,"4210372":0,"4210376":23,"4210380":0,"4210384":1552,"4210388":0,"4210392":7,"4210396":0,"4210400":1360,"4210404":0,"4210408":8,"4210412":0,"4210416":192,"4210420":0,"4210424":9,"4210428":0,"4210432":24,"4210436":0,"4210440":30,"4210444":0,"4210448":8,"4210452":0,"4210456":1879048187,"4210460":0,"4210464":134217729,"4210468":0,"4210472":1879048190,"4210476":0,"4210480":1312,"4210484":0,"4210488":1879048191,"4210492":0,"4210496":1,"4210500":0,"4210504":1879048176,"4210508":0,"4210512":1294,"4210516":0,"4210520":1879048185,"4210524":0,"4210528":3,"4210532":0,"4210536":0,"4210540":0,"4210544":0,"4210548":0,"4210552":0,"4210556":0,"4210560":0,"4210564":0,"4210568":0,"4210572":0,"4210576":0,"4210580":0,"4210584":0,"4210588":0,"4210592":0,"4210596":0,"4210600":0,"4210604":0,"4210608":0,"4210612":0,"4210616":15816,"4210620":0,"4210624":0,"4210628":0,"4210632":0,"4210636":0,"4210640":4144,"4210644":0,"4210648":0,"4210652":0,"4210656":0,"4210660":0,"4210664":0,"4210668":0,"4210672":0,"4210676":0,"4210680":0,"4210684":0,"4210688":0,"4210692":0,"4210696":16392,"4210700":0,"4210704":0,"4210708":0}
+[?2004hroot@811441ed8e20:/app# 

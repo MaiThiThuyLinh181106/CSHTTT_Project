@@ -1,0 +1,24 @@
+{
+  "results": {
+    "tool": {
+      "name": "pytest"
+    },
+    "summary": {
+      "tests": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "pending": 0,
+      "other": 0,
+      "start": 1792300000,
+      "stop": 1792300010
+    },
+    "tests": [
+      {
+        "name": "test_verification",
+        "status": "passed",
+        "duration": 5.2
+      }
+    ]
+  }
+}

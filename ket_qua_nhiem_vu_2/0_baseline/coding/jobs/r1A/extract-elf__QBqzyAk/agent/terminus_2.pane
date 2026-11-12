@@ -1,0 +1,442 @@
+[?2004hroot@0b031b6e7fb1:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@0b031b6e7fb1:/app# clear
+[?2004l[H[J[3J[?2004hroot@0b031b6e7fb1:/app# ls -la
+[?2004ltotal 28
+drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 18 13:36 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+[?2004hroot@0b031b6e7fb1:/app# readelf -S a.out
+[?2004lThere are 31 section headers, starting at offset 0x3698:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000318  00000318
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
+       0000000000000030  0000000000000000   A       0     0     8
+  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
+       0000000000000024  0000000000000000   A       6     0     8
+  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
+       00000000000000a8  0000000000000018   A       7     1     8
+  [ 7] .dynstr           STRTAB           0000000000000480  00000480
+       000000000000008d  0000000000000000   A       0     0     1
+  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
+       000000000000000e  0000000000000002   A       6     0     2
+  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
+       0000000000000030  0000000000000000   A       7     1     8
+  [10] .rela.dyn         RELA             0000000000000550  00000550
+       00000000000000c0  0000000000000018   A       6     0     8
+  [11] .rela.plt         RELA             0000000000000610  00000610
+       0000000000000018  0000000000000018  AI       6    24     8
+  [12] .init             PROGBITS         0000000000001000  00001000
+       000000000000001b  0000000000000000  AX       0     0     4
+  [13] .plt              PROGBITS         0000000000001020  00001020
+       0000000000000020  0000000000000010  AX       0     0     16
+  [14] .plt.got          PROGBITS         0000000000001040  00001040
+       0000000000000010  0000000000000010  AX       0     0     16
+  [15] .plt.sec          PROGBITS         0000000000001050  00001050
+       0000000000000010  0000000000000010  AX       0     0     16
+  [16] .text             PROGBITS         0000000000001060  00001060
+       0000000000000107  0000000000000000  AX       0     0     16
+  [17] .fini             PROGBITS         0000000000001168  00001168
+       000000000000000d  0000000000000000  AX       0     0     4
+  [18] .rodata           PROGBITS         0000000000002000  00002000
+       0000000000000010  0000000000000000   A       0     0     4
+  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
+       0000000000000034  0000000000000000   A       0     0     4
+  [20] .eh_frame         PROGBITS         0000000000002048  00002048
+       00000000000000ac  0000000000000000   A       0     0     8
+  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
+       0000000000000008  0000000000000008  WA       0     0     8
+  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
+       00000000000001f0  0000000000000010  WA       7     0     8
+  [24] .got              PROGBITS         0000000000003fb8  00002fb8
+       0000000000000048  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000004000  00003000
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           0000000000004010  00003010
+       0000000000000008  0000000000000000  WA       0     0     1
+  [27] .comment          PROGBITS         0000000000000000  00003010
+       000000000000002b  0000000000000001  MS       0     0     1
+  [28] .symtab           SYMTAB           0000000000000000  00003040
+       0000000000000360  0000000000000018          29    18     8
+  [29] .strtab           STRTAB           0000000000000000  000033a0
+       00000000000001d8  0000000000000000           0     0     1
+  [30] .shstrtab         STRTAB           0000000000000000  00003578
+       000000000000011a  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+[?2004hroot@0b031b6e7fb1:/app# readelf -l a.out
+[?2004l
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x1060
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000628 0x0000000000000628  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
+                 0x0000000000000175 0x0000000000000175  R E    0x1000
+  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
+                 0x00000000000000f4 0x00000000000000f4  R      0x1000
+  LOAD           0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000258 0x0000000000000260  RW     0x1000
+  DYNAMIC        0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8
+                 0x00000000000001f0 0x00000000000001f0  RW     0x8
+  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
+                 0x0000000000000044 0x0000000000000044  R      0x4
+  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  GNU_EH_FRAME   0x0000000000002010 0x0000000000002010 0x0000000000002010
+                 0x0000000000000034 0x0000000000000034  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000248 0x0000000000000248  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   03     .init .plt .plt.got .plt.sec .text .fini 
+   04     .rodata .eh_frame_hdr .eh_frame 
+   05     .init_array .fini_array .dynamic .got .data .bss 
+   06     .dynamic 
+   07     .note.gnu.property 
+   08     .note.gnu.build-id .note.ABI-tag 
+   09     .note.gnu.property 
+   10     .eh_frame_hdr 
+   11     
+   12     .init_array .fini_array .dynamic .got 
+[?2004hroot@0b031b6e7fb1:/app# cat hi.c
+[?2004l#include<stdio.h>
+
+int main() {
+  printf("Hello world\n");
+}
+[?2004hroot@0b031b6e7fb1:/app# nm a.out
+[?2004l0000000000003dc8 d _DYNAMIC
+0000000000003fb8 d _GLOBAL_OFFSET_TABLE_
+0000000000002000 R _IO_stdin_used
+                 w _ITM_deregisterTMCloneTable
+                 w _ITM_registerTMCloneTable
+00000000000020f0 r __FRAME_END__
+0000000000002010 r __GNU_EH_FRAME_HDR
+0000000000004010 D __TMC_END__
+000000000000038c r __abi_tag
+0000000000004010 B __bss_start
+                 w __cxa_finalize@GLIBC_2.2.5
+0000000000004000 D __data_start
+0000000000001100 t __do_global_dtors_aux
+0000000000003dc0 d __do_global_dtors_aux_fini_array_entry
+0000000000004008 D __dso_handle
+0000000000003db8 d __frame_dummy_init_array_entry
+                 w __gmon_start__
+                 U __libc_start_main@GLIBC_2.34
+0000000000004010 D _edata
+0000000000004018 B _end
+0000000000001168 T _fini
+0000000000001000 T _init
+0000000000001060 T _start
+0000000000004010 b completed.0
+0000000000004000 W data_start
+0000000000001090 t deregister_tm_clones
+0000000000001140 t frame_dummy
+0000000000001149 T main
+                 U puts@GLIBC_2.2.5
+00000000000010c0 t register_tm_clones
+[?2004hroot@0b031b6e7fb1:/app# readelf -s a.out
+[?2004l
+Symbol table '.dynsym' contains 7 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND _[...]@GLIBC_2.34 (2)
+     2: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterT[...]
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.2.5 (3)
+     4: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     5: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMC[...]
+     6: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND [...]@GLIBC_2.2.5 (3)
+
+Symbol table '.symtab' contains 36 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS Scrt1.o
+     2: 000000000000038c    32 OBJECT  LOCAL  DEFAULT    4 __abi_tag
+     3: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+     4: 0000000000001090     0 FUNC    LOCAL  DEFAULT   16 deregister_tm_clones
+     5: 00000000000010c0     0 FUNC    LOCAL  DEFAULT   16 register_tm_clones
+     6: 0000000000001100     0 FUNC    LOCAL  DEFAULT   16 __do_global_dtors_aux
+     7: 0000000000004010     1 OBJECT  LOCAL  DEFAULT   26 completed.0
+     8: 0000000000003dc0     0 OBJECT  LOCAL  DEFAULT   22 __do_global_dtor[...]
+     9: 0000000000001140     0 FUNC    LOCAL  DEFAULT   16 frame_dummy
+    10: 0000000000003db8     0 OBJECT  LOCAL  DEFAULT   21 __frame_dummy_in[...]
+    11: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS hi.c
+    12: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    13: 00000000000020f0     0 OBJECT  LOCAL  DEFAULT   20 __FRAME_END__
+    14: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    15: 0000000000003dc8     0 OBJECT  LOCAL  DEFAULT   23 _DYNAMIC
+    16: 0000000000002010     0 NOTYPE  LOCAL  DEFAULT   19 __GNU_EH_FRAME_HDR
+    17: 0000000000003fb8     0 OBJECT  LOCAL  DEFAULT   24 _GLOBAL_OFFSET_TABLE_
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_mai[...]
+    19: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterT[...]
+    20: 0000000000004000     0 NOTYPE  WEAK   DEFAULT   25 data_start
+    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.2.5
+    22: 0000000000004010     0 NOTYPE  GLOBAL DEFAULT   25 _edata
+    23: 0000000000001168     0 FUNC    GLOBAL HIDDEN    17 _fini
+    24: 0000000000004000     0 NOTYPE  GLOBAL DEFAULT   25 __data_start
+    25: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    26: 0000000000004008     0 OBJECT  GLOBAL HIDDEN    25 __dso_handle
+    27: 0000000000002000     4 OBJECT  GLOBAL DEFAULT   18 _IO_stdin_used
+    28: 0000000000004018     0 NOTYPE  GLOBAL DEFAULT   26 _end
+    29: 0000000000001060    38 FUNC    GLOBAL DEFAULT   16 _start
+    30: 0000000000004010     0 NOTYPE  GLOBAL DEFAULT   26 __bss_start
+    31: 0000000000001149    30 FUNC    GLOBAL DEFAULT   16 main
+    32: 0000000000004010     0 OBJECT  GLOBAL HIDDEN    25 __TMC_END__
+    33: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMC[...]
+    34: 0000000000000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@G[...]
+    35: 0000000000001000     0 FUNC    GLOBAL HIDDEN    12 _init
+[?2004hroot@0b031b6e7fb1:/app# python3 -c "import sys; print(sys.path)"
+[?2004l['', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.12/dist-packages']
+[?2004hroot@0b031b6e7fb1:/app# python3 -c "import elftools; print(elftools.__file__)" 2>/dev/null || echo "No pyelftools"
+[?2004lNo pyelftools
+[?2004hroot@0b031b6e7fb1:/app# npm list -g 2>/dev/null || true
+[?2004l[0m/usr/local/lib[0m
+[0m└── (empty)[0m
+[0m[0m
+[?2004hroot@0b031b6e7fb1:/app# find / -name "*test*" 2>/dev/null || true
+[?2004l/sys/devices/virtual/net/eth0/testing
+/sys/devices/virtual/net/lo/testing
+/sys/module/cryptomgr/parameters/notests
+/sys/module/8250/parameters/skip_txen_test
+/sys/module/8250_core/parameters/skip_txen_test
+/sys/module/sr_mod/parameters/xa_test
+/usr/bin/test
+/usr/share/perl5/Mail/Mailer/testfile.pm
+/usr/share/doc/git/contrib/coccinelle/tests
+/usr/share/doc/node-webpack-cli-configtest
+/usr/share/doc/node-babel-helper-plugin-test-runner
+/usr/share/doc/node-babel-eslint-tests
+/usr/share/doc/node-babel-helper-transform-fixture-test-runner
+/usr/share/doc/node-tape/examples/stream/test
+/usr/share/doc/node-npmcli-smoke-tests
+/usr/share/nodejs/caniuse-lite/data/features/testfeat.js
+/usr/share/nodejs/caniuse-lite/data/features/date-tolocaledatestring.js
+/usr/share/nodejs/acorn-export-ns-from/run_test262.js
+/usr/share/nodejs/acorn-export-ns-from/test262.whitelist
+/usr/share/nodejs/acorn-private-methods/run_test262.js
+/usr/share/nodejs/@bcoe/v8-coverage/src/test
+/usr/share/nodejs/acorn-numeric-separator/run_test262.js
+/usr/share/nodejs/get-caller-file/test.js
+/usr/share/nodejs/yaml/dist/test-events.d.ts
+/usr/share/nodejs/yaml/dist/test-events.js
+/usr/share/nodejs/test-exclude
+/usr/share/nodejs/es-abstract/node_modules/safe-regex-test
+/usr/share/nodejs/fs-monkey/lib/__tests__
+/usr/share/nodejs/fs-monkey/lib/__tests__/patchFs.test.js
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.js
+/usr/share/nodejs/jest-util/build/testPathPatternToRegExp.d.ts
+/usr/share/nodejs/acorn-class-fields/run_test262.js
+/usr/share/nodejs/acorn-static-class-features/run_test262.js
+/usr/share/nodejs/@types/node/test.d.ts
+/usr/share/nodejs/@types/node/ts4.8/test.d.ts
+/usr/share/nodejs/istanbul/lib/command/test.js
+/usr/share/nodejs/@npmcli/smoke-tests
+/usr/share/nodejs/tape/lib/test.js
+/usr/share/nodejs/object-inspect/test-core-js.js
+/usr/share/nodejs/tap-yaml/node_modules/yaml/dist/test-events.js
+/usr/share/nodejs/core-js-pure/modules/es.regexp.test.js
+/usr/share/nodejs/core-js-pure/full/regexp/test.js
+/usr/share/nodejs/core-js-pure/actual/regexp/test.js
+/usr/share/nodejs/core-js-pure/es/regexp/test.js
+/usr/share/nodejs/core-js-pure/stable/regexp/test.js
+/usr/share/nodejs/core-js-pure/features/regexp/test.js
+/usr/share/nodejs/safer-buffer/tests.js
+/usr/share/nodejs/acorn-bigint/run_test262.js
+/usr/share/nodejs/core-js/modules/es.regexp.test.js
+/usr/share/nodejs/core-js/full/regexp/test.js
+/usr/share/nodejs/core-js/actual/regexp/test.js
+/usr/share/nodejs/core-js/es/regexp/test.js
+/usr/share/nodejs/core-js/stable/regexp/test.js
+/usr/share/nodejs/core-js/features/regexp/test.js
+/usr/share/nodejs/acorn-import-meta/run_test262.js
+/usr/share/nodejs/libtap/lib/parse-test-args.js
+/usr/share/nodejs/libtap/lib/test.js
+/usr/share/nodejs/@webassemblyjs/helper-test-framework
+/usr/share/nodejs/@webassemblyjs/helper-testsuite-runner
+/usr/share/nodejs/eslint/lib/rule-tester
+/usr/share/nodejs/eslint/lib/rule-tester/rule-tester.js
+/usr/share/nodejs/eslint/lib/cli-engine/config-array/override-tester.js
+/usr/share/nodejs/@babel/helper-plugin-test-runner
+/usr/share/nodejs/@babel/helper-transform-fixture-test-runner
+/usr/share/nodejs/@babel/eslint-tests
+/usr/share/nodejs/tap-mocha-reporter/lib/test.js
+/usr/share/nodejs/@webpack-cli/configtest
+/usr/share/nodejs/npm/lib/commands/install-test.js
+/usr/share/nodejs/npm/lib/commands/test.js
+/usr/share/nodejs/npm/lib/commands/install-ci-test.js
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein
+/usr/share/nodejs/npm/node_modules/fastest-levenshtein/test.ts
+/usr/share/nodejs/npm/node_modules/cli-columns/test.js
+/usr/share/nodejs/npm/node_modules/just-diff-apply/index.tests.ts
+/usr/share/nodejs/npm/node_modules/just-diff/index.tests.ts
+/usr/share/perl/5.38.2/Test2/Event/Subtest.pm
+/usr/share/perl/5.38.2/Test2/Hub/Subtest.pm
+/usr/share/perl/5.38.2/filetest.pm
+/usr/share/perl/5.38.2/ExtUtils/testlib.pm
+/usr/lib/x86_64-linux-gnu/libicutest.so.74.2
+/usr/lib/x86_64-linux-gnu/libicutest.so.74
+/usr/lib/python3/dist-packages/gyp/input_test.py
+/usr/lib/python3/dist-packages/gyp/__pycache__/common_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/input_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/easy_xml_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/__pycache__/MSVSSettings_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/common_test.py
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/xcode_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/ninja_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/__pycache__/msvs_test.cpython-312.pyc
+/usr/lib/python3/dist-packages/gyp/generator/ninja_test.py
+/usr/lib/python3/dist-packages/gyp/generator/xcode_test.py
+/usr/lib/python3/dist-packages/gyp/generator/msvs_test.py
+/usr/lib/python3/dist-packages/gyp/easy_xml_test.py
+/usr/lib/python3/dist-packages/gyp/MSVSSettings_test.py
+/usr/lib/python3.12/test
+/usr/lib/python3.12/test/test_support.py
+/usr/lib/python3.12/test/libregrtest
+/usr/lib/python3.12/test/libregrtest/runtests.py
+/usr/lib/python3.12/test/libregrtest/__pycache__/findtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/runtests.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/__pycache__/testresult.cpython-312.pyc
+/usr/lib/python3.12/test/libregrtest/findtests.py
+/usr/lib/python3.12/test/libregrtest/testresult.py
+/usr/lib/python3.12/test/__pycache__/test_support.cpython-312.pyc
+/usr/lib/python3.12/test/__pycache__/regrtest.cpython-312.pyc
+/usr/lib/python3.12/test/support/__pycache__/testcase.cpython-312.pyc
+/usr/lib/python3.12/test/support/testcase.py
+/usr/lib/python3.12/test/regrtest.py
+/usr/lib/python3.12/__pycache__/doctest.cpython-312.pyc
+/usr/lib/python3.12/unittest
+/usr/lib/python3.12/lib-dynload/_testclinic.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testmultiphase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testimportmultiple.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testbuffer.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testsinglephase.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_ctypes_test.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_testinternalcapi.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/lib-dynload/_xxtestfuzz.cpython-312-x86_64-linux-gnu.so
+/usr/lib/python3.12/doctest.py
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
+/usr/include/openssl/self_test.h
+/usr/include/nodejs/deps/v8/include/cppgc/testing.h
+/usr/include/linux/pcitest.h
+[?2004hroot@0b031b6e7fb1:/app# node extract.js /app/a.out > out.json && head -c 200 out.json && echo
+[?2004lnode:internal/modules/cjs/loader:1137
+  throw err;
+  ^
+
+Error: Cannot find module '/app/extract.js'
+[90m    at Module._resolveFilename (node:internal/modules/cjs/loader:1134:15)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:975:27)[39m
+[90m    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:128:12)[39m
+[90m    at node:internal/main/run_main_module:28:49[39m {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: []
+}
+
+Node.js v18.19.1
+[?2004hroot@0b031b6e7fb1:/app# cat << 'EOF' > extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> 
+[?2004l[?2004h> function parseElf(filePath) {
+[?2004l[?2004h>   const buffer = fs.readFileSync(filePath);
+[?2004l[?2004h>   
+[?2004l[?2004h>   if (buffer.readUInt32BE(0) !== 0x7f454c46) {
+[?2004l[?2004h>     throw new Error('Not a valid ELF file');
+[?2004l[?2004h>   }
+[?2004l[?2004h> 
+[?2004l[?2004h>   const is64Bit = buffer[4] === 2;
+[?2004l[?2004h>   const isLittleEndian = buffer[5] === 1;
+[?2004l[?2004h> 
+[?2004l[?2004h>   const readU16 = (offset) => isLittleEndian ? buffer.readUInt16LE(offset) : buffer.readUInt16BE(offset);
+[?2004l[?2004h>   const readU32 = (offset) => isLittleEndian ? buffer.readUInt32LE(offset) : buffer.readUInt32BE(offset);
+[?2004l[?2004h>   const readU64 = (offset) => {
+[?2004l[?2004h>     const low = readU32(offset);
+[?2004l[?2004h>     const high = readU32(offset + 4);
+[?2004l[?2004h>     return Number(BigInt(low) + (BigInt(high) << 32n));
+[?2004l[?2004h>   };
+[?2004l[?2004h> 
+[?2004l[?2004h>   const phoff = is64Bit ? readU64(32) : readU32(28);
+[?2004l[?2004h>   const phentsize = readU16(is64Bit ? 54 : 42);
+[?2004l[?2004h>   const phnum = readU16(is64Bit ? 56 : 44);
+[?2004l[?2004h> 
+[?2004l[?2004h>   const memory = {};
+[?2004l[?2004h> 
+[?2004l[?2004h>   for (let i = 0; i < phnum; i++) {
+[?2004l[?2004h>     const phOffset = phoff + i * phentsize;
+[?2004l[?2004h>     const p_type = readU32(phOffset);
+[?2004l[?2004h>     
+[?2004l[?2004h>     if (p_type === 1) {
+[?2004l[?2004h>       const p_offset = is64Bit ? readU64(phOffset + 8) : readU32(phOffset + 4);
+[?2004l[?2004h>       const p_vaddr = is64Bit ? readU64(phOffset + 16) : readU32(phOffset + 8);
+[?2004l[?2004h>       const p_filesz = is64Bit ? readU64(phOffset + 32) : readU32(phOffset + 16);
+[?2004l[?2004h>       const p_memsz = is64Bit ? readU64(phOffset + 40) : readU32(phOffset + 20);
+[?2004l[?2004h> 
+[?2004l[?2004h>       const segmentData = Buffer.alloc(Number(p_memsz));
+[?2004l[?2004h>       if (p_filesz > 0) {
+[?2004l[?2004h>         buffer.copy(segmentData, 0, Number(p_offset), Number(p_offset + p_filesz));
+[?2004l[?2004h>       }
+[?2004l[?2004h> 
+[?2004l[?2004h>       const startAddr = Number(p_vaddr);
+[?2004l[?2004h>       const memSize = Number(p_memsz);
+[?2004l[?2004h>       
+[?2004l[?2004h>       const remainder = startAddr % 4;
+[?2004l[?2004h>       const alignedStart = remainder === 0 ? startAddr : startAddr + (4 - remainder);
+[?2004l[?2004h> 
+[?2004l[?2004h>       for (let addr = alignedStart; addr + 4 <= startAddr + memSize; addr += 4) {
+[?2004l[?2004h>         const fileOffsetInSegment = addr - startAddr;
+[?2004l[?2004h>         const val = isLittleEndian ? segmentData.readInt32LE(fileOffsetInSegment) : segmentData.readInt32BE(fileOffsetInSegment);
+[?2004l[?2004h>         memory[addr.toString()] = val;
+[?2004l[?2004h>       }
+[?2004l[?2004h>     }
+[?2004l[?2004h>   }
+[?2004l[?2004h> 
+[?2004l[?2004h>   return memory;
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> const args = process.argv.slice(2);
+[?2004l[?2004h> if (args.length === 0) {
+[?2004l[?2004h>   console.error('Usage: node extract.js <binary>');
+[?2004l[?2004h>   process.exit(1);
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> const result = parseElf(args[0]);
+[?2004l[?2004h> console.log(JSON.stringify(result));
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@0b031b6e7fb1:/app# node extract.js /app/a.out > out.json && head -c 200 out.json && echo
+[?2004l{"0":1179403647,"4":65794,"8":0,"12":0,"16":4063235,"20":1,"24":4192,"28":0,"32":64,"36":0,"40":13976,"44":0,"48":0,"52":3670080,"56":4194317,"60":1966111,"64":6,"68":4,"72":64,"76":0,"80":64,"84":0,"
+[?2004hroot@0b031b6e7fb1:/app# 

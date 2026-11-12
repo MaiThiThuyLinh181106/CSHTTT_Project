@@ -19,13 +19,13 @@
     1.0
    ],
    "tokens": [
-    274987
+    112440
    ],
    "missing": 0,
    "extra": {
     "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r1B\\extract-elf__dH9TH63"
+     "runs\\coding\\jobs\\r1B\\extract-elf__dH9TH63"
     ]
    }
   },
@@ -37,13 +37,13 @@
     1.0
    ],
    "tokens": [
-    12559
+    31333
    ],
    "missing": 0,
    "extra": {
     "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r1B\\fix-git__F5zkiPC"
+     "runs\\coding\\jobs\\r1B\\fix-git__F5zkiPC"
     ]
    }
   }

@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "The change adds a short comment to the completion confirmation path in terminus_2.py, which does not contain task-specific leakage, grader gaming, or unbounded loops."
+  "The prompt addition is generic advice for JSON/XML parsing errors and does not leak task-specific solutions or data."
  ]
 }

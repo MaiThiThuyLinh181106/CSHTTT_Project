@@ -1,0 +1,28 @@
+{
+ "failure_modes": [
+  {
+   "mode": "incorrect_programmatic_parsing",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "extract-elf"
+   ],
+   "description": "The agent authored a programmatic parser script that failed to extract the expected data format or content from the target binary, resulting in complete failure against reference validation checks.",
+   "needed_instead": "A robust parser implementation that correctly locates binary segments or sections, reads their raw data at the correct offsets, and formats them into the requested data structure.",
+   "representative_evidence": [
+    {
+     "task_id": "extract-elf",
+     "where": "line 539",
+     "quote": "AssertionError: Only found 0.00% of expected values (required: 75%)"
+    }
+   ]
+  }
+ ],
+ "success_habits": [
+  {
+   "habit": "systematic_repository_exploration",
+   "n_tasks": 1,
+   "description": "Thoroughly inspecting workspace state, version control history, and branch configurations using standard command-line tools prior to making modifications.",
+   "risk_if_broken": "Without inspecting repository history and branch state, the agent would fail to locate and recover lost code changes or work on the correct targets."
+  }
+ ]
+}

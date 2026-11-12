@@ -1,0 +1,9 @@
+[rrsi:coding] 15:25:00 === round 1/2 incumbent t=1 a1f04b2 S=0.5000 C=44895.0 S*=0.5000 delta=0.01700 ===
+[analyst] 2 digests done (total 2)
+[rrsi:coding] 15:25:00 top modes: ['incorrect_programmatic_parsing']
+[rrsi:coding] 15:25:00 b_t=4 sigma_t=0 untried=['control_flow', 'config'] prune=[]
+[rrsi:coding] 15:25:00 A: 1 edit(s) on ['prompt'] -> e82c19a
+[rrsi:coding] 15:25:00 B: 1 edit(s) on ['prompt'] -> f3d4e5a
+[rrsi:coding] 16:14:20 A: S=0.5000 dS=+0.0000 dC=-0.079 nu=0 -> ACCEPTED: admissible: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = +1.1794 > 0 (nu=0, div_pen=0.00)
+[rrsi:coding] 16:14:20 B: S=0.0000 dS=-0.5000 dC=+0.825 nu=0 -> REJECTED: below noise-adjusted floor: S' 0.0000 < S* 0.5000 - delta 0.0170
+[rrsi:coding] 16:14:20 ACCEPTED r1A -> e82c19a S=0.5000 S*=0.5000

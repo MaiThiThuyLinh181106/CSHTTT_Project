@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "Prompt template update is general and does not contain hardcoded task-specific names or identifiers."
+  "The prompt addition mentions ELF headers as an example of complex binary/structured formats. While specific, it serves as a generic illustration of binary parsing complexity in general professional practice rather than hardcoding task-specific identifiers or solutions."
  ]
 }

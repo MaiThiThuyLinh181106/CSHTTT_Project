@@ -1,0 +1,9 @@
+{
+  "component": "prompt",
+  "hypothesis": "Adding strict token budget constraints to the JSON plan generator to prevent multi-turn retry bloat.",
+  "targets_mode": "incorrect_programmatic_parsing",
+  "predicted_affected": [
+    "extract-elf"
+  ],
+  "commit": "e82c19a"
+}

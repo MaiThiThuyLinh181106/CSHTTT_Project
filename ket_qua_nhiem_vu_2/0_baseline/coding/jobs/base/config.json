@@ -1,6 +1,6 @@
 {
     "job_name": "base",
-    "jobs_dir": "D:\\CSHTTT_project\\rrsi\\runs_exp4\\coding\\jobs",
+    "jobs_dir": "D:\\CSHTTT_Project\\runs\\coding\\jobs",
     "n_concurrent_trials": 2,
     "agents": [
         {
@@ -8,7 +8,7 @@
             "model_name": "gemini/gemini-3.5-flash-lite",
             "kwargs": {
                 "llm_kwargs": {
-                    "num_retries": 10
+                    "num_retries": 3
                 }
             }
         }

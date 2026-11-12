@@ -1,26 +1,22 @@
 {
- "commit": "9153a68",
+ "commit": "407a0e9",
  "branch": "coding/r0A",
  "edits": [
   {
-   "id": "C1",
-   "component": "prompt",
-   "hypothesis": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion.",
-   "targets_mode": "premature_task_completion",
-   "why_not_lower_lever": "Prose instructions in the system template are the precise lever for guiding high-level decision policies regarding when to declare completion.",
-   "trigger_condition": "always present in agent instructions",
+   "id": "E1",
+   "component": "control_flow",
+   "hypothesis": "Prepending parser warnings alongside terminal output when feedback is present ensures the policy immediately notices format/structural mistakes rather than ignoring them.",
+   "targets_mode": "incomplete_specification_alignment",
+   "why_not_lower_lever": "Requires modifying how observations are constructed in terminus_2.py when feedback contains warnings or errors.",
+   "trigger_condition": "whenever the parser returns warnings or errors on a non-complete response step",
    "predicted_affected": [
-    "bn-fit-modify"
+    "extract-elf"
    ],
-   "retroactive_check": {
-    "corrective": "On bn-fit-modify, the agent completed early before running sampling; the prompt constraint instructs it to verify file existence first, forcing it to execute the sampling step.",
-    "preservative": "Does not disrupt successful iteration since successful agents naturally verify their outputs before concluding.",
-    "transfer": "Applies generally across tasks where agents finish core logic but forget final file generation/saving."
-   },
-   "regression_risk": "None expected; only discourages premature stopping.",
-   "mechanism": "Adding an explicit completion rule instructing the model not to declare task_complete until final artifact files are generated and verified prevents premature task completion."
+   "retroactive_check": "corrective: helps guide the policy when warnings or errors occur; preservative: does not affect successful flows since warnings/errors are empty; transfer: generalizes across all tasks where parser feedback needs attention.",
+   "regression_risk": "Slight increase in prompt length when warnings occur, but highly bounded.",
+   "mechanism": "Prepending parser warnings alongside terminal output when feedback is present ensures the policy immediately notices format/structural mistakes rather than ignoring them."
   }
  ],
  "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r0\\A\\diff.patch",
- "mechanism": "Instruct the policy via template to verify output files exist before marking task_complete to prevent premature completion."
+ "mechanism": "Fix syntax error in terminus_2.py observation construction block"
 }

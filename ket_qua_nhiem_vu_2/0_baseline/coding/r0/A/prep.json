@@ -1,0 +1,22 @@
+{
+ "commit": "1cffbe0",
+ "branch": "coding/r0A",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to write robust program parsing/extraction scripts and properly handle data formats prevents incomplete/zero-coverage data parsing errors.",
+   "targets_mode": "incorrect_programmatic_parsing",
+   "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer the model's code generation style across various script-based tasks.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": "(corrective) 'extract-elf' failed because the custom script extracted 0% of expected values due to unguided parsing logic; explicit instructions for robust scripting would prompt the model to check parsing correctness and formats. (preservative) Standard terminal exploration and execution success habits remain untouched since instructions only augment script authoring quality. (transfer) Generalizes to any task requiring custom scripts to extract or parse structured data formats.",
+   "regression_risk": "Slight token count overhead in prompt; negligible regression risk.",
+   "mechanism": "Instructing the policy to write robust program parsing/extraction scripts and properly handle data formats prevents incomplete/zero-coverage data parsing errors."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r0\\A\\diff.patch",
+ "mechanism": "Add robust script authoring instructions to JSON prompt template to address programmatic parsing and extraction failures"
+}

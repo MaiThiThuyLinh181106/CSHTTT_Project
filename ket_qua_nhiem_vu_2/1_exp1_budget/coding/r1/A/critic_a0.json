@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "Prompt addition provides general-purpose guidance against premature task completion without referencing specific tasks, entities, or test cases."
+  "The prompt addition is generic advice for JSON/XML parsing errors and does not leak task-specific solutions or data."
  ]
 }

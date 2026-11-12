@@ -1,14 +1,13 @@
-diff --git a/third_party/harbor_terminus2/terminus_json_plain_parser.py b/third_party/harbor_terminus2/terminus_json_plain_parser.py
-index d2ea6d8..5d3dfee 100644
---- a/third_party/harbor_terminus2/terminus_json_plain_parser.py
-+++ b/third_party/harbor_terminus2/terminus_json_plain_parser.py
-@@ -302,7 +302,8 @@ class TerminusJSONPlainParser:
-                     f"Command {i + 1}: Unknown fields: {', '.join(unknown_fields)}"
-                 )
+diff --git a/third_party/harbor_terminus2/templates/terminus-json-plain.txt b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+index 5b55045..4673bb8 100644
+--- a/third_party/harbor_terminus2/templates/terminus-json-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+@@ -27,7 +27,7 @@ Optional fields:
+ - "task_complete": Boolean indicating if the task is complete (defaults to false if not present)
  
--            # Check for newline at end of keystrokes if followed by another command
-+            if not keystrokes.endswith("\n") and not keystrokes.endswith("\r\n"):
-+                keystrokes += "\n"
-             if i < len(commands_data) - 1 and not keystrokes.endswith("\n"):
-                 warnings.append(
-                     f"Command {i + 1} should end with newline when followed "
+ Command object structure:
+-- "keystrokes": String containing the exact keystrokes to send to the terminal (required). WHEN WRITING PARSER SCRIPTS OR DATA EXTRACTION SCRIPTS (e.g., Python, Node.js, JavaScript), always write the full implementation robustly using standard library features, ensure proper handling of data formats (e.g., ELF, JSON, XML, databases), and print/save validation outputs correctly.
++- "keystrokes": String containing the exact keystrokes to send to the terminal (required). WHEN WRITING PARSER SCRIPTS OR DATA EXTRACTION SCRIPTS (e.g., Python, Node.js, JavaScript), always write the full implementation robustly using standard library features, ensure proper handling of data formats (e.g., ELF, JSON, XML, databases, binary offsets), inspect header structures correctly before reading payloads, and print/save validation outputs correctly.
+ - "duration": Number of seconds to wait for the command to complete before the next command will be executed (defaults to 1.0 if not present)
+ 
+ IMPORTANT: The text inside "keystrokes" will be used completely verbatim as keystrokes. Write commands exactly as you want them sent to the terminal:

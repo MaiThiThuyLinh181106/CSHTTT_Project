@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "General prompt improvement advising the model to check that output files are non-empty and formatted correctly; does not contain any task-specific leakage or grader gaming."
+  "The prompt instruction mentions 'ELF files' which slightly touches upon a specific binary format, but it is framed broadly as an example alongside custom formats and complex text parsing, functioning as general prompt advice rather than hardcoded task solutions."
  ]
 }

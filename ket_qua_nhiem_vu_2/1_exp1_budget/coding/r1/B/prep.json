@@ -1,32 +1,22 @@
 {
- "commit": "66e24e0",
+ "commit": "fdb9aa6",
  "branch": "coding/r1B",
  "edits": [
   {
-   "id": "E1",
+   "id": "C1",
    "component": "prompt",
-   "hypothesis": "Adding explicit instruction to resolve git merge conflicts and commit before marking completion prevents premature task completion during version control tasks.",
-   "targets_mode": "premature_completion_without_execution",
-   "why_not_lower_lever": "Prose instructions in prompt template directly guide the policy model's understanding of completion criteria.",
+   "hypothesis": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf.",
+   "targets_mode": "incorrect_programmatic_parsing",
+   "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer code generation practices for binary/ELF parsing scripts without adding heavy machinery.",
    "trigger_condition": "always",
    "predicted_affected": [
-    "fix-git"
+    "extract-elf"
    ],
-   "retroactive_check": {
-    "corrective": [
-     "fix-gitWould have prompted the agent to finish resolving git conflicts and commit instead of stopping at merge failure."
-    ],
-    "preservative": [
-     "Does not disrupt valid completion paths because it only applies when version control tasks are in play."
-    ],
-    "transfer": [
-     "Generalizes to any repository or version control management task requiring proper conflict resolution and commit actions."
-    ]
-   },
-   "regression_risk": "None expected; purely supplemental guidance.",
-   "mechanism": "Adding explicit instruction to resolve git merge conflicts and commit before marking completion prevents premature task completion during version control tasks."
+   "retroactive_check": "corrective: would guide the agent on extract-elf to properly locate ELF headers and sections; preservative: does not affect successful terminal exploration or repo handling habits; transfer: generalizes to any low-level binary data extraction task.",
+   "regression_risk": "None expected for standard text-processing or repo navigation tasks.",
+   "mechanism": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf."
   }
  ],
- "diff_path": "D:\\CSHTTT_project\\rrsi\\runs_exp4_e1\\coding\\r1\\B\\diff.patch",
- "mechanism": "Add prompt instruction advising git conflict resolution and full commit before completion in JSON template"
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r1\\B\\diff.patch",
+ "mechanism": "Refine prompt guidance for binary format and offset parsing in scripts to mitigate programmatic extraction failure."
 }

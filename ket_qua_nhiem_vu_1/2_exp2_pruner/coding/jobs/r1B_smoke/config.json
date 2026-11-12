@@ -8,7 +8,7 @@
             "model_name": "gemini/gemini-3.5-flash-lite",
             "kwargs": {
                 "llm_kwargs": {
-                    "num_retries": 10
+                    "num_retries": 3
                 }
             }
         }

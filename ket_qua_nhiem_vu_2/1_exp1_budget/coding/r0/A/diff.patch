@@ -1,18 +1,13 @@
-diff --git a/third_party/harbor_terminus2/terminus_2.py b/third_party/harbor_terminus2/terminus_2.py
-index 7909eb2..94bd5de 100644
---- a/third_party/harbor_terminus2/terminus_2.py
-+++ b/third_party/harbor_terminus2/terminus_2.py
-@@ -1429,10 +1429,10 @@ so ask everything you need to know."""
-                     )
-             else:
-                 self._pending_completion = False
--                if "ERROR:" in terminal_output or "AssertionError" in terminal_output or "FAIL" in terminal_output:
-+                if "ERROR:" in terminal_output or "AssertionError" in terminal_output or "FAIL" in terminal_output or "FAILED" in terminal_output:
-                     observation = (
--                        f"NOTICE: The previous commands produced test failures or errors in the terminal output."
--                        f" Please inspect the failure details below and correct them before completing:\n\n"
-+                        f"NOTICE: The previous commands produced test failures or errors in the terminal output.\n"
-+                        f"Please review your plan and address these errors before declaring task_complete.\n\n"
-                         f"{self._limit_output_length(terminal_output)}"
-                     )
-                 elif feedback and "WARNINGS:" in feedback:
+diff --git a/third_party/harbor_terminus2/templates/terminus-json-plain.txt b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+index 6481d56..5b55045 100644
+--- a/third_party/harbor_terminus2/templates/terminus-json-plain.txt
++++ b/third_party/harbor_terminus2/templates/terminus-json-plain.txt
+@@ -27,7 +27,7 @@ Optional fields:
+ - "task_complete": Boolean indicating if the task is complete (defaults to false if not present)
+ 
+ Command object structure:
+-- "keystrokes": String containing the exact keystrokes to send to the terminal (required)
++- "keystrokes": String containing the exact keystrokes to send to the terminal (required). WHEN WRITING PARSER SCRIPTS OR DATA EXTRACTION SCRIPTS (e.g., Python, Node.js, JavaScript), always write the full implementation robustly using standard library features, ensure proper handling of data formats (e.g., ELF, JSON, XML, databases), and print/save validation outputs correctly.
+ - "duration": Number of seconds to wait for the command to complete before the next command will be executed (defaults to 1.0 if not present)
+ 
+ IMPORTANT: The text inside "keystrokes" will be used completely verbatim as keystrokes. Write commands exactly as you want them sent to the terminal:

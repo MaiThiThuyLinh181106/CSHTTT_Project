@@ -1,0 +1,9 @@
+{
+  "component": "control_flow",
+  "hypothesis": "Adding speculative retry wrapper around command execution on syntax errors.",
+  "targets_mode": "incorrect_programmatic_parsing",
+  "predicted_affected": [
+    "extract-elf"
+  ],
+  "commit": "b2c3d4e"
+}

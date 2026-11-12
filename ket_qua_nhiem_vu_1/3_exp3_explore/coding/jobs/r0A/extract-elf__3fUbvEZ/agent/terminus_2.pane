@@ -1,0 +1,249 @@
+[?2004hroot@3e14538f884a:/app# asciinema rec --stdin /logs/agent/recording.cast
+[?2004l[0;32masciinema: recording asciicast to /logs/agent/recording.cast[0m
+[0;32masciinema: press <ctrl-d> or type "exit" when you're done[0m
+[?2004hroot@3e14538f884a:/app# clear
+[?2004l[H[J[3J[?2004hroot@3e14538f884a:/app# ls -la
+[?2004ltotal 28
+drwxr-xr-x 1 root root  4096 Oct 31  2025 [0m[01;34m.[0m
+drwxr-xr-x 1 root root  4096 Oct 18 13:12 [01;34m..[0m
+-rwxr-xr-x 1 root root 15960 Oct 31  2025 [01;32ma.out[0m
+-rw-r--r-- 1 root root    61 Oct 24  2025 hi.c
+[?2004hroot@3e14538f884a:/app# readelf -S a.out
+[?2004lThere are 31 section headers, starting at offset 0x3698:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000318  00000318
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
+       0000000000000030  0000000000000000   A       0     0     8
+  [ 3] .note.gnu.bu[...] NOTE             0000000000000368  00000368
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .note.ABI-tag     NOTE             000000000000038c  0000038c
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 5] .gnu.hash         GNU_HASH         00000000000003b0  000003b0
+       0000000000000024  0000000000000000   A       6     0     8
+  [ 6] .dynsym           DYNSYM           00000000000003d8  000003d8
+       00000000000000a8  0000000000000018   A       7     1     8
+  [ 7] .dynstr           STRTAB           0000000000000480  00000480
+       000000000000008d  0000000000000000   A       0     0     1
+  [ 8] .gnu.version      VERSYM           000000000000050e  0000050e
+       000000000000000e  0000000000000002   A       6     0     2
+  [ 9] .gnu.version_r    VERNEED          0000000000000520  00000520
+       0000000000000030  0000000000000000   A       7     1     8
+  [10] .rela.dyn         RELA             0000000000000550  00000550
+       00000000000000c0  0000000000000018   A       6     0     8
+  [11] .rela.plt         RELA             0000000000000610  00000610
+       0000000000000018  0000000000000018  AI       6    24     8
+  [12] .init             PROGBITS         0000000000001000  00001000
+       000000000000001b  0000000000000000  AX       0     0     4
+  [13] .plt              PROGBITS         0000000000001020  00001020
+       0000000000000020  0000000000000010  AX       0     0     16
+  [14] .plt.got          PROGBITS         0000000000001040  00001040
+       0000000000000010  0000000000000010  AX       0     0     16
+  [15] .plt.sec          PROGBITS         0000000000001050  00001050
+       0000000000000010  0000000000000010  AX       0     0     16
+  [16] .text             PROGBITS         0000000000001060  00001060
+       0000000000000107  0000000000000000  AX       0     0     16
+  [17] .fini             PROGBITS         0000000000001168  00001168
+       000000000000000d  0000000000000000  AX       0     0     4
+  [18] .rodata           PROGBITS         0000000000002000  00002000
+       0000000000000010  0000000000000000   A       0     0     4
+  [19] .eh_frame_hdr     PROGBITS         0000000000002010  00002010
+       0000000000000034  0000000000000000   A       0     0     4
+  [20] .eh_frame         PROGBITS         0000000000002048  00002048
+       00000000000000ac  0000000000000000   A       0     0     8
+  [21] .init_array       INIT_ARRAY       0000000000003db8  00002db8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [22] .fini_array       FINI_ARRAY       0000000000003dc0  00002dc0
+       0000000000000008  0000000000000008  WA       0     0     8
+  [23] .dynamic          DYNAMIC          0000000000003dc8  00002dc8
+       00000000000001f0  0000000000000010  WA       7     0     8
+  [24] .got              PROGBITS         0000000000003fb8  00002fb8
+       0000000000000048  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000004000  00003000
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           0000000000004010  00003010
+       0000000000000008  0000000000000000  WA       0     0     1
+  [27] .comment          PROGBITS         0000000000000000  00003010
+       000000000000002b  0000000000000001  MS       0     0     1
+  [28] .symtab           SYMTAB           0000000000000000  00003040
+       0000000000000360  0000000000000018          29    18     8
+  [29] .strtab           STRTAB           0000000000000000  000033a0
+       00000000000001d8  0000000000000000           0     0     1
+  [30] .shstrtab         STRTAB           0000000000000000  00003578
+       000000000000011a  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+[?2004hroot@3e14538f884a:/app# readelf -l a.out
+[?2004l
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x1060
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000628 0x0000000000000628  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000001000 0x0000000000001000
+                 0x0000000000000175 0x0000000000000175  R E    0x1000
+  LOAD           0x0000000000002000 0x0000000000002000 0x0000000000002000
+                 0x00000000000000f4 0x00000000000000f4  R      0x1000
+  LOAD           0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000258 0x0000000000000260  RW     0x1000
+  DYNAMIC        0x0000000000002dc8 0x0000000000003dc8 0x0000000000003dc8
+                 0x00000000000001f0 0x00000000000001f0  RW     0x8
+  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
+                 0x0000000000000044 0x0000000000000044  R      0x4
+  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  GNU_EH_FRAME   0x0000000000002010 0x0000000000002010 0x0000000000002010
+                 0x0000000000000034 0x0000000000000034  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000002db8 0x0000000000003db8 0x0000000000003db8
+                 0x0000000000000248 0x0000000000000248  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.gnu.property .note.gnu.build-id .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   03     .init .plt .plt.got .plt.sec .text .fini 
+   04     .rodata .eh_frame_hdr .eh_frame 
+   05     .init_array .fini_array .dynamic .got .data .bss 
+   06     .dynamic 
+   07     .note.gnu.property 
+   08     .note.gnu.build-id .note.ABI-tag 
+   09     .note.gnu.property 
+   10     .eh_frame_hdr 
+   11     
+   12     .init_array .fini_array .dynamic .got 
+[?2004hroot@3e14538f884a:/app# cat hi.c
+[?2004l#include<stdio.h>
+
+int main() {
+  printf("Hello world\n");
+}
+[?2004hroot@3e14538f884a:/app# python3 -c "import elftools; print(elftools.__version__)"
+[?2004lTraceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'elftools'
+[?2004hroot@3e14538f884a:/app# node -v
+[?2004lv18.19.1
+[?2004hroot@3e14538f884a:/app# cat << 'EOF' > test_parse.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> const buf = fs.readFileSync('a.out');
+[?2004l[?2004h> console.log('File size:', buf.length);
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@3e14538f884a:/app# node test_parse.js
+[?2004lFile size: [33m15960[39m
+[?2004hroot@3e14538f884a:/app# ls -la ..
+[?2004ltotal 72
+drwxr-xr-x   1 root root 4096 Oct 18 13:12 [0m[01;34m.[0m
+drwxr-xr-x   1 root root 4096 Oct 18 13:12 [01;34m..[0m
+-rwxr-xr-x   1 root root    0 Oct 18 13:11 [01;32m.dockerenv[0m
+drwxr-xr-x   1 root root 4096 Oct 18 13:12 [01;34mapp[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mbin[0m -> [01;34musr/bin[0m
+drwxr-xr-x   2 root root 4096 Apr 22  2024 [01;34mboot[0m
+drwxr-xr-x   5 root root  340 Oct 18 13:11 [01;34mdev[0m
+drwxr-xr-x   1 root root 4096 Oct 18 13:12 [01;34metc[0m
+drwxr-xr-x   3 root root 4096 Oct  1  2025 [01;34mhome[0m
+lrwxrwxrwx   1 root root    7 Apr 22  2024 [01;36mlib[0m -> [01;34musr/lib[0m
+lrwxrwxrwx   1 root root    9 Apr 22  2024 [01;36mlib64[0m -> [01;34musr/lib64[0m
+drwxr-xr-x   5 root root 4096 Oct 18 13:11 [01;34mlogs[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmedia[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mmnt[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34mopt[0m
+dr-xr-xr-x 230 root root    0 Oct 18 13:11 [01;34mproc[0m
+drwx------   1 root root 4096 Oct 18 13:12 [01;34mroot[0m
+drwxr-xr-x   1 root root 4096 Oct 31  2025 [01;34mrun[0m
+lrwxrwxrwx   1 root root    8 Apr 22  2024 [01;36msbin[0m -> [01;34musr/sbin[0m
+drwxr-xr-x   2 root root 4096 Oct  1  2025 [01;34msrv[0m
+dr-xr-xr-x  12 root root    0 Oct 18 13:11 [01;34msys[0m
+drwxrwxrwt   1 root root 4096 Oct 18 13:12 [30;42mtmp[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34musr[0m
+drwxr-xr-x   1 root root 4096 Oct  1  2025 [01;34mvar[0m
+[?2004hroot@3e14538f884a:/app# cat << 'EOF' > extract.js
+[?2004l[?2004h> const fs = require('fs');
+[?2004l[?2004h> 
+[?2004l[?2004h> function extract(filename) {
+[?2004l[?2004h>   const buf = fs.readFileSync(filename);
+[?2004l[?2004h>   // Basic ELF parsing to extract loadable segments or sections, or whole file loaded at 0x400000
+[?2004l[?2004h>   // Let's check program headers
+[?2004l[?2004h>   const e_phoff = buf.readBigUInt64LE(0x20);
+[?2004l[?2004h>   const e_phentsize = buf.readUInt16LE(0x36);
+[?2004l[?2004h>   const e_phnum = buf.readUInt16LE(0x38);
+[?2004l[?2004h> 
+[?2004l[?2004h>   const result = {};
+[?2004l[?2004h>   const baseAddr = 0x400000;
+[?2004l[?2004h> 
+[?2004l[?2004h>   // If we map loadable segments or the whole file:
+[?2004l[?2004h>   // Let's parse program headers for LOAD segments
+[?2004l[?2004h>   for (let i = 0; i < e_phnum; i++) {
+[?2004l[?2004h>     const phoff = Number(e_phoff) + i * e_phentsize;
+[?2004l[?2004h>     const p_type = buf.readUInt32LE(phoff);
+[?2004l[?2004h>     if (p_type === 1) { // PT_LOAD
+[?2004l[?2004h>       const p_offset = Number(buf.readBigUInt64LE(phoff + 0x08));
+[?2004l[?2004h>       const p_vaddr = Number(buf.readBigUInt64LE(phoff + 0x10));
+[?2004l[?2004h>       const p_filesz = Number(buf.readBigUInt64LE(phoff + 0x20));
+[?2004l[?2004h>       const p_memsz = Number(buf.readBigUInt64LE(phoff + 0x28));
+[?2004l[?2004h> 
+[?2004l[?2004h>       const startAddr = baseAddr + p_vaddr;
+[?2004l[?2004h>       for (let offset = 0; offset < p_filesz; offset += 4) {
+[?2004l[?2004h>         if (p_offset + offset + 4 <= buf.length) {
+[?2004l[?2004h>           const val = buf.readInt32LE(p_offset + offset);
+[?2004l[?2004h>           result[(startAddr + offset).toString()] = val;
+[?2004l[?2004h>         }
+[?2004l[?2004h>       }
+[?2004l[?2004h>     }
+[?2004l[?2004h>   }
+[?2004l[?2004h> 
+[?2004l[?2004h>   console.log(JSON.stringify(result, null, 2));
+[?2004l[?2004h> }
+[?2004l[?2004h> 
+[?2004l[?2004h> extract(process.argv[2] || 'a.out');
+[?2004l[?2004h> EOF
+[?2004l[?2004hroot@3e14538f884a:/app# node extract.js /app/a.out > out.json
+[?2004l[?2004hroot@3e14538f884a:/app# head -n 20 out.json
+[?2004l{
+  "4194304": 1179403647,
+  "4194308": 65794,
+  "4194312": 0,
+  "4194316": 0,
+  "4194320": 4063235,
+  "4194324": 1,
+  "4194328": 4192,
+  "4194332": 0,
+  "4194336": 64,
+  "4194340": 0,
+  "4194344": 13976,
+  "4194348": 0,
+  "4194352": 0,
+  "4194356": 3670080,
+  "4194360": 4194317,
+  "4194364": 1966111,
+  "4194368": 6,
+  "4194372": 4,
+  "4194376": 64,
+[?2004hroot@3e14538f884a:/app# node extract.js /app/a.out > out.json && head -n 5 out.json
+[?2004l{
+  "4194304": 1179403647,
+  "4194308": 65794,
+  "4194312": 0,
+  "4194316": 0,
+[?2004hroot@3e14538f884a:/app# 

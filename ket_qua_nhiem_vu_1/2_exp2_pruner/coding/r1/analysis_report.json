@@ -1,13 +1,23 @@
 {
- "failure_modes": [],
- "capability_gaps": [],
- "success_habits": [
+ "failure_modes": [
   {
-   "habit": "iterative_artifact_generation",
-   "n_tasks": 2,
-   "description": "The agent thoroughly implements and executes intermediate modeling steps, ensuring core logic passes baseline checks and all mandatory output files are explicitly verified via inspection and existence checks.",
-   "risk_if_broken": "Without explicit execution and verification steps, incorrect output formats, missing files, or failing logic would go undetected, leading to task failure."
+   "mode": "incomplete_specification_alignment",
+   "n_tasks": 1,
+   "affected_tasks": [
+    "extract-elf"
+   ],
+   "description": "Custom parsing and data extraction logic fails to match the exact subset, schema, or address mapping expected by the reference test harness.",
+   "needed_instead": "A robust parsing library or correct handling of structural format offsets and mappings.",
+   "representative_evidence": [
+    {
+     "task_id": "extract-elf",
+     "where": "end of file",
+     "quote": "Test failed: extracted 0 matching addresses (required >= 75%)"
+    }
+   ]
   }
  ],
- "n_digests": 2
+ "capability_gaps": [],
+ "success_habits": [],
+ "n_digests": 1
 }

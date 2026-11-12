@@ -1,22 +1,22 @@
 {
- "commit": "e8c6ca5",
+ "commit": "fdb9aa6",
  "branch": "coding/r1B",
  "edits": [
   {
    "id": "C1",
-   "component": "control_flow",
-   "hypothesis": "Automatically appending a newline to keystrokes that lack one prevents the common failure mode where commands hang or concatenate when the policy forgets the trailing newline.",
-   "targets_mode": "incorrect_logic_implementation",
-   "why_not_lower_lever": "A prompt instruction is often ignored by the policy under pressure; auto-correcting in the parser mechanism is robust and reliable.",
-   "trigger_condition": "when parsed keystrokes do not end with a newline character",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf.",
+   "targets_mode": "incorrect_programmatic_parsing",
+   "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer code generation practices for binary/ELF parsing scripts without adding heavy machinery.",
+   "trigger_condition": "always",
    "predicted_affected": [
-    "bn-fit-modify"
+    "extract-elf"
    ],
-   "retroactive_check": "corrective: bn-fit-modify would have avoided hanging/concatenation issues; preservative: standard commands already ending in newline are untouched; transfer: applies universally to any task where commands are sent without newlines.",
-   "regression_risk": "extremely low, as command lines in a shell always require a trailing newline to execute.",
-   "mechanism": "Automatically appending a newline to keystrokes that lack one prevents the common failure mode where commands hang or concatenate when the policy forgets the trailing newline."
+   "retroactive_check": "corrective: would guide the agent on extract-elf to properly locate ELF headers and sections; preservative: does not affect successful terminal exploration or repo handling habits; transfer: generalizes to any low-level binary data extraction task.",
+   "regression_risk": "None expected for standard text-processing or repo navigation tasks.",
+   "mechanism": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf."
   }
  ],
- "diff_path": "D:\\CSHTTT_project\\rrsi\\runs\\coding\\r1\\B\\diff.patch",
- "mechanism": "Automatically append newline to command keystrokes if missing to prevent command concatenation/hanging failures."
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r1\\B\\diff.patch",
+ "mechanism": "Refine prompt guidance for binary format and offset parsing in scripts to mitigate programmatic extraction failure."
 }
