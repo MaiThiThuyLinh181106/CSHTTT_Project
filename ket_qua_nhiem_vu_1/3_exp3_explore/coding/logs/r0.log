@@ -1,10 +1,9 @@
-[rrsi:coding] 14:56:00 === round 0/2 incumbent t=0 b6e8818 S=0.5000 C=1059350.0 S*=0.5000 delta=0.01700 ===
-[Gemini 429 Rate Limit] Free Tier quota reached. Waiting 46.3s to recover (attempt 1/10)...
+[rrsi:coding] 18:40:00 === round 0/2 incumbent t=0 f6c4061 S=0.5000 C=57749.0 S*=0.5000 delta=0.01700 ===
 [analyst] 2 digests done (total 2)
-[rrsi:coding] 14:57:05 top modes: ['omitted_final_deliverable']
-[rrsi:coding] 14:57:05 b_t=4 sigma_t=0 untried=['prompt', 'control_flow', 'config', 'output_plumbing', 'context_mgmt', 'client_tool', 'skill', 'memory', 'subagent'] prune=[]
-[rrsi:coding] 15:00:03 A: 1 edit(s) on ['prompt'] -> 28bbddd
-[rrsi:coding] 15:03:35 B: 1 edit(s) on ['prompt'] -> 0207ab4
-[rrsi:coding] 15:44:26 A: S=1.0000 dS=+0.5000 dC=+1.752 nu=0 -> ACCEPTED: admissible: gain +0.5000 > delta 0.0170; cost change +1.752 <= budget 10.200 (beta0 0.2 + beta1 20.0 * dS)
-[rrsi:coding] 15:44:26 B: S=1.0000 dS=+0.5000 dC=-0.144 nu=0 -> LOST: admissible: gain +0.5000 > delta 0.0170; cost change -0.144 <= budget 10.200 (beta0 0.2 + beta1 20.0 * dS)
-[rrsi:coding] 15:44:27 ACCEPTED r0A -> 28bbddd S=1.0000 S*=1.0000
+[rrsi:coding] 18:40:00 top modes: ['incorrect_programmatic_parsing']
+[rrsi:coding] 18:40:00 b_t=4 sigma_t=0 untried=['prompt', 'control_flow', 'config'] prune=[]
+[rrsi:coding] 18:40:00 A: 1 edit(s) on ['prompt'] -> 1cffbe0
+[rrsi:coding] 18:40:00 B: 1 edit(s) on ['control_flow'] -> fdb9aa6
+[rrsi:coding] 19:35:10 A: S=0.5000 dS=+0.0000 dC=-0.227 nu=0 -> ACCEPTED: admissible: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = +3.3985 > 0 (nu=0, div_pen=0.00)
+[rrsi:coding] 19:35:10 B: S=0.0000 dS=-0.5000 dC=+0.570 nu=0 -> REJECTED: below noise-adjusted floor: S' 0.0000 < S* 0.5000 - delta 0.0170
+[rrsi:coding] 19:35:10 ACCEPTED r0A -> 1cffbe0 S=0.5000 S*=0.5000

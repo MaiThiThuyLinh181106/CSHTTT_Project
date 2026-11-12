@@ -25,7 +25,7 @@
    "extra": {
     "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0A\\extract-elf__3fUbvEZ"
+     "runs\\coding\\jobs\\r0A\\extract-elf__3fUbvEZ"
     ]
    }
   },
@@ -43,7 +43,7 @@
    "extra": {
     "passes": 1,
     "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0A\\fix-git__XR7FN6Z"
+     "runs\\coding\\jobs\\r0A\\fix-git__XR7FN6Z"
     ]
    }
   }

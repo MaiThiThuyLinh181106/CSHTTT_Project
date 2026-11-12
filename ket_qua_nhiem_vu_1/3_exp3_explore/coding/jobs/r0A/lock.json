@@ -1,6 +1,6 @@
 {
     "schema_version": 3,
-    "created_at": "2026-10-17T08:03:50.040229Z",
+    "created_at": "2026-10-18T13:11:09.552491Z",
     "harbor": {
         "version": "0.24.0",
         "is_editable": false
@@ -9,15 +9,15 @@
     "retry": {
         "max_retries": 0,
         "exclude_exceptions": [
-            "AgentSafetyRefusalError",
-            "VerifierOutputParseError",
-            "VerifierTimeoutError",
-            "ApiUsageLimitError",
-            "AgentAuthenticationError",
-            "AgentTimeoutError",
-            "RewardFileEmptyError",
             "ModelNotFoundError",
-            "RewardFileNotFoundError"
+            "AgentTimeoutError",
+            "AgentAuthenticationError",
+            "ApiUsageLimitError",
+            "VerifierTimeoutError",
+            "VerifierOutputParseError",
+            "AgentSafetyRefusalError",
+            "RewardFileNotFoundError",
+            "RewardFileEmptyError"
         ],
         "wait_multiplier": 1.0,
         "min_wait_sec": 1.0,
@@ -27,9 +27,9 @@
         {
             "schema_version": 2,
             "task": {
-                "name": "terminal-bench/adaptive-rejection-sampler",
+                "name": "terminal-bench/extract-elf",
                 "type": "package",
-                "digest": "sha256:bcaa2399985cd57666018025846289ab25e193ae0dd8fb7f0ffab2410c24d4de",
+                "digest": "sha256:1ef31d566be4fe3459d5368621ae7ef7a31b23ef675737e473bbc43c8c7b3fce",
                 "source": "terminal-bench/terminal-bench-2-1"
             },
             "install_only": false,
@@ -42,7 +42,7 @@
                 "extra_allowed_hosts": [],
                 "kwargs": {
                     "llm_kwargs": {
-                        "num_retries": 10
+                        "num_retries": 3
                     }
                 },
                 "mcp_servers": []
@@ -68,9 +68,9 @@
         {
             "schema_version": 2,
             "task": {
-                "name": "terminal-bench/bn-fit-modify",
+                "name": "terminal-bench/fix-git",
                 "type": "package",
-                "digest": "sha256:b5f9644970c17ad9ddb46b7266f7bcd87c761d77d7e6f55d7cfe7284d5ff66e9",
+                "digest": "sha256:16948b980df9d96de616a205f5acca1c5d395de83ff4f8ffabcafacb93226f2e",
                 "source": "terminal-bench/terminal-bench-2-1"
             },
             "install_only": false,
@@ -83,7 +83,7 @@
                 "extra_allowed_hosts": [],
                 "kwargs": {
                     "llm_kwargs": {
-                        "num_retries": 10
+                        "num_retries": 3
                     }
                 },
                 "mcp_servers": []

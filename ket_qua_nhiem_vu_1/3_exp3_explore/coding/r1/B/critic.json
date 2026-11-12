@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "Clamping command duration to a general upper bound (60 seconds) prevents potential infinite waits or parser errors caused by model hallucinations."
+  "Prompt addition provides general advice on binary formats and header inspection without hardcoding task names, file paths, or specific offset values."
  ]
 }

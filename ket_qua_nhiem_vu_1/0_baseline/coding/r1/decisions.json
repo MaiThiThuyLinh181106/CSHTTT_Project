@@ -1,0 +1,30 @@
+{
+  "round": 1,
+  "candidates": {
+    "A": {
+      "accepted": true,
+      "outcome": "ACCEPTED",
+      "S": 0.5,
+      "C": 41365.0,
+      "delta_S": 0.0,
+      "delta_C": -0.078628,
+      "detail": "admissible: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = +1.1794 > 0 (nu=0, div_pen=0.00)"
+    },
+    "B": {
+      "accepted": false,
+      "outcome": "REJECTED",
+      "S": 0.0,
+      "C": 81950.0,
+      "delta_S": -0.5,
+      "delta_C": 0.82537,
+      "detail": "below noise-adjusted floor: S' 0.0000 < S* 0.5000 - delta 0.0170"
+    }
+  },
+  "incumbent_after": {
+    "t": 2,
+    "commit": "e82c19a",
+    "job": "r1A",
+    "S": 0.5,
+    "C": 41365.0
+  }
+}

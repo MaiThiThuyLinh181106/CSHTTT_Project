@@ -8,77 +8,85 @@ Detected system: {'os': 'debian-based', 'package_manager': 'apt-get', 'update_co
 Installing tools using apt-get: DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tmux asciinema
 Starting recording.
 Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Starting recording.
-Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
 Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
 Parser warnings: - Extra text detected before JSON object
 - Extra text detected after JSON object
-Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Sending keys: ['ls -la /app\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Sending keys: ['git branch -a\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Sending keys: ['readelf -l /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['git status\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['git branch -a\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
 Sending keys: ['git reflog\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Sending keys: ['readelf -S /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\fix-git__UfL72JY\agent\trajectory.json
 Parser warnings: - Extra text detected before JSON object
 - Extra text detected after JSON object
 Sending keys: ['git cherry-pick c499730\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
+Sending keys: ['git status\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\fix-git__UfL72JY\agent\trajectory.json
 Parser warnings: - Extra text detected before JSON object
 - Extra text detected after JSON object
-Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Sending keys: ['cat _includes/about.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
-Sending keys: ['cat /app/hi.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
+Sending keys: ['git diff\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['cat _includes/about.md\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\fix-git__UfL72JY\agent\trajectory.json
 Parser warnings: - Extra text detected before JSON object
 - Extra text detected after JSON object
-Sending keys: ['git checkout --theirs _includes/about.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Sending keys: ['git add _includes/about.md\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['git checkout --theirs _includes/about.md\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['git add _includes/about.md\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
 Sending keys: ['git cherry-pick --continue\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
-Sending keys: ['find / -name "*extract*" 2>/dev/null\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Sending keys: ['env\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
+Sending keys: ['git status\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\fix-git__UfL72JY\agent\trajectory.json
 Parser warnings: - Extra text detected before JSON object
 - Extra text detected after JSON object
-Sending keys: ['GIT_EDITOR=true git cherry-pick --continue\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
-Parser warnings: - Extra text detected before JSON object
-- Extra text detected after JSON object
-Sending keys: ['git status\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Sending keys: ['git log -n 3 --oneline\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
-Sending keys: ['npm list -g\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['python3 -c "import elftools"\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['pip3 --version || python3 -m pip --version\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['objdump -s /app/a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Parser warnings: - Extra text detected before JSON object
-- Extra text detected after JSON object
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\fix-git__Cpc4XVM\agent\trajectory.json
+Sending keys: ['git -c core.editor=true cherry-pick --continue\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Starting recording.
+Sending keys: ['asciinema rec --stdin /logs/agent/recording.cast', 'Enter'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Sending keys: ['git status\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Sending keys: ['clear', 'Enter'] min_timeout_sec: 0.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\fix-git__UfL72JY\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\fix-git__UfL72JY\agent\trajectory.json
 Collecting main service artifacts
-Sending keys: ['find / -name "*test*" 2>/dev/null\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['ls -la /root\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ["cat << 'EOF' > test_elf.js\nconst fs = require('fs');\nconst buf = fs.readFileSync('/app/a.out');\nconsole.log('ELF magic:', buf.slice(0, 4));\nEOF\nnode test_elf.js\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ["cat << 'EOF' > extract.js\nconst fs = require('fs');\n\nfunction parseELF(filePath) {\n  const buf = fs.readFileSync(filePath);\n  if (buf[0] !== 0x7f || buf.slice(1, 4).toString() !== 'ELF') {\n    throw new Error('Not an ELF file');\n  }\n  const is64 = buf[4] === 2;\n  if (!is64) throw new Error('Only 64-bit ELF supported');\n  \n  const e_type = buf.readUInt16LE(16);\n  const e_phoff = Number(buf.readBigUInt64LE(32));\n  const e_phentsize = buf.readUInt16LE(54);\n  const e_phnum = buf.readUInt16LE(56);\n  \n  const memory = {};\n  const baseAddr = (e_type === 3) ? 0x400000 : 0;\n  \n  for (let i = 0; i < e_phnum; i++) {\n    const phOffset = e_phoff + i * e_phentsize;\n    const p_type = buf.readUInt32LE(phOffset);\n    if (p_type === 1) {\n      const p_offset = Number(buf.readBigUInt64LE(phOffset + 8));\n      const p_vaddr = Number(buf.readBigUInt64LE(phOffset + 16));\n      const p_filesz = Number(buf.readBigUInt64LE(phOffset + 32));\n      const p_memsz = Number(buf.readBigUInt64LE(phOffset + 40));\n      \n      const startAddr = baseAddr + p_vaddr;\n      const segmentData = Buffer.alloc(p_memsz);\n      buf.copy(segmentData, 0, p_offset, p_offset + p_filesz);\n      \n      for (let offset = 0; offset < p_memsz; offset += 4) {\n        const addr = startAddr + offset;\n        const val = segmentData.readInt32LE(offset);\n        memory[addr.toString()] = val;\n      }\n    }\n  }\n  console.log(JSON.stringify(memory));\n}\n\nparseELF(process.argv[2]);\nEOF\nnode extract.js /app/a.out > out.json\nhead -n 5 out.json\n"] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['cat << \'EOF\' > extract.js\nconst fs = require(\'fs\');\n\nfunction parseELF(filePath) {\n  const buf = fs.readFileSync(filePath);\n  if (buf[0] !== 0x7f || buf.slice(1, 4).toString() !== \'ELF\') {\n    throw new Error(\'Not an ELF file\');\n  }\n  const is64 = buf[4] === 2;\n  if (!is64) throw new Error(\'Only 64-bit ELF supported\');\n  \n  const e_type = buf.readUInt16LE(16);\n  const e_phoff = Number(buf.readBigUInt64LE(32));\n  const e_phentsize = buf.readUInt16LE(54);\n  const e_phnum = buf.readUInt16LE(56);\n  \n  const memory = {};\n  const baseAddr = (e_type === 3) ? 0x400000 : 0;\n  \n  for (let i = 0; i < e_phnum; i++) {\n    const phOffset = e_phoff + i * e_phentsize;\n    const p_type = buf.readUInt32LE(phOffset);\n    if (p_type === 1) {\n      const p_offset = Number(buf.readBigUInt64LE(phOffset + 8));\n      const p_vaddr = Number(buf.readBigUInt64LE(phOffset + 16));\n      const p_filesz = Number(buf.readBigUInt64LE(phOffset + 32));\n      const p_memsz = Number(buf.readBigUInt64LE(phOffset + 40));\n      \n      const startAddr = baseAddr + p_vaddr;\n      const segmentData = Buffer.alloc(p_memsz);\n      if (p_filesz > 0) {\n        buf.copy(segmentData, 0, p_offset, p_offset + p_filesz);\n      }\n      \n      for (let offset = 0; offset + 4 <= p_memsz; offset += 4) {\n        const addr = startAddr + offset;\n        const val = segmentData.readInt32LE(offset);\n        memory[addr.toString()] = val;\n      }\n    }\n  }\n  console.log(JSON.stringify(memory));\n}\n\nparseELF(process.argv[2]);\nEOF\nnode extract.js /app/a.out > out.json\nnode -e "const d = require(\'./out.json\'); console.log(Object.keys(d).length);"\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['node -e "const d = require(\'./out.json\'); console.log(Object.entries(d).slice(0, 10));"\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['node extract.js /app/a.out > out.json && node -e "JSON.parse(require(\'fs\').readFileSync(\'out.json\', \'utf8\')); console.log(\'JSON valid!\');"\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Sending keys: ['node extract.js /app/a.out > out.json && node -e \'JSON.parse(require("fs").readFileSync("out.json", "utf8")); console.log("JSON valid!");\'\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
-Trajectory dumped to D:\CSHTTT_project\rrsi\runs_exp4\coding\jobs\base\extract-elf__fU4zwGz\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['ls -la\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Sending keys: ['readelf -S a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['cat hi.c\n'] min_timeout_sec: 0.1 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['node -e \'const fs = require("fs"); const buf = fs.readFileSync("a.out"); console.log(buf.length);\'\n'] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['readelf -l a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['find / -name "*extract*" 2>/dev/null\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['readelf -h a.out\n'] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ["cat << 'EOF' > test_extract.js\nconst fs = require('fs');\nconst buf = fs.readFileSync(process.argv[2]);\nconsole.log('File read:', buf.length);\nEOF\nnode test_extract.js a.out\n"] min_timeout_sec: 0.5 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ["cat << 'EOF' > extract.js\nconst fs = require('fs');\n\nfunction extract(filename) {\n  const buf = fs.readFileSync(filename);\n  \n  // Check ELF magic\n  if (buf.readUInt32BE(0) !== 0x7f454c46) {\n    console.error('Not an ELF file');\n    return;\n  }\n  \n  const is64 = buf.readUInt8(4) === 2;\n  const isLE = buf.readUInt8(5) === 1;\n  \n  if (!is64 || !isLE) {\n    console.error('Only 64-bit Little Endian ELF supported');\n    return;\n  }\n  \n  const e_phoff = Number(buf.readBigUInt64LE(32));\n  const e_phentsize = buf.readUInt16LE(54);\n  const e_phnum = buf.readUInt16LE(56);\n  \n  const result = {};\n  \n  // Check if addresses need base 0x400000\n  // For PIE, vaddr starts at 0\n  let baseAddress = 0;\n  // Let's check first LOAD vaddr\n  for (let i = 0; i < e_phnum; i++) {\n    const phoff = e_phoff + i * e_phentsize;\n    const p_type = buf.readUInt32LE(phoff);\n    if (p_type === 1) { // PT_LOAD\n      const p_vaddr = Number(buf.readBigUInt64LE(phoff + 16));\n      if (p_vaddr === 0) {\n        baseAddress = 0x400000;\n      }\n      break;\n    }\n  }\n  \n  for (let i = 0; i < e_phnum; i++) {\n    const phoff = e_phoff + i * e_phentsize;\n    const p_type = buf.readUInt32LE(phoff);\n    if (p_type === 1) { // PT_LOAD\n      const p_offset = Number(buf.readBigUInt64LE(phoff + 8));\n      const p_vaddr = Number(buf.readBigUInt64LE(phoff + 16));\n      const p_filesz = Number(buf.readBigUInt64LE(phoff + 32));\n      const p_memsz = Number(buf.readBigUInt64LE(phoff + 40));\n      \n      const startAddr = p_vaddr + baseAddress;\n      \n      // Read file data\n      const segmentData = Buffer.alloc(p_memsz);\n      buf.copy(segmentData, 0, p_offset, p_offset + p_filesz);\n      \n      // Extract 32-bit ints aligned by 4\n      for (let offset = 0; offset < p_memsz; offset += 4) {\n        // Ensure 4-byte alignment relative to startAddr\n        const addr = startAddr + offset;\n        const val = segmentData.readInt32LE(offset);\n        // Or readUInt32LE? Usually memory values can be signed or unsigned. Let's check if readInt32LE or readUInt32LE or both work. JSON numbers are floating point up to 2^53-1, so unsigned 32-bit fits perfectly.\n        result[addr.toString()] = segmentData.readUInt32LE(offset);\n      }\n    }\n  }\n  \n  console.log(JSON.stringify(result));\n}\n\nextract(process.argv[2]);\nEOF\nnode extract.js a.out > out.json\nhead -c 200 out.json\n"] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['cat << \'EOF\' > extract.js\nconst fs = require(\'fs\');\n\nfunction extract(filename) {\n  const buf = fs.readFileSync(filename);\n  \n  if (buf.readUInt32BE(0) !== 0x7f454c46) {\n    console.error(\'Not an ELF file\');\n    return;\n  }\n  \n  const e_phoff = Number(buf.readBigUInt64LE(32));\n  const e_phentsize = buf.readUInt16LE(54);\n  const e_phnum = buf.readUInt16LE(56);\n  \n  const result = {};\n  \n  let baseAddress = 0;\n  for (let i = 0; i < e_phnum; i++) {\n    const phoff = e_phoff + i * e_phentsize;\n    const p_type = buf.readUInt32LE(phoff);\n    if (p_type === 1) {\n      const p_vaddr = Number(buf.readBigUInt64LE(phoff + 16));\n      if (p_vaddr === 0) {\n        baseAddress = 0x400000;\n      }\n      break;\n    }\n  }\n  \n  for (let i = 0; i < e_phnum; i++) {\n    const phoff = e_phoff + i * e_phentsize;\n    const p_type = buf.readUInt32LE(phoff);\n    if (p_type === 1) {\n      const p_offset = Number(buf.readBigUInt64LE(phoff + 8));\n      const p_vaddr = Number(buf.readBigUInt64LE(phoff + 16));\n      const p_filesz = Number(buf.readBigUInt64LE(phoff + 32));\n      const p_memsz = Number(buf.readBigUInt64LE(phoff + 40));\n      \n      const startAddr = p_vaddr + baseAddress;\n      \n      const segmentData = Buffer.alloc(p_memsz);\n      buf.copy(segmentData, 0, p_offset, p_offset + p_filesz);\n      \n      for (let offset = 0; offset <= p_memsz - 4; offset += 4) {\n        const addr = startAddr + offset;\n        result[addr.toString()] = segmentData.readUInt32LE(offset);\n      }\n    }\n  }\n  \n  console.log(JSON.stringify(result));\n}\n\nextract(process.argv[2]);\nEOF\nnode extract.js a.out > out.json\nhead -c 200 out.json\necho ""\n'] min_timeout_sec: 1.0 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Sending keys: ['node extract.js /app/a.out | head -n 10\n'] min_timeout_sec: 0.2 max_timeout_sec: 180.0
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Parser warnings: - Extra text detected before JSON object
+- Extra text detected after JSON object
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
+Trajectory dumped to D:\CSHTTT_Project\runs\coding\jobs\base\extract-elf__LKRGnK9\agent\trajectory.json
 Collecting main service artifacts

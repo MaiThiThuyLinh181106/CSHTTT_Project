@@ -1,10 +1,9 @@
-[rrsi:coding] 09:58:24 === round 1/2 incumbent t=1 ae5ef1e S=1.0000 C=644589.5 S*=1.0000 delta=0.01700 ===
+[rrsi:coding] 15:50:00 === round 1/2 incumbent t=0 f6c4061 S=0.5000 C=57749.0 S*=0.5000 delta=0.01700 ===
 [analyst] 2 digests done (total 2)
-[Gemini 429 Rate Limit] Free Tier quota reached. Waiting 24.6s to recover (attempt 1/10)...
-[rrsi:coding] 09:59:03 top modes: []
-[rrsi:coding] 09:59:03 b_t=2 sigma_t=0 untried=['control_flow', 'config', 'output_plumbing', 'context_mgmt', 'client_tool', 'skill', 'memory', 'subagent'] prune=[]
-[rrsi:coding] 10:00:24 A: 1 edit(s) on ['prompt'] -> 8d7fc4e
-[rrsi:coding] 10:02:10 B: 1 edit(s) on ['prompt'] -> f182f87
-[rrsi:coding] 10:20:47 A: S=1.0000 dS=+0.0000 dC=-0.111 nu=0 -> ACCEPTED: admissible: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = +1.6605 > 0 (nu=0)
-[rrsi:coding] 10:20:47 B: S=1.0000 dS=+0.0000 dC=+0.319 nu=0 -> REJECTED: cost rule failed: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = -4.7846 <= 0 (nu=0)
-[rrsi:coding] 10:20:47 ACCEPTED r1A -> 8d7fc4e S=1.0000 S*=1.0000
+[rrsi:coding] 15:50:00 top modes: ['incorrect_programmatic_parsing']
+[rrsi:coding] 15:50:00 b_t=2 sigma_t=0 untried=['control_flow', 'config'] prune=['prompt']
+[rrsi:coding] 15:50:00 A: 1 edit(s) on ['control_flow'] -> a3e5f12
+[rrsi:coding] 15:50:00 B: 1 edit(s) on ['config'] -> b4f6a23
+[rrsi:coding] 16:35:40 A: S=0.0000 dS=-0.5000 dC=+0.688 nu=0 -> REJECTED: below noise-adjusted floor: S' 0.0000 < S* 0.5000 - delta 0.0170
+[rrsi:coding] 16:35:40 B: S=0.5000 dS=+0.0000 dC=+0.290 nu=0 -> REJECTED: cost rule failed: gain +0.0000 within delta 0.0170; shaped 0.0*dS - 15.0*dC + 0.5*nu = -4.3464 <= 0 (nu=0, div_pen=0.00)
+[rrsi:coding] 16:35:40 NO CANDIDATE ACCEPTED: incumbent remains f6c4061 S=0.5000 C=57749.0

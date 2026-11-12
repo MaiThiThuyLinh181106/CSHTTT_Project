@@ -1,0 +1,66 @@
+{
+  "domain": "coding",
+  "incumbent": {
+    "t": 2,
+    "commit": "e82c19a",
+    "harness_tree": "4a5b6c7d8e9f",
+    "job": "r1A",
+    "S": 0.5,
+    "C": 41365.0,
+    "extra": {
+      "total_passes": 1,
+      "n_trials": 2,
+      "pass_rate": 0.5
+    },
+    "variant": "A"
+  },
+  "S_star": 0.5,
+  "trajectory": [
+    {
+      "t": 0,
+      "S": 0.5,
+      "C": 57749.0,
+      "commit": "f6c4061",
+      "job": "base"
+    },
+    {
+      "t": 1,
+      "S": 0.5,
+      "C": 44895.0,
+      "commit": "a1f04b2",
+      "job": "r0A"
+    },
+    {
+      "t": 2,
+      "S": 0.5,
+      "C": 41365.0,
+      "commit": "e82c19a",
+      "job": "r1A"
+    }
+  ],
+  "config": {
+    "T": 2,
+    "k": 1,
+    "m": 2,
+    "b_min": 1,
+    "b_max": 4,
+    "w": 0,
+    "m_draft": 1,
+    "delta": 0.017,
+    "delta_z": 2.0,
+    "beta0": 0.2,
+    "beta1": 44.5,
+    "w_s": 0.0,
+    "w_c": 15.0,
+    "w_n": 0.5,
+    "w_div": 0.0,
+    "n_prune": 0,
+    "repair_rounds": 5,
+    "invalid_missing_frac": 0.2,
+    "n_fail_traces": 30,
+    "active_tasks": [
+      "extract-elf",
+      "fix-git"
+    ]
+  }
+}

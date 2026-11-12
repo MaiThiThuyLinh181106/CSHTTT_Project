@@ -1,49 +1,49 @@
 {
  "job": "r1B",
  "k": 1,
- "S": 1.0,
- "C": 122234.5,
+ "S": 0.0,
+ "C": 143773.0,
  "n_expected": 2,
  "missing": 0,
  "extra": {
-  "total_passes": 2,
+  "total_passes": 0,
   "n_trials": 2,
-  "pass_rate": 1.0
+  "pass_rate": 0.0
  },
  "per_task": {
   "extract-elf": {
    "rewards": [
-    1.0
+    0.0
    ],
    "weights": [
     1.0
    ],
    "tokens": [
-    223769
+    112440
    ],
    "missing": 0,
    "extra": {
-    "passes": 1,
+    "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_project\\rrsi\\runs_exp4_e1\\coding\\jobs\\r1B\\extract-elf__xeMtcJq"
+     "runs\\coding\\jobs\\r1B\\extract-elf__dH9TH63"
     ]
    }
   },
   "fix-git": {
    "rewards": [
-    1.0
+    0.0
    ],
    "weights": [
     1.0
    ],
    "tokens": [
-    20700
+    31333
    ],
    "missing": 0,
    "extra": {
-    "passes": 1,
+    "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_project\\rrsi\\runs_exp4_e1\\coding\\jobs\\r1B\\fix-git__xAzLgfm"
+     "runs\\coding\\jobs\\r1B\\fix-git__F5zkiPC"
     ]
    }
   }

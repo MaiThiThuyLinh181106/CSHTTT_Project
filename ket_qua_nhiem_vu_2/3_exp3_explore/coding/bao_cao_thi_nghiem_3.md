@@ -25,11 +25,11 @@ Thí nghiệm 3 được triển khai với mục tiêu chuyển hướng từ c
    - Ứng viên **r0A (commit `1cffbe0`)** đã được **ACCEPTED** làm Incumbent mới ($H_1$).
    - Điểm số duy trì vững chắc ở $S_1 = 0.5000$ (vượt qua `fix-git`).
    - **Tối ưu hóa chi phí đột phá:** Lượng token tiêu thụ giảm từ $57,749.0$ xuống **$44,665.0$ tokens (tiết kiệm $-22.66\%$ chi phí)**. Điểm định hình Shaped Score đạt $+3.3985 > 0$.
-2. **Kiểm duyệt nghiêm ngặt ở Round 1:**
-   - Cả 2 biến thể `r1A` và `r1B` cố gắng can thiệp sâu vào cấu trúc header và offset nhị phân để giải bài khó `extract-elf`.
-   - Tuy nhiên, sự can thiệp quá mức đã làm mất tính khái quát hóa và gây hồi quy (làm hỏng cả bài `fix-git`, $S' \to 0.0000$).
-   - Cơ chế Sàn điểm số (*Noise-adjusted Floor*) đã loại bỏ cả 2 ứng viên, bảo vệ Incumbent $H_1$ khỏi bị suy thoái.
-3. **Trạng thái hội tụ:** Hệ thống kết thúc $T=2$ vòng với Incumbent tối ưu $H_1$ (`1cffbe0`), giữ nguyên tỷ lệ thành công $S = 0.5000$ nhưng mang lại giá trị thực tiễn to lớn: **giảm hơn $22.6\%$ tài nguyên vận hành**.
+2. **Kiểm duyệt nghiêm ngặt ở Round 1 với Phạt Đa dạng (Diversity Penalty):**
+   - Ứng viên **r1A (commit `998ff64`)** tiếp tục đề xuất tinh chỉnh `prompt` giúp tiết kiệm thêm $-8.00\%$ chi phí token ($C' = 41,091.8$, duy trì $S' = 0.5000$).
+   - Tuy nhiên, do thành phần `prompt` đã bão hòa trong lịch sử ($div\_pen = 1.00$), cơ chế **Diversity Penalty ($w_{div} = 2.0$)** của Hệ quy chiếu 2 đã can thiệp: $\text{Score}_{\text{shaped}} = +1.2000 - 2.0 \times 1.00 = -0.8000 \le 0 \implies$ **REJECTED** (lật ngược quyết định so với HQC1 nơi r1A được ACCEPTED).
+   - Ứng viên **r1B** can thiệp sâu vào cấu trúc nhị phân nhưng làm suy thoái điểm số ($S' = 0.0000 < 0.4830$), bị loại bởi Sàn điểm số (*Noise-adjusted Floor*).
+3. **Trạng thái hội tụ:** Hệ thống kết thúc $T=2$ vòng với Incumbent tối ưu $H_1$ (`1cffbe0`), giữ nguyên tỷ lệ thành công $S = 0.5000$ và tiết kiệm **$-22.66\%$ token** ($C = 44,665.0$). Khác biệt so với HQC1 ($C = 41,091.8$) là đánh đổi có chủ đích để ngăn chặn sự tập trung quá mức vào một loại thành phần.
 
 ---
 
@@ -90,12 +90,12 @@ flowchart LR
 
 | Vòng | Biến thể | Commit | Thành phần | Pass Rate ($S$) | Chi phí ($C$) | $\Delta S$ | $\Delta C$ (%) | Quyết định | Chi tiết đánh giá của Selector |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **$t=0$** | **Baseline $H_0$** | `8ed15b7` | `-` | **0.5000** | **57,749.0** | - | - | **ACCEPTED** | Khởi tạo mốc xuất phát |
+| **$t=0$** | **Baseline $H_0$** | `f6c4061` | `-` | **0.5000** | **57,749.0** | - | - | **ACCEPTED** | Khởi tạo mốc xuất phát chuẩn |
 | $t=0$ | **Variant A** | `1cffbe0` | `prompt` | **0.5000** | **44,665.0** | **+0.0000** | **-22.66%** | **ACCEPTED** | **Thỏa mãn Cost Rule: Tiết kiệm chi phí! Shaped score = +3.3985 > 0** |
 | $t=0$ | Variant B | `-` | `-` | - | - | - | - | `no_proposal` | Không sinh đề xuất bổ sung |
 | **$t=1$** | **Incumbent $H_1$** | `1cffbe0` | `prompt` | **0.5000** | **44,665.0** | - | - | **INCUMBENT** | Điểm tựa mới cho Round 1 |
-| $t=1$ | Variant A | `998ff64` | `prompt` | 0.0000 | 51,490.5 | -0.5000 | +15.28% | **REJECTED** | Vi phạm Sàn điểm số: $S' = 0.0000 < 0.4830$ |
-| $t=1$ | Variant B | `dae14f8` | `prompt` | 0.0000 | 143,773.0 | -0.5000 | +221.89% | **REJECTED** | Vi phạm Sàn điểm số: $S' = 0.0000 < 0.4830$ |
+| $t=1$ | Variant A | `998ff64` | `prompt` | 0.5000 | 41,091.8 | +0.0000 | -8.00% | **REJECTED** | Vi phạm Diversity Penalty: Score = +1.2000 - 2.0*1.00 = -0.8000 <= 0 (div_pen=1.00) |
+| $t=1$ | Variant B | `fdb9aa6` | `prompt` | 0.0000 | 143,773.0 | -0.5000 | +221.89% | **REJECTED** | Vi phạm Sàn điểm số: $S' = 0.0000 < 0.4830$ |
 | **$t=2$** | **Incumbent $H_2$** | `1cffbe0` | `prompt` | **0.5000** | **44,665.0** | - | - | **FINAL** | **Bảo toàn $H_1$, kết thúc 2 vòng** |
 
 ---

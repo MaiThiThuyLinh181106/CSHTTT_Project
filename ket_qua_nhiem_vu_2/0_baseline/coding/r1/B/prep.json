@@ -1,0 +1,22 @@
+{
+ "commit": "fdb9aa6",
+ "branch": "coding/r1B",
+ "edits": [
+  {
+   "id": "C1",
+   "component": "prompt",
+   "hypothesis": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf.",
+   "targets_mode": "incorrect_programmatic_parsing",
+   "why_not_lower_lever": "Prose guidance in the prompt is the correct lever to steer code generation practices for binary/ELF parsing scripts without adding heavy machinery.",
+   "trigger_condition": "always",
+   "predicted_affected": [
+    "extract-elf"
+   ],
+   "retroactive_check": "corrective: would guide the agent on extract-elf to properly locate ELF headers and sections; preservative: does not affect successful terminal exploration or repo handling habits; transfer: generalizes to any low-level binary data extraction task.",
+   "regression_risk": "None expected for standard text-processing or repo navigation tasks.",
+   "mechanism": "Instructing the policy to specifically inspect header structures and handle binary offsets correctly in data extraction scripts prevents binary parsing failures like those seen in extract-elf."
+  }
+ ],
+ "diff_path": "D:\\CSHTTT_Project\\runs\\coding\\r1\\B\\diff.patch",
+ "mechanism": "Refine prompt guidance for binary format and offset parsing in scripts to mitigate programmatic extraction failure."
+}

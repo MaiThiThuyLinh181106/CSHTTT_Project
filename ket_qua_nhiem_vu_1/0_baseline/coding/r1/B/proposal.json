@@ -1,0 +1,9 @@
+{
+  "component": "prompt",
+  "hypothesis": "Instructing agent to verify ELF header bytes before running full extractor parser.",
+  "targets_mode": "incorrect_programmatic_parsing",
+  "predicted_affected": [
+    "extract-elf"
+  ],
+  "commit": "f3d4e5a"
+}

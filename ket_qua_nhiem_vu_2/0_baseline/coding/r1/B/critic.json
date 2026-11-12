@@ -1,0 +1,7 @@
+{
+ "verdict": "accept",
+ "reasons": [],
+ "risk_notes": [
+  "Prompt addition provides general advice on binary formats and header inspection without hardcoding task names, file paths, or specific offset values."
+ ]
+}

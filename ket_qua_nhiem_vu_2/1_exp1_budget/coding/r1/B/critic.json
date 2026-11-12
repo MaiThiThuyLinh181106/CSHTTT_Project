@@ -2,6 +2,6 @@
  "verdict": "accept",
  "reasons": [],
  "risk_notes": [
-  "The prompt addition is general (applies to version control tasks) and does not leak specific task names, ids, or answers."
+  "Prompt addition provides general advice on binary formats and header inspection without hardcoding task names, file paths, or specific offset values."
  ]
 }

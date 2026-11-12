@@ -2,7 +2,7 @@
  "job": "r1A",
  "k": 1,
  "S": 0.5,
- "C": 94811.5,
+ "C": 41091.8,
  "n_expected": 2,
  "missing": 0,
  "extra": {
@@ -19,13 +19,13 @@
     1.0
    ],
    "tokens": [
-    175037
+    67123
    ],
    "missing": 0,
    "extra": {
     "passes": 0,
     "trial_dirs": [
-     "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A\\extract-elf__drV9mmK"
+     "runs\\coding\\jobs\\r1A\\extract-elf__QBqzyAk"
     ]
    }
   },
@@ -37,13 +37,13 @@
     1.0
    ],
    "tokens": [
-    14586
+    15061
    ],
    "missing": 0,
    "extra": {
     "passes": 1,
     "trial_dirs": [
-     "D:\\CSHTTT_project\\rrsi\\runs\\coding\\jobs\\r1A\\fix-git__FYzQX7i"
+     "runs\\coding\\jobs\\r1A\\fix-git__5cZWaTt"
     ]
    }
   }

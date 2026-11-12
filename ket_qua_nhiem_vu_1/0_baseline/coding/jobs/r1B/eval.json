@@ -1,0 +1,20 @@
+{
+  "S": 0.0,
+  "C": 81950.0,
+  "total_tokens": 163900,
+  "n_trials": 2,
+  "total_passes": 0,
+  "pass_rate": 0.0,
+  "trials": [
+    {
+      "task": "extract-elf",
+      "reward": 0.0,
+      "total_tokens": 139800
+    },
+    {
+      "task": "fix-git",
+      "reward": 0.0,
+      "total_tokens": 24100
+    }
+  ]
+}

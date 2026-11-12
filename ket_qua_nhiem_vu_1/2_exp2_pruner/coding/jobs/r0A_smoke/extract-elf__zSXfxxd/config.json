@@ -1,0 +1,19 @@
+{
+    "task": {
+        "name": "terminal-bench/extract-elf",
+        "ref": "sha256:1ef31d566be4fe3459d5368621ae7ef7a31b23ef675737e473bbc43c8c7b3fce",
+        "source": "terminal-bench/terminal-bench-2-1"
+    },
+    "trial_name": "extract-elf__zSXfxxd",
+    "trials_dir": "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r0A_smoke",
+    "agent": {
+        "name": "harbor_terminus2:AgentHarness",
+        "model_name": "gemini/gemini-3.5-flash-lite",
+        "kwargs": {
+            "llm_kwargs": {
+                "num_retries": 3
+            }
+        }
+    },
+    "job_id": "9afa77f3-b1a1-4180-a995-f6a1bca1273a"
+}

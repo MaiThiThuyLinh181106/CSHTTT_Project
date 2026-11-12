@@ -1,18 +1,18 @@
 {
  "failure_modes": [
   {
-   "mode": "premature_task_completion",
+   "mode": "incomplete_specification_alignment",
    "n_tasks": 1,
    "affected_tasks": [
-    "bn-fit-modify"
+    "extract-elf"
    ],
-   "description": "The agent signals task completion before executing the final step required to generate and save mandatory output artifacts.",
-   "needed_instead": "The agent needs to verify the existence of all required output files before marking the task as complete.",
+   "description": "Custom parsing and data extraction logic fails to match the exact subset, schema, or address mapping expected by the reference test harness.",
+   "needed_instead": "A robust pre-existing parsing utility or alignment guide that matches the reference test harness's exact extraction and filtering rules.",
    "representative_evidence": [
     {
-     "task_id": "bn-fit-modify",
-     "where": "step 65",
-     "quote": "\"task_complete\": true"
+     "task_id": "extract-elf",
+     "where": "step 2",
+     "quote": "REWARD: 0.0 | episodes: 11 | summarizations: 0"
     }
    ]
   }
@@ -20,11 +20,17 @@
  "capability_gaps": [],
  "success_habits": [
   {
-   "habit": "iterative_artifact_generation",
+   "habit": "comprehensive_history_inspection",
    "n_tasks": 1,
-   "description": "The agent thoroughly implements and executes intermediate modeling steps, ensuring core logic passes baseline checks.",
-   "risk_if_broken": "Core functionality and partial test passes would regress if intermediate execution steps are disrupted."
+   "description": "Using low-level history investigation tools (such as reflog) to locate lost commits or changes prior to integration.",
+   "risk_if_broken": "The agent fails to locate missing changes or lost state, leading to incomplete task resolution."
+  },
+  {
+   "habit": "systematic_conflict_resolution",
+   "n_tasks": 1,
+   "description": "Explicitly resolving merge conflicts during branch operations using targeted checkout strategies and continuing the workflow.",
+   "risk_if_broken": "The workflow aborts or leaves the working tree in a conflicted state when patches or cherry-picks fail to apply cleanly."
   }
  ],
- "n_digests": 1
+ "n_digests": 2
 }

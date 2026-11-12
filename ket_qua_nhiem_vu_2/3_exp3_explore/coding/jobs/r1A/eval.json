@@ -1,51 +1,20 @@
 {
- "job": "r1A",
- "k": 1,
- "S": 0.0,
- "C": 51490.5,
- "n_expected": 2,
- "missing": 0,
- "extra": {
-  "total_passes": 0,
+  "S": 0.5,
+  "C": 41341.0,
+  "total_tokens": 82682,
   "n_trials": 2,
-  "pass_rate": 0.0
- },
- "per_task": {
-  "extract-elf": {
-   "rewards": [
-    0.0
-   ],
-   "weights": [
-    1.0
-   ],
-   "tokens": [
-    91645
-   ],
-   "missing": 0,
-   "extra": {
-    "passes": 0,
-    "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r1A\\extract-elf__QBqzyAk"
-    ]
-   }
-  },
-  "fix-git": {
-   "rewards": [
-    0.0
-   ],
-   "weights": [
-    1.0
-   ],
-   "tokens": [
-    11336
-   ],
-   "missing": 0,
-   "extra": {
-    "passes": 0,
-    "trial_dirs": [
-     "D:\\CSHTTT_Project\\runs\\coding\\jobs\\r1A\\fix-git__5cZWaTt"
-    ]
-   }
-  }
- }
+  "total_passes": 1,
+  "pass_rate": 0.5,
+  "trials": [
+    {
+      "task": "extract-elf",
+      "reward": 0.0,
+      "total_tokens": 67521
+    },
+    {
+      "task": "fix-git",
+      "reward": 1.0,
+      "total_tokens": 15161
+    }
+  ]
 }

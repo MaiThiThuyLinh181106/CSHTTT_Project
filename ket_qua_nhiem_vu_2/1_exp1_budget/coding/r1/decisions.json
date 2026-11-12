@@ -1,24 +1,30 @@
-[
- {
-  "variant": "A",
-  "admissible": false,
-  "reason": "smoke_fail",
-  "S": null,
-  "C": null,
-  "delta_S": null,
-  "delta_C": null,
-  "novelty": 0,
-  "guards": []
- },
- {
-  "variant": "B",
-  "admissible": true,
-  "reason": "admissible: gain +0.5000 > delta 0.0170; cost change -0.270 <= budget 22.350 (beta0 0.1 + beta1 44.5 * dS)",
-  "S": 1.0,
-  "C": 122234.5,
-  "delta_S": 0.5,
-  "delta_C": -0.27013285565009704,
-  "novelty": 0,
-  "guards": []
- }
-]
+{
+  "round": 1,
+  "candidates": {
+    "A": {
+      "accepted": false,
+      "outcome": "REJECTED",
+      "S": 0.5,
+      "C": 40230.0,
+      "delta_S": 0.0,
+      "delta_C": -0.083286,
+      "detail": "cost rule failed: gain +0.0000 within delta 0.0170; shaped +1.2493 - 2.0*div(1.00) = -0.7507 <= 0 (nu=0, div_pen=1.00)"
+    },
+    "B": {
+      "accepted": false,
+      "outcome": "REJECTED",
+      "S": 0.0,
+      "C": 83950.0,
+      "delta_S": -0.5,
+      "delta_C": 0.912954,
+      "detail": "below noise-adjusted floor: S' 0.0000 < S* 0.5000 - delta 0.0170"
+    }
+  },
+  "incumbent_after": {
+    "t": 1,
+    "commit": "c4b183e",
+    "job": "r0A",
+    "S": 0.5,
+    "C": 43885.0
+  }
+}

@@ -1,18 +1,18 @@
 {
  "failure_modes": [
   {
-   "mode": "premature_completion_without_execution",
+   "mode": "incorrect_programmatic_parsing",
    "n_tasks": 1,
    "affected_tasks": [
-    "fix-git"
+    "extract-elf"
    ],
-   "description": "The agent inspects repository status and history to identify target states or branches, but terminates the episode and sets completion to true before executing the necessary integration or modification commands.",
-   "needed_instead": "The agent must execute the required modification and integration steps after identifying the target state before declaring completion.",
+   "description": "The agent authored a programmatic parser script that failed to extract the expected data format or content from the target binary, resulting in complete failure against reference validation checks.",
+   "needed_instead": "A robust parser implementation that correctly locates binary segments or sections, reads their raw data at the correct offsets, and formats them into the requested data structure.",
    "representative_evidence": [
     {
-     "task_id": "fix-git",
-     "where": "step 5",
-     "quote": "\"task_complete\": true"
+     "task_id": "extract-elf",
+     "where": "line 539",
+     "quote": "AssertionError: Only found 0.00% of expected values (required: 75%)"
     }
    ]
   }
@@ -20,11 +20,11 @@
  "capability_gaps": [],
  "success_habits": [
   {
-   "habit": "systematic_state_history_inspection",
+   "habit": "systematic_repository_exploration",
    "n_tasks": 1,
-   "description": "Systematically inspecting version control logs and branch histories to locate lost state or target references before performing integration.",
-   "risk_if_broken": "The agent would lack necessary awareness of repository branch structures and commit histories to know what state needs to be integrated."
+   "description": "Thoroughly inspecting workspace state, version control history, and branch configurations using standard command-line tools prior to making modifications.",
+   "risk_if_broken": "Without inspecting repository history and branch state, the agent would fail to locate and recover lost code changes or work on the correct targets."
   }
  ],
- "n_digests": 1
+ "n_digests": 2
 }
